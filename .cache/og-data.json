@@ -1,12 +1,4 @@
 {
-  "https://zhuanlan.zhihu.com/p/1900483903984243480": {
-    "data": {
-      "originUrl": "https://zhuanlan.zhihu.com/p/1900483903984243480",
-      "url": "https://zhuanlan.zhihu.com/p/1900483903984243480",
-      "error": "Failed to fetch: 403"
-    },
-    "timestamp": 1791230573480
-  },
   "https://react-tweet.vercel.app/": {
     "data": {
       "originUrl": "https://react-tweet.vercel.app/",
@@ -61,5 +53,40 @@
       "logo": "https://book.cosine.ren/~gitbook/image?url=https%3A%2F%2F934551782-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FSKmC7C4KtqVvJxUTVKwQ%252Ficon%252FWcaoWRW35EESs2lJLWyW%252Ftx.jpg%3Falt%3Dmedia%26token%3Dde2dd12e-60c6-4078-8049-1f37d3c7e3ec&width=48&height=48&sign=f362d5b490eeeab73148e3c4b0c680c3&sv=3"
     },
     "timestamp": 1791303373964
+  },
+  "#4.MQ": {
+    "data": {
+      "originUrl": "#4.MQ",
+      "url": "#4.MQ",
+      "error": "Failed to parse URL from #4.MQ"
+    },
+    "timestamp": 1793105580437
+  },
+  "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502": {
+    "data": {
+      "originUrl": "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502",
+      "url": "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502",
+      "error": "Failed to fetch: 521"
+    },
+    "timestamp": 1793105584240
+  },
+  "https://github.com/xie480/Yilena-video-web.git": {
+    "data": {
+      "originUrl": "https://github.com/xie480/Yilena-video-web.git",
+      "url": "https://github.com/xie480/Yilena-video-web.git",
+      "error": "Request timeout"
+    },
+    "timestamp": 1793105584592
+  },
+  "https://blog.csdn.net/2401_88959292/article/details/148616888?spm=1001.2014.3001.5501": {
+    "data": {
+      "originUrl": "https://blog.csdn.net/2401_88959292/article/details/148616888?spm=1001.2014.3001.5501",
+      "url": "https://blog.csdn.net/2401_88959292/article/details/148616888",
+      "title": "116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案_用户关系通过redis缓存校验-CSDN博客",
+      "description": "文章浏览阅读1.2k次，点赞23次，收藏27次。社交平台需设计定时任务检查并修复用户好友关系数据。初版方案逐个遍历用户，耗时116s，因单线程串行处理效率低。修改方案引入线程池并行处理和游标分页，耗时70s，仍不理想。终版取消游标分页，提前查询数据建立映射，用Redis管道优化，耗时降至6s。",
+      "image": "https://i-blog.csdnimg.cn/direct/df2eac7b463e43bd9d8ca3d4e1178aef.png",
+      "logo": "https://g.csdnimg.cn/static/logo/favicon32.ico"
+    },
+    "timestamp": 1793105588161
   }
 }
