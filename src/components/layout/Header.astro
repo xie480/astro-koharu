@@ -1,5 +1,5 @@
 ---
-import logoSrc from '@assets/svg/logo.svg?url';
+import defaultLogoSrc from '@assets/svg/logo.svg?url';
 import ChristmasLights from '@components/christmas/ChristmasLights.astro';
 import { ChristmasOrnamentToggle } from '@components/christmas/ChristmasOrnamentToggle';
 import { MobilePostHeader } from '@components/layout/MobilePostHeader';
@@ -16,6 +16,7 @@ interface Props {
 
 const { isPostPage = false, tocNumbering = true } = Astro.props;
 const { alternate, title, showLogo } = siteConfig;
+const logoSrc = siteConfig.logo ?? defaultLogoSrc;
 const locale = getLocaleFromUrl(Astro.url.pathname);
 ---
 
@@ -30,7 +31,7 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
       <a
         transition:persist="page-header-avatar"
         class="site-logo tablet:hidden -my-4 mr-4 flex cursor-pointer items-center justify-center gap-1 whitespace-nowrap"
-        href="/"
+        href={localizedPath('/', locale)}
         target="_self"
         title={alternate || title}
         aria-label={alternate || title}

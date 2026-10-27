@@ -1,7 +1,9 @@
 ---
+import TypewriterText from '@components/common/TypewriterText.astro';
 import ColophonMeta from '@components/post/colophon/ColophonMeta.astro';
 import { Routes } from '@constants/router';
 import { createArticleStatsConfig, motionConfig, siteConfig } from '@constants/site-config';
+import { identityConfig } from '@lib/config/site';
 import { colophonItemsAt } from '@lib/content/colophon';
 import { getPostSlug } from '@lib/content/locale';
 import { getPostColophon } from '@lib/content/post-colophon';
@@ -9,14 +11,13 @@ import { getPostReadingTime } from '@lib/content/posts';
 import { displayDate } from '@lib/date';
 import { getLqipStyle } from '@lib/lqip';
 import { postTitleMorphName } from '@lib/morph-transitions';
-import { defaultHeroImage, defaultHeroSrcset } from '@lib/responsive-image';
 import { routeBuilder } from '@lib/route';
 import { Icon } from 'astro-icon/components';
 import type { BlogPost } from 'types/blog';
 import UmamiPVSpan from '@/components/umami/UmamiPVSpan';
 import { MAX_WIDTH } from '@/constants/layout';
 import { getLocaleFromUrl, localizedPath, t } from '@/i18n';
-import HeroImage from './HeroImage.astro';
+import HeroCarousel from './HeroCarousel.astro';
 import SakuraPetals from './SakuraPetals.astro';
 import WaveSvg from './wave';
 
@@ -55,11 +56,11 @@ const copyFailedLabel = t(locale, 'common.copyFailed');
     compact ? 'h-[42svh] min-h-72 max-h-120 tablet:h-[36svh] tablet:min-h-64' : 'h-[60svh] max-h-200',
   ]}
 >
-  <div class="cover-scrim absolute inset-0 h-full"></div>
+  <div class="cover-scrim pointer-events-none absolute inset-0 z-1 h-full"></div>
   {motionConfig.heroPetals && <SakuraPetals />}
   <div
     class:list={[
-      'cover-copy absolute inset-0 flex flex-col items-center justify-center px-5 text-white',
+      'cover-copy pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-5 text-white',
       compact ? 'bottom-[4svh]' : 'bottom-[8svh]',
     ]}
   >
@@ -77,7 +78,7 @@ const copyFailedLabel = t(locale, 'common.copyFailed');
           {title}
           <button
             type="button"
-            class="cover-copy-link hover:text-primary inline-flex cursor-pointer items-center rounded-full p-1 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            class="cover-copy-link hover:text-primary pointer-events-auto inline-flex cursor-pointer items-center rounded-full p-1 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             aria-label={copyLinkLabel}
             title={copyLinkLabel}
             data-copy-label={copyLinkLabel}
@@ -136,31 +137,26 @@ const copyFailedLabel = t(locale, 'common.copyFailed');
         </>
       ) : (
         <>
-          <h2 class="motion-rise shadow-text font-chill-round text-5xl/[1.2]">{siteConfig?.alternate}</h2>
-          <h1 class="motion-rise shadow-text font-chill-round mt-3 text-5xl/[1.2] font-bold tracking-widest" style="--i: 1">
-            {siteConfig?.title}
+          <p class="motion-rise shadow-text text-lg tracking-widest">{siteConfig.subtitle}</p>
+          <h1 class="motion-rise shadow-text font-chill-round mt-3 text-5xl/[1.2] font-bold tracking-widest tablet:text-4xl" style="--i: 1">
+            {identityConfig.hero.title || siteConfig.title}
           </h1>
-          <p class="motion-rise shadow-text mt-5 text-sm tracking-[0.2em]" style="--i: 2">= {siteConfig?.subtitle} =</p>
+          <p class="hero-subtitle motion-rise shadow-text mt-5 min-h-16 max-w-3xl text-center text-base leading-relaxed tablet:text-sm" style="--i: 2">
+            <TypewriterText texts={identityConfig.hero.subtitles.length ? identityConfig.hero.subtitles : [siteConfig.subtitle ?? '']} {...identityConfig.hero.typewriter} controls />
+          </p>
         </>
       )
     }
   </div>
   <div
-    class:list={['relative -z-10 h-full min-h-60 w-full', compact && 'bg-card']}
+    class:list={['absolute inset-0 h-full min-h-60 w-full', compact && 'bg-card']}
     transition:persist={Astro.isPrerendered ? 'page-cover-banner' : 'page-cover-banner-runtime'}
     id="banner-box"
     style={bannerLqipStyle}
   >
-    {Astro.isPrerendered ? <HeroImage
-      alt=""
-      class="h-full w-full object-cover"
-      sizes="100vw"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    /> : <img src={defaultHeroImage} srcset={defaultHeroSrcset} alt="" class="h-full w-full object-cover" width="1928" height="1080" sizes="100vw" loading="eager" fetchpriority="high" decoding="async" />}
+    <HeroCarousel />
   </div>
-  <WaveSvg />
+  <div class="pointer-events-none"><WaveSvg /></div>
 </div>
 
 <script>

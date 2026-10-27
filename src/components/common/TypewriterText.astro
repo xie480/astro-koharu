@@ -1,0 +1,140 @@
+---
+interface Props {
+  texts: string[];
+  speedMs?: number;
+  deleteSpeedMs?: number;
+  pauseMs?: number;
+  loop?: boolean;
+  controls?: boolean;
+  enabled?: boolean;
+}
+const { texts, speedMs = 100, deleteSpeedMs = 20, pauseMs = 2000, loop = true, controls = false, enabled = true } = Astro.props;
+---
+<typewriter-text data-texts={JSON.stringify(texts)} data-speed={speedMs} data-delete-speed={deleteSpeedMs} data-pause={pauseMs} data-loop={String(loop)} data-enabled={String(enabled)}>
+  <span class="sr-only">{texts.join('　')}</span>
+  <span data-typed aria-hidden="true">{texts[0] ?? ''}</span><span class="typing-cursor" aria-hidden="true"></span>
+  {controls && <button type="button" data-typing-toggle hidden aria-label="暂停文字动画" aria-pressed="false" title="暂停文字动画"><span aria-hidden="true">Ⅱ</span></button>}
+</typewriter-text>
+
+<script>
+  import { readMotionLevel, subscribeMotionLevel } from '@lib/motion-level';
+
+  class TypewriterText extends HTMLElement {
+    private timer?: number;
+    private abort?: AbortController;
+    private unsubscribe?: () => void;
+    private words: string[][] = [];
+    private word = 0;
+    private length = 0;
+    private deleting = false;
+    private paused = false;
+    private done = false;
+    private wasReduced = false;
+    private output?: HTMLElement | null;
+
+    connectedCallback() {
+      this.abort?.abort();
+      this.unsubscribe?.();
+      window.clearTimeout(this.timer);
+      this.words = (JSON.parse(this.dataset.texts ?? '[]') as string[]).filter((text) => text.length > 0).map((text) => Array.from(text));
+      this.output = this.querySelector('[data-typed]');
+      const button = this.querySelector<HTMLButtonElement>('[data-typing-toggle]');
+      button?.setAttribute('hidden', '');
+      if (!this.words.length || !this.output || this.dataset.enabled === 'false') {
+        if (this.output) this.output.textContent = this.words[0]?.join('') ?? '';
+        this.setAttribute('data-still', '');
+        return;
+      }
+      this.abort = new AbortController();
+      const { signal } = this.abort;
+      button?.removeAttribute('hidden');
+      button?.addEventListener('click', () => {
+        this.paused = !this.paused;
+        this.sync();
+      }, { signal });
+      document.addEventListener('visibilitychange', () => this.sync(), { signal });
+      this.unsubscribe = subscribeMotionLevel(() => this.sync());
+      this.word = Math.min(this.word, this.words.length - 1);
+      this.length = Math.min(this.length, this.words[this.word].length);
+      this.output.textContent = this.words[this.word].slice(0, this.length).join('');
+      this.sync();
+    }
+
+    private sync() {
+      window.clearTimeout(this.timer);
+      if (!this.isConnected || this.abort?.signal.aborted || !this.words.length) return;
+      const reduced = readMotionLevel() === 'reduced';
+      if (reduced) {
+        this.length = this.words[this.word].length;
+        if (this.output) this.output.textContent = this.words[this.word].join('');
+        this.deleting = true;
+        this.wasReduced = true;
+        if (this.dataset.loop === 'false' && this.word === this.words.length - 1) this.done = true;
+      }
+      this.toggleAttribute('data-still', reduced || this.paused || document.hidden || this.done);
+      const button = this.querySelector<HTMLButtonElement>('[data-typing-toggle]');
+      if (button) {
+        const stopped = reduced || this.paused || this.done;
+        const label = reduced ? '减少动效模式已关闭文字动画' : this.done ? '文字动画已结束' : this.paused ? '继续文字动画' : '暂停文字动画';
+        button.disabled = reduced || this.done;
+        button.setAttribute('aria-pressed', String(stopped));
+        button.setAttribute('aria-label', label);
+        button.title = label;
+        const symbol = button.querySelector('span');
+        if (symbol) symbol.textContent = stopped ? '▶' : 'Ⅱ';
+      }
+      if (!reduced && !this.paused && !document.hidden && !this.done) {
+        this.schedule(Number(this.wasReduced ? this.dataset.pause : this.dataset.speed));
+        this.wasReduced = false;
+      }
+    }
+
+    private schedule(delay: number) {
+      if (!this.isConnected || this.abort?.signal.aborted) return;
+      this.timer = window.setTimeout(() => this.tick(), delay);
+    }
+
+    private tick() {
+      if (!this.isConnected || this.paused || document.hidden || this.done || !this.output) return;
+      if (readMotionLevel() === 'reduced') { this.sync(); return; }
+      const word = this.words[this.word];
+      this.length += this.deleting ? -1 : 1;
+      this.output.textContent = word.slice(0, this.length).join('');
+      if (!this.deleting && this.length === word.length) {
+        if (this.dataset.loop === 'false' && this.word === this.words.length - 1) {
+          this.done = true;
+          this.sync();
+          return;
+        }
+        this.deleting = true;
+        this.schedule(Number(this.dataset.pause));
+      } else if (this.deleting && this.length === 0) {
+        this.word = (this.word + 1) % this.words.length;
+        this.deleting = false;
+        this.schedule(350);
+      } else this.schedule(Number(this.deleting ? this.dataset.deleteSpeed : this.dataset.speed));
+    }
+
+    disconnectedCallback() {
+      window.clearTimeout(this.timer);
+      this.abort?.abort();
+      this.unsubscribe?.();
+    }
+  }
+  if (!customElements.get('typewriter-text')) customElements.define('typewriter-text', TypewriterText);
+</script>
+
+<style>
+  typewriter-text { display: inline; }
+  .typing-cursor { display: inline-block; height: 1em; margin-inline-start: .15em; border-inline-end: 2px solid currentColor; vertical-align: -.1em; animation: cursor-blink 1s step-end infinite; }
+  [data-still] .typing-cursor, [data-enabled='false'] .typing-cursor { display: none; }
+  button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-inline-start: .3rem; border-radius: 50%; color: inherit; vertical-align: middle; cursor: pointer; opacity: .85; }
+  button { pointer-events: auto; }
+  button[hidden] { display: none; }
+  button:hover { background: rgb(0 0 0 / .15); opacity: 1; }
+  button:disabled { cursor: default; opacity: .45; }
+  button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  @keyframes cursor-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .typing-cursor { animation: none; display: none; } }
+  :global(html[data-motion='reduced']) .typing-cursor { animation: none; display: none; }
+</style>

@@ -16,6 +16,8 @@ export interface SiteBasicConfig {
   description?: string;
   avatar?: string;
   showLogo?: boolean;
+  /** Personal wordmark, relative to public. */
+  logo?: string;
   author?: string;
   url: string;
   startYear?: number;
@@ -687,6 +689,8 @@ export interface WritingRoomConfig {
 
 export interface SiteYamlConfig {
   site: SiteBasicConfig;
+  /** Personal hero, profile motion and footer settings, validated by normalizeIdentityConfig. */
+  identity?: unknown;
   featuredCategories?: FeaturedCategory[];
   /** Featured series configuration - supports array (multiple series) or single object (legacy) */
   featuredSeries?: FeaturedSeriesItem[] | FeaturedSeriesItem;

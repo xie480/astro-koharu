@@ -1,0 +1,139 @@
+---
+import { identityConfig } from '@lib/config/site';
+
+const { images, intervalMs } = identityConfig.hero;
+const first = images[0];
+const srcset = (image: string) =>
+  image.endsWith('-1920.webp') ? `${image.replace('-1920.webp', '-800.webp')} 800w, ${image} 1920w` : undefined;
+---
+<hero-carousel data-images={JSON.stringify(images)} data-interval={intervalMs} data-active="0" class="absolute inset-0 block" aria-label="旧博客背景轮播">
+  <img data-slide="0" src={first} srcset={srcset(first)} sizes="100vw" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" class="hero-slide" />
+  <img data-slide="1" alt="" width="1920" height="1080" decoding="async" class="hero-slide" />
+  {images.length > 1 && <div class="hero-controls">
+    <button type="button" data-previous aria-label="上一张背景" title="上一张背景">〈</button>
+    <output data-position aria-label="当前背景" aria-live="off">1 / {images.length}</output>
+    <button type="button" data-next aria-label="下一张背景" title="下一张背景">〉</button>
+    <button type="button" data-toggle aria-label="暂停背景轮播" aria-pressed="false" title="暂停背景轮播"><span aria-hidden="true">Ⅱ</span></button>
+  </div>}
+</hero-carousel>
+
+<script>
+  import { readMotionLevel, subscribeMotionLevel } from '@lib/motion-level';
+
+  class HeroCarousel extends HTMLElement {
+    private images: string[] = [];
+    private index = 0;
+    private active = 0;
+    private paused = false;
+    private hovered = false;
+    private focused = false;
+    private busy = false;
+    // A decode started by an old Astro page must not write into a later connection of a persisted element.
+    private connection = 0;
+    private timer?: number;
+    private abort?: AbortController;
+    private unsubscribe?: () => void;
+
+    connectedCallback() {
+      this.connection++;
+      this.abort?.abort();
+      this.unsubscribe?.();
+      window.clearTimeout(this.timer);
+      this.busy = false;
+      this.hovered = false;
+      this.focused = this.contains(document.activeElement);
+      this.images = JSON.parse(this.dataset.images ?? '[]');
+      if (this.images.length < 2) return;
+      this.abort = new AbortController();
+      const { signal } = this.abort;
+      this.querySelector('[data-previous]')?.addEventListener('click', () => void this.show(-1), { signal });
+      this.querySelector('[data-next]')?.addEventListener('click', () => void this.show(1), { signal });
+      this.querySelector('[data-toggle]')?.addEventListener('click', () => { this.paused = !this.paused; this.sync(); }, { signal });
+      this.addEventListener('pointerenter', () => { this.hovered = true; this.sync(); }, { signal });
+      this.addEventListener('pointerleave', () => { this.hovered = false; this.sync(); }, { signal });
+      this.addEventListener('focusin', () => { this.focused = true; this.sync(); }, { signal });
+      this.addEventListener('focusout', (event) => { this.focused = this.contains(event.relatedTarget as Node); this.sync(); }, { signal });
+      document.addEventListener('visibilitychange', () => this.sync(), { signal });
+      this.unsubscribe = subscribeMotionLevel(() => this.sync());
+      this.sync();
+    }
+
+    private sync() {
+      window.clearTimeout(this.timer);
+      if (!this.isConnected || this.abort?.signal.aborted || this.images.length < 2) return;
+      const reduced = readMotionLevel() === 'reduced';
+      const stopped = this.paused || reduced;
+      this.setAttribute('aria-busy', String(this.busy));
+      this.querySelectorAll<HTMLButtonElement>('[data-previous], [data-next]').forEach((control) => {
+        control.setAttribute('aria-disabled', String(this.busy));
+      });
+      const button = this.querySelector<HTMLButtonElement>('[data-toggle]');
+      if (button) {
+        const label = reduced ? '减少动效模式已关闭自动轮播' : stopped ? '播放背景轮播' : '暂停背景轮播';
+        button.disabled = reduced;
+        button.setAttribute('aria-label', label);
+        button.setAttribute('aria-pressed', String(stopped));
+        button.title = label;
+        const symbol = button.querySelector('span');
+        if (symbol) symbol.textContent = stopped ? '▶' : 'Ⅱ';
+      }
+      if (!stopped && !this.hovered && !this.focused && !document.hidden && !this.busy) {
+        this.timer = window.setTimeout(() => void this.show(1), Number(this.dataset.interval));
+      }
+    }
+
+    private async show(direction: number) {
+      if (!this.isConnected || this.abort?.signal.aborted || this.busy || this.images.length < 2) return;
+      window.clearTimeout(this.timer);
+      this.busy = true;
+      const connection = this.connection;
+      const next = (this.index + direction + this.images.length) % this.images.length;
+      const target = this.querySelector<HTMLImageElement>(`[data-slide="${1 - this.active}"]`);
+      if (!target) { this.busy = false; this.sync(); return; }
+      this.sync();
+      const source = this.images[next];
+      target.srcset = source.endsWith('-1920.webp') ? `${source.replace('-1920.webp', '-800.webp')} 800w, ${source} 1920w` : '';
+      target.sizes = '100vw';
+      target.src = source;
+      try {
+        await target.decode();
+        if (!this.isConnected || connection !== this.connection) return;
+        this.active = 1 - this.active;
+        this.dataset.active = String(this.active);
+        this.index = next;
+        const position = this.querySelector('[data-position]');
+        if (position) position.textContent = `${this.index + 1} / ${this.images.length}`;
+      } catch { /* Keep the last successfully loaded background visible. */ }
+      finally {
+        if (connection === this.connection) {
+          this.busy = false;
+          this.sync();
+        }
+      }
+    }
+
+    disconnectedCallback() {
+      this.connection++;
+      this.busy = false;
+      window.clearTimeout(this.timer);
+      this.abort?.abort();
+      this.unsubscribe?.();
+    }
+  }
+  if (!customElements.get('hero-carousel')) customElements.define('hero-carousel', HeroCarousel);
+</script>
+
+<style>
+  .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity .8s ease; }
+  [data-active='0'] [data-slide='0'], [data-active='1'] [data-slide='1'] { opacity: 1; }
+  .hero-controls { position: absolute; z-index: 20; bottom: 3rem; right: max(1rem, calc((100vw - 1440px) / 2)); display: flex; align-items: center; gap: .2rem; color: white; background: rgb(0 0 0 / .5); border-radius: 999px; padding: .15rem; }
+  button { width: 44px; height: 44px; border-radius: 50%; cursor: pointer; transition: background-color .2s; }
+  button:hover { background: rgb(255 255 255 / .2); }
+  button:disabled { cursor: default; opacity: .45; }
+  button[aria-disabled='true'] { cursor: wait; opacity: .45; }
+  button:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+  output { font-size: .75rem; min-width: 3rem; text-align: center; font-variant-numeric: tabular-nums; }
+  @media (max-width: 767px) { .hero-controls { bottom: 2rem; right: .75rem; } }
+  @media (prefers-reduced-motion: reduce) { .hero-slide { transition: none; } }
+  :global(html[data-motion='reduced']) .hero-slide { transition: none; }
+</style>

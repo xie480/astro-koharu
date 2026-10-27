@@ -1,34 +1,58 @@
 ---
 layout: ../layouts/PageLayout.astro
-title: "About"
+title: "关于 Yilena"
 coverTitle: "关于我"
-date: 2025-01-03 01:01:33
-description: "关于我？"
+description: "Yilena 的个人档案"
+comments: false
 ---
 
-## 你好，这里是余弦
+## 从者档案
 
-[![github badge](https://img.shields.io/badge/dynamic/json?color=blue&label=Github&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3Dyusixian)](https://github.com/yusixian)
+* **真名 :** Yilena
+* **职阶 :** Hachimi
+* **属性:** 混沌恶
+* **出没时间 :** 受某种古老诅咒影响，该从者常年处于"无间断精神摆烂"状态。
 
-cosine = 余弦 = cos
+## 职阶技能
 
-愿热情永存，愿热爱不灭，愿生活无憾
+* **精神污染 EX:**
+  由于全天候保持极高强度的怠惰状态，任何试图对其进行精神干涉、催促劳作或施加压力的魔术，都会被其无条件同化并无效化。
 
-> 我们 都只是无名之辈 \
-> 做你自己最喜欢的事 \
-> 像花一样 肆意绽放 \
-> 不去管 有没有人欣赏
+## 宝具
 
-### 找到我
+### 『于那附魔台之上高傲地尽情哈气』
+* **阶级 (Rank):** A+
+* **种类 (Type):** 对界宝具
 
-个人 Telegram 前端频道：日常碎碎念，偶尔掉落优质前端博文推荐、学习资源等
+> **「哈————！！！」**
 
-https://t.me/cosine_front_end
+**【宝具解说】**
+通过解放真名，将现世局部重写为固有结界——**【附魔台】**。
+在结界中心，从者将以极高傲的姿态，咏唱内阁内阁内阁并咀嚼口香糖，同时进行狂暴的哈气。
+该宝具属于绝对因果律武器，吐气所及之处，将对敌方全体施加无视防御力、无视魔术抗性的真实伤害。同时伴随强烈的**精神崩溃创伤**，剥夺敌方一切战意，强行终止其后续行动。
 
-Gitbook 前端学习记录
+---
 
-https://book.cosine.ren/
+## 当前契约任务
 
-[![GitHub State](https://git-stats.cosine.ren/api?username=yusixian&theme=dark&show_icons=true&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+作为跨越维度的从者，目前正在与现世御主共同应对以下「圣杯战争」级试炼：
 
-[![GitHub Streak](https://github-readme-streak-stats-rust-tau.vercel.app?user=yusixian&theme=dark&date_format=%5BY%20%5DM%20&hide_border=true)](https://git.io/streak-stats)
+**【特异点修复】**
+
+* 崩坏特异点：神州极境
+
+* 生存现状： 必须以区区血肉之躯，抵抗该特异点因庞大人口基数而高度浓缩的「群体恶性竞争」。在几乎断绝上升通道的绝望环境下，维持作为人类的最后一丝理性。
+
+* 特异点法则： 此处的统治阶层长年降下名为「宏大叙事」的虚妄神谕，却伴随着乱颁禁令与体制性无能。底层民众被剥夺了庇护，在高度集中的循环律中沦为燃料。
+
+* 最终目的： 润
+
+---
+
+## 从者留言
+
+「总有一天，本喵要润出这个特异点!!!」
+
+
+* **精神连线 (E-mail):** `yilena0505@163.com`
+* **魔术协会遗迹 (GitHub):** [github.com/xie480](https://github.com/xie480)

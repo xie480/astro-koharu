@@ -14,6 +14,7 @@ import { normalizeContentConfig } from './content';
 import { normalizeEditorConfig } from './editor';
 import { enabledFeaturedSeriesSlugs, normalizeFeaturedSeries } from './featured-series';
 import { normalizeFriendGroups } from './friends';
+import { normalizeIdentityConfig } from './identity';
 import { normalizeMotionConfig } from './motion';
 import { normalizePostActionsConfig } from './post-actions';
 import { RESERVED_ROUTES } from './reserved-routes';
@@ -55,6 +56,8 @@ export const colophonConfig = normalizeColophonConfig(yamlConfig.colophon);
 
 export const postActionsConfig = normalizePostActionsConfig(yamlConfig.postActions);
 
+export const identityConfig = normalizeIdentityConfig(yamlConfig.identity);
+
 /**
  * Site timezone in IANA format.
  * Falls back to {@link DEFAULT_TIMEZONE} when the configured value is invalid.
@@ -76,6 +79,7 @@ export const siteConfig: ResolvedSiteConfig = {
   description: yamlConfig.site.description,
   avatar: yamlConfig.site.avatar,
   showLogo: yamlConfig.site.showLogo,
+  logo: yamlConfig.site.logo,
   author: yamlConfig.site.author,
   site: yamlConfig.site.url,
   startYear: yamlConfig.site.startYear,

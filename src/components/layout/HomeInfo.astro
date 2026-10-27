@@ -1,9 +1,11 @@
 ---
 import ChristmasHat from '@components/christmas/ChristmasHat.astro';
 import ResponsiveImage from '@components/common/ResponsiveImage.astro';
+import TypewriterText from '@components/common/TypewriterText.astro';
 import type { Router } from '@constants/router';
 import { RESERVED_ROUTES } from '@constants/router';
 import { christmasConfig, configuredSeriesSlugs, enabledSeriesSlugs, routers, siteConfig } from '@constants/site-config';
+import { identityConfig } from '@lib/config/site';
 import { getAllTags, getCategoryList, getPostCount, getSortedPosts } from '@lib/content';
 import { getLqipStyle } from '@lib/lqip';
 import { filterNavItems } from '@lib/utils';
@@ -56,7 +58,7 @@ const stats = [
       </div>
       <div class="home-identity-text">
         <p class="home-name">{siteConfig?.name}</p>
-        {description && <p class="home-description" title={siteConfig.description}>{description}</p>}
+        {description && <p class="home-description" title={siteConfig.description}><TypewriterText texts={[description]} loop={false} speedMs={identityConfig.profile.speedMs} enabled={identityConfig.profile.typewriter} /></p>}
         <Social />
       </div>
     </div>
