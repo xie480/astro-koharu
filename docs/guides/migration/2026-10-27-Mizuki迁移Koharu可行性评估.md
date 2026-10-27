@@ -158,3 +158,19 @@ UI 按 ui-ux-pro-max 的可访问性、移动端和动效控制规则实现，�
 - 最终生产构建完成：651 页，用时 33.43s，Pagefind 索引 655 页；最终 15 个相关源码/数据/测试文件 Biome 复查通过。旧 Mizuki worktree 仍为原 580 个删除状态，未新增修改。开发服务在构建结束后重新启动，避免复用构建阶段的 Vite 预构建状态。
 - 收尾重新确认 localhost:4321/projects 返回 200，Navigator 已 hydration，搜索无蓝色阴影、项目 masonry 已初始化且共 8 条；缓存恢复为本阶段开始前备份，SHA-256 为 FAE33E8C6DE14DD200ABDC4963C0AFEE2E5DC623341B0D65E5927A4B6A5CF1B4，git diff --check 通过。
 
+## 9. 新增 Velora 与 MemGuardian 项目（2026-10-28）
+
+### 9.1 内容变更
+
+- 项目数据从 8 条增加到 10 条，使用既有 `projects.json` 字段及项目卡片，不修改 UI 组件。
+- Velora 采用用户提供的简介和 GitHub 链接，使用附件截图作为项目图，保存至 `public/img/mizuki/projects/velora.png`。
+- MemGuardian 采用用户提供的简介和 GitHub 链接，不设置图片，因此沿用现有无图卡片表现。
+- 两个项目归入“桌面应用”。Velora 技术标签依据用户描述及本机项目依赖清单；MemGuardian 使用 Python、Windows 与任务计划程序标签。
+- `startDate` 用对应本机仓库的首次 Git 提交日期满足现有排序字段，不代表项目公开或上线日期。由于用户没有提供完成状态，两个项目暂记为“进行中”。
+
+### 9.2 完整性与验证
+
+- 附件复制前后 SHA-256 一致：`93E1AB0FFFE01E53D4CFE3F2BB46167F84C1A61EE0BBC9A6F339F8B4ECE83760`。
+- 项目 JSON 的 Biome 检查通过，PowerShell JSON 解析确认 10 条记录且 ID 唯一；迁移文档的 lint-md 检查通过，`git diff --check` 通过。
+- 未运行测试套件或浏览器截图核验；本次仅变更项目数据、图片和迁移记录，没有改动 UI 代码。
+

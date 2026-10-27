@@ -94,5 +94,26 @@
     "startDate": "2025-08-15",
     "endDate": "2025-08-31",
     "showImage": false
+  },
+  {
+    "id": "8",
+    "title": "Velora",
+    "description": "本地单人叙事创作工作台。当前包括七阶段前置创作 Workflow、版本化 Game Blueprint、React/Vite 创作首页、React Flow 示例图、Hono 本机 API、SQLite/Drizzle 本地保存、USearch HNSW 探测，以及模型服务配置和连接检查。",
+    "image": "/img/mizuki/projects/velora.png",
+    "category": "desktop",
+    "techStack": ["React", "TypeScript", "Vite", "React Flow", "Hono", "SQLite", "Drizzle", "USearch HNSW"],
+    "status": "in-progress",
+    "sourceCode": "https://github.com/xie480/Velora",
+    "startDate": "2026-10-07"
+  },
+  {
+    "id": "9",
+    "title": "MemGuardian",
+    "description": "高性能 Windows 内存优化工具，支持后台监控与自动优化，灵感来源于 PCL 与 ISLC。",
+    "category": "desktop",
+    "techStack": ["Python", "Windows", "Task Scheduler"],
+    "status": "in-progress",
+    "sourceCode": "https://github.com/xie480/MemGuardian",
+    "startDate": "2026-06-14"
   }
 ]
