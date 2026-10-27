@@ -1,0 +1,336 @@
+[
+  {
+    "id": "17",
+    "title": "MemFlux",
+    "description": "高性能 Windows 内存优化工具，支持后台监控与自动优化，灵感来源于 PCL 与 ISLC。",
+    "type": "project",
+    "startDate": "2026-06-15",
+    "achievements": ["再也不怕电脑没内存跑模型了"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/MemGuardian",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "title": "个人小站搭建",
+    "description": "将自己大学两年间的足迹汇总于此",
+    "type": "project",
+    "startDate": "2026-05-29",
+    "endDate": "2026-05-30",
+    "achievements": ["夢の終着駅 · 扬帆起航"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C"
+  },
+  {
+    "id": "15",
+    "title": "Luna",
+    "description": "使用Python + Golang对此前的Luna项目进行重构，仍在进行中……",
+    "type": "project",
+    "startDate": "2026-05-01",
+    "achievements": ["系统学习了Agent技术栈之后，重拾旧梦"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/Luna-AI",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "title": "依旧找实习……",
+    "description": "不死心，依旧在BOSS直聘上进行海投",
+    "type": "education",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-30",
+    "achievements": ["颗粒无收", "怀疑人生"],
+    "location": "中国，广州",
+    "icon": "material-symbols:directions-run",
+    "color": "#740596"
+  },
+  {
+    "id": "13",
+    "title": "Werewolf AI 多智能体狼人杀系统",
+    "description": "实时多智能体狼人杀博弈平台，本质上是Harmes Agent的实现",
+    "type": "project",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-15",
+    "achievements": [
+      "这是字节AI全栈赛的课题，我在入围结果出来前的一周内独自完成了课题，结果居然因为学历是双非而连参赛资格都没有，亏他参赛条件还写着不限学历",
+      "第一次感受当今的就业市场下双非学历的艰难"
+    ],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/Werewolf",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "125",
+    "title": "系统学习新的编程语言",
+    "description": "在Agent开发场景下，Java优势并不明显，于是花了两周系统学习Python + FastAPI和Golang + Gin",
+    "type": "education",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-14",
+    "skills": ["Python", "FastAPI", "Golang", "Gin"],
+    "location": "中国，广州",
+    "icon": "material-symbols:lightbulb",
+    "color": "#059669"
+  },
+  {
+    "id": "12",
+    "title": "Nyami",
+    "description": "一款专为 Bilibili 用户打造的第三方纯音频播放应用。它通过解析 B 站视频音频流，结合本地数据库同步机制与自定义底层音频 DSP 引擎，为用户提供无缝的在线/离线音乐聆听体验。",
+    "type": "project",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-15",
+    "achievements": ["0约面过于无聊，于是为了解决自己的听歌需求花了两周完成了该项目，还蛮好用的"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/Nyami",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "115",
+    "title": "系统学习Agent相关技术栈",
+    "description": "意识到传统后端在AI冲击下面临不小挑战，再加上自身的双非背景，便开始借助AI和技术文档系统学习Agent相关技术栈，并决定从传统后端开发转向Agent开发",
+    "type": "education",
+    "startDate": "2026-04-01",
+    "endDate": "2026-04-28",
+    "skills": ["LangChain", "LangGraph", "记忆工程", "提示词工程", "RAG", "MCP", "PostgreSQL"],
+    "location": "中国，广州",
+    "icon": "material-symbols:lightbulb",
+    "color": "#059669"
+  },
+  {
+    "id": "11",
+    "title": "继续找实习……",
+    "description": "继续在BOSS直聘上进行海投",
+    "type": "education",
+    "startDate": "2026-04-01",
+    "endDate": "2026-04-30",
+    "achievements": ["颗粒无收"],
+    "location": "中国，广州",
+    "icon": "material-symbols:directions-run",
+    "color": "#740596"
+  },
+  {
+    "id": "10",
+    "title": "Luna",
+    "description": "一款本地化的 AI 桌面助理，面向 陪伴式人格 + 长期记忆 + 主动行为 的全栈 AI Agent 平台。它集成了多模型驱动、RAG 知识库、MCP（模型上下文协议）工具调用、OpenClaw 任务编排以及 CodeOps 工程闭环，能够在本地桌面环境中实现 自然语言对话、知识检索、主动规划、代码自动化 等完整 AI 工作流。",
+    "type": "project",
+    "startDate": "2026-03-01",
+    "endDate": "2026-04-16",
+    "achievements": [
+      "第一次着手尝试的Multi-Agent项目",
+      "由于技术栈不熟 + 项目过于庞大，导致最终呈现的项目不尽人意，打算后续进行系统性学习后重构"
+    ],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/Luna",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "找实习……",
+    "description": "开始在BOSS直聘上进行海投",
+    "type": "education",
+    "startDate": "2026-03-01",
+    "endDate": "2026-03-30",
+    "achievements": ["颗粒无收"],
+    "location": "中国，广州",
+    "icon": "material-symbols:directions-run",
+    "color": "#740596"
+  },
+  {
+    "id": "85",
+    "title": "意料之外",
+    "description": "日语生学了半年英语，居然考了497分，说实话还挺意外的，我一直以为还得二战哈哈哈",
+    "type": "achievement",
+    "startDate": "2026-02-27",
+    "endDate": "2026-02-27",
+    "achievements": ["英语四级过线"],
+    "location": "中国，广州",
+    "icon": "material-symbols:workspace-premium",
+    "color": "#f5be27bf"
+  },
+  {
+    "id": "8",
+    "title": "大二上学期",
+    "description": "大部分后端技术栈已经学习完成，开始全力投入庆快项目组的开发工作。面对AI带来的冲击，也正式开启了实习寻找之路",
+    "type": "education",
+    "startDate": "2025-09-01",
+    "endDate": "2026-02-28",
+    "skills": ["Spring", "Spring MVC", "MyBatis", "Caffeine", "操作系统", "计算机网络"],
+    "achievements": [
+      "卸任团支书职务，奔着本科就业方向冲刺",
+      "9–10月上旬对庆快项目进行了全面重构与优化，设计了新的UI与架构，并独立开发了大量复杂业务接口，使庆快正式升级到2.0版本",
+      "正式接手庆快",
+      "10月系统学习Spring、Spring MVC、MyBatis及Caffeine等技术的底层原理",
+      "11月完成计网与OS课程的学习",
+      "11月中旬完成力扣Hot100的第一轮刷题，并开始二刷",
+      "11月开始将目标锁定为来年春季的中大厂实习",
+      "11月底开始投递简历",
+      "11月30日收到一家小厂面试邀请",
+      "12月1日参加第一次线下面试（笔试 + 手撕 + 场景题，时长约一个半小时），面试当场获得offer，但决定拒绝该小厂的实习机会",
+      "面试完成后发现自己在手撕SQL上存在不足之处，开始刷力扣高频SQL50",
+      "12月中旬完成力扣高频SQL50第一轮刷题",
+      "12月中旬，考英语四级",
+      "12 月下旬开始系统刷牛客，学习了不少实习与简历相关的知识",
+      "12 月下旬发起并独立组建项目组，着手开发一个在线日语学习平台"
+    ],
+    "location": "中国，广州",
+    "icon": "material-symbols:menu-book",
+    "color": "#059669"
+  },
+  {
+    "id": "7",
+    "title": "MyOneCoupon 优惠券平台系统",
+    "description": "一个微服务架构优惠券平台系统，提供优惠券的创建、分发、搜索、核销和结算等完整功能。该系统采用现代化的技术栈，支持高并发场景下的优惠券业务处理。",
+    "type": "project",
+    "startDate": "2025-08-15",
+    "endDate": "2025-08-31",
+    "achievements": ["正式踏入了高并发、高性能和高可用的领域大门"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/MyOneCoupon",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "MyShortLink 短链接系统",
+    "description": "一个分布式短链接平台，提供短链生成、跳转、统计、分组管理以及回收站等功能。",
+    "type": "project",
+    "startDate": "2025-08-01",
+    "endDate": "2025-08-15",
+    "achievements": ["加入知识星球，接触到的第一个高并发项目，进行了全面的优化"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/MyShortLink",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "仿B站",
+    "description": "一个1:1还原了哔哩哔哩使用体验的视频社区系统，包含用户端与管理端两套界面，以及搜索、弹幕、评论、私信、动态、审核、统计分析等功能。",
+    "type": "project",
+    "startDate": "2025-03-21",
+    "endDate": "2025-05-15",
+    "achievements": ["独立开发的第一个原创项目"],
+    "icon": "material-symbols:code",
+    "color": "#EA580C",
+    "links": [
+      {
+        "name": "GitHub Repository",
+        "url": "https://github.com/xie480/Yilena-video-web",
+        "type": "project"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "大一下学期",
+    "description": "逐渐了解专业方向与行业现状后，开始对软件开发产生兴趣，并逐步转向后端学习。",
+    "type": "education",
+    "startDate": "2025-02-19",
+    "endDate": "2025-09-01",
+    "skills": ["Redis", "MySQL", "IO", "RabbitMQ", "RocketMQ", "Kafka", "JUC", "JVM"],
+    "achievements": [
+      "专注于后端学习，开始放弃追求高绩点",
+      "日语转英语，开始准备四级",
+      "2月系统学习完微服务，并萌生独立实现一个前后端项目的想法",
+      "3月底决定开发一个仿B站的项目并着手设计架构",
+      "4月上旬参加蓝桥杯省赛",
+      "4月中旬完成项目后端开发",
+      "5月上旬蓝桥杯成绩公布：省二；明确自己完全没天赋的事实，放弃竞赛路线",
+      "5月中旬完成项目前端开发，进行前后端联调并在GitHub上开源",
+      "在技术博客中介绍该项目并转发到朋友圈后，有幸被学长挖掘并推荐到项目组，途中又被另一个项目组的学长看中；一番抉择后最终加入已经上线运营的庆快项目组",
+      "初次参与协作开发，由于对高并发理解不足，主要承担基础性任务；在学长建议下开始学习高并发相关知识，逐步承担优化类任务",
+      "7月深入学习Redis与MySQL，并学习完IO模型、RabbitMQ、RocketMQ、Kafka、JUC、JVM等内容，将Java开发的完整技术栈补齐，并将学习笔记整理发布在博客上",
+      "7月中旬开始刷力扣Hot100",
+      "8月初与舍友aa爆米加入马丁的知识星球，完成短链与牛券项目开发并进行了全方位的原创性优化",
+      "8月中旬开始学习虚拟线程、唯一ID生成方案等衍生技术",
+      "8月底正式全面投入庆快项目，对相关接口做了大幅优化与重构"
+    ],
+    "location": "中国，广州",
+    "icon": "material-symbols:menu-book",
+    "color": "#059669"
+  },
+  {
+    "id": "3",
+    "title": "大一上学期",
+    "description": "懵懵懂懂，什么也不懂",
+    "type": "education",
+    "startDate": "2024-09-01",
+    "endDate": "2025-02-19",
+    "skills": ["C++", "算法与数据结构", "Java"],
+    "achievements": [
+      "当选为班级团支书，加入了院级部门",
+      "开始接触算法与数据结构，尝试在蓝桥、力扣、牛客、CF等平台刷题",
+      "养成了参加牛客周赛的习惯，并报名参加蓝桥杯",
+      "刷题过程中感到吃力，怀疑自己是否具备这方面的天赋",
+      "11月开始探索其他方向，最终决定全面投入软件开发后端",
+      "创建了CSDN技术博客，记录学习与项目",
+      "寒假期间完成了JavaSE、Web、苍穹外卖等课程的学习"
+    ],
+    "location": "中国，广州",
+    "icon": "material-symbols:menu-book",
+    "color": "#059669"
+  },
+  {
+    "id": "2",
+    "title": "踏入大学",
+    "description": "本以为是长辈口中轻松的四年，没想到是又一个地狱的开始……",
+    "type": "education",
+    "startDate": "2024-09-01",
+    "endDate": "2028-06-30",
+    "location": "中国，广州",
+    "organization": "广州大学",
+    "icon": "material-symbols:school",
+    "color": "#b025eb"
+  },
+  {
+    "id": "1",
+    "title": "高中毕业",
+    "description": "为三年的苦难画上了句号",
+    "type": "education",
+    "startDate": "2021-09-01",
+    "endDate": "2024-06-30",
+    "location": "中国，广州",
+    "achievements": ["广东省第一次高考模拟考试日语科目全省第一", "广东省第二次高考模拟考试日语科目全省第一"],
+    "icon": "material-symbols:school",
+    "color": "#2563EB"
+  }
+]

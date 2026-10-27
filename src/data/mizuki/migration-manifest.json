@@ -1,0 +1,1390 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "Mizuki",
+    "commit": "faedd425f5df3896a09117a92faa623c17f7fd09",
+    "sourceContentRepoFound": false
+  },
+  "target": {
+    "repository": "astro-koharu",
+    "stage": "personalized-site",
+    "uiOrFrameworkCodeChanged": true
+  },
+  "summary": {
+    "articles": 58,
+    "projects": 8,
+    "timeline": 20,
+    "activeBackgroundsCopied": 12,
+    "projectImageFilesCopied": 6,
+    "bodyMarkdownImageReferencesPreserved": 220,
+    "remoteCoverCount": 48,
+    "missingCoverCount": 10,
+    "categories": {
+      "业务拆解": 15,
+      "技术笔记": 31,
+      "杂记": 5,
+      "故障排查": 7
+    },
+    "exactDuplicateArticleGroups": [
+      [
+        "src/content/posts/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战 (1).md",
+        "src/content/posts/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战.md"
+      ]
+    ],
+    "personalization": {
+      "stickyArticles": 0,
+      "categories": 4,
+      "additionalAssets": 25
+    }
+  },
+  "sourceDatasets": {
+    "projects": {
+      "source": "src/data/projects.ts",
+      "sourceSha256": "3e351eb602f7068d8995aba09e5e8a4487c7133ffed08d25daaa795a05126adf",
+      "target": "src/data/mizuki/projects.json",
+      "targetSha256": "c8ba2701a72d2e3a32e389e55eb3064564e7dc0dc0a7e9028fd630241f580b16"
+    },
+    "timeline": {
+      "source": "src/data/timeline.ts",
+      "sourceSha256": "f1f683da3649aa15ad5b18d66522c02100bdd2cc2e59e07d8e7d217df99223bf",
+      "target": "src/data/mizuki/timeline.json",
+      "targetSha256": "8a12d1d7f65763bf1fdf4baacbd5ef790e5e2b67f011a6490db85ca3e8aca0c5"
+    }
+  },
+  "articles": [
+    {
+      "source": "src/content/posts/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+      "target": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+      "sourceSha256": "3a320b6b0c91ce80da45574748a5c3af115887268d9a5b342539974c77717f92",
+      "targetSha256": "81add813c19acbe1df28c78f0b29eeb99ed94b1fc32bc38b4deedd1276782cdb",
+      "bodySha256": "c9ebd23371caf7c526f73bce1f8056ec67d3684a088d88e693084a7a351a63ac",
+      "sourceBytes": 18264,
+      "targetBytes": 18373,
+      "title": "116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案",
+      "category": "业务拆解",
+      "targetLink": "116miao-6miao-redisguan-dao-pi-chu-li-you-hua-yong-hu-hao-you-guan-xi-xiao-yan-de-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/5c04cb91fc9841329336fe0eb54605e6.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+      "target": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+      "sourceSha256": "165925f8f118502bdcf68a3c72b30e265ebf4108ead969941a4035f7a72dba30",
+      "targetSha256": "0ba67c14050f81315493ba427dde0da7805c10d833154f66398af42058d84ab2",
+      "bodySha256": "0f3081b598d9f287dde76e72c500795cd0bb61224ec6296f2ff8a97507e41994",
+      "sourceBytes": 21640,
+      "targetBytes": 21754,
+      "title": "360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案",
+      "category": "业务拆解",
+      "targetLink": "360s-15s-jin-25bei-de-xing-neng-you-hua-chong-gou-shi-wan-excelquan-ma-pi-liang-dao-ru-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/017735f517a64086ae041cf65bdd367a.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+      "target": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+      "sourceSha256": "e1df8be5c4b97e4cdba855b31b2149b0424ff412d94e1e9c35ae09ad48d84105",
+      "targetSha256": "e311518a314dfc4a495f497c3c5898f081cf41e5a1b4514a3d2fd0afa9dc41e8",
+      "bodySha256": "3fd3fb295828b271cfa97d90f63c7d2319e60ac40825aaaa0a87a95e456c74a5",
+      "sourceBytes": 13114,
+      "targetBytes": 13210,
+      "title": "布隆过滤器因内存上限无法处理超量数据的优化方案",
+      "category": "业务拆解",
+      "targetLink": "bu-long-guo-lu-qi-yin-nei-cun-shang-xian-wu-fa-chu-li-chao-liang-shu-ju-de-you-hua-fang-an",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+      "target": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+      "sourceSha256": "d717f238fc637a9417b8f45fc007a7b5e6288d48dba7a48c6d7b8d8e72789215",
+      "targetSha256": "ad5138e4ae30f363affda3e85c50f0e73747cd70a9fa6723ca4d07374333a95f",
+      "bodySha256": "9d7f624c57d001a4addfe7a4012dbe1fa8b810cccb0627446b4af44ed30098ad",
+      "sourceBytes": 19190,
+      "targetBytes": 19317,
+      "title": "从业务场景到知名企业开源框架全面解析分布式ID生成方案",
+      "category": "业务拆解",
+      "targetLink": "cong-ye-wu-chang-jing-dao-zhi-ming-qi-ye-kai-yuan-kuang-jia-quan-mian-jie-xi-fen-bu-shi-idsheng-cheng-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/0d8a513cb2fe452987f3ef47d564fade.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+      "target": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+      "sourceSha256": "338a76b707f6e2db1beecfffd106406d8ebb9ed3e02d20c6e1cf323fcf993845",
+      "targetSha256": "6bc94836b18c50ed5896c324883445e2869ded897802b3164f51e5c83add36ae",
+      "bodySha256": "103aac0cadd828484dc80db6942ffd528810606192b77ea0027b68d0226953d8",
+      "sourceBytes": 17253,
+      "targetBytes": 17344,
+      "title": "带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-dui-bi-san-da-zhu-liu-xiao-xi-dui-lie-rabbitmq-rocketmqyi-ji-kafka",
+      "cover": "https://i-blog.csdnimg.cn/direct/90610d30bb9845ff8a4960eb419c4d0d.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习并掌握@Transactional的高级用法！.md",
+      "target": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+      "sourceSha256": "fb904c8fffb7f096a381dac0d1ae2352f027061657b1885fddd8c6dcfa8d26f8",
+      "targetSha256": "5f3d670882896245f8d23a1bcd9b0b7c8b36b03f6d94dd3afe8f580a65b14dce",
+      "bodySha256": "ad7589838a7797448d7498d3fd9f7f1ade4465c7a138dfabdcef485ed8ac32d5",
+      "sourceBytes": 5180,
+      "targetBytes": 5254,
+      "title": "带你轻松学习并掌握@Transactional的高级用法！",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-bing-zhang-wo-transactionalde-gao-ji-yong-fa",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习操作系统.md",
+      "target": "src/content/blog/带你轻松学习操作系统.md",
+      "sourceSha256": "f7734d60579b7a3d0ba026020486a6c3fb1b56111cdd74cc03599959c8e7f364",
+      "targetSha256": "afaf93d78fbcfadafa1e30bab017bf2ad4a2d6a5c5620ad842b5c18ff23f25ab",
+      "bodySha256": "4ad2a1ef7109860854dff3fc63d3ca6405bc8de32c4989d1248f1dcc7bb8ec06",
+      "sourceBytes": 46506,
+      "targetBytes": 46563,
+      "title": "带你轻松学习操作系统",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-cao-zuo-xi-tong",
+      "cover": "https://i-blog.csdnimg.cn/direct/d51df9a5fcbb45b3ba2fac8a3bc08d82.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习计算机网络.md",
+      "target": "src/content/blog/带你轻松学习计算机网络.md",
+      "sourceSha256": "0aa9bf2066d2723d32559d5bb82a9aee126a925958ed7721f80f4602f0cac426",
+      "targetSha256": "118aabe2d23fc23e030eff39d05d8a2f6817219e105738e7d02df086b73c93ad",
+      "bodySha256": "d8f71c81ee83caf515f98e753951459dfcd0041374b04d748c708975be2191b4",
+      "sourceBytes": 50855,
+      "targetBytes": 50916,
+      "title": "带你轻松学习计算机网络",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-ji-suan-ji-wang-luo",
+      "cover": "https://i-blog.csdnimg.cn/direct/aa3c0b1f57424b59b630d1412e9f9f69.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习虚拟线程和StructuredTaskScope.md",
+      "target": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+      "sourceSha256": "ec71a77525e38baf6a96c8feea23b09cf6cbdc48b960b8b0cb358078e4218ebe",
+      "targetSha256": "6e4d2a1e72b9a7ed1adbd03fef05caef7fa404037b345e201123fac5cbe38b7e",
+      "bodySha256": "3c56f05894be04d67f10824738d8c28dbef6c8043e010dd387a71706d1f8833e",
+      "sourceBytes": 26513,
+      "targetBytes": 26594,
+      "title": "带你轻松学习虚拟线程和StructuredTaskScope",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-xu-ni-xian-cheng-he-structuredtaskscope",
+      "cover": "https://i-blog.csdnimg.cn/direct/2fb02d2e8585454f8aa87dcb07d2a4f8.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习BIO、NIO和AIO三大模型.md",
+      "target": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+      "sourceSha256": "c4042c1884cd45b04ca4eaae6ce3c0477038b5d9600e991ddf899049fd5919c0",
+      "targetSha256": "badabccf3062dbaa9acb0aaab186fcda7f985472dec8a4a69c5bdae10d4d97f2",
+      "bodySha256": "67a0f066d847bd5fda654c9ee43fd17d276a04ef095aaf8c0ed076cba00cd872",
+      "sourceBytes": 9341,
+      "targetBytes": 9410,
+      "title": "带你轻松学习BIO、NIO和AIO三大模型",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-bio-niohe-aiosan-da-mo-xing",
+      "cover": "https://i-blog.csdnimg.cn/direct/8950ffafdf634a838a3660dc039c9ff8.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Caffeine.md",
+      "target": "src/content/blog/带你轻松学习Caffeine.md",
+      "sourceSha256": "6c3a2ea76ea4300d41fc5c2674420bc8000247e311c973476f160c228f8fe856",
+      "targetSha256": "291a1f46f9c612552d4652eb804a00d3d26d5641748325b3867d0aa47fcc6ad9",
+      "bodySha256": "2fd71913b1cbfbededa4de609c2123ad9294f6f81b8d2ee5fa76f3f92c20a81f",
+      "sourceBytes": 23038,
+      "targetBytes": 23088,
+      "title": "带你轻松学习Caffeine",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-caffeine",
+      "cover": "https://i-blog.csdnimg.cn/direct/be3b7518934f48c38c9fc703ae6d16d8.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Gin.md",
+      "target": "src/content/blog/带你轻松学习Gin.md",
+      "sourceSha256": "5809ecb5caa45fffdab17b443b391ebe3b5a0e6ad26ea425a9ca7feae93a4afc",
+      "targetSha256": "d8e06190288d512973d3a5d5b00f430b3e721d14766848fe56d1f56be3cb77a9",
+      "bodySha256": "fe267f42fd0691ff4f9c491ca24319127475ceda8b44e9444bb9efb3c9ab9354",
+      "sourceBytes": 60950,
+      "targetBytes": 60995,
+      "title": "带你轻松学习Gin",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-gin",
+      "cover": "https://i-blog.csdnimg.cn/direct/145a24bb55f94a96b8730f3ac5dd8fbb.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Golang的并发模型.md",
+      "target": "src/content/blog/带你轻松学习Golang的并发模型.md",
+      "sourceSha256": "271989c8a6fee3cfd7103c9ed89190a626077150855aba531cbfbe155397a897",
+      "targetSha256": "b2ef29fec7646c80fd9192c6131453a92da0bb174befa192b59ece8cce526477",
+      "bodySha256": "24d5f7bfa6d54648c72c8dedefc43d80b676aa11deb8390f35cb4e442752ecbc",
+      "sourceBytes": 44784,
+      "targetBytes": 44850,
+      "title": "带你轻松学习Golang的并发模型",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-golangde-bing-fa-mo-xing",
+      "cover": "https://i-blog.csdnimg.cn/direct/aab18a1a4ade449f99471977ef00b46f.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习JUC.md",
+      "target": "src/content/blog/带你轻松学习JUC.md",
+      "sourceSha256": "75cbee52958c1626101d62772091f326362e140e98ec78bf884392aeb90d8f10",
+      "targetSha256": "7176a445e946611c88bdfec81b3284e4a4e9a74dd200d670aca8d5d780af8f80",
+      "bodySha256": "c11c2c09b91104ec2d8ecd4332607d3fe44aaea1c2dbb59bc9d6a26a9c795a5c",
+      "sourceBytes": 110406,
+      "targetBytes": 110451,
+      "title": "带你轻松学习JUC",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-juc",
+      "cover": "https://i-blog.csdnimg.cn/direct/f092fedf7e454ea1b773257b9f9ef198.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习JVM.md",
+      "target": "src/content/blog/带你轻松学习JVM.md",
+      "sourceSha256": "613e5fa82ac44ad90a5c0154c0cece81cbdca3fa123ad40aee21c26dedf1b836",
+      "targetSha256": "171b616ecd665fca8bc9c762059c2f5e2833be4e2b1d3cddd24bd29a1c7085d1",
+      "bodySha256": "457d1cfeb25c9114c99e19a3049a03988e5028844866ff4caa85b9db95ee401f",
+      "sourceBytes": 70468,
+      "targetBytes": 70513,
+      "title": "带你轻松学习JVM",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-jvm",
+      "cover": "https://i-blog.csdnimg.cn/direct/0b917e3f17214b4e88b73e24dbbaba70.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Kafka.md",
+      "target": "src/content/blog/带你轻松学习Kafka.md",
+      "sourceSha256": "962eb4603a9a4742f0dd93b7164b6adb3481e37ef99e02f9658407a41d872c9e",
+      "targetSha256": "6f7da3bc118b5917a649fe584b5728aa4715ed680ff82aba50c0547612d5342c",
+      "bodySha256": "0af6eb587e97254dc4c470ac6500f22588ec4af5e2d0688c27736b556f8fe850",
+      "sourceBytes": 15191,
+      "targetBytes": 15238,
+      "title": "带你轻松学习Kafka",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-kafka",
+      "cover": "https://i-blog.csdnimg.cn/direct/2c46b8dbbe7b411eb08252715f08028f.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习LangChain4j.md",
+      "target": "src/content/blog/带你轻松学习LangChain4j.md",
+      "sourceSha256": "4ff3ce9cf3f2bacca6021bd3a0aab658b49f630c0031a1c0ddf7ad9cd52fe030",
+      "targetSha256": "c3aed0e30da4511d12332e954cd8740eaf9ac5c6383bb85099e1ed1d06662c8a",
+      "bodySha256": "4fd7fd62a53d9a1c00bc1cfbf606adf8fcd2d72d5e571e724681aa969fd3b459",
+      "sourceBytes": 17017,
+      "targetBytes": 17070,
+      "title": "带你轻松学习LangChain4j",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-langchain4j",
+      "cover": "https://i-blog.csdnimg.cn/direct/b7ac45daf6964db48bcf48fcd2c07b02.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习MyBatis.md",
+      "target": "src/content/blog/带你轻松学习MyBatis.md",
+      "sourceSha256": "eabec330adc6e2e30b7cbb528a9821cffd47b82733aa1c8b953cc01bb777687b",
+      "targetSha256": "b7bc4ba348623361279bf717ccfd4ffaa04dca777fcccd027c60895a644af78a",
+      "bodySha256": "787be010d7875f5cb491360497134210ca4572797740004b83bc534a3e382939",
+      "sourceBytes": 14512,
+      "targetBytes": 14561,
+      "title": "带你轻松学习MyBatis",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-mybatis",
+      "cover": "https://i-blog.csdnimg.cn/direct/9eabb674b4824328b590450810062638.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+      "target": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+      "sourceSha256": "d360486d76b5b7cc76a64fea715eb92379f31eb78172f5309e7d09a2d169265f",
+      "targetSha256": "e7c0919df15805dba8973b002a41d42be81d6f140a7f9b849b13769ea539b873",
+      "bodySha256": "363301306caaa588fd1d2618ecaec62f9c103fa72760f76c87ef06e8a3ee2cfb",
+      "sourceBytes": 31648,
+      "targetBytes": 31727,
+      "title": "带你轻松学习MySQL的索引、锁、事务以及MVCC",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-mysqlde-suo-yin-suo-shi-wu-yi-ji-mvcc",
+      "cover": "https://i-blog.csdnimg.cn/direct/c272678856c44ee0b29e6a2db0ece75c.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习PostgreSQL.md",
+      "target": "src/content/blog/带你轻松学习PostgreSQL.md",
+      "sourceSha256": "fcc7d4b431bafc7425fb6d270a29035838b12103877d1e73613cdb57d60c457d",
+      "targetSha256": "0529328f564055e94d81e0f808ef1a39717cd20c895ba1baae3dd01c6d664593",
+      "bodySha256": "779927b2a84d741392db23333fbc141ce22e9724a56932adb50b214e3e400bc1",
+      "sourceBytes": 23405,
+      "targetBytes": 23457,
+      "title": "带你轻松学习PostgreSQL",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-postgresql",
+      "cover": "https://i-blog.csdnimg.cn/direct/be78107e79b740d1bc656a2ea3d546b0.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习RabbitMQ.md",
+      "target": "src/content/blog/带你轻松学习RabbitMQ.md",
+      "sourceSha256": "6a5215cf1a6356ca359c0a69b4f4239b173c8a7eafd1146aba27826533b6e5cf",
+      "targetSha256": "b416c09d6060c61230789dafa1d40e23123153e8adcde4cb8a9b7ffa63abef6f",
+      "bodySha256": "589043e384a8ce6d8477bbf55e285a4ac2dca2dfb978ff3d4c8bdce558086250",
+      "sourceBytes": 12590,
+      "targetBytes": 12640,
+      "title": "带你轻松学习RabbitMQ",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-rabbitmq",
+      "cover": "https://i-blog.csdnimg.cn/direct/a533dbc202b9403eb58f5d830e49560a.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Redis.md",
+      "target": "src/content/blog/带你轻松学习Redis.md",
+      "sourceSha256": "302efdaea6e5f7ecdd79c07b6452378d6caed81affdfdda393301681484c3051",
+      "targetSha256": "4aa2bc47317e372f9319e20186835daefeea4fb46e6c9505b78997addbaa22f4",
+      "bodySha256": "917c01365bba298a64c219c7de7b15b3f0003b5d569ab3de45f559ee1dbed637",
+      "sourceBytes": 49955,
+      "targetBytes": 50002,
+      "title": "带你轻松学习Redis",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-redis",
+      "cover": "https://i-blog.csdnimg.cn/direct/9cb644b81af74fea8e34ddd2b3132392.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习RocketMQ.md",
+      "target": "src/content/blog/带你轻松学习RocketMQ.md",
+      "sourceSha256": "5582c47b508d4119e196a2c6c4f682c78030f5cc7bcfd32edcfab00e14443236",
+      "targetSha256": "eaf883b4ed7b56379ff2fe1e70e1709f83ccb4d37ee16bc76977e94c400613db",
+      "bodySha256": "f443718a9fb7f3d2bc901c428abdd62750df6ebf51ef6a153c5a9116f800dc0f",
+      "sourceBytes": 17167,
+      "targetBytes": 17217,
+      "title": "带你轻松学习RocketMQ",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-rocketmq",
+      "cover": "https://i-blog.csdnimg.cn/direct/34750269d8874ca9b9ae6ddd543748e2.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Spring_MVC.md",
+      "target": "src/content/blog/带你轻松学习Spring_MVC.md",
+      "sourceSha256": "27a7bbd0dcfb415b29a78dcadacbc448022a8978860077d973eb2dff2a71039a",
+      "targetSha256": "3d55d2d77adc5fc218b70280cd407ab3d9370e4380948ddb93dc6f8d87e66350",
+      "bodySha256": "6b29b914a8e46d6fcac4e0fa769dd8854be1f121856bf30d942803d67fcd45bf",
+      "sourceBytes": 38459,
+      "targetBytes": 38511,
+      "title": "带你轻松学习Spring MVC",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-spring_mvc",
+      "cover": "https://i-blog.csdnimg.cn/direct/1e3acedd642e40e5a71a9e9ae51960ed.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/带你轻松学习Spring.md",
+      "target": "src/content/blog/带你轻松学习Spring.md",
+      "sourceSha256": "ee993b43e5769f6a25edb2af21868808270a740fc3ac2d3f544b04cf9d8b10c8",
+      "targetSha256": "f98cdb88e35d0f10385605ade5296352ed2c48be3b2e9c432fea59df1b1cb649",
+      "bodySha256": "5630d5f34674eb0176e0998dc816bcaa309825dee0f49f1b1e022351220a7bbb",
+      "sourceBytes": 27835,
+      "targetBytes": 27883,
+      "title": "带你轻松学习Spring",
+      "category": "技术笔记",
+      "targetLink": "dai-ni-qing-song-xue-xi-spring",
+      "cover": "https://i-blog.csdnimg.cn/direct/df8a7aa22f4f4f96bd68d84dbe1242c0.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/点餐场景下：分析实现十万级用户日志的店铺推荐方案.md",
+      "target": "src/content/blog/点餐场景下：分析实现十万级用户日志的店铺推荐方案.md",
+      "sourceSha256": "ba156f7c22eb02ba708ffbcfcd2017221ab701356ca99a51373bd4f7e434dc28",
+      "targetSha256": "7a6c79b34875ae070bf27b4b945f569e5439b96c71da77216b9b4fcdd4b8119b",
+      "bodySha256": "b37c6d92ba84524dfa28573e81ee719808facd17f7dabb28cb95a49d30ad9e96",
+      "sourceBytes": 33204,
+      "targetBytes": 33315,
+      "title": "点餐场景下：分析实现十万级用户日志的店铺推荐方案",
+      "category": "业务拆解",
+      "targetLink": "dian-can-chang-jing-xia-fen-xi-shi-xian-shi-wan-ji-yong-hu-ri-zhi-de-dian-pu-tui-jian-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/2f91d46d7b5c4c54aba4b4dd61e646a5.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战 (1).md",
+      "target": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战 (1).md",
+      "sourceSha256": "8ee9563f615e0bdefc56dde87c0ba93e3c966499db737b5aa401ad8b8a216eeb",
+      "targetSha256": "e25ba1394d00bb63c90b3cd081c0e1f9443e274d549876389b340d66dbefffe3",
+      "bodySha256": "1237b27e71cfb3ec101112b440177fa94e2b480e36265935c86d7a57f5735c3b",
+      "sourceBytes": 11402,
+      "targetBytes": 11497,
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "category": "业务拆解",
+      "targetLink": "gen-jin_jdk25-jiang-xu-ni-xian-cheng-an-quan-yin-ru-sheng-chan-de-quan-heng-yu-shi-zhan-1",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战.md",
+      "target": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战.md",
+      "sourceSha256": "8ee9563f615e0bdefc56dde87c0ba93e3c966499db737b5aa401ad8b8a216eeb",
+      "targetSha256": "aea211d5d256a8454a7ab644ebdb8b8739cb3417b7a09885355483c7fcf32d24",
+      "bodySha256": "1237b27e71cfb3ec101112b440177fa94e2b480e36265935c86d7a57f5735c3b",
+      "sourceBytes": 11402,
+      "targetBytes": 11495,
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "category": "业务拆解",
+      "targetLink": "gen-jin_jdk25-jiang-xu-ni-xian-cheng-an-quan-yin-ru-sheng-chan-de-quan-heng-yu-shi-zhan",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+      "target": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+      "sourceSha256": "89763fefb8225d07be7ad3c33a29f9cc638bb56efd583382e9c8c08ae0335ce5",
+      "targetSha256": "875b1eb46d8c01ca59e6e658c4f591ddb535d42fbef1d6529cb87495cf8414ac",
+      "bodySha256": "bc1ceba0ef51a10eb8be95164086a8059ea8264ea0345c1bf2029b8999caa7d1",
+      "sourceBytes": 32093,
+      "targetBytes": 32184,
+      "title": "基于MySQL + Redis + JWT的双令牌认证方案的实现",
+      "category": "业务拆解",
+      "targetLink": "ji-yu-mysql_-_redis_-_jwtde-shuang-ling-pai-ren-zheng-fang-an-de-shi-xian",
+      "cover": "https://i-blog.csdnimg.cn/direct/dcfedf4d751a4bb6a2744d2f5aae9f6c.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/记录：基于TCP协议的控制台版网络聊天室.md",
+      "target": "src/content/blog/记录：基于TCP协议的控制台版网络聊天室.md",
+      "sourceSha256": "9b6bad6818f123b539431bbdb226a15104d2a42ab79f93bc835e98ff7ea39bc5",
+      "targetSha256": "6a8fddf97c988ee5234d9474e32ec5f693b9eee2ad477979b3d4f5734cc44cba",
+      "bodySha256": "74fcbc06c6d531fddef1b39934057738918fff500c08d3f054cf1fc6651a2f70",
+      "sourceBytes": 25265,
+      "targetBytes": 25347,
+      "title": "记录：基于TCP协议的控制台版网络聊天室",
+      "category": "杂记",
+      "targetLink": "ji-lu-ji-yu-tcpxie-yi-de-kong-zhi-tai-ban-wang-luo-liao-tian-shi",
+      "cover": "https://i-blog.csdnimg.cn/direct/d02861509a124b6d9d24e92c466fb5aa.jpeg",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/记录：IO流大作业——每日一记.md",
+      "target": "src/content/blog/记录：IO流大作业——每日一记.md",
+      "sourceSha256": "3de929327dfe2fa1321b1089497ba1d2b4328c3feff84eb413e3979daaa26066",
+      "targetSha256": "8402f71a36b69e09531238f429c979499c5e8035a19c2ac293bd89df53534290",
+      "bodySha256": "038ca28e22936f525ca6aa8968e32b9808658bff90c4a0a9b5a8b0819c2f09b4",
+      "sourceBytes": 34637,
+      "targetBytes": 34691,
+      "title": "记录：IO流大作业——每日一记",
+      "category": "杂记",
+      "targetLink": "ji-lu-ioliu-da-zuo-ye-mei-ri-yi-ji",
+      "cover": "https://i-blog.csdnimg.cn/direct/f899eaa037c4458fa60941c9ad6d122c.gif",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/记录：Java阶段性项目（拼图小游戏）.md",
+      "target": "src/content/blog/记录：Java阶段性项目（拼图小游戏）.md",
+      "sourceSha256": "b7b6a6e89f5ec0b8ea9718837fa3a52b5928823db579a79fd645d308a2c93098",
+      "targetSha256": "45083d573edd0f8b25956eda49664d81ad48b15abb9f7a489a5ed2a4dcd88923",
+      "bodySha256": "83462dc7d7bdb11f225e8ebc51e973abd3c7f21fdff7f523cd56bcb44aaabd23",
+      "sourceBytes": 88040,
+      "targetBytes": 88109,
+      "title": "记录：Java阶段性项目（拼图小游戏）",
+      "category": "杂记",
+      "targetLink": "ji-lu-javajie-duan-xing-xiang-mu-pin-tu-xiao-you-xi",
+      "cover": "https://i-blog.csdnimg.cn/direct/7fcf9ed5984c4f29b11f2c5b451e0440.jpeg",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+      "target": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+      "sourceSha256": "43c70a3a4c1aa726c53b43d3fd9217d21e5ffe063b94c8af8a07b83de020683d",
+      "targetSha256": "f0bc3ecf7845fe415e78a6f1e8e140417d818c43145c3c3f4d0aa5551215c236",
+      "bodySha256": "0bc3f21aeb3e15e7d8139cccdb331e918edc12a7eeacb2c8cdcadfd241323768",
+      "sourceBytes": 8665,
+      "targetBytes": 8757,
+      "title": "内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！",
+      "category": "技术笔记",
+      "targetLink": "nei-cun-zhan-yong-cong-90-jiang-dao-30-guan-yu-wo-ji-yu-pclbian-xie-de-nei-cun-you-hua-da-sha-qi",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/破局双维度查询难题：淘宝订单ID的用户基因设计奥秘.md",
+      "target": "src/content/blog/破局双维度查询难题：淘宝订单ID的用户基因设计奥秘.md",
+      "sourceSha256": "648e05348ab48ea3ad5d3162de9b0d39d4fcf8e019c081958aaf88030b4e0ae1",
+      "targetSha256": "e591048829e8b85109673d7bc8f7b16e88896fedf0301fb61a8f26fa3aecc79d",
+      "bodySha256": "869b4e7f8a88af23288aa821053f69f0292bffb0cc8e0cf334da9a7aefa2055f",
+      "sourceBytes": 6168,
+      "targetBytes": 6260,
+      "title": "破局双维度查询难题：淘宝订单ID的用户基因设计奥秘",
+      "category": "业务拆解",
+      "targetLink": "po-ju-shuang-wei-du-cha-xun-nan-ti-tao-bao-ding-dan-idde-yong-hu-ji-yin-she-ji-ao-mi",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/如何应对海量Key带来的redis内存占用问题？.md",
+      "target": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+      "sourceSha256": "019bfd0f53b041c16739caf2c411115b66cb13952f522c7e8bed647739d548c9",
+      "targetSha256": "5b25cb88b1ea18824236870b6bea1c27adb8a1582779f142036fbc4c08189de3",
+      "bodySha256": "a2d203ac10d10b752200849e3d231ed2fbf5b39b83d82ba4c8be3589825fc9f0",
+      "sourceBytes": 8190,
+      "targetBytes": 8276,
+      "title": "如何应对海量Key带来的redis内存占用问题？",
+      "category": "业务拆解",
+      "targetLink": "ru-he-ying-dui-hai-liang-keydai-lai-de-redisnei-cun-zhan-yong-wen-ti",
+      "cover": "https://i-blog.csdnimg.cn/direct/a8fcaaad8b334809b0237906889199fc.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进.md",
+      "target": "src/content/blog/深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进.md",
+      "sourceSha256": "05c7fd7f2fde63de8a523b1dfd29c02eb3fee2bd369eda6ae2989d3619dec9d6",
+      "targetSha256": "a65482056eade32b90ad5b7136ab67d2bb348a38b00d67942b9d60c522f7699d",
+      "bodySha256": "33a3fce429bca5e73ced0b3d1664bb3298ba5ca5f72ca6d2676bbc15f9aac529",
+      "sourceBytes": 45709,
+      "targetBytes": 45815,
+      "title": "深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进",
+      "category": "技术笔记",
+      "targetLink": "shen-du-jie-xi-multi-agent-jia-gou-cong-xie-tong-mo-shi-dao-qi-ye-ji-ping-tai-gong-cheng-yan-jin",
+      "cover": "https://i-blog.csdnimg.cn/direct/cc047c4ef270431c9bae2873070b65fb.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南.md",
+      "target": "src/content/blog/深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南.md",
+      "sourceSha256": "56997793ba853672042edd111a1dd1c8922714a85f3b6adc554347222a034add",
+      "targetSha256": "78730242ef375dd6cbde30d289072bcdea34cb94bbef4ef7a4a5d644c663a57d",
+      "bodySha256": "a57a1cd9243f4999c40268fd361aaad7a30ea3c9512ac96a6d4777b4f6cb9a5b",
+      "sourceBytes": 29768,
+      "targetBytes": 29879,
+      "title": "深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南",
+      "category": "技术笔记",
+      "targetLink": "shen-ru-li-jie-xiang-liang-shu-ju-ku-cong-di-ceng-suan-fa-dao-agent-ji-yi-xi-tong-de-gou-jian-zhi-nan",
+      "cover": "https://i-blog.csdnimg.cn/direct/642a12f32dfc495083c6da96fc1d0c73.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/通过mysqldump进行数据迁移时权限不足的解决方案.md",
+      "target": "src/content/blog/通过mysqldump进行数据迁移时权限不足的解决方案.md",
+      "sourceSha256": "5b079f1196dd45f8c30f4fd4428dfbb0ae69998f3661a24302f4aa26cc39df00",
+      "targetSha256": "b9a7013c4f989380d9033037e64706727dece5cfc95e1eb2809b88838959cf94",
+      "bodySha256": "92f593e4179ed40acc1e239314f17461871ad208885ddead10cf520d5760443a",
+      "sourceBytes": 4057,
+      "targetBytes": 4155,
+      "title": "通过mysqldump进行数据迁移时权限不足的解决方案",
+      "category": "故障排查",
+      "targetLink": "tong-guo-mysqldumpjin-xing-shu-ju-qian-yi-shi-quan-xian-bu-zu-de-jie-jue-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/f78cf226d9ca4485b7761538a4ced38b.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一个简单高效的秒杀方案的实现.md",
+      "target": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+      "sourceSha256": "9024f81fd8f6c977d91c228ca8282c028150d5b9250b8e3202a39926e6b4d7be",
+      "targetSha256": "7c473dc225019f0fef6ee5dd07a5c032d6b6d31f0870a656c75ff894ed1a53e8",
+      "bodySha256": "7e2242e8bb903580e46ba6c590a5e4fa4da602a9e2a3b67108d578310b735a27",
+      "sourceBytes": 55613,
+      "targetBytes": 55686,
+      "title": "一个简单高效的秒杀方案的实现",
+      "category": "业务拆解",
+      "targetLink": "yi-ge-jian-dan-gao-xiao-de-miao-sha-fang-an-de-shi-xian",
+      "cover": "https://i-blog.csdnimg.cn/direct/10a4bba1e8434766968b9590a9a0818d.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一文讲透_Agent_应用中的记忆工程.md",
+      "target": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+      "sourceSha256": "0a245303ded562e9bc15ad4a2af129631d06662520a4c15ce5b9623ee69069e8",
+      "targetSha256": "4523b5264c4409508207a41b6f1ccf297e98e41da3b881caf4217a87ace63e74",
+      "bodySha256": "31391a981cc50bf223cee454c0498dc2b8190fe8c18fa2afbe0342a07392bfa0",
+      "sourceBytes": 40178,
+      "targetBytes": 40254,
+      "title": "一文讲透 Agent 应用中的记忆工程",
+      "category": "技术笔记",
+      "targetLink": "yi-wen-jiang-tou_agent_ying-yong-zhong-de-ji-yi-gong-cheng",
+      "cover": "https://i-blog.csdnimg.cn/direct/b5d76f40360243f68947df9a69d8c1a8.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一文讲透_Agent_应用中的上下文工程.md",
+      "target": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+      "sourceSha256": "376b26167618935ee3398de16302ac758872c3ae441ba1017918a1b9697a5a67",
+      "targetSha256": "94e8c17fbd1ec7582a40f02d7af55d145d5c29e5c9ea871fc21a31b17b9fb350",
+      "bodySha256": "bb02cd8ad2fe05814a6923e86b48c096aa800ad10d6b48b01a83deaa340a62eb",
+      "sourceBytes": 46832,
+      "targetBytes": 46920,
+      "title": "一文讲透 Agent 应用中的上下文工程",
+      "category": "技术笔记",
+      "targetLink": "yi-wen-jiang-tou_agent_ying-yong-zhong-de-shang-xia-wen-gong-cheng",
+      "cover": "https://i-blog.csdnimg.cn/direct/2564b63690864e90af0063ef1c483493.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+      "target": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+      "sourceSha256": "38d4fb529489ff7d030caebbe60a5bdc8d9baf9ff3b90214c6e69c179b0c03b8",
+      "targetSha256": "3b34771498ae40b80076557c96a07e9144d389ea2fffb09bbeaa62be887921f9",
+      "bodySha256": "8a93c47b0033e08faf9b3c6916be0cb2b05e9c5ec82b08da7d55b23d306d3dca",
+      "sourceBytes": 51168,
+      "targetBytes": 51297,
+      "title": "一文讲透 MCP：从定义、架构到底层原理，再到 Tool Calling、Skill 与生态全景",
+      "category": "技术笔记",
+      "targetLink": "yi-wen-jiang-tou_mcp-cong-ding-yi-jia-gou-dao-di-ceng-yuan-li-zai-dao_tool_calling-skill_yu-sheng-tai-quan-jing",
+      "cover": "https://i-blog.csdnimg.cn/direct/c8addd51ef6c4fe8a2b1934ec5eea646.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+      "target": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+      "sourceSha256": "2966211dde44d6d0deb4d5e746055842c3c2dee90217b450aa0ff264f39e29cc",
+      "targetSha256": "3051a3e93eddc3869be81f4b60e17559917557270cd8d72a668c67f9414b8b7e",
+      "bodySha256": "ef3e21b56887343e94a1e4d1505efd693ad6bce94b9dd6ddf015181bb2096e72",
+      "sourceBytes": 67970,
+      "targetBytes": 68072,
+      "title": "一文讲透 RAG：从定义、架构、底层原理到主流方案对比",
+      "category": "技术笔记",
+      "targetLink": "yi-wen-jiang-tou_rag-cong-ding-yi-jia-gou-di-ceng-yuan-li-dao-zhu-liu-fang-an-dui-bi",
+      "cover": "https://i-blog.csdnimg.cn/direct/14d1efb8c0be40e7821769b6257d12f7.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/一文讲透Agent应用中的提示词工程.md",
+      "target": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+      "sourceSha256": "1eb3cc242dfec056f958bc58e9ea5ce454ad807114ec9540ed5bbc21ebb705a9",
+      "targetSha256": "d6cb1c4a516ace6b055c30404ec7758d508d1f835d0561d347a4693f0c3f6ebf",
+      "bodySha256": "f1ce669122f8f9e0d72b4ebd6a5234b4b601c5ffcc69249a5b93871e581cbe28",
+      "sourceBytes": 35675,
+      "targetBytes": 35754,
+      "title": "一文讲透Agent应用中的提示词工程",
+      "category": "技术笔记",
+      "targetLink": "yi-wen-jiang-tou-agentying-yong-zhong-de-ti-shi-ci-gong-cheng",
+      "cover": "https://i-blog.csdnimg.cn/direct/d2172c111e0f4643a1503ccbb40eb85e.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+      "target": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+      "sourceSha256": "5653b58b065c05173d9e14c4f70e4e49edf4253185aa40afd850a8fdd26881ab",
+      "targetSha256": "af7a1b37920ddb313db125b5a05d42c89a2d6a50b7d3c22f9a76bbe6a4cf3864",
+      "bodySha256": "8443f29f64ce6c6d1fdc15bcdc92a57a487c0d5f921066e9ffca426d4d5ae451",
+      "sourceBytes": 14052,
+      "targetBytes": 14169,
+      "title": "优化：将针对单一日志表的冷热数据分离类改造成通用类",
+      "category": "业务拆解",
+      "targetLink": "you-hua-jiang-zhen-dui-dan-yi-ri-zhi-biao-de-leng-re-shu-ju-fen-chi-lei-gai-zao-cheng-tong-yong-lei",
+      "cover": "https://i-blog.csdnimg.cn/direct/8b1344ac50fe476792a5cac939a16b21.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+      "target": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+      "sourceSha256": "1fc956763f14526d8a9a99474a15e34ca783d9170f357b07fc3ce59a0c6a9100",
+      "targetSha256": "c30d7e8cda939e07eb17c642c8353ab311d234351a4575213c9bb038c15f8ad8",
+      "bodySha256": "f38c63a782181ed36d17174c2af47aff266d591c923b1afc759e00e31b9cdaf4",
+      "sourceBytes": 17634,
+      "targetBytes": 17772,
+      "title": "优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异",
+      "category": "业务拆解",
+      "targetLink": "you-hua-ri-zhi-fen-xi-dian-pu-tui-jian-fang-an-yong-hu-fan-wei-de-jing-que-du-yi-ji-esyu-mysqlde-cha-xun-xiao-lu-chai-yi",
+      "cover": "https://i-blog.csdnimg.cn/direct/fb0a3336d6444dc2a33d7cccdc235532.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+      "target": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+      "sourceSha256": "14a9b9a2d508e05cb8ae428313fcfa485e60ac3f6175d386fa64f9fb625f8a60",
+      "targetSha256": "c077ded649d5a4e651e48b69cfa8c5eef4bca400b1b4680192579a62538d5ef1",
+      "bodySha256": "04a9905212c0cab60c24cc2ee697a852abe3175c4dd80e2481a82b4e7e0cab9c",
+      "sourceBytes": 10628,
+      "targetBytes": 10764,
+      "title": "优先队列流式处理 + 多路归并排序：轻松实现DB分表严格有序的分页查询",
+      "category": "业务拆解",
+      "targetLink": "you-xian-dui-lie-liu-shi-chu-li_-_duo-lu-gui-bing-pai-xu-qing-song-shi-xian-dbfen-biao-yan-ge-you-xu-de-fen-ye-cha-xun",
+      "cover": "https://i-blog.csdnimg.cn/direct/3679fa348f1a4b94b7a6961bbcd69aad.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/有关慢查询SQL优化的思路.md",
+      "target": "src/content/blog/有关慢查询SQL优化的思路.md",
+      "sourceSha256": "e6e3556cf6983f561b25abcad04f8a2d37969a0b288d026392b22d2defcddb70",
+      "targetSha256": "9071f57540d575237d164dc8f5e8462a1df438daf5778aa10f8094bb9aa9403c",
+      "bodySha256": "ac522e53a0d0e56e59ca74da6178b1938ac18f008f2408a1b31a9bf2aecf5d74",
+      "sourceBytes": 13420,
+      "targetBytes": 13466,
+      "title": "有关慢查询SQL优化的思路",
+      "category": "技术笔记",
+      "targetLink": "you-guan-man-cha-xun-sqlyou-hua-de-si-lu",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/有关IDEA中Lombok失效、找不到符号问题的解决方案.md",
+      "target": "src/content/blog/有关IDEA中Lombok失效、找不到符号问题的解决方案.md",
+      "sourceSha256": "5efcc1f81a07e45c007d22eb18918d0168a4cedd3f78089b21a0713bce49303f",
+      "targetSha256": "a19d6e105acd5ae786bb872458e3498acb53b533d1d7fb367e1874f81bc3bc66",
+      "bodySha256": "d79b5ea38f2eaae5bb5afb3395bc769a1acabd802c0a28b1dae15bf7f269bf8a",
+      "sourceBytes": 5446,
+      "targetBytes": 5532,
+      "title": "有关IDEA中Lombok失效、找不到符号问题的解决方案",
+      "category": "故障排查",
+      "targetLink": "you-guan-ideazhong-lombokshi-xiao-zhao-bu-dao-fu-hao-wen-ti-de-jie-jue-fang-an",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/自定义错误码_+_全局异常体系_+_Result的优雅实现方案.md",
+      "target": "src/content/blog/自定义错误码_+_全局异常体系_+_Result的优雅实现方案.md",
+      "sourceSha256": "b9d15e4e6e0364b50cd577786ccf1a1e2fa0173f9e838067064bdc1699b883ac",
+      "targetSha256": "713f4375c75f517dc96c999bb75b9c762d7cae0f457ef8fe3141fb4f1f319a81",
+      "bodySha256": "98740575894770af95630b9dc867cd0de8b204e040357abbe6c69469580b5e84",
+      "sourceBytes": 15355,
+      "targetBytes": 15441,
+      "title": "自定义错误码 + 全局异常体系 + Result的优雅实现方案",
+      "category": "业务拆解",
+      "targetLink": "zi-ding-yi-cuo-wu-ma_-_quan-ju-yi-chang-ti-xi_-_resultde-you-ya-shi-xian-fang-an",
+      "cover": null,
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+      "target": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+      "sourceSha256": "fb08cc156876e78ea29234eac7729eb0fee6c6ddad5488e4360d9f232f587c5c",
+      "targetSha256": "42d56917a34bb0468a86bdbd93a555c0acda7ef14e8c9c63a151203a1d1f836f",
+      "bodySha256": "ae8b22c1fd32ce6e3bdc12572c373bd37be58acc9c7486292d6e5818748ccb4d",
+      "sourceBytes": 18685,
+      "targetBytes": 18779,
+      "title": "C++期末大作业:俄罗斯方块（附源码详解及美工素材）",
+      "category": "杂记",
+      "targetLink": "c-qi-mo-da-zuo-ye_e-luo-si-fang-kuai-fu-yuan-ma-xiang-jie-ji-mei-gong-su-cai",
+      "cover": "https://i-blog.csdnimg.cn/direct/79ccfc52697b44b89d2f0b7b313ccf2b.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+      "target": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+      "sourceSha256": "1e37d7352e0a78a40d27a0d4c8c1a1330d4c7fc04ca08c024329e1b7dd339bf0",
+      "targetSha256": "e12071327b9ea22baf839f9861b5a909d5543bdf416fe2d81b2c22aae925fb9c",
+      "bodySha256": "d1b7107ea4ec0b2bd9c597c95ca7baeccf2b75797a0b8b53f141eebc59fb6097",
+      "sourceBytes": 3130,
+      "targetBytes": 3243,
+      "title": "Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案",
+      "category": "故障排查",
+      "targetLink": "dockerbu-shu-de-xxl-jobzhi-xing-ben-di-ren-wu-shi-wu-fa-lian-jie-zhi-xing-qi-de-jie-jue-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/1239eb525ef64e3c86e7b5551fc5f150.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/FastJson日期类无法解析的解决方案.md",
+      "target": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+      "sourceSha256": "234bf8a5f53a44c8e07d51082e0191fd808650bf81ff2608da7bc4921b0ca1c2",
+      "targetSha256": "b2ca350ba69069e55794e224a756c77e0dae2c0b78e8d8f20fee2dea68e8546d",
+      "bodySha256": "b6393af12db005ff53ec2762e8cf7e6fa052f1dac3d44eaf6f586d87d22590fd",
+      "sourceBytes": 6653,
+      "targetBytes": 6720,
+      "title": "FastJson日期类无法解析的解决方案",
+      "category": "故障排查",
+      "targetLink": "fastjsonri-qi-lei-wu-fa-jie-xi-de-jie-jue-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/3aa3c70c5d244e53b6d163d75848f378.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+      "target": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+      "sourceSha256": "1bb0f8dd8b5024a40892ab82968759328218f950cd931d562e8f877ec90504ae",
+      "targetSha256": "f217a04bbdfc225d3ad8bcf0a23cf17b97735edf62e277237164214841490e3a",
+      "bodySha256": "3796069bd0a04843463e6bc0483c8bc19a2f5fcaab46a351a25f7d1321e549de",
+      "sourceBytes": 15487,
+      "targetBytes": 15590,
+      "title": "Java原创项目：仿b站v1.0（附前后端源码及接口文档）",
+      "category": "杂记",
+      "targetLink": "javayuan-chuang-xiang-mu-fang-bzhan-v1.0-fu-qian-hou-duan-yuan-ma-ji-jie-kou-wen-dang",
+      "cover": "https://i-blog.csdnimg.cn/direct/8611e3c5e10d43ccb43ee6da5012855a.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/Knife4j未配置却需要登录认证的解决方案.md",
+      "target": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+      "sourceSha256": "217add38b7f40fc881af0fbff52d6d2c7c195c4785d58df0b2b9d6801434422d",
+      "targetSha256": "348289996fc1af0f8afbd21c7b317d7aac65655453081915de36470ca6ae2a57",
+      "bodySha256": "129a1f3cc26b53aedb891fc48e1ce2e19d076f2571a625a8923b817f2f5225c8",
+      "sourceBytes": 2963,
+      "targetBytes": 3047,
+      "title": "Knife4j未配置却需要登录认证的解决方案",
+      "category": "故障排查",
+      "targetLink": "knife4jwei-pei-zhi-que-xu-yao-deng-lu-ren-zheng-de-jie-jue-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/b11061432acb4981b9cfbde30fff5878.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+      "target": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+      "sourceSha256": "1587e7dfdcf530884e5037e3f565acb4a0e009c41b65b8abc9fa7bc626d37d05",
+      "targetSha256": "b8c6066eab1303358336ec601032c8055a06718f6698db7913dc511b4858f5c0",
+      "bodySha256": "c0ab1e3dceb432a5766ae31bbb62d45f0d9d3dd54c8fb22865c2bb531d6eddf0",
+      "sourceBytes": 31217,
+      "targetBytes": 31317,
+      "title": "LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南",
+      "category": "技术笔记",
+      "targetLink": "langgraph-shen-du-jie-xi-zhuang-tai-ji-qu-dong-de-llm-bian-pai-yuan-li-yu-shi-yong-zhi-nan",
+      "cover": "https://i-blog.csdnimg.cn/direct/3f13ac80a1a24e72a424857c8463861c.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+      "target": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+      "sourceSha256": "6cb429f7ee1c4ab61cb5a8ead8b16b6aaeac3a59f1c06b821cd3ba965350d499",
+      "targetSha256": "e2bcc15c18af10d216fbbb51aadd934556c8f469cdb3a747e304aec8af3f85f7",
+      "bodySha256": "b196e39675403a0e3800bc355325b83b12c4d71bc975f8a53cb14f12db03ca1b",
+      "sourceBytes": 3943,
+      "targetBytes": 4027,
+      "title": "Sharding-JDBC 定时任务 SQL 无响应的解决方案",
+      "category": "故障排查",
+      "targetLink": "sharding-jdbc_ding-shi-ren-wu_sql_wu-xiang-ying-de-jie-jue-fang-an",
+      "cover": "https://i-blog.csdnimg.cn/direct/36edb66aba674133af1b87d807df7588.png",
+      "sticky": false
+    },
+    {
+      "source": "src/content/posts/WebSocket连接失败解决方案(前后端联调场景).md",
+      "target": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+      "sourceSha256": "3d249b7e4c67e83e75d276fd9abee7969983b57a29c864852919e44c3e1fa03a",
+      "targetSha256": "4590cd86650cb5589493f2a1754a7d847f705bf18a30d8bcd5ff63cd9972107f",
+      "bodySha256": "662f7ae850cfb8c9118c17e52f794b339bb7dfecd656c12431e1a45087251212",
+      "sourceBytes": 2010,
+      "targetBytes": 2092,
+      "title": "WebSocket连接失败解决方案(前后端联调场景)",
+      "category": "故障排查",
+      "targetLink": "websocketlian-jie-shi-bai-jie-jue-fang-an-qian-hou-duan-lian-diao-chang-jing",
+      "cover": null,
+      "sticky": false
+    }
+  ],
+  "assets": [
+    {
+      "source": "public/assets/projects/bili.png",
+      "target": "public/img/mizuki/projects/bili.png",
+      "sourceSha256": "54121b77b396d688547db20fe21e3317de55ed80867d6aa2de0fe26a33eca3b7",
+      "targetSha256": "54121b77b396d688547db20fe21e3317de55ed80867d6aa2de0fe26a33eca3b7",
+      "bytes": 3058046,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/projects/luna.jpg",
+      "target": "public/img/mizuki/projects/luna.jpg",
+      "sourceSha256": "20df5a898dc4412ff53ea5f0c0a6b4696e3746acfc8c177cf481e2bb9e592167",
+      "targetSha256": "20df5a898dc4412ff53ea5f0c0a6b4696e3746acfc8c177cf481e2bb9e592167",
+      "bytes": 262349,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/projects/nyami.jpg",
+      "target": "public/img/mizuki/projects/nyami.jpg",
+      "sourceSha256": "1a9eebe6de62310320cea236c9522e24a863f5ee77f0adc94b7222118abc2638",
+      "targetSha256": "1a9eebe6de62310320cea236c9522e24a863f5ee77f0adc94b7222118abc2638",
+      "bytes": 204877,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/projects/qk.jpg",
+      "target": "public/img/mizuki/projects/qk.jpg",
+      "sourceSha256": "ab4f4876233d9ffb441a06342374b03bc5e52a2cebfc0056b8385afb2f07d9fc",
+      "targetSha256": "ab4f4876233d9ffb441a06342374b03bc5e52a2cebfc0056b8385afb2f07d9fc",
+      "bytes": 116324,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/projects/wls.png",
+      "target": "public/img/mizuki/projects/wls.png",
+      "sourceSha256": "22a1a9d15e1e02afd0f5e7b9e60677d6855f85948546e1be3b82ec771ad7dd3f",
+      "targetSha256": "22a1a9d15e1e02afd0f5e7b9e60677d6855f85948546e1be3b82ec771ad7dd3f",
+      "bytes": 726172,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/projects/worewolf.jpg",
+      "target": "public/img/mizuki/projects/worewolf.jpg",
+      "sourceSha256": "ec46dfbd0ca6013345468f86d07c4c2c0fb4fd0029e2a16e4eddd955a760533e",
+      "targetSha256": "ec46dfbd0ca6013345468f86d07c4c2c0fb4fd0029e2a16e4eddd955a760533e",
+      "bytes": 223874,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/1.png",
+      "target": "public/img/mizuki/backgrounds/1.png",
+      "sourceSha256": "ff6c1e425ff672551a4084690dd053192b36855e84001c20e1498025eb1a8980",
+      "targetSha256": "ff6c1e425ff672551a4084690dd053192b36855e84001c20e1498025eb1a8980",
+      "bytes": 6163355,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/2.png",
+      "target": "public/img/mizuki/backgrounds/2.png",
+      "sourceSha256": "ee4caad700e741fed773295512e13e7b967be0623a6938065788c08f77cad066",
+      "targetSha256": "ee4caad700e741fed773295512e13e7b967be0623a6938065788c08f77cad066",
+      "bytes": 3829949,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/3.png",
+      "target": "public/img/mizuki/backgrounds/3.png",
+      "sourceSha256": "907acbb413b35c415db45b822bb2f53ee90daf9736152a11d0167f119a5215ce",
+      "targetSha256": "907acbb413b35c415db45b822bb2f53ee90daf9736152a11d0167f119a5215ce",
+      "bytes": 3280440,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/4.png",
+      "target": "public/img/mizuki/backgrounds/4.png",
+      "sourceSha256": "1371e03e8a5c3bf4fcd0a92ccc3d20b8ca7764f288fb38c6c83aec200b2bb06b",
+      "targetSha256": "1371e03e8a5c3bf4fcd0a92ccc3d20b8ca7764f288fb38c6c83aec200b2bb06b",
+      "bytes": 5709065,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/5.png",
+      "target": "public/img/mizuki/backgrounds/5.png",
+      "sourceSha256": "2ecbebf275831329e43d8aca135d454e910509fe6c1300006addd9d9636163e2",
+      "targetSha256": "2ecbebf275831329e43d8aca135d454e910509fe6c1300006addd9d9636163e2",
+      "bytes": 3660923,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "target": "public/img/mizuki/backgrounds/6.png",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "targetSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "bytes": 4750201,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/7.png",
+      "target": "public/img/mizuki/backgrounds/7.png",
+      "sourceSha256": "6ec6476c4ffa9563d7a6942840be0341e0cd2c28923018ba4621073aa336fd2e",
+      "targetSha256": "6ec6476c4ffa9563d7a6942840be0341e0cd2c28923018ba4621073aa336fd2e",
+      "bytes": 3744959,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/8.png",
+      "target": "public/img/mizuki/backgrounds/8.png",
+      "sourceSha256": "ce64a9b74b419fedca63e007dc36ca0cb4c9bfc0843f8157f096f604b85225b7",
+      "targetSha256": "ce64a9b74b419fedca63e007dc36ca0cb4c9bfc0843f8157f096f604b85225b7",
+      "bytes": 7352156,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/9.png",
+      "target": "public/img/mizuki/backgrounds/9.png",
+      "sourceSha256": "9790b9695544b2b8a47c67a5ec45c2cfa3d192b4e4460f49195ea9aaaa04a265",
+      "targetSha256": "9790b9695544b2b8a47c67a5ec45c2cfa3d192b4e4460f49195ea9aaaa04a265",
+      "bytes": 6128627,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/10.png",
+      "target": "public/img/mizuki/backgrounds/10.png",
+      "sourceSha256": "c07f9271d0d41079a0f3d869d2b27a995391f7243c1b1bef7e0d762caca9b716",
+      "targetSha256": "c07f9271d0d41079a0f3d869d2b27a995391f7243c1b1bef7e0d762caca9b716",
+      "bytes": 5876321,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/11.png",
+      "target": "public/img/mizuki/backgrounds/11.png",
+      "sourceSha256": "8b60ffd85a328558dc1dde1a91bc796d6918372850bea80aed27f52f763aa1a3",
+      "targetSha256": "8b60ffd85a328558dc1dde1a91bc796d6918372850bea80aed27f52f763aa1a3",
+      "bytes": 4262115,
+      "exactCopy": true
+    },
+    {
+      "source": "public/assets/desktop-banner/12.jpg",
+      "target": "public/img/mizuki/backgrounds/12.jpg",
+      "sourceSha256": "c259ed03fdb0f1e0b3c2fbbd8c9049c9d9f7b8f51738e7b837032b67a8decc8e",
+      "targetSha256": "c259ed03fdb0f1e0b3c2fbbd8c9049c9d9f7b8f51738e7b837032b67a8decc8e",
+      "bytes": 3124131,
+      "exactCopy": true
+    },
+    {
+      "source": "src/assets/images/avatar.webp",
+      "target": "public/img/mizuki/avatar.jpg",
+      "sourceSha256": "f9b401f995edcd1d50649cd4029174609cb85b163e90046c1b97e52e4e6f09ca",
+      "targetSha256": "f9b401f995edcd1d50649cd4029174609cb85b163e90046c1b97e52e4e6f09ca",
+      "bytes": 88299,
+      "exactCopy": true,
+      "note": "JPEG bytes stored with a .webp extension in source; destination uses .jpg to match actual format."
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "target": "public/img/site_header_800.webp",
+      "targetSha256": "b7718a8e31414ff2ca44d093c18ea18c516a4ea284a86ed2f3d415721990c148",
+      "bytes": 88660,
+      "width": 800,
+      "height": 448,
+      "converted": true
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "target": "public/img/site_header_1200.webp",
+      "targetSha256": "a25aa56175857244f03d6329eafdf788e91858b9810627420542b12f62d28e0f",
+      "bytes": 166734,
+      "width": 1200,
+      "height": 672,
+      "converted": true
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "target": "public/img/site_header_1600.webp",
+      "targetSha256": "75052fc65cff0d628ed32870bdb5cdc4ee2bd60c4146283fbdd3d870ab4c1c69",
+      "bytes": 247338,
+      "width": 1600,
+      "height": 896,
+      "converted": true
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "target": "public/img/site_header_1920.webp",
+      "targetSha256": "25262b1a7c955a297c1e729e337afae180ff9271181c62172afcc067f70a4dd1",
+      "bytes": 316494,
+      "width": 1928,
+      "height": 1080,
+      "converted": true
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "target": "public/img/mizuki/carousel/6-800.webp",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "targetSha256": "b82dc25fba9cb5086a25e9bba7047f65fa7c7f250d6d690be36dd3de59c7adb1",
+      "bytes": 80782,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/6.png",
+      "target": "public/img/mizuki/carousel/6-1920.webp",
+      "sourceSha256": "53047c89efb97f390c938d14a51dedff90b3f401d78247005f3ac57a1b71165e",
+      "targetSha256": "16d46893cae2ae774202f31edd54ea9b2727d826530b03ee5de089c9c054bdc8",
+      "bytes": 279930,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/9.png",
+      "target": "public/img/mizuki/carousel/9-800.webp",
+      "sourceSha256": "9790b9695544b2b8a47c67a5ec45c2cfa3d192b4e4460f49195ea9aaaa04a265",
+      "targetSha256": "e6d332b97bbb38fbed675d6decbe09ea055407da5417f2a80d5e966c53a3d537",
+      "bytes": 43902,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/9.png",
+      "target": "public/img/mizuki/carousel/9-1920.webp",
+      "sourceSha256": "9790b9695544b2b8a47c67a5ec45c2cfa3d192b4e4460f49195ea9aaaa04a265",
+      "targetSha256": "e803e1923e91a05ebc174683eb4cac529de4863b2913877b63e6c8210f6211db",
+      "bytes": 261726,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/5.png",
+      "target": "public/img/mizuki/carousel/5-800.webp",
+      "sourceSha256": "2ecbebf275831329e43d8aca135d454e910509fe6c1300006addd9d9636163e2",
+      "targetSha256": "8c036d504e9fe5b0c293bc87454110403db92d0eb71f6bd565c33f100b5a49a7",
+      "bytes": 51012,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/5.png",
+      "target": "public/img/mizuki/carousel/5-1920.webp",
+      "sourceSha256": "2ecbebf275831329e43d8aca135d454e910509fe6c1300006addd9d9636163e2",
+      "targetSha256": "df22769ce34e23a3212d346ebb8b0f0e6e0cfea21a17505ca765065fd15d3c65",
+      "bytes": 156802,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/4.png",
+      "target": "public/img/mizuki/carousel/4-800.webp",
+      "sourceSha256": "1371e03e8a5c3bf4fcd0a92ccc3d20b8ca7764f288fb38c6c83aec200b2bb06b",
+      "targetSha256": "0d178d9a6a2bb8d34e5d7012e74d57165cfd8835484884bc54037b6387843a71",
+      "bytes": 74942,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/4.png",
+      "target": "public/img/mizuki/carousel/4-1920.webp",
+      "sourceSha256": "1371e03e8a5c3bf4fcd0a92ccc3d20b8ca7764f288fb38c6c83aec200b2bb06b",
+      "targetSha256": "73f00b43622ecf9365f0dc4a23e85701555a80d50d0b834e882f242b54ab0e8c",
+      "bytes": 319440,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/8.png",
+      "target": "public/img/mizuki/carousel/8-800.webp",
+      "sourceSha256": "ce64a9b74b419fedca63e007dc36ca0cb4c9bfc0843f8157f096f604b85225b7",
+      "targetSha256": "bd0b7e356e61b5fae0b512f20580b36027d2a8a5fa2e952a65635e58d6f71e89",
+      "bytes": 85120,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/8.png",
+      "target": "public/img/mizuki/carousel/8-1920.webp",
+      "sourceSha256": "ce64a9b74b419fedca63e007dc36ca0cb4c9bfc0843f8157f096f604b85225b7",
+      "targetSha256": "931355476b18bceee02bf667547711612ad12dcd09b1617f35f4d7eeab3daf9c",
+      "bytes": 378272,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/7.png",
+      "target": "public/img/mizuki/carousel/7-800.webp",
+      "sourceSha256": "6ec6476c4ffa9563d7a6942840be0341e0cd2c28923018ba4621073aa336fd2e",
+      "targetSha256": "7399ed4d1f8d64cf85432407249b70442b5eee5c3d5229d44a331d0fb9cc6fff",
+      "bytes": 32302,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/7.png",
+      "target": "public/img/mizuki/carousel/7-1920.webp",
+      "sourceSha256": "6ec6476c4ffa9563d7a6942840be0341e0cd2c28923018ba4621073aa336fd2e",
+      "targetSha256": "a8f07464559d3893821645a360bde107e6ef6b68535d219177022cf005f7a3a5",
+      "bytes": 110228,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/11.png",
+      "target": "public/img/mizuki/carousel/11-800.webp",
+      "sourceSha256": "8b60ffd85a328558dc1dde1a91bc796d6918372850bea80aed27f52f763aa1a3",
+      "targetSha256": "02806b8898fb4e59fcc84b1eae61457c554cc28a6e07a3393b214747f811afa6",
+      "bytes": 53436,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/11.png",
+      "target": "public/img/mizuki/carousel/11-1920.webp",
+      "sourceSha256": "8b60ffd85a328558dc1dde1a91bc796d6918372850bea80aed27f52f763aa1a3",
+      "targetSha256": "ef724cdb686b2cad61a1cc28f302673230a611719e597b25af17cf314d407332",
+      "bytes": 184504,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/10.png",
+      "target": "public/img/mizuki/carousel/10-800.webp",
+      "sourceSha256": "c07f9271d0d41079a0f3d869d2b27a995391f7243c1b1bef7e0d762caca9b716",
+      "targetSha256": "526316706001c4e9c7ac8cb994a3cb61eab643f52de0c5ed573f35fdb2154ebe",
+      "bytes": 111324,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/10.png",
+      "target": "public/img/mizuki/carousel/10-1920.webp",
+      "sourceSha256": "c07f9271d0d41079a0f3d869d2b27a995391f7243c1b1bef7e0d762caca9b716",
+      "targetSha256": "e53506372dc9be654b936079c9fa42e87f0ab03da3486fd8a7c628c5ebb425a0",
+      "bytes": 432748,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/3.png",
+      "target": "public/img/mizuki/carousel/3-800.webp",
+      "sourceSha256": "907acbb413b35c415db45b822bb2f53ee90daf9736152a11d0167f119a5215ce",
+      "targetSha256": "29e7e7deeb21eb25dc1c88fc5b06f4c337a6f8ac4eb64f3d5b969107a5c0eb8d",
+      "bytes": 42308,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/3.png",
+      "target": "public/img/mizuki/carousel/3-1920.webp",
+      "sourceSha256": "907acbb413b35c415db45b822bb2f53ee90daf9736152a11d0167f119a5215ce",
+      "targetSha256": "bbc29ecb1ed00351328f04897e1beae1843a93c72654a195d8f5ced895ad23c3",
+      "bytes": 128778,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/12.jpg",
+      "target": "public/img/mizuki/carousel/12-800.webp",
+      "sourceSha256": "c259ed03fdb0f1e0b3c2fbbd8c9049c9d9f7b8f51738e7b837032b67a8decc8e",
+      "targetSha256": "4ca9f624486c77cdad7045ba89ec49ed927d5f2344d94ba66373a26ff0921aad",
+      "bytes": 56722,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/12.jpg",
+      "target": "public/img/mizuki/carousel/12-1920.webp",
+      "sourceSha256": "c259ed03fdb0f1e0b3c2fbbd8c9049c9d9f7b8f51738e7b837032b67a8decc8e",
+      "targetSha256": "8fb0cdd632bff770107efd70ec863b062e91e91d6250a1f743dc146f51cf319f",
+      "bytes": 208326,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/1.png",
+      "target": "public/img/mizuki/carousel/1-800.webp",
+      "sourceSha256": "ff6c1e425ff672551a4084690dd053192b36855e84001c20e1498025eb1a8980",
+      "targetSha256": "99f6df78b7484849bef1025ec70e66897f0fe28a867c66a689957f28671fced2",
+      "bytes": 105808,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/1.png",
+      "target": "public/img/mizuki/carousel/1-1920.webp",
+      "sourceSha256": "ff6c1e425ff672551a4084690dd053192b36855e84001c20e1498025eb1a8980",
+      "targetSha256": "c77f74a86a836dd5db5983c973e22d6321af1b057e61cdb5b38d8006504f4567",
+      "bytes": 585740,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/2.png",
+      "target": "public/img/mizuki/carousel/2-800.webp",
+      "sourceSha256": "ee4caad700e741fed773295512e13e7b967be0623a6938065788c08f77cad066",
+      "targetSha256": "cf7a3ec1882ff0d2dbfe3af5d0cef6e740424f6821c6b3a3ddad78c5935a966e",
+      "bytes": 60470,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 800,
+        "quality": 82
+      }
+    },
+    {
+      "source": "public/assets/desktop-banner/2.png",
+      "target": "public/img/mizuki/carousel/2-1920.webp",
+      "sourceSha256": "ee4caad700e741fed773295512e13e7b967be0623a6938065788c08f77cad066",
+      "targetSha256": "5b41ba1ecb2aa17d9a4328faa9c28cfaa737b872987864dc788fb2135d818971",
+      "bytes": 224350,
+      "exactCopy": false,
+      "transformation": {
+        "format": "webp",
+        "width": 1920,
+        "quality": 82
+      }
+    },
+    {
+      "source": "user-provided/Yilena.png",
+      "sourceKind": "attachment",
+      "target": "public/img/yilena-logo.png",
+      "sourceSha256": "15c814756f30180f072ba577636602da746c387a8c08fc0859e306431adb67c2",
+      "targetSha256": "15c814756f30180f072ba577636602da746c387a8c08fc0859e306431adb67c2",
+      "bytes": 1497954,
+      "exactCopy": true
+    }
+  ],
+  "adjustments": [
+    {
+      "date": "2026-10-27",
+      "change": "按照用户要求取消全部文章置顶，文章正文和原始source哈希不变。"
+    }
+  ]
+}
