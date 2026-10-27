@@ -1,146 +1,189 @@
 ---
-import FooterAnnouncementEntry from '@components/announcement/FooterAnnouncementEntry';
+import SakuraSVG from '@components/svg/SakuraSvg';
 import { MAX_WIDTH } from '@constants/layout';
-import { icpConfig, siteConfig, umamiSiteStatsConfig } from '@constants/site-config';
-import { getSiteStats } from '@lib/stats';
+import { icpConfig, siteConfig } from '@constants/site-config';
+import { identityConfig } from '@lib/config/site';
 import { cn } from '@lib/utils';
-import { Icon } from 'astro-icon/components';
-import UmamiPVSpan from '@/components/umami/UmamiPVSpan';
-import { getLocaleFromUrl, t } from '@/i18n';
-import SakuraSVG from '../svg/SakuraSvg';
+import { getLocaleFromUrl, localizedPath } from '@/i18n';
 
 interface Props {
   className?: string;
 }
-
 const { className } = Astro.props;
-
 const locale = getLocaleFromUrl(Astro.url.pathname);
-const stats = await getSiteStats();
 const currentYear = new Date().getFullYear();
-const startYear = siteConfig?.startYear ?? currentYear;
+const startYear = siteConfig.startYear ?? currentYear;
+const messageParts = identityConfig.footerMessage.split(/([♥❤]️?)/u);
 ---
-
-<footer class={cn('mt-auto pb-6', className)}>
-  <div class={cn('mx-auto flex flex-col items-center gap-3 px-6 md:pb-10 md:px-3', MAX_WIDTH.content)}>
-    <!-- Announcements Entry -->
-    <FooterAnnouncementEntry client:idle />
-
-    <!-- Site Stats -->
-    <div class="text-muted-foreground flex flex-wrap items-center justify-center gap-6 text-sm md:gap-4">
-      <button class="flex items-center gap-2 opacity-75 transition-opacity duration-300 hover:opacity-100" title={t(locale, 'footer.totalWordsTitle')}>
-        <Icon name="ri:file-text-line" class="h-4 w-4" />
-        <span class="font-medium">{stats.formattedWords}</span>
-        <span class="text-xs">{t(locale, 'footer.wordUnit')}</span>
-      </button>
-
-      <div class="bg-muted-foreground/30 h-4 w-px"></div>
-
-      <button class="flex items-center gap-2 opacity-75 transition-opacity duration-300 hover:opacity-100" title={t(locale, 'footer.readingTimeTitle')}>
-        <Icon name="ri:time-line" class="h-4 w-4" />
-        <span class="font-medium">{stats.formattedTime}</span>
-      </button>
-
-      <div class="bg-muted-foreground/30 h-4 w-px"></div>
-
-      <button class="flex items-center gap-2 opacity-75 transition-opacity duration-300 hover:opacity-100" title={t(locale, 'footer.postCountTitle')}>
-        <Icon name="ri:article-line" class="h-4 w-4" />
-        <span class="font-medium">{stats.postCount}</span>
-        <span class="text-xs">{t(locale, 'footer.postUnit')}</span>
-      </button>
-
-      {umamiSiteStatsConfig && (
-        <>
-          <div class="bg-muted-foreground/30 h-4 w-px"></div>
-          <div class="flex items-center gap-2 opacity-75 transition-opacity duration-300 hover:opacity-100" title={t(locale, 'stats.pageviews')}>
-            <Icon name="ri:eye-line" class="h-4 w-4" />
-            <span class="font-medium"><UmamiPVSpan client:visible statsConfig={umamiSiteStatsConfig} /></span>
-            <span class="text-xs">{t(locale, 'stats.pageviews')}</span>
-          </div>
-        </>
-      )}
-
+<footer class={cn('site-footer mt-auto px-5 pt-14 pb-10 tablet:pb-24', className)}>
+  <div class={cn('mx-auto flex flex-col items-center gap-5 text-center', MAX_WIDTH.content)}>
+    <animated-footer class="footer-motto-wrap">
+      <span class="footer-petal footer-petal-first" aria-hidden="true"><SakuraSVG /></span>
+      <span class="footer-petal footer-petal-last" aria-hidden="true"><SakuraSVG /></span>
+      <p class="footer-motto text-xl font-semibold leading-relaxed">
+        <span class="sr-only">{identityConfig.footerMessage}</span>
+        <span aria-hidden="true">{messageParts.map((part) => <span class={/[♥❤]/u.test(part) ? 'footer-heart' : 'footer-shine'}>{part}</span>)}</span>
+      </p>
+      <button type="button" class="footer-motion-toggle" data-footer-toggle hidden aria-label="暂停页尾动画" aria-pressed="false" title="暂停页尾动画"><span aria-hidden="true">Ⅱ</span></button>
+    </animated-footer>
+    <div class="text-muted-foreground flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-sm">
+      <span>© {startYear}{startYear !== currentYear ? `–${currentYear}` : ''} {siteConfig.name}. All Rights Reserved.</span>
+      <nav aria-label="订阅与网站地图" class="flex flex-wrap items-center justify-center gap-3">
+        <a href={localizedPath('/rss.xml', locale)} class="footer-link">RSS</a>
+        <span aria-hidden="true">/</span>
+        <a href={localizedPath('/atom.xml', locale)} class="footer-link">Atom</a>
+        <span aria-hidden="true">/</span>
+        <a href="/sitemap-index.xml" class="footer-link">Sitemap</a>
+      </nav>
     </div>
-
-    <!-- Copyright -->
-    <div class="text-muted-foreground flex items-center gap-0.5 text-sm">
-      <span class="opacity-75">©</span>
-      <span class="font-medium opacity-75">{startYear}</span>
-      {
-        startYear !== currentYear && (
-          <>
-            <span class="opacity-50">-</span>
-            <span class="font-medium opacity-75" itemprop="copyrightYear">
-              {currentYear}
-            </span>
-          </>
-        )
-      }
-      <SakuraSVG className="mx-1 size-5 animate-spin text-[#FFC0CB] duration-10000" />
-      <span class="author font-medium opacity-75" itemprop="copyrightHolder">
-        {siteConfig.name}
-        {siteConfig?.alternate ? `@${siteConfig.alternate}` : ''}
-      </span>
-    </div>
-
-    <!-- ICP Filing -->
-    {icpConfig && (
-      <div class="text-muted-foreground/80 text-xs">
-        {icpConfig.link ? (
-          <a href={icpConfig.link} target="_blank" rel="noopener noreferrer" class="footer-link font-medium">
-            {icpConfig.text}
-          </a>
-        ) : (
-          <span class="opacity-75">{icpConfig.text}</span>
-        )}
-      </div>
-    )}
-
-    <!-- Powered By -->
-    <div class="text-muted-foreground/80 flex items-center gap-2 text-xs">
-      <span class="opacity-75">Powered by theme</span>
-      <a
-        href="https://github.com/cosZone/astro-koharu"
-        target="_blank"
-        class="footer-link font-medium transition-all duration-300"
-      >
-        astro-koharu
-      </a>
-      <span class="opacity-50">·</span>
-      <span class="opacity-75">Inspired by</span>
-      <a
-        href="https://github.com/amehime/hexo-theme-shoka"
-        target="_blank"
-        class="footer-link font-medium transition-all duration-300"
-      >
-        Shoka
-      </a>
-    </div>
+    {icpConfig && <p class="text-muted-foreground text-sm">{icpConfig.link ? <a href={icpConfig.link} target="_blank" rel="noopener noreferrer" class="footer-link">{icpConfig.text}</a> : icpConfig.text}</p>}
   </div>
 </footer>
 
+<script>
+  import { readMotionLevel, subscribeMotionLevel } from '@lib/motion-level';
+
+  class AnimatedFooter extends HTMLElement {
+    private abort?: AbortController;
+    private observer?: IntersectionObserver;
+    private unsubscribe?: () => void;
+    private inView = false;
+    private paused = false;
+
+    connectedCallback() {
+      this.disconnectedCallback();
+      this.abort = new AbortController();
+      const { signal } = this.abort;
+      const button = this.querySelector<HTMLButtonElement>('[data-footer-toggle]');
+      button?.removeAttribute('hidden');
+      button?.addEventListener('click', () => {
+        this.paused = !this.paused;
+        this.sync();
+      }, { signal });
+      document.addEventListener('visibilitychange', () => this.sync(), { signal });
+      document.addEventListener('astro:before-swap', () => this.disconnectedCallback(), { signal });
+      this.unsubscribe = subscribeMotionLevel(() => this.sync());
+      if (typeof IntersectionObserver === 'undefined') {
+        this.inView = true;
+      } else {
+        this.inView = false;
+        this.observer = new IntersectionObserver(([entry]) => {
+          if (signal.aborted) return;
+          this.inView = entry.isIntersecting;
+          this.sync();
+        });
+        this.observer.observe(this);
+      }
+      this.sync();
+    }
+
+    private sync() {
+      if (!this.isConnected || this.abort?.signal.aborted) return;
+      const reduced = readMotionLevel() === 'reduced';
+      this.toggleAttribute('data-playing', !reduced && !this.paused && this.inView && !document.hidden);
+      this.toggleAttribute('data-reduced', reduced);
+      const button = this.querySelector<HTMLButtonElement>('[data-footer-toggle]');
+      if (!button) return;
+      const label = reduced ? '减少动效模式已关闭页尾动画' : this.paused ? '继续页尾动画' : '暂停页尾动画';
+      button.disabled = reduced;
+      button.setAttribute('aria-pressed', String(reduced || this.paused));
+      button.setAttribute('aria-label', label);
+      button.title = label;
+      const symbol = button.querySelector('span');
+      if (symbol) symbol.textContent = reduced || this.paused ? '▶' : 'Ⅱ';
+    }
+
+    disconnectedCallback() {
+      this.abort?.abort();
+      this.observer?.disconnect();
+      this.unsubscribe?.();
+      this.unsubscribe = undefined;
+      this.removeAttribute('data-playing');
+    }
+  }
+
+  if (!customElements.get('animated-footer')) customElements.define('animated-footer', AnimatedFooter);
+</script>
+
 <style>
-  .footer-link {
-    opacity: 0.75;
+  .footer-motto-wrap {
+    --footer-play-state: paused;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 1.25rem 2.5rem;
   }
-
-  .footer-link:hover {
-    opacity: 1;
+  .footer-motto-wrap[data-playing] { --footer-play-state: running; }
+  .footer-motto { color: hsl(var(--primary)); letter-spacing: .08em; text-wrap: balance; }
+  .footer-shine {
+    background: linear-gradient(100deg, #c44265 0%, #bd5080 20%, #337a8b 40%, #c44265 60%, #bd5080 80%, #337a8b 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    color: transparent;
+    animation: footer-shine 4s linear infinite;
+    animation-play-state: var(--footer-play-state);
   }
-
-  .footer-link::after {
-    content: '';
+  :global(.dark) .footer-shine {
+    background-image: linear-gradient(100deg, #ff91ab 0%, #efa2cb 20%, #88dce4 40%, #ff91ab 60%, #efa2cb 80%, #88dce4 100%);
+  }
+  .footer-heart {
+    display: inline-block;
+    margin-inline: .25em;
+    color: #e95473;
+    text-shadow: 0 0 12px #ff6b8180;
+    animation: footer-heartbeat 1.5s ease-in-out infinite;
+    animation-play-state: var(--footer-play-state);
+  }
+  .footer-petal {
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.3s ease;
+    width: 1rem;
+    height: 1rem;
+    color: #ed87a0;
+    opacity: .3;
+    pointer-events: none;
+    animation: footer-petal-float 6s ease-in-out infinite alternate;
+    animation-play-state: var(--footer-play-state);
   }
-
-  .footer-link:hover::after {
-    width: 100%;
+  .footer-petal-first { top: .15rem; left: 6%; }
+  .footer-petal-last { right: 8%; bottom: .1rem; animation-duration: 8s; animation-delay: -3s; }
+  .footer-motion-toggle {
+    position: absolute;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    color: hsl(var(--muted-foreground));
+    background: hsl(var(--primary) / .06);
+    font-size: .75rem;
+    cursor: pointer;
+  }
+  .footer-motion-toggle[hidden] { display: none; }
+  .footer-motion-toggle:hover { color: hsl(var(--primary)); background: hsl(var(--primary) / .12); }
+  .footer-motion-toggle:disabled { opacity: .5; cursor: default; }
+  .footer-link { color: color-mix(in srgb, hsl(var(--primary)) 50%, hsl(var(--foreground))); text-underline-offset: .25em; }
+  .footer-link:hover { text-decoration: underline; }
+  .footer-link:focus-visible, .footer-motion-toggle:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 4px;
+    border-radius: .25rem;
+  }
+  [data-reduced] :is(.footer-shine, .footer-heart, .footer-petal) { animation: none; }
+  [data-reduced] .footer-shine { background: none; color: hsl(var(--primary)); }
+  [data-reduced] .footer-heart { text-shadow: none; }
+  :global(html[data-motion='subtle']) .footer-petal { animation: none; }
+  :global(html[data-motion='subtle']) .footer-heart { animation-duration: 3s; }
+  @keyframes footer-shine { to { background-position: 200% center; } }
+  @keyframes footer-heartbeat { 50% { transform: scale(1.2); text-shadow: 0 0 16px #ff6b81a0; } }
+  @keyframes footer-petal-float {
+    to { transform: translate(1rem, -.625rem) rotate(45deg); opacity: .5; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer-shine, .footer-heart, .footer-petal { animation: none; }
+    .footer-heart { text-shadow: none; }
   }
 </style>

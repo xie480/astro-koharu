@@ -71,16 +71,24 @@
 :is(*, #\#):is(*, #\#):is(*, #\#) .search-dialog .pf-searchbox-input {
   padding-inline: 3rem 5rem;
   border: 0;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+  /* Replace Pagefind's browser-blue focus outline with the themed header underline. */
+  outline: none;
   caret-color: hsl(var(--primary));
   transition: border-color 200ms var(--ease-out-quart);
 }
 
 :is(*, #\#):is(*, #\#):is(*, #\#) .search-dialog .pf-searchbox.open .pf-searchbox-input {
   border-bottom-color: color-mix(in oklab, currentColor 10%, transparent);
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .search-dialog .pf-searchbox .pf-searchbox-input:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: hsl(var(--badge-primary));
 }
 
 :is(*, #\#):is(*, #\#):is(*, #\#) .search-dialog .pf-searchbox-dropdown {
