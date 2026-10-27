@@ -183,6 +183,7 @@ export default function ImageLightbox() {
                 ref={setImageRef}
                 data-lightbox-image=""
                 src={data.src}
+                referrerPolicy="no-referrer"
                 alt={data.alt}
                 draggable={false}
                 className="max-w-none origin-center rounded-lg object-contain shadow-2xl outline outline-1 outline-white/10"

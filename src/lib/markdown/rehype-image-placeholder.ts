@@ -14,6 +14,12 @@ export function rehypeImagePlaceholder() {
       // The deployment badge allows CORS; omit credentials so its response cannot set third-party cookies.
       if (node.properties.src === 'https://vercel.com/button') node.properties.crossOrigin = 'anonymous';
 
+      // External hosts such as CSDN reject hotlinked images when the blog is sent as Referer.
+      // Apply this before wrapper checks so linked images and authored figures get the same first request.
+      if (typeof node.properties.src === 'string' && /^(?:https?:)?\/\//i.test(node.properties.src)) {
+        node.properties.referrerPolicy ??= 'no-referrer';
+      }
+
       // Skip if already wrapped (e.g., in a figure or custom component)
       if (parent.type === 'element' && parent.tagName === 'figure') return;
 

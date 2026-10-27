@@ -11,11 +11,13 @@ interface Props extends HTMLAttributes<'img'> {
 
 const { src, alt, maxWidth = 1600, ...attributes } = Astro.props;
 const image = await resolveResponsiveImage(src, maxWidth);
+const referrerPolicy = attributes.referrerpolicy ?? (/^(?:https?:)?\/\//i.test(src) ? 'no-referrer' : undefined);
 ---
 
 {image ? (
   <Picture
     {...attributes}
+    referrerpolicy={referrerPolicy}
     src={image.src}
     alt={alt}
     width={image.width}
@@ -26,4 +28,4 @@ const image = await resolveResponsiveImage(src, maxWidth);
     quality={responsiveImageQuality}
     pictureAttributes={{ class: 'contents' }}
   />
-) : <img {...attributes} src={src} alt={alt} />}
+) : <img {...attributes} referrerpolicy={referrerPolicy} src={src} alt={alt} />}

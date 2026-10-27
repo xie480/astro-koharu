@@ -98,6 +98,8 @@ export function remarkLinkEmbed(options: RemarkLinkEmbedOptions = {}) {
       });
     });
 
+    if (candidates.length === 0) return;
+
     const htmlValues = await Promise.all(candidates.map(renderEmbed));
 
     // Flush once per markdown file; the cache merges with disk so parallel

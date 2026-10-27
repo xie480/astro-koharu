@@ -82,7 +82,16 @@ const titleMorph = postTitleMorphName(slug);
       lqipProps.class,
     )}
   >
-    <ResponsiveImage src={finalCover} maxWidth={800} sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 992px) 40vw, 400px" loading="lazy" decoding="async" alt="" class="h-full w-full cursor-pointer object-cover" />
+    <ResponsiveImage
+      src={finalCover}
+      maxWidth={800}
+      sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 992px) 40vw, 400px"
+      loading="lazy"
+      decoding="async"
+      referrerpolicy="no-referrer"
+      alt=""
+      class="h-full w-full cursor-pointer object-cover"
+    />
   </a>
   <div
     class={cn(

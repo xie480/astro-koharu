@@ -18,6 +18,16 @@ export interface MarkdownNode {
   children?: Array<{ type: string; url?: string; value?: string; children?: Array<{ type: string; value?: string }> }>;
 }
 
+/** Only absolute web URLs are eligible for build-time embeds; anchors stay normal Markdown links. */
+function parseHttpUrl(value: string): URL | null {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url : null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Extract Tweet ID from Twitter/X URL
  * Supports formats:
@@ -27,22 +37,18 @@ export interface MarkdownNode {
  * - With query parameters
  */
 export function extractTweetId(url: string): string | null {
-  try {
-    const urlObj = new URL(url);
-    const hostname = urlObj.hostname.toLowerCase();
+  const urlObj = parseHttpUrl(url);
+  if (!urlObj) return null;
+  const hostname = urlObj.hostname.toLowerCase();
 
-    // Check if it's a Twitter/X domain
-    if (!['twitter.com', 'www.twitter.com', 'x.com', 'www.x.com'].includes(hostname)) {
-      return null;
-    }
-
-    // Match status ID from path
-    const match = urlObj.pathname.match(/\/status\/(\d+)/);
-    return match ? match[1] : null;
-  } catch (error) {
-    console.warn('[Link Utils] Failed to parse URL:', url, error);
+  // Check if it's a Twitter/X domain
+  if (!['twitter.com', 'www.twitter.com', 'x.com', 'www.x.com'].includes(hostname)) {
     return null;
   }
+
+  // Match status ID from path
+  const match = urlObj.pathname.match(/\/status\/(\d+)/);
+  return match ? match[1] : null;
 }
 
 /**
@@ -54,30 +60,18 @@ export function extractTweetId(url: string): string | null {
  * - With query parameters or hash
  */
 export function extractCodePenId(url: string): { user: string; penId: string } | null {
-  try {
-    const urlObj = new URL(url);
-    const hostname = urlObj.hostname.toLowerCase();
+  const urlObj = parseHttpUrl(url);
+  if (!urlObj) return null;
+  const hostname = urlObj.hostname.toLowerCase();
 
-    // Check if it's a CodePen domain
-    if (!['codepen.io', 'www.codepen.io'].includes(hostname)) {
-      return null;
-    }
-
-    // Match username and pen ID from path
-    // Format: /username/(pen|details)/penId
-    const match = urlObj.pathname.match(/^\/([^/]+)\/(?:pen|details)\/([^/]+)/);
-    if (match) {
-      return {
-        user: match[1],
-        penId: match[2],
-      };
-    }
-
-    return null;
-  } catch (error) {
-    console.warn('[Link Utils] Failed to parse CodePen URL:', url, error);
+  // Check if it's a CodePen domain
+  if (!['codepen.io', 'www.codepen.io'].includes(hostname)) {
     return null;
   }
+
+  // Format: /username/(pen|details)/penId
+  const match = urlObj.pathname.match(/^\/([^/]+)\/(?:pen|details)\/([^/]+)/);
+  return match ? { user: match[1], penId: match[2] } : null;
 }
 
 /**
@@ -132,6 +126,9 @@ export function isStandaloneLinkParagraph(node: MarkdownNode): boolean {
     return false;
   }
 
+  const url = child.url?.trim() ?? '';
+  if (!parseHttpUrl(url)) return false;
+
   // Check if link text is the same as URL (auto-linked URL)
   // or if link only contains text matching the URL
   if (child.children && child.children.length === 1) {
@@ -139,8 +136,7 @@ export function isStandaloneLinkParagraph(node: MarkdownNode): boolean {
     if (textNode.type === 'text') {
       // Allow the link if text is the URL itself or very similar
       const text = textNode.value?.trim() ?? '';
-      const url = child.url?.trim() ?? '';
-      return text === url || url.endsWith(text) || text.endsWith(url);
+      return text.length > 0 && (text === url || url.endsWith(text) || text.endsWith(url));
     }
   }
 
