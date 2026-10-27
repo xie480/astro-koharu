@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" fill="none">
+  <title>漫画分类的原创示例封面</title>
+  <defs><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#CC706A"/></pattern></defs>
+  <rect width="960" height="600" fill="#F4C4B7"/>
+  <path d="M510 0H960V600H708Z" fill="url(#dots)"/>
+  <g transform="rotate(7 710 270)"><rect x="537" y="66" width="329" height="393" rx="5" fill="#EDAD9D"/><rect x="517" y="47" width="329" height="393" rx="5" fill="#FFF7EA" stroke="#753F42" stroke-width="3"/><path d="M540 223h281M653 71v128M678 71v128M540 344h281" stroke="#753F42" stroke-width="3"/><path d="M559 105h68M559 128h54M559 151h41" stroke="#C9796E" stroke-width="5"/><circle cx="742" cy="131" r="43" fill="#EAC1AF"/><path d="M575 282h91M711 282h66M559 381h127M731 381h65" stroke="#C9796E" stroke-width="5"/></g>
+  <path d="M346 329c0-26 32-46 73-46s73 20 73 46-32 46-73 46h-15l-31 22 6-30c-20-8-33-22-33-38Z" fill="#FFF7EA" stroke="#753F42" stroke-width="3"/>
+  <path d="M394 329h50" stroke="#753F42" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 89h62" stroke="#9E4D4B" stroke-width="3"/>
+  <g fill="#683C42" font-family="Georgia,serif"><text x="76" y="201" font-size="64">One more</text><text x="76" y="271" font-size="64">chapter.</text></g>
+  <text x="80" y="445" fill="#92534F" font-family="Arial,sans-serif" font-size="21" letter-spacing="4">SMALL MOMENTS, BIG STORIES</text>
+  <text x="78" y="536" fill="#683C42" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="38">漫画 · 示例封面</text>
+</svg>

@@ -1,0 +1,21 @@
+---
+import PersonalPageShell from '@components/personal/PersonalPageShell.astro';
+import ProjectCatalog from '@components/personal/ProjectCatalog.astro';
+import { projects } from '@lib/personal';
+import { defaultLocale } from '@/i18n';
+
+interface Props {
+  locale?: string;
+}
+const { locale = defaultLocale } = Astro.props;
+const completed = projects.filter((project) => project.status === 'completed').length;
+---
+
+<PersonalPageShell
+  title="我的项目"
+  description="从一个想法到可以使用的作品，记录我做过的应用、工具与实验。"
+  locale={locale}
+  stats={[{ value: projects.length, label: '个项目' }, { value: completed, label: '个已完成' }]}
+>
+  <ProjectCatalog projects={projects} />
+</PersonalPageShell>

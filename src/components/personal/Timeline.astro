@@ -1,0 +1,135 @@
+---
+import { displayPersonalDate, type TimelineRecord, timelineTypeLabels } from '@lib/personal';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  groups: { year: string; events: TimelineRecord[] }[];
+}
+const { groups } = Astro.props;
+const typeIcons: Record<string, string> = {
+  project: 'ri:code-s-slash-line',
+  education: 'ri:book-open-line',
+  achievement: 'ri:award-line',
+  work: 'ri:briefcase-line',
+};
+---
+
+<personal-timeline>
+<nav class="timeline-year-nav" aria-label="按年份浏览经历">
+  {groups.map(({ year, events }) => <a href={`#timeline-year-${year}`} data-year-link={year}><span>{year}</span><span class="timeline-year-count">{events.length} 段</span><Icon name="ri:arrow-down-line" aria-hidden="true" /></a>)}
+</nav>
+<div class="timeline" data-timeline>
+  <div class="timeline-track" aria-hidden="true"><span data-timeline-progress></span></div>
+  {groups.map(({ year, events }) => <section class="timeline-year" data-year={year} aria-labelledby={`timeline-year-${year}`}>
+    <header class="timeline-year-header"><h2 id={`timeline-year-${year}`}>{year}</h2><span>{events.length} 段经历</span></header>
+    <ol class="timeline-events">
+      {events.map((event) => <li class="timeline-entry" data-event-type={event.type}>
+        <span class="timeline-point" aria-hidden="true"><Icon name={typeIcons[event.type] ?? 'ri:record-circle-line'} /></span>
+        <article class="timeline-event" id={`timeline-${event.id}`}>
+          <header class="timeline-event-header">
+            <div class="timeline-event-heading"><span class="timeline-type">{timelineTypeLabels[event.type] ?? event.type}</span><h3>{event.title}</h3></div>
+            <span class="timeline-emblem" aria-hidden="true"><Icon name={typeIcons[event.type] ?? 'ri:record-circle-line'} /></span>
+          </header>
+          <p class="timeline-date"><Icon name="ri:calendar-line" aria-hidden="true" /><span><time datetime={event.startDate}>{displayPersonalDate(event.startDate)}</time>{event.endDate && <> <span aria-hidden="true">—</span> <time datetime={event.endDate}>{displayPersonalDate(event.endDate)}</time></>}</span></p>
+          {(event.organization || event.position) && <dl class="timeline-context">
+            {event.organization && <div><dt>组织</dt><dd>{event.organization}</dd></div>}
+            {event.position && <div><dt>职位</dt><dd>{event.position}</dd></div>}
+          </dl>}
+          <p class="timeline-description">{event.description}</p>
+          {event.achievements && event.achievements.length > 0 && <details class="timeline-notes" open>
+            <summary><span>经历与收获 <span class="timeline-notes-count">{event.achievements.length} 条</span></span><Icon name="ri:arrow-down-s-line" aria-hidden="true" /></summary>
+            <ul>{event.achievements.map((achievement) => <li>{achievement}</li>)}</ul>
+          </details>}
+          {event.skills && event.skills.length > 0 && <ul class="timeline-skills" aria-label="涉及技能">{event.skills.map((skill) => <li>{skill}</li>)}</ul>}
+          {event.links && event.links.length > 0 && <div class="timeline-links">{event.links.map((link) => <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`${link.name}（新窗口）`}>{link.name}<Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a>)}</div>}
+        </article>
+      </li>)}
+    </ol>
+  </section>)}
+</div>
+</personal-timeline>
+
+<script src="./timeline-motion.ts"></script>
+
+<style>
+  personal-timeline { display: block; }
+  .timeline-year-nav { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 2.5rem; }
+  .timeline-year-nav a { display: flex; align-items: center; gap: 0.625rem; min-height: 48px; padding: 0.5rem 0.875rem; border-radius: 0.625rem; background: hsl(var(--muted)); color: hsl(var(--foreground)); font-weight: 650; font-variant-numeric: tabular-nums; transition: background-color 180ms ease, color 180ms ease; }
+  .timeline-year-count { color: hsl(var(--muted-foreground)); font-size: 0.75rem; font-weight: 400; }
+  .timeline-year-nav a[aria-current], .timeline-year-nav a:hover { background: hsl(var(--primary) / 0.13); color: hsl(var(--badge-primary)); }
+  .timeline-year-nav a:focus-visible, .timeline-links a:focus-visible, .timeline-notes summary:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+  .timeline { position: relative; }
+  .timeline-track { position: absolute; top: 1.5rem; bottom: 1.75rem; left: 1.1875rem; width: 2px; overflow: hidden; background: hsl(var(--primary) / 0.12); }
+  .timeline-track span { display: block; width: 100%; height: 100%; background: hsl(var(--primary)); transform: scaleY(0); transform-origin: top; }
+  .timeline-year + .timeline-year { margin-top: 3rem; }
+  .timeline-year-header { position: relative; display: flex; align-items: baseline; gap: 1rem; margin: 0 0 1.25rem; padding-left: 3.5rem; }
+  .timeline-year-header::before { position: absolute; top: 1.3rem; left: 0.875rem; width: 0.75rem; height: 0.75rem; border: 3px solid hsl(var(--primary)); border-radius: 50%; background: hsl(var(--card)); content: ''; }
+  .timeline-year-header h2 { scroll-margin-top: 7rem; margin: 0; color: hsl(var(--foreground)); font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15; font-weight: 750; font-variant-numeric: tabular-nums; letter-spacing: -0.035em; }
+  .timeline-year-header > span { color: hsl(var(--muted-foreground)); font-size: 0.8125rem; }
+  .timeline-events { margin: 0; padding: 0; list-style: none; }
+  .timeline-entry { --event-accent: hsl(var(--badge-primary)); --event-tint: hsl(var(--primary) / 0.07); position: relative; padding-left: 3.5rem; }
+  .timeline-entry + .timeline-entry { margin-top: 1.5rem; }
+  .timeline-entry[data-event-type='education'] { --event-accent: var(--color-blue); --event-tint: color-mix(in srgb, var(--color-blue) 7%, transparent); }
+  .timeline-entry[data-event-type='achievement'] { --event-accent: var(--color-yellow); --event-tint: color-mix(in srgb, var(--color-yellow) 9%, transparent); }
+  .timeline-entry[data-event-type='work'] { --event-accent: var(--color-green); --event-tint: color-mix(in srgb, var(--color-green) 7%, transparent); }
+  .timeline-point { position: absolute; z-index: 1; top: 1.375rem; left: 0; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 4px solid hsl(var(--card)); border-radius: 50%; background: var(--event-accent); color: hsl(var(--card)); font-size: 1.125rem; }
+  .timeline-event { position: relative; padding: 1.5rem 1.75rem; border-radius: 1.125rem; background: var(--event-tint); overflow-wrap: anywhere; scroll-margin-top: 7rem; }
+  .timeline-entry[data-event-type='project'] .timeline-event { border-top: 3px solid hsl(var(--primary)); }
+  .timeline-entry[data-event-type='education'] .timeline-event { border-left: 3px solid color-mix(in srgb, var(--event-accent) 65%, transparent); border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; }
+  .timeline-entry[data-event-type='achievement'] .timeline-event { border: 2px solid color-mix(in srgb, var(--event-accent) 50%, transparent); }
+  .timeline-event-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .timeline-event-heading { min-width: 0; }
+  .timeline-type { display: inline-flex; align-items: center; gap: 0.375rem; color: hsl(var(--foreground)); font-size: 0.8125rem; font-weight: 650; }
+  .timeline-type::before { width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--event-accent); content: ''; }
+  .timeline-event h3 { margin: 0.5rem 0 0; color: hsl(var(--foreground)); font-size: clamp(1.125rem, 2.5vw, 1.375rem); font-weight: 700; line-height: 1.5; text-wrap: balance; }
+  .timeline-emblem { display: grid; flex-shrink: 0; width: 3.25rem; height: 3.25rem; place-items: center; border-radius: 0.875rem; background: hsl(var(--card)); color: var(--event-accent); font-size: 1.625rem; }
+  .timeline-entry[data-event-type='education'] .timeline-emblem { border-radius: 50%; }
+  .timeline-entry[data-event-type='achievement'] .timeline-emblem { border-radius: 0.5rem 1.25rem; background: var(--event-accent); color: hsl(var(--card)); }
+  .timeline-date { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.75rem 0 1rem; color: hsl(var(--muted-foreground)); font-size: 0.8125rem; line-height: 1.7; font-variant-numeric: tabular-nums; }
+  .timeline-date > :global(svg) { flex-shrink: 0; align-self: center; }
+  .timeline-context { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0 0 1rem; font-size: 0.8125rem; }
+  .timeline-context div { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+  .timeline-context dt { color: hsl(var(--muted-foreground)); }
+  .timeline-context dd { margin: 0; color: hsl(var(--foreground)); }
+  .timeline-description { margin: 0; color: hsl(var(--foreground)); font-size: 0.9375rem; line-height: 1.9; }
+  .timeline-notes { margin-top: 1.25rem; padding: 0 1rem 0.25rem; border-radius: 0.75rem; background: hsl(var(--card) / 0.8); }
+  .timeline-notes summary { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: 48px; padding-block: 0.75rem; border-radius: 0.25rem; color: hsl(var(--foreground)); font-size: 0.8125rem; font-weight: 650; list-style: none; cursor: pointer; }
+  .timeline-notes summary::-webkit-details-marker { display: none; }
+  .timeline-notes summary > :global(svg) { flex-shrink: 0; transition: transform 180ms ease; }
+  .timeline-notes[open] summary > :global(svg) { transform: rotate(180deg); }
+  .timeline-notes-count { margin-left: 0.375rem; color: hsl(var(--muted-foreground)); font-size: 0.75rem; font-weight: 400; }
+  .timeline-notes ul { margin: 0 0 0.75rem; padding-left: 1.125rem; color: hsl(var(--foreground)); font-size: 0.875rem; line-height: 1.9; list-style: disc outside; }
+  .timeline-notes li { display: list-item; padding-left: 0.25rem; }
+  .timeline-notes li + li { margin-top: 0.625rem; }
+  .timeline-notes li::marker { color: var(--event-accent); font-size: 1.1em; }
+  .timeline-skills { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .timeline-skills li { padding: 0.25rem 0.625rem; border-radius: 0.375rem; background: hsl(var(--card) / 0.8); color: hsl(var(--foreground)); font-size: 0.75rem; line-height: 1.5; }
+  .timeline-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: 0.75rem; }
+  .timeline-links a { display: inline-flex; align-items: center; min-height: 44px; gap: 0.375rem; color: hsl(var(--badge-primary)); font-size: 0.8125rem; font-weight: 600; text-decoration: underline; text-decoration-color: hsl(var(--primary) / 0.35); text-underline-offset: 0.3em; transition: text-decoration-color 180ms ease; }
+  .timeline-links a:hover { text-decoration-color: currentColor; }
+  [data-motion-reduced] .timeline-track span { visibility: hidden; }
+  [data-motion-reduced] .timeline-year-nav a, [data-motion-reduced] .timeline-links a, [data-motion-reduced] .timeline-notes summary > :global(svg) { transition: none; }
+  @media (width <= 767px) {
+    .timeline-year-nav { gap: 0.5rem; margin-bottom: 2rem; }
+    .timeline-year-nav a { gap: 0.375rem; padding-inline: 0.625rem; font-size: 0.875rem; }
+    .timeline-year-count { font-size: 0.75rem; }
+    .timeline-track { left: 0.8125rem; }
+    .timeline-year-header { padding-left: 2.5rem; }
+    .timeline-year-header::before { top: 0.875rem; left: 0.5rem; }
+    .timeline-entry { padding-left: 2.5rem; }
+    .timeline-entry + .timeline-entry { margin-top: 1.125rem; }
+    .timeline-point { top: 1.125rem; width: 1.75rem; height: 1.75rem; border-width: 3px; font-size: 0.8125rem; }
+    .timeline-event { padding: 1.125rem; border-radius: 0.875rem; }
+    .timeline-event-header { gap: 0.625rem; }
+    .timeline-emblem { width: 2.5rem; height: 2.5rem; font-size: 1.25rem; }
+    .timeline-type { font-size: 0.75rem; }
+    .timeline-description { font-size: 0.875rem; }
+    .timeline-date { font-size: 0.75rem; }
+    .timeline-notes { padding-inline: 0.875rem; }
+    .timeline-notes ul { font-size: 0.8125rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-track span { visibility: hidden; }
+    .timeline-year-nav a, .timeline-links a, .timeline-notes summary > :global(svg) { transition: none; }
+  }
+</style>

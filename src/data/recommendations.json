@@ -1,0 +1,66 @@
+[
+  {
+    "id": "demo-novel-little-prince",
+    "title": "小王子",
+    "category": "小说",
+    "demo": true,
+    "author": "安托万·德·圣埃克苏佩里",
+    "description": "小说卡片示例：把一段关于相遇与成长的故事放进书架。这里可以写阅读感受、推荐理由，或适合重读它的某个时刻。",
+    "image": "/img/recommendations/demo-novel.svg",
+    "url": "https://www.lepetitprince.com/",
+    "rating": 9.2,
+    "addedAt": "2026-10-27",
+    "order": 1,
+    "tags": ["童话", "成长", "阅读时光"]
+  },
+  {
+    "id": "demo-manga-spy-family",
+    "title": "SPY×FAMILY",
+    "category": "漫画",
+    "demo": true,
+    "author": "远藤达哉",
+    "description": "漫画卡片示例：用几句话记下故事的吸引力，或最想分享的一段日常。标签也可以记录题材、阅读状态和自己的关键词。",
+    "image": "/img/recommendations/demo-manga.svg",
+    "url": "https://www.s-manga.net/items/contents.html?jdcn=08882011882011315501",
+    "rating": 8.7,
+    "addedAt": "2026-10-25",
+    "order": 2,
+    "tags": ["喜剧", "家庭", "漫画书架"]
+  },
+  {
+    "id": "demo-anime-frieren",
+    "title": "葬送的芙莉莲",
+    "category": "番剧",
+    "demo": true,
+    "description": "番剧卡片示例：为一次旅途留下观后记。长一点的感受会自然换行，图片、链接与评分都可以分别填写。",
+    "image": "/img/recommendations/demo-anime.svg",
+    "url": "https://frieren-anime.jp/",
+    "rating": 9.5,
+    "addedAt": "2026-10-23",
+    "order": 3,
+    "tags": ["奇幻", "冒险", "观后记录"]
+  },
+  {
+    "id": "demo-open-source-astro",
+    "title": "Astro",
+    "category": "开源项目",
+    "demo": true,
+    "author": "withastro / astro",
+    "description": "开源项目卡片示例：这里可以记录项目解决的问题、上手体验与值得分享的用法。点击右下角链接可访问官方仓库。",
+    "image": "/img/recommendations/demo-open-source.svg",
+    "url": "https://github.com/withastro/astro",
+    "rating": 9,
+    "addedAt": "2026-10-21",
+    "order": 4,
+    "tags": ["Web", "内容站点", "开发工具"]
+  },
+  {
+    "id": "demo-other-a-little-space",
+    "title": "留给下次心动",
+    "category": "其他",
+    "demo": true,
+    "description": "这是一个虚构的极简条目，用于预览不填写封面、外链、作者、日期和评分时的样式。音乐、展览或日常发现，也都可以收录在这里。",
+    "order": 5,
+    "tags": ["随手收藏", "留白"]
+  }
+]

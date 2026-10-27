@@ -1,0 +1,93 @@
+---
+import ResponsiveImage from '@components/common/ResponsiveImage.astro';
+import { displayPersonalDate, type ProjectRecord, projectCategoryLabels, projectStatusLabels } from '@lib/personal';
+import { Icon } from 'astro-icon/components';
+import './project-catalog.css';
+
+interface Props {
+  projects: ProjectRecord[];
+}
+const { projects } = Astro.props;
+const categories = [...new Set(projects.map((project) => project.category))];
+const statuses = [...new Set(projects.map((project) => project.status))];
+const categoryIcons: Record<string, string> = {
+  web: 'ri:global-line',
+  desktop: 'ri:computer-line',
+  mobile: 'ri:smartphone-line',
+  other: 'ri:code-box-line',
+};
+const statusIcons: Record<string, string> = {
+  completed: 'ri:checkbox-circle-line',
+  'in-progress': 'ri:progress-3-line',
+  planned: 'ri:calendar-line',
+};
+---
+
+<section data-project-catalog aria-label="项目目录">
+  <div class="project-controls" data-project-controls hidden>
+    <label>项目分类
+      <select name="category" data-project-category>
+        <option value="">全部分类</option>
+        {categories.map((category) => <option value={category}>{projectCategoryLabels[category] ?? category}</option>)}
+      </select>
+    </label>
+    <label>项目状态
+      <select name="status" data-project-status>
+        <option value="">全部状态</option>
+        {statuses.map((status) => <option value={status}>{projectStatusLabels[status] ?? status}</option>)}
+      </select>
+    </label>
+    <p data-project-count role="status" aria-live="polite" aria-atomic="true">显示 {projects.length} / {projects.length} 个项目</p>
+  </div>
+  <div class="project-grid" data-project-grid>
+    {projects.map((project) => {
+      const hasImage = Boolean(project.image && project.showImage !== false);
+      return (
+        <article class:list={['project-card', { 'project-card-text': !hasImage }]} data-project-card data-category={project.category} data-status={project.status}>
+          <div class="project-visual">
+            {hasImage && project.image && <div class="project-image">
+              <ResponsiveImage src={project.image} alt={`${project.title} 项目封面`} maxWidth={800} sizes="(max-width: 767px) calc(100vw - 48px), 440px" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+            </div>}
+            <div class="project-meta">
+              <span class="project-category"><Icon name={categoryIcons[project.category] ?? categoryIcons.other} aria-hidden="true" />{projectCategoryLabels[project.category] ?? project.category}</span>
+              <span class="project-status"><Icon name={statusIcons[project.status] ?? 'ri:circle-line'} aria-hidden="true" />{projectStatusLabels[project.status] ?? project.status}</span>
+            </div>
+          </div>
+          <div class="project-card-content">
+            <div class="project-title-row">
+              <h2>{project.title}</h2>
+              {project.featured && <span class="project-featured"><Icon name="ri:star-fill" aria-hidden="true" />精选</span>}
+            </div>
+            <p class="project-description">{project.description}</p>
+            <ul class="project-tech" aria-label={`${project.title} 技术栈`}>
+              {project.techStack.map((technology) => <li>{technology}</li>)}
+            </ul>
+          </div>
+          <footer class="project-card-footer">
+            <p class="project-dates"><Icon name="ri:calendar-2-line" aria-hidden="true" /><span><time datetime={project.startDate}>{displayPersonalDate(project.startDate)}</time>{project.endDate && <> — <time datetime={project.endDate}>{displayPersonalDate(project.endDate)}</time></>}</span></p>
+            {(project.sourceCode || project.demo) && <div class="project-links">
+              {project.sourceCode && <a href={project.sourceCode} target="_blank" rel="noopener noreferrer" aria-label={`查看 ${project.title} 的源代码（新窗口）`}><Icon name="ri:github-line" aria-hidden="true" />源代码<Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a>}
+              {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`访问 ${project.title} 的演示（新窗口）`}>访问演示<Icon name="ri:arrow-right-up-line" aria-hidden="true" /></a>}
+            </div>}
+          </footer>
+        </article>
+      );
+    })}
+  </div>
+  <p class="project-empty" data-project-empty hidden>这个分类下暂时没有符合条件的项目，试试其他筛选。</p>
+</section>
+
+<script>
+  import { setupProjectCatalog } from './project-catalog';
+
+  let cleanupCatalog: (() => void) | undefined;
+  function initProjectCatalog() {
+    cleanupCatalog?.();
+    const root = document.querySelector<HTMLElement>('[data-project-catalog]');
+    cleanupCatalog = root ? setupProjectCatalog(root) : undefined;
+  }
+  if (document.readyState !== 'loading') initProjectCatalog();
+  else document.addEventListener('DOMContentLoaded', initProjectCatalog, { once: true });
+  document.addEventListener('astro:page-load', initProjectCatalog);
+  document.addEventListener('astro:before-swap', () => cleanupCatalog?.());
+</script>

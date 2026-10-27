@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" fill="none">
+  <title>番剧分类的原创示例封面</title>
+  <rect width="960" height="600" fill="#DCE4DA"/>
+  <circle cx="748" cy="157" r="81" fill="#FCF0D1"/>
+  <path d="m432 398 158-176 82 103 86-87 202 190v172H432Z" fill="#A9BDAE"/>
+  <path d="m491 464 157-142 131 101 116-128 65 62v243H491Z" fill="#7C9A8F"/>
+  <path d="M0 532c201-109 355 82 549-18s251-25 411-53v139H0Z" fill="#4D776F"/>
+  <path d="M684 600c-21-81 12-121 61-142 52-23 65-43 66-68" stroke="#DCE4DA" stroke-width="15"/>
+  <path d="m538 126 3 8 9 3-9 3-3 9-3-9-9-3 9-3ZM862 237l3 8 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="#FCF6DE"/>
+  <path d="M78 89h62" stroke="#52796C" stroke-width="3"/>
+  <g fill="#345A50" font-family="Georgia,serif"><text x="76" y="199" font-size="61">After the</text><text x="76" y="268" font-size="61">journey.</text></g>
+  <text x="80" y="332" fill="#56786D" font-family="Arial,sans-serif" font-size="21" letter-spacing="4">THE STORY STAYS WITH US</text>
+  <text x="78" y="536" fill="#FFF7E4" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="38">番剧 · 示例封面</text>
+</svg>

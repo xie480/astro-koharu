@@ -1,0 +1,32 @@
+---
+import HomeSider from '@components/layout/HomeSider.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { siteConfig } from '@constants/site-config';
+import Layout from '@layouts/Layout.astro';
+import TwoColumnLayout from '@layouts/TwoColumnLayout.astro';
+import rawRecommendations from '@/data/recommendations.json';
+import { parseRecommendations, Recommendations } from '@/features/recommendations';
+import { defaultLocale } from '@/i18n';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const items = parseRecommendations(rawRecommendations);
+const description = 'Yilena 的私藏推荐：小说、漫画、番剧与开源项目，记录个人的推荐理由和评分。';
+---
+
+<Layout locale={locale} title={`私藏推荐 | ${siteConfig.title}`} description={description} articleTools={false}>
+  <TwoColumnLayout>
+    <Cover slot="cover" title="私藏推荐" compact />
+    <HomeSider slot="sider" />
+    <section class="index-surface shadow-box min-w-0" aria-label="私藏推荐内容" data-pagefind-body>
+      <noscript>
+        <style is:inline>.recommendation-controls { display: none; }</style>
+        <p>当前显示全部私藏；启用 JavaScript 后可以使用分类、搜索和排序。</p>
+      </noscript>
+      <Recommendations items={items} client:load />
+    </section>
+  </TwoColumnLayout>
+</Layout>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" fill="none">
+  <title>小说分类的原创示例封面</title>
+  <rect width="960" height="600" fill="#26334A"/>
+  <path d="M0 494C204 414 388 570 590 508S844 452 960 488V600H0Z" fill="#344157"/>
+  <circle cx="718" cy="248" r="124" fill="#F4DDB4"/>
+  <circle cx="689" cy="214" r="11" fill="#E9C892"/>
+  <circle cx="755" cy="280" r="24" fill="#E9C892"/>
+  <ellipse cx="717" cy="253" rx="193" ry="47" transform="rotate(-27 717 253)" stroke="#FBEDCF" stroke-width="2"/>
+  <path d="m601 102 5 14 15 5-15 5-5 14-5-14-15-5 15-5ZM862 349l4 10 11 4-11 4-4 11-4-11-11-4 11-4Z" fill="#F4DDB4"/>
+  <g fill="#D9DBE2"><circle cx="494" cy="174" r="3"/><circle cx="873" cy="127" r="3"/><circle cx="575" cy="382" r="3"/><circle cx="853" cy="429" r="3"/><circle cx="460" cy="334" r="2"/><circle cx="745" cy="76" r="2"/></g>
+  <path d="M78 89h62" stroke="#DCAD8E" stroke-width="3"/>
+  <g fill="#F8EDDC" font-family="Georgia,serif"><text x="76" y="199" font-size="58">Between</text><text x="76" y="268" font-size="58">the stars.</text></g>
+  <text x="80" y="332" fill="#C7CAD4" font-family="Arial,sans-serif" font-size="21" letter-spacing="4">A PLACE FOR STORIES</text>
+  <text x="78" y="536" fill="#F8EDDC" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="38">小说 · 示例封面</text>
+</svg>

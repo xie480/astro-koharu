@@ -1,0 +1,22 @@
+---
+import PersonalPageShell from '@components/personal/PersonalPageShell.astro';
+import Timeline from '@components/personal/Timeline.astro';
+import { groupTimelineByYear, timeline } from '@lib/personal';
+import { defaultLocale } from '@/i18n';
+
+interface Props {
+  locale?: string;
+}
+const { locale = defaultLocale } = Astro.props;
+const groups = groupTimelineByYear(timeline);
+const yearRange = `${groups.at(-1)?.year ?? ''}—${groups[0]?.year ?? ''}`;
+---
+
+<PersonalPageShell
+  title="时间线"
+  description="学习、项目与生活的片段。把走过的路留下来，也给下一段旅程一个坐标。"
+  locale={locale}
+  stats={[{ value: timeline.length, label: '段经历' }, { value: yearRange, label: '年' }]}
+>
+  <Timeline groups={groups} />
+</PersonalPageShell>

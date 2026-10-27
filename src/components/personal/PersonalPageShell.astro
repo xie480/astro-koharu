@@ -1,0 +1,33 @@
+---
+import PageIntro from '@components/common/PageIntro.astro';
+import HomeSider from '@components/layout/HomeSider.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { Layout, TwoColumnLayout } from '@layouts/index';
+import { siteConfig } from '@lib/config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: string;
+  stats: { value: string | number; label: string }[];
+}
+
+const { title, description, locale, stats } = Astro.props;
+---
+
+<Layout articleTools={false} locale={locale} title={`${title} | ${siteConfig.title}`} description={description}>
+  <TwoColumnLayout showPostFooter={false}>
+    <Cover compact slot="cover" title={title} />
+    <HomeSider slot="sider" />
+    <div class="index-surface shadow-box personal-page" data-pagefind-body>
+      <PageIntro stats={stats} />
+      <p class="personal-page-description">{description}</p>
+      <slot />
+    </div>
+  </TwoColumnLayout>
+</Layout>
+
+<style>
+  .personal-page { min-width: 0; }
+  .personal-page-description { margin: -0.5rem 0 2rem; max-width: 48rem; color: hsl(var(--muted-foreground)); font-size: 0.9375rem; line-height: 1.85; }
+</style>

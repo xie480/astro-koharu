@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" fill="none">
+  <title>开源项目分类的原创示例封面</title>
+  <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#3C344E" stroke-width="1"/></pattern></defs>
+  <rect width="960" height="600" fill="#272238"/><rect width="960" height="600" fill="url(#grid)"/>
+  <path d="m601 129 139-48 127 119-59 160-139 69-112-99Z" stroke="#74658D" stroke-width="2"/>
+  <path d="m601 129 207 231M740 81l-71 348M867 200 557 330" stroke="#74658D" stroke-width="1.5" stroke-dasharray="5 7"/>
+  <g fill="#C7BADB"><circle cx="601" cy="129" r="7"/><circle cx="740" cy="81" r="7"/><circle cx="867" cy="200" r="7"/><circle cx="808" cy="360" r="7"/><circle cx="669" cy="429" r="7"/><circle cx="557" cy="330" r="7"/></g>
+  <rect x="607" y="191" width="210" height="116" rx="16" fill="#352D48" stroke="#9583AC" stroke-width="2"/>
+  <path d="m666 225-26 24 26 24M758 225l26 24-26 24M728 219l-31 60" stroke="#DAC8EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 89h62" stroke="#BEA0D6" stroke-width="3"/>
+  <g fill="#F0E6F8" font-family="Georgia,serif"><text x="76" y="199" font-size="59">Build</text><text x="76" y="268" font-size="59">something good.</text></g>
+  <text x="80" y="332" fill="#B6A5C9" font-family="Arial,sans-serif" font-size="21" letter-spacing="4">OPEN TO POSSIBILITIES</text>
+  <text x="78" y="536" fill="#F0E6F8" font-family="Arial,'Microsoft YaHei',sans-serif" font-size="38">开源项目 · 示例封面</text>
+</svg>
