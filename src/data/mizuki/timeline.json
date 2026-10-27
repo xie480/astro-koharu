@@ -332,5 +332,120 @@
     "achievements": ["广东省第一次高考模拟考试日语科目全省第一", "广东省第二次高考模拟考试日语科目全省第一"],
     "icon": "material-symbols:school",
     "color": "#2563EB"
+  },
+  {
+    "id": "18",
+    "title": "清华大学 AI 实验室 · Java 实习面试",
+    "description": "一面通过，但考虑到地点和未来发展，最终拒绝了二面。",
+    "type": "work",
+    "startDate": "2026-04-15",
+    "organization": "清华大学 AI 实验室",
+    "position": "Java 实习面试",
+    "achievements": ["一面通过", "考虑地点和未来发展后，拒绝二面"]
+  },
+  {
+    "id": "19",
+    "title": "虎牙 · AI 算法岗实习面试",
+    "description": "没想到会被算法岗约面，面试直接被拷打一大堆算法知识，秒挂。",
+    "type": "work",
+    "startDate": "2026-06-27",
+    "organization": "虎牙",
+    "position": "AI 算法岗实习面试"
+  },
+  {
+    "id": "20",
+    "title": "格物致新 · Agent 一面 OC",
+    "description": "参加 Agent 岗位一面。",
+    "type": "work",
+    "startDate": "2026-07-24",
+    "organization": "格物致新",
+    "position": "Agent 实习面试"
+  },
+  {
+    "id": "21",
+    "title": "道一云 · Java 一面与二面",
+    "description": "一面紧接二面，过程比较高压，但整体还是比较游刃有余。",
+    "type": "work",
+    "startDate": "2026-07-27",
+    "organization": "道一云",
+    "position": "Java 实习面试",
+    "achievements": ["一面 OC", "二面 OC"]
+  },
+  {
+    "id": "22",
+    "title": "道一云 · Java 项目主管面",
+    "description": "项目主管面，被套话实习时长了，还是面少了，实习时长不符合被挂了……",
+    "type": "work",
+    "startDate": "2026-07-28",
+    "organization": "道一云",
+    "position": "Java 实习·项目主管面",
+    "achievements": ["实习时长不符合要求，未能通过"]
+  },
+  {
+    "id": "23",
+    "title": "格物致新 · Agent 入职，第一段实习开始",
+    "description": "二面 OC。公司虽然不是很大，但是环境很好，HR 也很好，业务也不错；随后入职，第一段实习开始。",
+    "type": "work",
+    "startDate": "2026-07-29",
+    "organization": "格物致新",
+    "position": "Agent 实习",
+    "achievements": ["二面 OC", "入职，第一段实习开始"]
+  },
+  {
+    "id": "24",
+    "title": "Nyami v2.0 全面升级",
+    "description": "针对项目 Nyami 进行 v2.0 的全面升级。",
+    "type": "project",
+    "startDate": "2026-09-27",
+    "endDate": "2026-10-20",
+    "achievements": ["修复了一系列 BUG", "全面优化了 UI"],
+    "links": [{ "name": "Nyami GitHub", "url": "https://github.com/xie480/Nyami", "type": "project" }]
+  },
+  {
+    "id": "25",
+    "title": "MemGuardian 内存优化改良",
+    "description": "针对项目 MemGuardian 进行了改良，内存优化效率更快，健壮性和安全性更高。",
+    "type": "project",
+    "startDate": "2026-10-03",
+    "achievements": ["提升内存优化效率", "提高健壮性和安全性"],
+    "links": [{ "name": "MemGuardian GitHub", "url": "https://github.com/xie480/MemGuardian", "type": "project" }]
+  },
+  {
+    "id": "26",
+    "title": "腾讯 CSIG · Agent 开发实习岗一面 OC",
+    "description": "第一次大厂面，被两个面试官来回盘问；虽然是大厂面，其实还是挺轻松的。",
+    "type": "work",
+    "startDate": "2026-10-09",
+    "organization": "腾讯 CSIG",
+    "position": "Agent 开发实习岗·一面"
+  },
+  {
+    "id": "27",
+    "title": "腾讯 CSIG · Agent 开发实习岗二面 OC",
+    "description": "小组 Leader 面，聊得很顺利，面完 Leader 也是直接说会推 HR 面。",
+    "type": "work",
+    "startDate": "2026-10-14",
+    "organization": "腾讯 CSIG",
+    "position": "Agent 开发实习岗·二面",
+    "achievements": ["二面 OC", "推进 HR 面"]
+  },
+  {
+    "id": "28",
+    "title": "腾讯 CSIG · Agent 开发实习岗 HR 交叉面 OC",
+    "description": "HR 交叉面聊了一个小时的家常……",
+    "type": "work",
+    "startDate": "2026-10-19",
+    "organization": "腾讯 CSIG",
+    "position": "Agent 开发实习岗·HR 交叉面"
+  },
+  {
+    "id": "29",
+    "title": "腾讯 CSIG · Agent 开发实习岗流程结束",
+    "description": "学历排序挂，流程从简历投递到挂走了一个多月，最后学历挂了，挺不甘心的，不过也没办法，继续精进自己吧！",
+    "type": "work",
+    "startDate": "2026-10-26",
+    "organization": "腾讯 CSIG",
+    "position": "Agent 开发实习岗",
+    "achievements": ["学历排序未通过", "从简历投递到最终结果历时一个多月"]
   }
 ]
