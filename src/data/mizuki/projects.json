@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Nyami",
     "description": "一款专为 Bilibili 用户打造的第三方纯音频播放应用。它通过解析 B 站视频音频流，结合本地数据库同步机制与自定义底层音频 DSP 引擎，为用户提供无缝的在线/离线音乐聆听体验。",
-    "image": "/img/mizuki/projects/nyami.jpg",
+    "image": "/img/mizuki/projects/nyami-cover.png",
     "category": "mobile",
     "techStack": ["TypeScript", "C++", "Kotlin", "React", "Zustand", "WatermelonDB", "ExoPlayer"],
     "status": "completed",
@@ -16,10 +16,10 @@
     "id": "2",
     "title": "Luna",
     "description": "一款本地化的 AI 桌面助理，面向 陪伴式人格 + 长期记忆 + 主动行为 的全栈 AI Agent 平台。它集成了多模型驱动、RAG 知识库、MCP（模型上下文协议）工具调用、OpenClaw 任务编排以及 CodeOps 工程闭环，能够在本地桌面环境中实现 自然语言对话、知识检索、主动规划、代码自动化 等完整 AI 工作流。",
-    "image": "/img/mizuki/projects/luna.jpg",
+    "image": "/img/mizuki/projects/luna-cover.png",
     "category": "desktop",
     "techStack": ["Golang", "Python", "JavaScript", "LangGraph", "Qdrant", "Redis", "PostgreSQL"],
-    "status": "in-progress",
+    "status": "completed",
     "sourceCode": "https://github.com/xie480/Luna-AI",
     "startDate": "2026-05-15",
     "featured": true
@@ -31,7 +31,7 @@
     "image": "/img/mizuki/projects/worewolf.jpg",
     "category": "web",
     "techStack": ["Python", "TypeScript", "LangGraph"],
-    "status": "in-progress",
+    "status": "completed",
     "sourceCode": "https://github.com/xie480/Werewolf",
     "startDate": "2026-05-15"
   },
@@ -54,7 +54,7 @@
     "image": "/img/mizuki/projects/qk.jpg",
     "category": "other",
     "techStack": ["Java", "Spring Boot", "Elasticsearch", "RocketMQ", "XXL-JOB"],
-    "status": "in-progress",
+    "status": "completed",
     "startDate": "2025-06-01"
   },
   {
@@ -112,7 +112,7 @@
     "description": "高性能 Windows 内存优化工具，支持后台监控与自动优化，灵感来源于 PCL 与 ISLC。",
     "category": "desktop",
     "techStack": ["Python", "Windows", "Task Scheduler"],
-    "status": "in-progress",
+    "status": "completed",
     "sourceCode": "https://github.com/xie480/MemGuardian",
     "startDate": "2026-06-14"
   }

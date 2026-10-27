@@ -166,11 +166,17 @@ UI 按 ui-ux-pro-max 的可访问性、移动端和动效控制规则实现，�
 - Velora 采用用户提供的简介和 GitHub 链接，使用附件截图作为项目图，保存至 `public/img/mizuki/projects/velora.png`。
 - MemGuardian 采用用户提供的简介和 GitHub 链接，不设置图片，因此沿用现有无图卡片表现。
 - 两个项目归入“桌面应用”。Velora 技术标签依据用户描述及本机项目依赖清单；MemGuardian 使用 Python、Windows 与任务计划程序标签。
-- `startDate` 用对应本机仓库的首次 Git 提交日期满足现有排序字段，不代表项目公开或上线日期。由于用户没有提供完成状态，两个项目暂记为“进行中”。
+- `startDate` 用对应本机仓库的首次 Git 提交日期满足现有排序字段，不代表项目公开或上线日期。新增时两个项目暂记为“进行中”；后续状态调整见 9.3。
 
 ### 9.2 完整性与验证
 
 - 附件复制前后 SHA-256 一致：`93E1AB0FFFE01E53D4CFE3F2BB46167F84C1A61EE0BBC9A6F339F8B4ECE83760`。
 - 项目 JSON 的 Biome 检查通过，PowerShell JSON 解析确认 10 条记录且 ID 唯一；迁移文档的 lint-md 检查通过，`git diff --check` 通过。
 - 未运行测试套件或浏览器截图核验；本次仅变更项目数据、图片和迁移记录，没有改动 UI 代码。
+
+### 9.3 项目状态与封面调整（2026-10-28）
+
+- 根据用户要求，9 个非 Velora 项目状态均设为“已完成”，仅 Velora 保持“进行中”。
+- Luna 和 Nyami 的项目数据分别改用 `luna-cover.png`、`nyami-cover.png`；附件以 PNG 原样复制，SHA-256 与源附件一致：Luna `B3E803CA8A71AE9A3B505FC82FBFAF096D839AC2F43FB9F579DFF88889A8F4EF`，Nyami `6DA725DBA2C4FD11A91764D2456D395BAEF0DFF49001F83EA536436E5C9D6A3F`。
+- 原始迁移封面文件保留，`migration-manifest.json` 不变，避免破坏初次迁移的资源校验记录。
 
