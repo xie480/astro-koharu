@@ -55,12 +55,22 @@
     "tags": ["Web", "内容站点", "开发工具"]
   },
   {
+    "id": "demo-game-story",
+    "title": "故事游戏示例",
+    "category": "游戏",
+    "demo": true,
+    "description": "这是游戏分类的界面示例。替换为真实推荐时，可以填写游戏体验、封面、链接和个人评分。",
+    "addedAt": "2026-10-19",
+    "order": 5,
+    "tags": ["游戏", "示例条目"]
+  },
+  {
     "id": "demo-other-a-little-space",
     "title": "留给下次心动",
     "category": "其他",
     "demo": true,
     "description": "这是一个虚构的极简条目，用于预览不填写封面、外链、作者、日期和评分时的样式。音乐、展览或日常发现，也都可以收录在这里。",
-    "order": 5,
+    "order": 6,
     "tags": ["随手收藏", "留白"]
   }
 ]

@@ -51,7 +51,7 @@ function RecommendationCollection({ items }: { items: Recommendation[] }) {
         <div>
           <h2>留给值得回味的事物</h2>
           <p className="recommendation-intro-copy">
-            喜欢的故事、看过的作品，还有愿意分享的开源项目。用自己的感受，留下一份私藏。
+            喜欢的故事、看过的作品、玩过的游戏，还有愿意分享的开源项目。用自己的感受，留下一份私藏。
           </p>
         </div>
         <p className="recommendation-total">

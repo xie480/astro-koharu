@@ -14,7 +14,7 @@ interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 const items = parseRecommendations(rawRecommendations);
-const description = 'Yilena 的私藏推荐：小说、漫画、番剧与开源项目，记录个人的推荐理由和评分。';
+const description = 'Yilena 的私藏推荐：小说、漫画、番剧、游戏与开源项目，记录个人的推荐理由和评分。';
 ---
 
 <Layout locale={locale} title={`私藏推荐 | ${siteConfig.title}`} description={description} articleTools={false}>

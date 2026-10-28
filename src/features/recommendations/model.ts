@@ -1,4 +1,4 @@
-export const RECOMMENDATION_CATEGORIES = ['小说', '漫画', '番剧', '开源项目', '其他'] as const;
+export const RECOMMENDATION_CATEGORIES = ['小说', '漫画', '番剧', '游戏', '开源项目', '其他'] as const;
 
 export interface Recommendation {
   id: string;
