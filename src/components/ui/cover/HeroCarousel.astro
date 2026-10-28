@@ -42,7 +42,12 @@ const srcset = (image: string) =>
       this.busy = false;
       this.hovered = false;
       this.focused = this.contains(document.activeElement);
-      this.images = JSON.parse(this.dataset.images ?? '[]');
+      this.images = this.shuffleImages(JSON.parse(this.dataset.images ?? '[]'));
+      this.index = 0;
+      this.active = 0;
+      this.dataset.active = '0';
+      const position = this.querySelector('[data-position]');
+      if (position) position.textContent = `1 / ${this.images.length}`;
       if (this.images.length < 2) return;
       this.abort = new AbortController();
       const { signal } = this.abort;
@@ -55,7 +60,49 @@ const srcset = (image: string) =>
       this.addEventListener('focusout', (event) => { this.focused = this.contains(event.relatedTarget as Node); this.sync(); }, { signal });
       document.addEventListener('visibilitychange', () => this.sync(), { signal });
       this.unsubscribe = subscribeMotionLevel(() => this.sync());
+      const firstSlide = this.querySelector<HTMLImageElement>('[data-slide="0"]');
+      if (firstSlide?.getAttribute('src') === this.images[0]) this.sync();
+      else void this.showInitialImage(this.images[0]);
+    }
+
+    private shuffleImages(images: string[]): string[] {
+      const shuffled = [...images];
+      for (let index = shuffled.length - 1; index > 0; index--) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        const current = shuffled[index];
+        shuffled[index] = shuffled[randomIndex];
+        shuffled[randomIndex] = current;
+      }
+      return shuffled;
+    }
+
+    private setImageSource(target: HTMLImageElement, source: string) {
+      target.srcset = source.endsWith('-1920.webp')
+        ? `${source.replace('-1920.webp', '-800.webp')} 800w, ${source} 1920w`
+        : '';
+      target.sizes = '100vw';
+      target.src = source;
+    }
+
+    private async showInitialImage(source: string) {
+      const connection = this.connection;
+      const target = this.querySelector<HTMLImageElement>('[data-slide="1"]');
+      if (!target || !source) return;
+      this.busy = true;
       this.sync();
+      this.setImageSource(target, source);
+      try {
+        await target.decode();
+        if (!this.isConnected || connection !== this.connection) return;
+        this.active = 1;
+        this.dataset.active = '1';
+      } catch { /* Keep the server-rendered fallback visible if the shuffled image fails. */ }
+      finally {
+        if (connection === this.connection) {
+          this.busy = false;
+          this.sync();
+        }
+      }
     }
 
     private sync() {
@@ -92,9 +139,7 @@ const srcset = (image: string) =>
       if (!target) { this.busy = false; this.sync(); return; }
       this.sync();
       const source = this.images[next];
-      target.srcset = source.endsWith('-1920.webp') ? `${source.replace('-1920.webp', '-800.webp')} 800w, ${source} 1920w` : '';
-      target.sizes = '100vw';
-      target.src = source;
+      this.setImageSource(target, source);
       try {
         await target.decode();
         if (!this.isConnected || connection !== this.connection) return;
