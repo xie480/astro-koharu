@@ -27,7 +27,7 @@ GitHub CTA 使用与旧按钮统一视觉的新 SVG；原 `Blog` 按钮的博客
 ## 4. 风险与影响
 
 - 统计 SVG 和贡献蛇现在是本地快照。旧仓库的 GitHub Actions 不会自动更新 Koharu 里的副本；若需要持续刷新，后续应明确配置同步机制。
-- 计数器仍保留旧 README 的外部 URL 和完整参数，但抓取返回 HTTP 403，浏览器实际加载也失败。为避免页面出现破图，现以说明性链接保留来源地址；不把 `num=3194927054` 解释为真实访问量。服务恢复后可再改回图片。
+- GitHub 个人主页并未直接请求计数器源站：当前 README HTML 将原始地址改写为 `camo.githubusercontent.com` 图片代理。当前环境请求计数器源站返回 HTTP 403，而 GitHub Camo 代理返回 HTTP 200、`image/svg+xml`；关于页现复用该代理展示图片，点击图片仍打开原始计数器地址。代理由 GitHub 提供，其缓存和可用性不由 Koharu 控制；不把 `num=3194927054` 解释为真实访问量。
 - 樱花河 GIF 保持原始 6,454,538 字节 / 128 帧；About 页对其使用 lazy loading，但首次进入附近区域仍会下载约 6.45 MB。
 - 页面沿用 Koharu 主题样式；Profile README 的 GitHub Actions、脚本和页面级样式没有进入站点运行时。
 
@@ -35,7 +35,7 @@ GitHub CTA 使用与旧按钮统一视觉的新 SVG；原 `Blog` 按钮的博客
 
 迁移后的 19 个本地源文件逐项与旧仓库对比 SHA-256，全部相同；两张贡献蛇来自旧 README 的公开输出地址。16 个本地 SVG 均解析为有效 XML。`pnpm check` 通过（0 errors、0 warnings、2 个既有弃用提示），最终 `pnpm build` 通过并生成 651 个页面。
 
-本地 `http://localhost:4321/about` 在 1440×1000 与 390×844 视口检查。统计图片在桌面命中 `profile-details.svg` / `grid.svg`，在手机命中 `profile-mobile.svg` / `grid-mobile.svg`；封面、按钮、统计、贡献蛇、签名和樱花河图片均成功加载。文档宽度分别为 1432px 和 382px，没有超过各自视口宽度。深色和浅色主题下均查看了页面；章节标题支持减少动态效果时选择静态 SVG。计数器服务实际返回 403，因此改为文字链接。
+本地 `http://localhost:4321/about` 在 1440×1000 与 390×844 视口检查。统计图片在桌面命中 `profile-details.svg` / `grid.svg`，在手机命中 `profile-mobile.svg` / `grid-mobile.svg`；封面、按钮、统计、贡献蛇、签名和樱花河图片均成功加载。文档宽度分别为 1432px 和 382px，没有超过各自视口宽度。深色和浅色主题下均查看了页面；章节标题支持减少动态效果时选择静态 SVG。计数器源站在当前环境返回 403，GitHub 个人主页当前使用的 Camo URL 返回 200、内容类型为 SVG；本轮本地浏览器确认关于页图片加载完成，自然尺寸为 450×100，图片点击仍跳转至源计数器地址。
 
 全仓 `pnpm lint:fix` 退出码为 0，但 Biome 因当前 Windows 工作区 CRLF 与其 LF 预期的差异改写了 718 个既有文件，且产生无关图片删除标记；这些格式改动已恢复。恢复后只读 `pnpm lint` 仍报告相同的仓库级换行格式问题。全仓 lint 因此不能判定通过；本次没有把无关格式变化带入迁移，也没有运行自动化测试。
 

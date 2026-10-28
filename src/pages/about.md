@@ -17,7 +17,7 @@ comments: false
 </p>
 
 <p align="center">
-  <a href="https://count.getloli.com/@Yilena-INFO?theme=rule34&amp;padding=1&amp;offset=0&amp;align=top&amp;scale=1.0&amp;pixelated=1&amp;darkmode=auto&amp;num=3194927054" target="_blank" rel="noopener noreferrer" title="旧主页计数服务当前返回 HTTP 403">旧主页访问计数器（外部服务当前返回 403）</a>
+  <a href="https://count.getloli.com/@Yilena-INFO?theme=rule34&amp;padding=1&amp;offset=0&amp;align=top&amp;scale=1.0&amp;pixelated=1&amp;darkmode=auto&amp;num=3194927054" target="_blank" rel="noopener noreferrer" title="打开 Yilena 的二次元访问计数器"><img src="https://camo.githubusercontent.com/a4d835c92a83ccfa4447c83cf6aec537393a4454495f9b6480b5e8d9ac52105c/68747470733a2f2f636f756e742e6765746c6f6c692e636f6d2f4059696c656e612d494e464f3f7468656d653d72756c6533342670616464696e673d31266f66667365743d3026616c69676e3d746f70267363616c653d312e3026706978656c617465643d31266461726b6d6f64653d6175746f266e756d3d33313934393237303534" alt="Yilena 二次元访问计数器" width="100%" loading="lazy" decoding="async" /></a>
 </p>
 
 ## 从者档案
