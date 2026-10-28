@@ -17,57 +17,8 @@ comments: false
 </p>
 
 <p align="center">
-  <a href="https://count.getloli.com/@Yilena-INFO?theme=rule34&amp;padding=1&amp;offset=0&amp;align=top&amp;scale=1.0&amp;pixelated=1&amp;darkmode=auto&amp;num=3194927054" target="_blank" rel="noopener noreferrer" title="打开 Yilena 的二次元访问计数器"><img src="https://camo.githubusercontent.com/a4d835c92a83ccfa4447c83cf6aec537393a4454495f9b6480b5e8d9ac52105c/68747470733a2f2f636f756e742e6765746c6f6c692e636f6d2f4059696c656e612d494e464f3f7468656d653d72756c6533342670616464696e673d31266f66667365743d3026616c69676e3d746f70267363616c653d312e3026706978656c617465643d31266461726b6d6f64653d6175746f266e756d3d33313934393237303534" alt="Yilena 二次元访问计数器" width="100%" loading="lazy" decoding="async" /></a>
+  <a href="https://count.getloli.com/@Yilena-INFO?theme=rule34&amp;padding=1&amp;offset=0&amp;align=top&amp;scale=1.0&amp;pixelated=1&amp;darkmode=auto&amp;num=3194927054" target="_blank" rel="noopener noreferrer" title="Yilena 的神秘小代码"><img src="https://camo.githubusercontent.com/a4d835c92a83ccfa4447c83cf6aec537393a4454495f9b6480b5e8d9ac52105c/68747470733a2f2f636f756e742e6765746c6f6c692e636f6d2f4059696c656e612d494e464f3f7468656d653d72756c6533342670616464696e673d31266f66667365743d3026616c69676e3d746f70267363616c653d312e3026706978656c617465643d31266461726b6d6f64653d6175746f266e756d3d33313934393237303534" alt="Yilena 二次元访问计数器" width="100%" loading="lazy" decoding="async" /></a>
 </p>
-
-## 从者档案
-
-* **真名 :** Yilena
-* **职阶 :** Hachimi
-* **属性:** 混沌恶
-* **出没时间 :** 受某种古老诅咒影响，该从者常年处于"无间断精神摆烂"状态。
-
-## 职阶技能
-
-* **精神污染 EX:**
-  由于全天候保持极高强度的怠惰状态，任何试图对其进行精神干涉、催促劳作或施加压力的魔术，都会被其无条件同化并无效化。
-
-## 宝具
-
-### 『于那附魔台之上高傲地尽情哈气』
-* **阶级 (Rank):** A+
-* **种类 (Type):** 对界宝具
-
-> **「哈————！！！」**
-
-**【宝具解说】**
-通过解放真名，将现世局部重写为固有结界——**【附魔台】**。
-在结界中心，从者将以极高傲的姿态，咏唱内阁内阁内阁并咀嚼口香糖，同时进行狂暴的哈气。
-该宝具属于绝对因果律武器，吐气所及之处，将对敌方全体施加无视防御力、无视魔术抗性的真实伤害。同时伴随强烈的**精神崩溃创伤**，剥夺敌方一切战意，强行终止其后续行动。
-
----
-
-## 当前契约任务
-
-作为跨越维度的从者，目前正在与现世御主共同应对以下「圣杯战争」级试炼：
-
-**【特异点修复】**
-
-* 崩坏特异点：神州极境
-
-* 生存现状： 必须以区区血肉之躯，抵抗该特异点因庞大人口基数而高度浓缩的「群体恶性竞争」。在几乎断绝上升通道的绝望环境下，维持作为人类的最后一丝理性。
-
-* 特异点法则： 此处的统治阶层长年降下名为「宏大叙事」的虚妄神谕，却伴随着乱颁禁令与体制性无能。底层民众被剥夺了庇护，在高度集中的循环律中沦为燃料。
-
-* 最终目的： 润
-
----
-
-## 从者留言
-
-「总有一天，本喵要润出这个特异点!!!」
-
-## 観測 · Insights
 
 <h2 align="center" aria-label="GitHub 统计与账号概览">
   <picture>
@@ -93,8 +44,6 @@ comments: false
     <img src="/img/github-profile/assets/stats/grid.svg" alt="GitHub 仓库语言、提交语言、Stars、Commits、PRs、Issues、贡献项目和北京时间提交时段统计" width="696" height="416" loading="lazy" decoding="async" style="display:block;width:100%;height:auto" />
   </picture>
 </p>
-
-## 足跡 · Activity
 
 <h2 align="center" aria-label="GitHub 公开活动">
   <picture>

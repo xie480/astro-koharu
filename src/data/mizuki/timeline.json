@@ -341,7 +341,7 @@
     "startDate": "2026-04-15",
     "organization": "清华大学 AI 实验室",
     "position": "Java 实习面试",
-    "achievements": ["一面通过", "考虑地点和未来发展后，拒绝二面"]
+    "achievements": ["一面 OC", "考虑地点和未来发展后，拒绝二面"]
   },
   {
     "id": "19",
@@ -354,12 +354,13 @@
   },
   {
     "id": "20",
-    "title": "格物致新 · Agent 一面 OC",
-    "description": "参加 Agent 岗位一面。",
+    "title": "格物致新 · Agent 一面",
+    "description": "第一次面试Agent岗位",
     "type": "work",
     "startDate": "2026-07-24",
     "organization": "格物致新",
-    "position": "Agent 实习面试"
+    "position": "Agent 实习面试",
+    "achievements": ["一面 OC"]
   },
   {
     "id": "21",
@@ -412,16 +413,17 @@
   },
   {
     "id": "26",
-    "title": "腾讯 CSIG · Agent 开发实习岗一面 OC",
+    "title": "腾讯 CSIG · Agent 开发实习岗一面",
     "description": "第一次大厂面，被两个面试官来回盘问；虽然是大厂面，其实还是挺轻松的。",
     "type": "work",
     "startDate": "2026-10-09",
     "organization": "腾讯 CSIG",
-    "position": "Agent 开发实习岗·一面"
+    "position": "Agent 开发实习岗·一面",
+    "achievements": ["一面 OC"]
   },
   {
     "id": "27",
-    "title": "腾讯 CSIG · Agent 开发实习岗二面 OC",
+    "title": "腾讯 CSIG · Agent 开发实习岗二面",
     "description": "小组 Leader 面，聊得很顺利，面完 Leader 也是直接说会推 HR 面。",
     "type": "work",
     "startDate": "2026-10-14",
@@ -431,12 +433,13 @@
   },
   {
     "id": "28",
-    "title": "腾讯 CSIG · Agent 开发实习岗 HR 交叉面 OC",
+    "title": "腾讯 CSIG · Agent 开发实习岗 HR 交叉面",
     "description": "HR 交叉面聊了一个小时的家常……",
     "type": "work",
     "startDate": "2026-10-19",
     "organization": "腾讯 CSIG",
-    "position": "Agent 开发实习岗·HR 交叉面"
+    "position": "Agent 开发实习岗·HR 交叉面",
+    "achievements": ["HR面 OC"]
   },
   {
     "id": "29",
@@ -445,7 +448,6 @@
     "type": "work",
     "startDate": "2026-10-26",
     "organization": "腾讯 CSIG",
-    "position": "Agent 开发实习岗",
-    "achievements": ["学历排序未通过", "从简历投递到最终结果历时一个多月"]
+    "position": "Agent 开发实习岗"
   }
 ]
