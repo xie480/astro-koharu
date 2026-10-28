@@ -4,23 +4,16 @@ title: "歌单"
 description: "我喜欢的音乐"
 ---
 
-这里可以放你喜欢的音乐歌单。
-
-使用 `{% media audio %}` 标签嵌入网易云音乐或 QQ 音乐歌单：
-
-```markdown
-{% media audio %}
-- title: 我的歌单
-  list:
-    - https://music.163.com/#/playlist?id=你的歌单ID
-{% endmedia %}
-```
+以下歌单由网易云音乐提供，点击播放器标签可以切换歌单。
 
 {% media audio %}
-- title: 诗岸歌单 山山～全是山山～
+- title: ヰ世界情緒（异世界情绪）
   list:
-    - https://music.163.com/#/playlist?id=8676645748
-- title: 超かぐや姫！
+    - https://music.163.com/playlist?id=7991458296&uct2=U2FsdGVkX191i2trrz9RSdKHMroHrzOPyLoYOf6KwFM=
+- title: 美波 美波 美波！！！
   list:
-    - https://music.163.com/#/album?id=358640968
+    - https://music.163.com/playlist?id=2964644014&uct2=U2FsdGVkX19Q3ProZoyisVjPtVIgeTuprHytaPzb11k=
+- title: DAZBEE
+  list:
+    - https://music.163.com/playlist?id=9841149241&uct2=U2FsdGVkX1+Pph4XWk3RAW0tTxMC3AyiFhpKeY2lm6Y=
 {% endmedia %}
