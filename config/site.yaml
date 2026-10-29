@@ -71,6 +71,7 @@ categoryMap:
   业务拆解: business
   故障排查: troubleshooting
   杂记: miscellany
+  碎碎念: thoughts
 featuredCategories:
   - link: tech-notes
     label: 技术笔记
