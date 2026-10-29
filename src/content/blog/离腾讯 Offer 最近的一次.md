@@ -1,5 +1,6 @@
 ---
 title: 离腾讯 Offer 最近的一次
+link: 离腾讯-offer-最近的一次
 date: "2026-10-29 12:00:00"
 tags: [面试]
 categories: [碎碎念]
