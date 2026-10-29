@@ -54,29 +54,16 @@
     },
     "timestamp": 1791303373964
   },
-  "#4.MQ": {
-    "data": {
-      "originUrl": "#4.MQ",
-      "url": "#4.MQ",
-      "error": "Failed to parse URL from #4.MQ"
-    },
-    "timestamp": 1793105580437
-  },
   "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502": {
     "data": {
       "originUrl": "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502",
-      "url": "https://blog.csdn.net/2401_88959292/article/details/149565343?spm=1001.2014.3001.5502",
-      "error": "Failed to fetch: 521"
+      "url": "https://blog.csdn.net/2401_88959292/article/details/149565343",
+      "title": "带你轻松学习Redis_redis工作原理-CSDN博客",
+      "description": "文章浏览阅读1.2k次，点赞27次，收藏18次。本文介绍Redis，它是高性能键值存储数据库。阐述其多种数据结构，如String、Hash等及使用场景。还讲解缓存更新策略、缓存经典问题解决办法，以及大Key与热Key问题、分布式锁、消息队列等，同时提及线程模型、原子性保障、数据持久化、过期删除与内存淘汰策略和集群模式。",
+      "image": "https://i-blog.csdnimg.cn/direct/3719c714775c4cf2b8449698007eca31.png",
+      "logo": "https://g.csdnimg.cn/static/logo/favicon32.ico"
     },
-    "timestamp": 1793105584240
-  },
-  "https://github.com/xie480/Yilena-video-web.git": {
-    "data": {
-      "originUrl": "https://github.com/xie480/Yilena-video-web.git",
-      "url": "https://github.com/xie480/Yilena-video-web.git",
-      "error": "Request timeout"
-    },
-    "timestamp": 1793105584592
+    "timestamp": 1793236253595
   },
   "https://blog.csdn.net/2401_88959292/article/details/148616888?spm=1001.2014.3001.5501": {
     "data": {
@@ -88,5 +75,16 @@
       "logo": "https://g.csdnimg.cn/static/logo/favicon32.ico"
     },
     "timestamp": 1793105588161
+  },
+  "https://github.com/xie480/Yilena-video-web.git": {
+    "data": {
+      "originUrl": "https://github.com/xie480/Yilena-video-web.git",
+      "url": "https://github.com/xie480/Yilena-video-web",
+      "title": "GitHub - xie480/Yilena-video-web: 一个1:1还原了哔哩哔哩使用体验的视频社区系统，包含用户端与管理端两套界面，以及搜索、弹幕、评论、私信、动态、审核、统计分析等功能。",
+      "description": "一个1:1还原了哔哩哔哩使用体验的视频社区系统，包含用户端与管理端两套界面，以及搜索、弹幕、评论、私信、动态、审核、统计分析等功能。 - xie480/Yilena-video-web",
+      "image": "https://opengraph.githubassets.com/94dc88d56d3a882bbc5bea50b97046e580d0702de4b313becbe5c378cc24abbc/xie480/Yilena-video-web",
+      "logo": "https://github.com/fluidicon.png"
+    },
+    "timestamp": 1793236253996
   }
 }

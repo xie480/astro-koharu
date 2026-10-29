@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "at": "2026-10-29T02:06:08.191Z",
+  "seed": 1342654824,
+  "redraws": 0,
+  "input": {
+    "brief": "A personal recommendations page presents real open source repositories with a title, personal note, tags, rating and GitHub URL. The repository has no cover. Give each repository a distinctive, responsive card with useful code content.",
+    "sector": "dev-tool",
+    "tone": "technical",
+    "have": [],
+    "keep": ["palette", "type"],
+    "avoid": [],
+    "sections": ["showcase"],
+    "direction": "product-performs"
+  },
+  "imagery": "interface",
+  "allow": [],
+  "direction": {
+    "id": "product-performs",
+    "name": "The product performs",
+    "sectors": ["saas", "dev-tool", "ai-product", "consumer-app", "finance"],
+    "tones": ["technical", "quiet"],
+    "needs": [],
+    "idea": "Software is most convincing when it is doing its job in front of you. Instead of describing features, put small, true, working fragments of the product on the page: the actual control, with real content, responding to the pointer. A colour picker's loupe reads the page's own background and prints its value. A list tool lets you tick an item right there. A type-scale plugin sets the page's own headings. Find the one interaction that is the product and make the hero that interaction; then show each further capability as another fragment at real size. No dashboard collage, no browser frame, no screenshots shrunk until unreadable.",
+    "composition": "Hero: a short plain headline (4–6vw, left-aligned, upper-left third) and one sentence; the rest of the first screen is the main fragment at actual interface size, sitting directly on the page or on one flat stage colour, large enough to read every label. The fragment is built in HTML and works. Below, capabilities are a single-column sequence, each a row of two parts on a 5/7 split: a two-line statement on one side and the relevant fragment on the other, with the fragments varying in size and shape so the column never becomes a zigzag of equal blocks. Fragments are cropped pieces of interface (a menu, a row, a control, a panel edge), not whole windows. One section pins a fragment while three short statements change it.",
+    "typography": "The marketing type matches the product's interface type so the fragments and the page feel like one thing. Headline modest; interface text at its true size (13–15px) inside fragments.",
+    "typeClasses": ["grotesk-tight", "grotesk-light", "geometric"],
+    "colour": "Neutral ground. The product's own interface colours provide the colour. At most one flat stage colour behind fragments.",
+    "paletteTags": ["light-neutral", "dark-neutral", "mono-accent"],
+    "imagery": "The interface fragments are the main imagery: build them carefully with real labels, real numbers and sensible states (one hovered, one selected). Around them, two or three real pictures of the customer's world (found with scripts/assets.mjs), never stock of people at laptops.",
+    "sectionTags": ["ui-led", "quiet"],
+    "motion": "pinned-story",
+    "richness": "Fidelity. A fragment with believable content and a real hover state is more interesting than any illustration. Spend the effort there.",
+    "pitfalls": "A fake interface made of grey bars and circles is the worst outcome; if you cannot build a believable fragment, change direction. Mark each fragment's root element with the attribute data-ui: inside it the product's own conventions apply (1px control borders, small radii, a shadow on its open menu) and the inspector leaves them alone; outside it the house rules hold as usual. data-ui is for cropped fragments only, never for a page wrapper. Do not put the fragment in a browser or laptop frame.",
+    "seenIn": ["opl-dabbit", "opl-rows", "opl-typewave", "opl-shelf", "opl-uni", "opl-kontu"],
+    "allow": []
+  },
+  "hero": {
+    "id": "controls-on-the-sentence",
+    "name": "Controls on the sentence",
+    "archetype": "type-poster",
+    "directions": ["product-performs", "sentence-as-layout", "type-only-statement"],
+    "needs": [],
+    "blueprint": "A dark flat ground with no logo bar: a 14px wordmark top-left and the single action as an underlined text link top-right, both 28px in. The headline is a two-line sentence, centred, at clamp(96px, 9vw, 150px), line-height 1.0, occupying the middle 64% of the width and sitting slightly above the midline. It is set in a variable font and it is the demonstration. Three small control chips from the product sit on top of the sentence, each about 300 by 80px with the product's true radius, a text label and a numeric readout: one above the first line near its left end, one overlapping the start of the second line, and a two-state switch at the lower right. They are tilted 2 to 4 degrees and filled solid, one step lighter than the ground. Each one works: dragging the first changes the headline's weight through `font-variation-settings`, the second changes its letter-spacing, the third toggles uppercase. Mark each chip's root with data-ui. One supporting sentence at 17px, max 40ch, is centred 72px under the headline. The bottom third of the screen stays empty.",
+    "mobile": "The sentence stays on two lines at 13.5vw, centred at 38% of the height. The three chips shrink to 200 by 60px and move off the letters: one above the sentence and two side by side beneath it, untilted and still live. The supporting sentence follows at 16px. The wordmark stays top-left and the action link top-right.",
+    "headline": "A two-line sentence of three to five words, up to about 11 characters per line at 9vw, that still reads when its weight and spacing change.",
+    "motion": "masked-headline",
+    "seenIn": ["opl-dialkit"]
+  },
+  "type": null,
+  "palette": null,
+  "photos": {
+    "set": "architecture",
+    "title": "Architecture",
+    "note": "structure, lines, bridges, facades and building interiors",
+    "treatment": null,
+    "others": ["fog-and-quiet", "sky-and-space"],
+    "photos": [
+      {
+        "id": 693,
+        "alt": "Red suspension bridge tower rising from fog above rugged cliffs",
+        "tone": "mid",
+        "colours": ["rust red", "grey", "dark teal"],
+        "mono": false,
+        "calm": "left",
+        "quality": 5,
+        "ratio": 2.15,
+        "by": "Rob Bye",
+        "page": "https://unsplash.com/photos/bopC0sTGu-E"
+      },
+      {
+        "id": 954,
+        "alt": "Narrow opening in a white wall revealing a white staircase",
+        "tone": "light",
+        "colours": ["off-white", "pale beige"],
+        "mono": false,
+        "calm": "left",
+        "quality": 5,
+        "ratio": 1.52,
+        "by": "Todd Quackenbush",
+        "page": "https://unsplash.com/photos/JJB_K8aCPU4"
+      },
+      {
+        "id": 1081,
+        "alt": "Stepped white modern building corner rising into a pale blue sky",
+        "tone": "light",
+        "colours": ["white", "pale blue", "soft grey"],
+        "mono": false,
+        "calm": "top",
+        "quality": 5,
+        "ratio": 1.49,
+        "by": "Julien Moreau",
+        "page": "https://unsplash.com/photos/688Fna1pwOQ"
+      },
+      {
+        "id": 855,
+        "alt": "Small figure walking past a huge bright yellow wall",
+        "tone": "light",
+        "colours": ["bright yellow", "black"],
+        "mono": false,
+        "calm": "left",
+        "quality": 5,
+        "ratio": 1.5,
+        "by": "Rodion Kutsaev",
+        "page": "https://unsplash.com/photos/IJ25m7fXqtk"
+      }
+    ]
+  },
+  "motion": {
+    "id": "masked-headline",
+    "name": "Masked headline",
+    "description": "On load, each line of the headline rises from behind its own baseline, about 900ms with a strong ease-out, the second line 110ms after the first; the supporting sentence and the action then fade up together. Nothing else on the page performs. Because headlines are two lines at most, you author the line breaks and wrap each line yourself. Recipe: 'Masked line reveal' in references/motion.md."
+  },
+  "sections": [
+    {
+      "id": "showcase-one-row-three-states",
+      "role": "showcase",
+      "name": "One row, three states",
+      "shape": "stack",
+      "tags": ["ui-led", "quiet"],
+      "directions": ["quiet-instrument", "product-performs", "editorial-report", "dark-room"],
+      "needs": [],
+      "blueprint": "The product's central row (a task, a transaction, a message, a deploy) is shown three times, one directly beneath the other, in three states: as it arrives, with the pointer on it and its actions revealed, and finished. Each copy is built at true size, 640px wide, with real names, amounts and times, its root marked data-ui; inside it the product's own control borders and radii apply. The copies sit in columns 4–9 with 56px between them and nothing framing them. In columns 1–3, right-aligned and level with each copy, one word at 22px in the soft ink names its state. Columns 10–12 stay empty. The middle copy is live: its checkbox or button works and turns it into the third state. The heading, two to four words at 28–32px, sits on column 4's left edge, 96px above the first copy, with no supporting line.",
+      "mobile": "Copies stack at full width with 16px margins and stay at true size; a row wider than the screen is cropped at its right end, never shrunk. Each state word sits beneath its copy at 17px in the soft ink, 10px away. 48px separates the three groups. Heading at 26px.",
+      "seenIn": ["opl-rows"]
+    }
+  ],
+  "references": [
+    {
+      "id": "opl-dabbit",
+      "name": "Dabbit",
+      "url": "https://dabbit.app",
+      "source": "One Page Love",
+      "kind": "dev-tool",
+      "score": 7.8,
+      "idea": "The colour picker demonstrates itself on the page: its loupe sits in the hero reading the site's own background hex, and every feature is shown as a real fragment of the app.",
+      "mood": ["precise", "quiet", "nocturnal", "crafted"],
+      "archetype": "split-text-media",
+      "hero": "Near-black viewport split exactly in half by a one-pixel vertical hairline. Left half: a small chrome four-petal logo top-left at a 40px margin, then two thirds of empty dark, then everything else anchored bottom-left: a one-line 30px medium-weight headline, three lines of grey 18px copy, a light pill button beside an outlined pill, and a tiny note. Right half: a 450px rounded square with a thin iridescent border, the app's loupe, empty except for a centre crosshair dot and a small chip reading the hex of the page's own background. Eight pastel dots and lozenges drift across the top-right like spilled swatches.",
+      "type": "InterVariable only. Headline a modest 30px medium with -0.025em tracking; section heads about 22px; cell titles 15px; body 16px grey. Largest text is 3.3vw. Hierarchy comes from white against grey rather than size; hex values use tabular figures.",
+      "colour": "#141416 #2b2b2e #f4f3f2 #9a9aa0 #f4a48c #d4c6e6 — Charcoal ground, off-white and grey text, no brand accent. All colour comes from the product: pastel swatches, tonal scales, and a thin prismatic edge on the loupe and logo. Neutral-cool.",
+      "imagery": "Live-drawn UI fragments on canvas: swatch strips, eleven-step scales, contrast tables, a Figma plugin panel, each in a slightly lighter rounded panel. A chrome 3D logo and chrome price numerals are the only non-UI images.",
+      "layout": "40px outer margins; the hero's centre hairline becomes a three-column then four-column hairline grid. No section changes background; rhythm is small eyebrow, heading, grid, repeat. Text sits top-left in every cell.",
+      "sections": [
+        {
+          "role": "features",
+          "description": "A three-column grid ruled by one-pixel hairlines with no card backgrounds. Each cell is over 400px tall: 15px white title and three lines of grey copy, plus a real UI fragment docked above or below (a swatch history strip, a tonal scale, a contrast table, a ten-by-ten colour matrix). Rows alternate text-over-mock and mock-over-text so the grid staggers. The loupe square from the hero reappears floating across cell boundaries."
+        },
+        {
+          "role": "features",
+          "description": "A four-column, three-row grid of minor features divided by hairlines. Each item is a 14px title prefixed by a tiny coloured glyph (dot, square, triangle or dash, one shape per column, in the app's pastel colours) and two lines of grey text. No icons, no cards, no hover chrome."
+        },
+        {
+          "role": "pricing",
+          "description": "Left third: small grey eyebrow, a 22px heading, one paragraph. Right: the price rendered as huge chrome 3D numerals about 150px tall with the loupe square overlapping them, a tiny qualifier beside, and a plain four-line checklist beneath. No pricing card, no border, no tiers."
+        },
+        {
+          "role": "cta",
+          "description": "Closing block centred on the same dark ground: the chrome four-petal logo enlarged to about 200px, pastel shapes scattered widely around it, a two-line 22px sentence, the same two pill buttons, then a one-line footer with copyright left and seven text links right."
+        }
+      ],
+      "steal": [
+        "Make the hero demo sample the page itself: the tool reports the site's own background value, proving the product without a screenshot.",
+        "Build feature grids from hairlines and real UI fragments instead of bordered cards and icons, alternating text-above and mock-above per row.",
+        "Keep the headline small (30px) and anchored bottom-left so the product object, not the slogan, owns the first viewport."
+      ]
+    },
+    {
+      "id": "opl-typewave",
+      "name": "Typewave",
+      "url": "https://typewave.blendmodes.com",
+      "source": "One Page Love",
+      "kind": "dev-tool",
+      "score": 7.2,
+      "idea": "A plugin about type scales sold on a near-black page where flat saturated fields (orange, lime, blue) act as stages for the plugin's own dark interface.",
+      "mood": ["dark", "tidy", "friendly", "product-focused"],
+      "archetype": "centred-statement-media-below",
+      "hero": "Near-black field. Nav row at the top: pixel-block logo and wordmark left, four plain links centred (one carrying a tiny lime tag), a cream rectangular button with a Figma glyph right. The headline sits centred around mid-height: three lines at about 6.7vw, medium weight, off-white, with the third line recoloured pale lime. Below it a three-line 18px paragraph held to about 45% of the width, then a small cream button repeating the nav action. About 150px lower, the top edge of a flat orange slab, 70% of the viewport wide with barely rounded corners, peeks over the fold; it holds the plugin window.",
+      "type": "Roobert throughout: weight 500 for the 96px headline with slight negative tracking, 16-18px body, 28px card headings, about four sizes in all. Sentence case everywhere; the only emphasis device is recolouring one headline line.",
+      "colour": "#0f0f0e #191918 #e6e3da #f88616 #e4f283 #1463ff — Warm near-black ground with cream text. Orange, lime and electric blue never colour paragraphs; they only fill the rectangles behind product screenshots and the matching step-number chips.",
+      "imagery": "Dark plugin windows with a soft drop shadow, floated centred on flat saturated rectangles (orange, lime, blue, one pink); the rectangles are near square-cornered and inset inside a slightly lighter dark card.",
+      "layout": "Centred hero, then a 1000px container of full-width dark cards, each split one-third text and two-thirds colour stage. Export features alternate text and tile left to right. A small two-button bar stays pinned bottom-centre.",
+      "sections": [
+        {
+          "role": "how-it-works",
+          "description": "Three stacked cards in a slightly lighter black, each about 1000 by 350px. Left third: a 16px square number chip in the card's accent colour at the top, a three-line 28px heading under it, and a grey 12px paragraph pushed to the card's bottom edge, leaving a tall gap between. Right two-thirds: a flat colour rectangle inset 16px with the dark plugin window centred and shadowed on it. Cards differ only by hue: lime, orange, blue."
+        },
+        {
+          "role": "intro",
+          "description": "Between demo blocks a single left-aligned sentence at about 36px sits alone on black with some 300px of space above and below. Its words light up from dark grey to cream one after another as you scroll, so mid-capture the sentence trails off into the background. The pinned two-button bar is the only other element on screen."
+        },
+        {
+          "role": "features",
+          "description": "Export options as alternating rows. One side: a square colour tile (lime, then orange) holding a code-panel screenshot. Other side: a 24px heading, a five-line grey paragraph and a row of three or four small monochrome tool logos. Tile and text swap sides on each row, and the tiles are staggered vertically so one row's tile overlaps the next row's text band."
+        }
+      ],
+      "steal": [
+        "Stage dark UI screenshots on flat saturated rectangles instead of on the page background, so the colour does the branding and the UI stays legible.",
+        "Pin the paragraph to the bottom of a tall card and the heading to the top so the gap between them becomes the card's composition.",
+        "Colour-key each step: the number chip and the stage behind the screenshot share one hue and nothing else on the card uses it."
+      ]
+    },
+    {
+      "id": "opl-textmode-overlay",
+      "name": "Textmode Overlay",
+      "url": "https://extension.textmode.art",
+      "source": "One Page Love",
+      "kind": "dev-tool",
+      "score": 7.7,
+      "idea": "The whole site is rendered in the product's medium: one bitmap face and live character-art fields, laid out like a terminal instrument panel with a numbered rail.",
+      "mood": ["retro-terminal", "dark", "precise", "dense", "technical"],
+      "archetype": "type-poster",
+      "hero": "Black viewport framed like an instrument panel. A 60px top bar with a hairline beneath: wordmark and version left, four small caps links right, a cream block button filling the bar's right end. A narrow right-edge rail lists 01 to 10 vertically; the active number extends leftward as an outlined label tab. The main area is a canvas of dim grey character marks with a few red ones, small caps captions in its top corners. The headline, two lines of cream pixel caps at 11vw, is left-aligned at mid-height, its last word in a slanted variant. Below a hairline, a bottom strip holds a short description left and two wide rectangular buttons.",
+      "type": "Monogram Extended, a bitmap face, for 96% of text: 160px headline caps, 24px body, small caps labels, one weight, with a slanted variant for the accent word. Inter appears only in the cookie dialog. Hierarchy comes from size and case alone.",
+      "colour": "#0a0a0a #f2f2ec #3b3b3b #b11226 #9a9a95 — Black with cream text and mid-grey glyph texture. Deep crimson appears as scattered characters, soft radial glows behind panels and slider fills. The last two sections invert to cream with black type.",
+      "imagery": "Live canvas renderings: a swirling white, grey and red brush-stroke animation shown beside its character-art conversion, plus ambient character fields as backgrounds. Square corners, hairline frames, no photographs.",
+      "layout": "Full-width panel grid drawn with 1px lines: 32px margins, a persistent right rail, sections built from bordered cells (three equal columns, a two-by-three spec table beside a wide panel, control strips). Each section starts with a small slash-separated caption and a large caps heading.",
+      "sections": [
+        {
+          "role": "showcase",
+          "description": "A wide bordered frame split vertically by a draggable handle: the left half shows the source animation (thick white, grey and crimson swirls on black), the right half the same frame converted to scattered characters, with small outlined tags in the top corners naming each side. Beneath, a control strip of bordered cells offers segmented options (cell size in four steps with the active one filled cream, glyph set, invert, motion), like a hardware panel."
+        },
+        {
+          "role": "how-it-works",
+          "description": "Three equal tall columns divided by hairlines inside one outer frame, each about 300px high. A single caps word sits at mid-left of each column in roughly 36px pixel type and two lines of small text sit at the bottom-left. A soft crimson radial glow is centred behind the middle column and fades into the outer two, the only shading in the section."
+        },
+        {
+          "role": "features",
+          "description": "Left 40%: a two-by-three table of bordered cells, each with a tiny index number top-left, a caps feature name at mid-left and a small grey quantity bottom-right. Right 60%: one large cell with a two-line caps heading upper-left, a crimson glow in the top-right corner and two lines of description along the bottom. The rail tab at the right edge names the section."
+        },
+        {
+          "role": "cta",
+          "description": "The close inverts to cream: a pale character field with a faint red cluster at upper right, a slash-separated caption, then a two-line black pixel-caps headline at about 8vw that echoes the hero and reuses the slanted last word, and one small outlined rectangular button. Footer links follow in three small columns on the same cream ground."
+        }
+      ],
+      "steal": [
+        "Add a fixed right-edge rail of section numbers where the active number sprouts a labelled tab into the content area.",
+        "Draw the page as bordered cells with 1px lines and put a tiny index top-left and a small quantity bottom-right in each feature cell.",
+        "End on an inverted, light-ground repeat of the hero headline so the close mirrors the opening in the opposite palette."
+      ]
+    }
+  ]
+}

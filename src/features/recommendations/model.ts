@@ -16,18 +16,19 @@ export interface Recommendation {
   addedAt?: string;
   /** Smaller values appear first in the recommended order. */
   order?: number;
-  tags: string[];
+  tags?: string[];
 }
 
-export type RecommendationSort = 'recommended' | 'rating' | 'newest';
+export type RecommendationSort = 'random' | 'recommended' | 'rating' | 'newest';
 
 export interface RecommendationFilters {
   query: string;
   category: string;
   sort: RecommendationSort;
+  tags: string[];
 }
 
-export const DEFAULT_FILTERS: RecommendationFilters = { query: '', category: '', sort: 'recommended' };
+export const DEFAULT_FILTERS: RecommendationFilters = { query: '', category: '', sort: 'random', tags: [] };
 
 function optionalText(value: unknown, field: string): string | undefined {
   if (value === undefined || value === null || value === '') return undefined;
@@ -126,7 +127,15 @@ export function parseRecommendationFilters(search: string): RecommendationFilter
   return {
     query: (params.get('q') ?? '').slice(0, 200),
     category: (params.get('category') ?? '').slice(0, 80),
-    sort: sort === 'rating' || sort === 'newest' ? sort : 'recommended',
+    sort: sort === 'rating' || sort === 'newest' || sort === 'recommended' ? sort : 'random',
+    tags: [
+      ...new Set(
+        params
+          .getAll('tag')
+          .map((tag) => tag.trim().slice(0, 80))
+          .filter(Boolean),
+      ),
+    ].slice(0, 100),
   };
 }
 
@@ -136,29 +145,43 @@ export function recommendationFilterUrl(currentUrl: string, filters: Recommendat
   for (const [key, value] of Object.entries({
     q: filters.query,
     category: filters.category,
-    sort: filters.sort === 'recommended' ? '' : filters.sort,
+    sort: filters.sort === 'random' ? '' : filters.sort,
   })) {
     if (value) url.searchParams.set(key, value);
     else url.searchParams.delete(key);
   }
+  url.searchParams.delete('tag');
+  for (const tag of [...new Set((filters.tags ?? []).map((value) => value.trim()).filter(Boolean))].slice(0, 100)) {
+    url.searchParams.append('tag', tag);
+  }
   return `${url.pathname}${url.search}${url.hash}`;
 }
 
-export function filterRecommendations(items: readonly Recommendation[], filters: RecommendationFilters): Recommendation[] {
+export function filterRecommendations(
+  items: readonly Recommendation[],
+  filters: RecommendationFilters,
+  randomOrder?: ReadonlyMap<string, number>,
+): Recommendation[] {
   const query = filters.query.trim().toLocaleLowerCase('zh-CN');
   return items
     .map((item, index) => ({ item, index }))
     .filter(({ item }) => !filters.category || item.category === filters.category)
+    .filter(({ item }) => !filters.tags?.length || filters.tags.some((tag) => item.tags?.includes(tag)))
     .filter(
       ({ item }) =>
         !query ||
-        [item.title, item.author, item.description, item.category, ...item.tags]
+        [item.title, item.author, item.description, item.category, ...(item.tags ?? [])]
           .filter(Boolean)
           .join(' ')
           .toLocaleLowerCase('zh-CN')
           .includes(query),
     )
     .sort((a, b) => {
+      if (filters.sort === 'random') {
+        const difference =
+          (randomOrder?.get(a.item.id) ?? a.item.order ?? a.index) - (randomOrder?.get(b.item.id) ?? b.item.order ?? b.index);
+        if (difference) return difference;
+      }
       if (filters.sort === 'rating') {
         const difference = (b.item.rating ?? -1) - (a.item.rating ?? -1);
         if (difference) return difference;

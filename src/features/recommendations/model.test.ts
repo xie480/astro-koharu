@@ -79,7 +79,7 @@ test('recommended order is explicit and ties stay in source order', () => {
     { id: 'third', title: '第三项', category: '其他', order: 1 },
   ]);
   assert.deepEqual(
-    filterRecommendations(ranked, DEFAULT_FILTERS).map((item) => item.id),
+    filterRecommendations(ranked, { ...DEFAULT_FILTERS, sort: 'recommended' }).map((item) => item.id),
     ['second', 'third', 'first'],
   );
 });
@@ -111,5 +111,5 @@ test('filter URLs preserve unrelated parameters and roundtrip Unicode without st
     recommendationFilterUrl(`https://example.com${url}`, DEFAULT_FILTERS),
     '/recommendations?source=home#collection',
   );
-  assert.equal(parseRecommendationFilters('?sort=invalid').sort, 'recommended');
+  assert.equal(parseRecommendationFilters('?sort=invalid').sort, 'random');
 });
