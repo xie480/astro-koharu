@@ -38,6 +38,11 @@
   border-left-width: 4px;
 }
 
+.recommendation-card[data-kind="manga"] {
+  --recommendation-accent: 329 61% 48%;
+  border-right-width: 3px;
+}
+
 .recommendation-card[data-kind="anime"] {
   --recommendation-accent: 281 58% 49%;
 }
@@ -59,6 +64,10 @@
 
 .dark .recommendation-card[data-kind="novel"] {
   --recommendation-accent: 348 74% 71%;
+}
+
+.dark .recommendation-card[data-kind="manga"] {
+  --recommendation-accent: 327 79% 72%;
 }
 
 .dark .recommendation-card[data-kind="anime"] {
@@ -200,6 +209,10 @@
   border-radius: 50%;
 }
 
+.recommendation-card[data-kind="manga"] .recommendation-category-mark {
+  border-radius: 0.35rem 0.75rem 0.35rem 0.75rem;
+}
+
 .recommendation-card[data-kind="opensource"] .recommendation-category-mark {
   width: 2.35rem;
   border-radius: 0.5rem;
@@ -291,6 +304,21 @@
   height: 5.125rem;
   flex-shrink: 0;
   border-radius: 0.625rem;
+}
+
+.recommendation-card-art--manga {
+  width: 6.25rem;
+  height: 8.3rem;
+  flex-shrink: 0;
+  border: 1px solid hsl(var(--recommendation-accent) / 0.24);
+  border-radius: 0.55rem;
+  background: hsl(var(--background));
+  box-shadow: 0 0.45rem 1rem hsl(var(--recommendation-accent) / 0.12);
+}
+
+.recommendation-card-art--manga img {
+  object-fit: contain;
+  background: hsl(var(--background));
 }
 
 .recommendation-card-art--game .recommendation-card-art-fallback {

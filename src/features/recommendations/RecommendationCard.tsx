@@ -3,10 +3,11 @@ import type { Recommendation } from './model';
 import './recommendation-cards.css';
 
 const ratingFormat = new Intl.NumberFormat('zh-CN', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-type RecommendationKind = 'novel' | 'anime' | 'game' | 'opensource' | 'other';
+type RecommendationKind = 'novel' | 'manga' | 'anime' | 'game' | 'opensource' | 'other';
 
 function recommendationKind(category: string): RecommendationKind {
   if (category === '小说') return 'novel';
+  if (category === '漫画') return 'manga';
   if (category === '番剧') return 'anime';
   if (category === '游戏') return 'game';
   if (category === '开源项目') return 'opensource';
@@ -39,7 +40,12 @@ function RecommendationArtwork({
   imageFailed: boolean;
   onError: () => void;
 }) {
-  const imageDimensions = kind === 'game' ? { width: 176, height: 144 } : { width: 720, height: 260 };
+  const imageDimensions =
+    kind === 'game'
+      ? { width: 176, height: 144 }
+      : kind === 'manga'
+        ? { width: 720, height: 960 }
+        : { width: 720, height: 260 };
 
   return (
     <div className={`recommendation-card-art recommendation-card-art--${kind}`}>
@@ -71,7 +77,7 @@ function RecommendationArtwork({
           <span>封面暂缺</span>
         </div>
       )}
-      {kind !== 'game' && <span className="recommendation-card-art-label">{item.category}精选</span>}
+      {kind !== 'game' && kind !== 'manga' && <span className="recommendation-card-art-label">{item.category}精选</span>}
     </div>
   );
 }
@@ -79,6 +85,7 @@ function RecommendationArtwork({
 function CardCategoryMark({ kind, category }: { kind: RecommendationKind; category: string }) {
   const mark = {
     novel: '文',
+    manga: '漫',
     anime: '映',
     game: '玩',
     opensource: '</>',
@@ -135,7 +142,7 @@ export default function RecommendationCard({ item }: { item: Recommendation }) {
       onPointerMove={updateTilt}
       onPointerLeave={resetTilt}
     >
-      {showArtwork && kind !== 'game' && (
+      {showArtwork && kind !== 'game' && kind !== 'manga' && (
         <RecommendationArtwork item={item} kind={kind} imageFailed={imageFailed} onError={() => setImageFailed(true)} />
       )}
 
@@ -172,7 +179,7 @@ export default function RecommendationCard({ item }: { item: Recommendation }) {
             <h3 translate={kind === 'opensource' ? 'no' : undefined}>{item.title}</h3>
             {item.author && <p className="recommendation-author">{item.author}</p>}
           </div>
-          {kind === 'game' && (
+          {(kind === 'game' || kind === 'manga') && (
             <RecommendationArtwork item={item} kind={kind} imageFailed={imageFailed} onError={() => setImageFailed(true)} />
           )}
         </div>
