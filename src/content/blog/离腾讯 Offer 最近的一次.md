@@ -5,7 +5,7 @@ date: "2026-10-29 12:00:00"
 tags: [面试]
 categories: [碎碎念]
 cover: /img/posts/tencent-offer-interview.png
-draft: true
+draft: false
 ---
 
 # 复盘
