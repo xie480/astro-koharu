@@ -1302,5 +1302,43 @@
     "tags": ["奇幻", "青春", "恋爱", "救赎"],
     "addedAt": "2026-10-29",
     "order": 110
+  },
+  {
+    "id": "anime-031",
+    "title": "BanG Dream! It's MyGO!!!!!",
+    "category": "番剧",
+    "demo": false,
+    "image": "https://image.tmdb.org/t/p/original/rV5YhLd0J1nf0DYUCTKQegAjYLw.jpg",
+    "url": "https://anime.bang-dream.com/mygo/",
+    "rating": 7.5,
+    "tags": ["乐队", "音乐", "青春", "校园", "友情", "成长"],
+    "addedAt": "2026-10-30",
+    "order": 111
+  },
+  {
+    "id": "anime-030",
+    "title": "BanG Dream! Ave Mujica - The Die is Cast -",
+    "category": "番剧",
+    "demo": false,
+    "description": "梦到什么是什么",
+    "image": "https://image.tmdb.org/t/p/w500/2oq4QR3CtiAaRYHOjdYWgZAby63.jpg",
+    "url": "https://anime.bang-dream.com/avemujica/",
+    "rating": 7.0,
+    "tags": ["乐队", "音乐", "剧情", "心理", "青春", "群像"],
+    "addedAt": "2026-10-30",
+    "order": 113
+  },
+  {
+    "id": "anime-032",
+    "title": "BanG Dream! YUME∞MITA",
+    "category": "番剧",
+    "demo": false,
+    "description": "剧情稍微有点崩坏吧，但最起码在其他方面很出色，尤其是人设",
+    "image": "https://image.tmdb.org/t/p/original/iGTDxzKALOi1gPhc1Hn3Vis2vSV.jpg",
+    "url": "https://anime.bang-dream.com/yumemita/",
+    "rating": 8.0,
+    "tags": ["乐队", "音乐", "青春", "校园", "虚拟主播", "成长"],
+    "addedAt": "2026-10-30",
+    "order": 112
   }
 ]
