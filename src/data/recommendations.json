@@ -1412,5 +1412,17 @@
     "tags": ["英伦风", "复古", "神秘学", "剧情", "策略"],
     "addedAt": "2026-10-31",
     "order": 119
+  },
+  {
+    "id": "game-028",
+    "title": "大悪逆令嬢 ストラテジーオブリリィ",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2454960/5367ea7f8a4b2ccbf493ec2fcc8ce6de0cc15b40/library_600x900_japanese_2x.jpg",
+    "description": "战棋玩法很有趣，可惜剧情实在太水了。",
+    "rating": 8,
+    "tags": ["战棋", "回合制", "策略", "剧情", "恶役千金"],
+    "addedAt": "2026-10-31",
+    "order": 120
   }
 ]
