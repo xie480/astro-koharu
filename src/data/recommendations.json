@@ -1340,5 +1340,77 @@
     "tags": ["乐队", "音乐", "青春", "校园", "虚拟主播", "成长"],
     "addedAt": "2026-10-30",
     "order": 112
+  },
+  {
+    "id": "game-022",
+    "title": "胜利女神：NIKKE",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://nikke-jp.com/assets/swiper6_img1.ecf72207.jpg",
+    "description": "卖肉归卖肉，剧情确实精彩，而且毫无肝度，简直完美。",
+    "rating": 10,
+    "tags": ["末世", "射击", "剧情", "科幻", "美少女"],
+    "addedAt": "2026-10-31",
+    "order": 114
+  },
+  {
+    "id": "game-023",
+    "title": "ブルーアーカイブ",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/c0/f1/0ac0f178-dc57-3116-df82-794353787fa7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/1200x630wa.png",
+    "description": "第一部的剧情已经足够出色。第二部开始就有些难评了，如今的剧情已经回不到当初的味道了。",
+    "rating": 9,
+    "tags": ["校园", "青春", "剧情", "学园", "RPG"],
+    "addedAt": "2026-10-31",
+    "order": 115
+  },
+  {
+    "id": "game-024",
+    "title": "明日方舟",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/7a/e3/16/7ae31606-6b76-f1c8-ced8-1851ceb2291f/AppIcon-0-0-1x_U007emarketing-0-0-0-9-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png",
+    "description": "剧情很出色，就是太爱谜语人；博士的设定明明很高大上，可在剧情里就是个摄像头。",
+    "rating": 8,
+    "tags": ["塔防", "策略", "剧情", "科幻", "末世"],
+    "addedAt": "2026-10-31",
+    "order": 116
+  },
+  {
+    "id": "game-025",
+    "title": "学園アイドルマスター",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://gakuen.idolmaster-official.jp/assets/img/top/mv/mv_img.png",
+    "description": "人设和演出都很不错，不过亮点也基本局限在这两点上。",
+    "rating": 7.5,
+    "tags": ["偶像", "校园", "养成", "音乐", "青春"],
+    "addedAt": "2026-10-31",
+    "order": 117
+  },
+  {
+    "id": "game-026",
+    "title": "永远的7日之都",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://huiji-public.huijistatic.com/f7d/uploads/4/49/App_Logo_1st.png",
+    "description": "剧情没得挑，确实是最顶尖的一档，可惜运营没能跟上。",
+    "rating": 9,
+    "tags": ["轮回", "都市幻想", "多结局", "剧情", "RPG"],
+    "addedAt": "2026-10-31",
+    "order": 118
+  },
+  {
+    "id": "game-027",
+    "title": "重返未来：1999",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://re.bluepoch.com/home/img/share.png",
+    "description": "英伦风格的二游做出了自己的味道，剧情也很出色。",
+    "rating": 9,
+    "tags": ["英伦风", "复古", "神秘学", "剧情", "策略"],
+    "addedAt": "2026-10-31",
+    "order": 119
   }
 ]
