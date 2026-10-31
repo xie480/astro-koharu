@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Windows 计算器百分号的两种运算规则</title>
+  <desc id="desc">乘法或除法时百分号把当前数除以一百；加法或减法时用当前数乘以前一个数再除以一百。以 200 加 10% 得 220、200 乘 10% 得 20 为例。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f7f8fc"/><stop offset="1" stop-color="#e8eef9"/></linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 10 6 1 11" fill="none" stroke="#71809a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      text{font-family:Inter,"Microsoft YaHei","PingFang SC",sans-serif;fill:#1e293b}.muted{fill:#617087}.small{font-size:20px}.label{font-size:18px;font-weight:700;letter-spacing:1px}.head{font-size:27px;font-weight:700}
+    </style>
+  </defs>
+  <rect width="1280" height="560" rx="28" fill="url(#bg)"/>
+  <text x="58" y="66" font-size="33" font-weight="700">同一个 % 键，运算符不同，输入就走不同分支</text>
+  <text x="58" y="101" class="small muted">REA 官网案例对反编译分支、调用与微软公开命令 ID 的交叉解释</text>
+
+  <rect x="58" y="172" width="250" height="170" rx="20" fill="#fff" stroke="#d8dfec" stroke-width="2"/>
+  <text x="86" y="214" class="label" fill="#4264ad">输入状态</text>
+  <text x="86" y="260" class="head">previous = 200</text>
+  <text x="86" y="302" class="head">current = 10</text>
+
+  <path d="M315 257h88" fill="none" stroke="#71809a" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M411 257v-85h82" fill="none" stroke="#71809a" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M411 257v85h82" fill="none" stroke="#71809a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="510" y="125" width="320" height="190" rx="20" fill="#fff" stroke="#9db7eb" stroke-width="2"/>
+  <text x="540" y="169" class="label" fill="#4264ad">× 或 ÷</text>
+  <text x="540" y="213" font-size="22" font-weight="700">percent = current / 100</text>
+  <text x="540" y="253" class="small muted">10% → 0.1</text>
+  <text x="540" y="286" class="small">200 × 0.1 = 20</text>
+
+  <rect x="510" y="338" width="320" height="190" rx="20" fill="#fff" stroke="#9db7eb" stroke-width="2"/>
+  <text x="540" y="382" class="label" fill="#4264ad">+ 或 −</text>
+  <text x="540" y="426" font-size="19" font-weight="700">percent = current ×</text>
+  <text x="540" y="453" font-size="19" font-weight="700">previous / 100</text>
+  <text x="540" y="484" font-size="18" class="muted">10 × 200 / 100 = 20</text>
+  <text x="540" y="512" font-size="18">200 + 20 = 220</text>
+
+  <path d="M843 218h68" fill="none" stroke="#71809a" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M843 430h68" fill="none" stroke="#71809a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="925" y="171" width="300" height="92" rx="18" fill="#edf3ff" stroke="#c7d7f5" stroke-width="2"/>
+  <text x="955" y="207" class="label" fill="#4264ad">例：乘法</text>
+  <text x="955" y="240" font-size="24" font-weight="700">200 × 10% = 20</text>
+  <rect x="925" y="384" width="300" height="92" rx="18" fill="#edf3ff" stroke="#c7d7f5" stroke-width="2"/>
+  <text x="955" y="420" class="label" fill="#4264ad">例：加法</text>
+  <text x="955" y="453" font-size="24" font-weight="700">200 + 10% = 220</text>
+</svg>

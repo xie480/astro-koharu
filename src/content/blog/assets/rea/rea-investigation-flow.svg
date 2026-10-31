@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="700" viewBox="0 0 1280 700" role="img" aria-labelledby="title desc">
+  <title id="title">REA 逆向分析工作流</title>
+  <desc id="desc">用户向 AI Agent 提问，Agent 通过 MCP 调用 REA，REA 选择静态分析、运行时观察或专业分析引擎，返回带证据的结果供 Agent 继续追问。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f7f8fc"/><stop offset="1" stop-color="#e8eef9"/></linearGradient>
+    <linearGradient id="rea" x1="0" x2="1"><stop stop-color="#2558a6"/><stop offset="1" stop-color="#6a68c7"/></linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 10 6 1 11" fill="none" stroke="#687890" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="blueArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1 1 10 6 1 11" fill="none" stroke="#4264ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      text{font-family:Inter,"Microsoft YaHei","PingFang SC",sans-serif;fill:#1e293b}
+      .muted{fill:#617087}.small{font-size:19px}.card{fill:#fff;stroke:#d8dfec;stroke-width:2}.head{font-size:26px;font-weight:700}.label{font-size:17px;font-weight:700;letter-spacing:1px}.white{fill:#fff}.light{fill:#dbe8ff}
+    </style>
+  </defs>
+  <rect width="1280" height="700" rx="28" fill="url(#bg)"/>
+  <text x="64" y="72" font-size="34" font-weight="700">REA 如何把 Agent 接到逆向分析工具</text>
+  <text x="64" y="108" class="small muted">分析路径随目标类型变化；每一步都把发现和未知带回对话。</text>
+
+  <rect x="52" y="172" width="205" height="148" rx="18" class="card"/>
+  <text x="78" y="215" class="label" fill="#4264ad">01 · 提问</text>
+  <text x="78" y="257" class="head">AI Agent</text>
+  <text x="78" y="289" class="small muted">理解任务、选下一步</text>
+
+  <rect x="302" y="172" width="205" height="148" rx="18" class="card"/>
+  <text x="328" y="215" class="label" fill="#4264ad">02 · 连接</text>
+  <text x="328" y="257" class="head">MCP</text>
+  <text x="328" y="289" class="small muted">发现工具、传递参数</text>
+
+  <rect x="552" y="155" width="220" height="182" rx="20" fill="url(#rea)"/>
+  <text x="580" y="202" class="label light">03 · 调度</text>
+  <text x="580" y="250" class="white" font-size="36" font-weight="800">REA</text>
+  <text x="580" y="286" class="small light">MCP Server / CLI</text>
+  <text x="580" y="315" class="small light">统一分析工作流</text>
+
+  <rect x="817" y="172" width="410" height="148" rx="18" class="card"/>
+  <text x="843" y="215" class="label" fill="#4264ad">04 · 按目标选路</text>
+  <text x="843" y="255" font-size="22" font-weight="700">静态分析　运行时观察　原生引擎</text>
+  <text x="843" y="286" class="small muted">JS / Electron　浏览器</text>
+  <text x="843" y="311" class="small muted">Ghidra / IDA / Hopper</text>
+
+  <path d="M260 246h34m215 0h34m232 0h34" fill="none" stroke="#687890" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="817" y="401" width="410" height="154" rx="18" class="card"/>
+  <text x="843" y="444" class="label" fill="#4264ad">05 · 返回证据</text>
+  <text x="843" y="484" class="head">发现 + 来源 + 限制</text>
+  <text x="843" y="519" class="small muted">符号、伪代码、引用、模块关系或运行观察</text>
+
+  <rect x="552" y="401" width="220" height="154" rx="18" class="card"/>
+  <text x="580" y="444" class="label" fill="#4264ad">06 · 解释</text>
+  <text x="580" y="484" class="head">Agent</text>
+  <text x="580" y="519" class="small muted">解释、追问、尝试复现</text>
+
+  <path d="M1022 328v64" fill="none" stroke="#687890" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M807 477h-26" fill="none" stroke="#687890" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M552 478H430Q398 478 398 446V340Q398 320 378 320" fill="none" stroke="#4264ad" stroke-width="3" marker-end="url(#blueArrow)"/>
+  <text x="407" y="580" class="small muted">证据不足时继续追踪</text>
+
+  <rect x="52" y="600" width="1175" height="52" rx="14" fill="#fff" opacity=".72"/>
+  <text x="76" y="633" class="small muted">REA 不取代分析引擎，也不代替结论复核；它负责把合适的工具、分析结果和 Agent 工作流接起来。</text>
+</svg>
