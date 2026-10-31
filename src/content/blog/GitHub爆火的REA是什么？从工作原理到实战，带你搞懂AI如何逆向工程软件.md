@@ -1,4 +1,5 @@
 ---
+link: 'github爆火的rea是什么从工作原理到实战带你搞懂ai如何逆向工程软件'
 title: GitHub 爆火的 REA 是什么？从工作原理到实战，带你搞懂 AI 如何逆向工程软件
 date: "2026-10-31 12:00:00"
 description: 从 MCP 架构、静态与运行时分析，到 Windows 计算器百分号案例，拆解 REA 如何把逆向工具接入 AI Coding Agent。
