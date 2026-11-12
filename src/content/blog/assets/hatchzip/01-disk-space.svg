@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <title>普通解压与消耗式解压的磁盘占用对比</title>
+  <desc>左侧显示压缩包和输出同时增加到约三百八十 GB，右侧显示归档逐步减少、输出逐步增加。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#3f4b5b"/></marker>
+  </defs>
+  <rect width="900" height="440" fill="#ffffff"/>
+  <g font-family="sans-serif" fill="#1f2937">
+    <text x="450" y="34" text-anchor="middle" font-size="24" font-weight="700">解压过程中的空间峰值</text>
+    <text x="225" y="74" text-anchor="middle" font-size="20" font-weight="700">普通解压</text>
+    <text x="675" y="74" text-anchor="middle" font-size="20" font-weight="700">HatchZip 原地解压</text>
+    <line x1="90" y1="365" x2="380" y2="365" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="540" y1="365" x2="830" y2="365" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="235" y="402" text-anchor="middle" font-size="16">时间</text>
+    <text x="685" y="402" text-anchor="middle" font-size="16">时间</text>
+    <line x1="90" y1="365" x2="90" y2="110" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="540" y1="365" x2="540" y2="110" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="42" y="235" transform="rotate(-90 42 235)" font-size="16">占用空间</text>
+    <text x="492" y="235" transform="rotate(-90 492 235)" font-size="16">占用空间</text>
+    <path d="M95 315 C170 270 245 190 370 125" fill="none" stroke="#2f80ed" stroke-width="6"/>
+    <path d="M95 205 C175 200 250 155 370 130" fill="none" stroke="#e67e22" stroke-width="6"/>
+    <circle cx="370" cy="125" r="7" fill="#2f80ed"/><circle cx="370" cy="130" r="7" fill="#e67e22"/>
+    <text x="105" y="305" font-size="16" fill="#2f80ed">输出文件逐步增加</text>
+    <text x="102" y="190" font-size="16" fill="#e67e22">压缩包保持 180 GB</text>
+    <text x="286" y="112" font-size="17" font-weight="700">约 380 GB 峰值</text>
+    <path d="M545 315 C625 270 705 190 825 130" fill="none" stroke="#2f80ed" stroke-width="6"/>
+    <path d="M545 135 C630 160 715 215 825 300" fill="none" stroke="#e67e22" stroke-width="6"/>
+    <text x="560" y="305" font-size="16" fill="#2f80ed">输出逐步增加</text>
+    <text x="585" y="150" font-size="16" fill="#e67e22">已用归档逐步释放</text>
+    <text x="690" y="112" font-size="17" font-weight="700">峰值接近输出大小</text>
+    <rect x="105" y="425" width="14" height="14" fill="#2f80ed"/><text x="126" y="438" font-size="14">输出</text>
+    <rect x="185" y="425" width="14" height="14" fill="#e67e22"/><text x="206" y="438" font-size="14">归档</text>
+  </g>
+</svg>

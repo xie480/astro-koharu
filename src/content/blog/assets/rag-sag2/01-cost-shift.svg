@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">RAG 的计算重心从离线建库转向查询时动态检索</title>
+  <desc id="desc">左侧展示传统 RAG 把大量计算放在离线建库阶段，右侧展示 SAG2 用轻量索引并在查询时按需组织证据。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#61717d"/></marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">RAG 的计算重心正在移动</text>
+  <text x="60" y="84" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">不是取消计算，而是不再为所有未来问题提前准备完整知识结构。</text>
+  <rect x="60" y="120" width="500" height="455" rx="22" fill="#fff" stroke="#e4c7b5" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="640" y="120" width="500" height="455" rx="22" fill="#fff" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="88" y="148" width="148" height="34" rx="17" fill="#f6e2d7"/>
+  <text x="162" y="172" text-anchor="middle" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">传统 RAG</text>
+  <text x="88" y="220" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">先把知识加工好</text>
+  <text x="88" y="250" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">离线预处理重，查询阶段相对轻。</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">
+    <rect x="100" y="286" width="420" height="45" rx="11" fill="#fff7f1" stroke="#eed8ca"/><text x="120" y="315" fill="#1d2a35">文档解析与 Chunk 切分</text>
+    <path d="M310 331 V348" stroke="#d6a98d" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="100" y="352" width="420" height="45" rx="11" fill="#fff7f1" stroke="#eed8ca"/><text x="120" y="381" fill="#1d2a35">Embedding、向量索引、重排序</text>
+    <path d="M310 397 V414" stroke="#d6a98d" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="100" y="418" width="420" height="45" rx="11" fill="#fff7f1" stroke="#eed8ca"/><text x="120" y="447" fill="#1d2a35">图谱、摘要或高层结构（可选）</text>
+  </g>
+  <text x="100" y="518" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">代价：改一段文件，可能触发多层索引维护</text>
+  <rect x="668" y="148" width="148" height="34" rx="17" fill="#dcefe8"/>
+  <text x="742" y="172" text-anchor="middle" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">SAG2</text>
+  <text x="668" y="220" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">查询时按需组织</text>
+  <text x="668" y="250" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">离线索引轻，复杂问题再增加计算。</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">
+    <rect x="680" y="286" width="420" height="45" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="700" y="315" fill="#1d2a35">原文 + BM25 / SQLite 轻量索引</text>
+    <path d="M890 331 V348" stroke="#91c2ad" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="680" y="352" width="420" height="45" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="700" y="381" fill="#1d2a35">查询时 JEV 判断当前证据</text>
+    <path d="M890 397 V414" stroke="#91c2ad" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="680" y="418" width="420" height="45" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="700" y="447" fill="#1d2a35">从证据提取关键词，继续多跳检索</text>
+  </g>
+  <text x="680" y="518" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">收益：简单问题走轻路径，复杂问题再按需加深</text>
+  <path d="M560 345 H640" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="600" y="326" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">计算重心</text>
+  <text x="600" y="369" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">从离线移向在线</text>
+</svg>

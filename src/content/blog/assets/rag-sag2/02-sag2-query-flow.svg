@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">传统 RAG 与 SAG2 的离线、在线计算路径</title>
+  <desc id="desc">图中将轻量索引阶段与查询时的候选判断、关键词扩展和证据链组织分成两条泳道。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#61717d"/></marker><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter></defs>
+  <rect width="1200" height="620" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">SAG2：把“关系怎么连”留到查询时</text>
+  <text x="60" y="84" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">离线阶段只建立能快速访问原文的索引，在线阶段再围绕当前问题组织证据。</text>
+  <rect x="60" y="118" width="1080" height="180" rx="20" fill="#fff" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="60" y="328" width="1080" height="220" rx="20" fill="#fff" stroke="#b9cfe1" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="86" y="142" width="150" height="33" rx="16" fill="#dcefe8"/><text x="161" y="165" text-anchor="middle" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700">离线阶段</text>
+  <text x="86" y="205" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" font-weight="700">轻量准备：原文 → 关键词索引</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">
+    <rect x="100" y="228" width="220" height="46" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="210" y="257" text-anchor="middle" fill="#1d2a35">原始文件</text>
+    <path d="M320 251 H375" stroke="#91c2ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="385" y="228" width="220" height="46" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="495" y="257" text-anchor="middle" fill="#1d2a35">段落与词项</text>
+    <path d="M605 251 H660" stroke="#91c2ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="670" y="228" width="220" height="46" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="780" y="257" text-anchor="middle" fill="#1d2a35">BM25 / SQLite</text>
+    <path d="M890 251 H945" stroke="#91c2ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="955" y="228" width="145" height="46" rx="11" fill="#f2fbf7" stroke="#cfe7dc"/><text x="1027" y="257" text-anchor="middle" fill="#1d2a35">可更新索引</text>
+  </g>
+  <rect x="86" y="352" width="150" height="33" rx="16" fill="#e1ebf6"/><text x="161" y="375" text-anchor="middle" fill="#416b91" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700">查询阶段</text>
+  <text x="86" y="415" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" font-weight="700">按需扩展：问题 → 证据链</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">
+    <rect x="100" y="442" width="180" height="54" rx="11" fill="#f3f7fc" stroke="#d1e0ef"/><text x="190" y="475" text-anchor="middle" fill="#1d2a35">用户问题</text>
+    <path d="M280 469 H315" stroke="#8eacc8" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="325" y="442" width="180" height="54" rx="11" fill="#f3f7fc" stroke="#d1e0ef"/><text x="415" y="475" text-anchor="middle" fill="#1d2a35">初始候选</text>
+    <path d="M505 469 H540" stroke="#8eacc8" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="550" y="442" width="180" height="54" rx="11" fill="#f3f7fc" stroke="#d1e0ef"/><text x="640" y="475" text-anchor="middle" fill="#1d2a35">JEV 证据判断</text>
+    <path d="M730 469 H765" stroke="#8eacc8" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="775" y="442" width="180" height="54" rx="11" fill="#f3f7fc" stroke="#d1e0ef"/><text x="865" y="475" text-anchor="middle" fill="#1d2a35">新关键词</text>
+    <path d="M955 469 H990" stroke="#8eacc8" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="1000" y="442" width="100" height="54" rx="11" fill="#e8f2ee" stroke="#cfe7dc"/><text x="1050" y="475" text-anchor="middle" fill="#1d2a35">回答</text>
+  </g>
+  <path d="M865 496 C865 525 640 535 415 496" fill="none" stroke="#8eacc8" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="640" y="545" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">复杂问题可重复“判断 → 扩展 → 再检索”，简单问题不必走完整循环</text>
+</svg>

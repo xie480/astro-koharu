@@ -1,0 +1,817 @@
+[
+  {
+    "id": "C001",
+    "article_type": "性能优化复盘",
+    "topic_tags": ["Redis", "批处理", "好友关系", "网络IO"],
+    "hook_type": "业务约束式",
+    "hook_excerpt": "在社交平台中，当用户互相关注时需建立好友关系并写入好友表。",
+    "structure_pattern": "业务需求→两次试错→瓶颈量化→终版→实现",
+    "structure_outline": [
+      "5万用户的一致性需求",
+      "初版116s",
+      "并行处理70s仍慢",
+      "每用户7次请求的量化",
+      "预加载与批操作6s",
+      "流程图和双版本代码"
+    ],
+    "ending_type": "邀请改进+轻松互动",
+    "source_types": ["项目场景", "作者报告的耗时", "流程图", "Java实现"],
+    "notable": "三次方案递进具有真实推演感；文中6次批操作是场景内估算，不能外推为任意规模常数请求。",
+    "evidence": [
+      {
+        "file": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+        "line": 121,
+        "quote": "为什么会这么慢？初步推断或许是用户数据量太大，"
+      },
+      {
+        "file": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+        "line": 177,
+        "quote": "但不过在数据量抵达百万甚至更多时最好还是采用游标进行分页"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C002",
+    "article_type": "性能优化复盘",
+    "topic_tags": ["Excel", "Redis管道", "消息队列", "故障恢复"],
+    "hook_type": "任务要求式",
+    "hook_excerpt": "当前开发的模块需要一个高效的批量券码导入方案。初步方案处理 10 万耗时约 360 秒，请你提供一个更加快捷的方案。",
+    "structure_pattern": "背景→定位耗时域→批量化→恢复质疑→算账→实现",
+    "structure_outline": [
+      "原方案全流程计时口径",
+      "20万网络IO是瓶颈",
+      "引用好友关系优化旧文",
+      "分拆批次2500/5000",
+      "宕机恢复与消费幂等的追问",
+      "请求次数估算和耗时",
+      "完整代码"
+    ],
+    "ending_type": "轻松互动",
+    "source_types": ["项目场景", "自有文章", "流程图", "Java实现", "作者报告的测试"],
+    "notable": "用“那么如果/万一”在改进过程中逐个补约束；有平台导出的一键获取代码广告串，不应模仿。",
+    "evidence": [
+      {
+        "file": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+        "line": 119,
+        "quote": "但是这原方案之所以一行一行地发送请求是为了确保即使在应用发生宕机的情况下"
+      },
+      {
+        "file": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+        "line": 168,
+        "quote": "因为宕机的概率非常小，所以我们其实是以牺牲宕机恢复的时间换取了正常运行的效率。"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C003",
+    "article_type": "项目源码讲解",
+    "topic_tags": ["C++", "EasyX", "俄罗斯方块", "游戏开发"],
+    "hook_type": "效果展示式",
+    "hook_excerpt": "相信大家都玩过，本游戏也是采用了经典的俄罗斯方块游戏规则",
+    "structure_pattern": "效果→规则→对象划分→执行顺序拆解→源码",
+    "structure_outline": [
+      "整体效果截图",
+      "游戏规则和库",
+      "Block/Tetris职责",
+      "程序入口与初始化",
+      "主体循环",
+      "渲染/移动/旋转/碰撞/消行",
+      "源码地址"
+    ],
+    "ending_type": "完成宣告+互动",
+    "source_types": ["项目截图", "示意图", "C++源码", "GitHub仓库"],
+    "notable": "以代码块为锚，后文用“首先/接着/然后/最后”复述运行路径；含残缺标题与文字，属于编辑噪声。",
+    "evidence": [
+      {
+        "file": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+        "line": 180,
+        "quote": "游戏架构主要分为两个对象，Block 负责方块本身的性质"
+      },
+      {
+        "file": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+        "line": 443,
+        "quote": "首先初始化当前关卡，播放背景音乐并循环"
+      }
+    ],
+    "voice_mode": "项目源码讲解",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C004",
+    "article_type": "故障排查",
+    "topic_tags": ["Docker", "xxl-job", "网络隔离"],
+    "hook_type": "个人故障场景式",
+    "hook_excerpt": "我是用部署的 xxl-job，然后用在了宿主机的本地项目上。",
+    "structure_pattern": "现象→环境与报错→原因→两种修法→维护提醒",
+    "structure_outline": [
+      "宿主机本地任务与自动注册配置",
+      "失败截图",
+      "查阅后解释网络边界",
+      "手工改IP",
+      "host网络",
+      "动态IP提醒"
+    ],
+    "ending_type": "邀请提问",
+    "source_types": ["本地配置", "错误截图", "查阅结论"],
+    "notable": "短篇通过“既然…那…”直接连接原因和操作；原文技术解释只作历史观点。",
+    "evidence": [
+      {
+        "file": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+        "line": 59,
+        "quote": "一番查阅后找到了具体原因"
+      },
+      {
+        "file": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+        "line": 79,
+        "quote": "既然无法访问虚拟网卡，那我们直接手动配置为宿主机的 IP 就好了"
+      }
+    ],
+    "voice_mode": "直接排障",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C005",
+    "article_type": "故障排查",
+    "topic_tags": ["FastJson", "Spring MVC", "日期绑定"],
+    "hook_type": "异常日志式",
+    "hook_excerpt": "当我们引入阿里的依赖时，在实体类的日期字段上加了注释指定了日期格式，但在前端传入数据后却报错",
+    "structure_pattern": "日志→表面矛盾→转换链解释→局部与全局修复",
+    "structure_outline": [
+      "依赖和异常日志",
+      "从长日志定位日期转换",
+      "格式一致却失败的反问",
+      "指出不同请求转换链",
+      "注解方案",
+      "全局配置方案",
+      "按字段范围选型"
+    ],
+    "ending_type": "邀请提问",
+    "source_types": ["配置代码", "异常日志", "界面截图"],
+    "notable": "不是只贴修复代码，而是先指出“明明格式相同为什么还错”的读者疑点。",
+    "evidence": [
+      {
+        "file": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+        "line": 70,
+        "quote": "可以看到指定的格式和传入的格式是一样的，那为什么会报错呢？"
+      },
+      {
+        "file": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+        "line": 159,
+        "quote": "如果只有部分字段需要特殊格式则推荐采用方案一，反之方案二。"
+      }
+    ],
+    "voice_mode": "直接排障",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C006",
+    "article_type": "项目展示",
+    "topic_tags": ["Java", "Vue3", "全栈", "仿b站"],
+    "hook_type": "技术栈清单式",
+    "hook_excerpt": "前端 / 后端技术栈分组列出，随后直接进入项目展示。",
+    "structure_pattern": "技术栈→按端逐页展示→仓库→学习复盘",
+    "structure_outline": ["前后端技术栈", "用户端9类页面", "管理端8类页面", "自动清理任务", "源码地址", "两个月学习与遗留问题"],
+    "ending_type": "个人阶段复盘+互动",
+    "source_types": ["项目截图", "功能清单", "GitHub仓库", "个人开发经历"],
+    "notable": "大量截图与功能列表是作品展式体裁特征；末段主动暴露缓存键、Service层与架构经验局限。",
+    "evidence": [
+      {
+        "file": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+        "line": 546,
+        "quote": "这单纯是一个练手项目，是一个阶段性的总结。"
+      },
+      {
+        "file": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+        "line": 554,
+        "quote": "代码质量方面，Service 层的实现仍存在不少粗糙之处。"
+      }
+    ],
+    "voice_mode": "项目复盘",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C007",
+    "article_type": "故障排查",
+    "topic_tags": ["Knife4j", "Spring Security", "认证"],
+    "hook_type": "反常现象式",
+    "hook_excerpt": "当访问 knife4j 网址时出现以上页面，但是 yaml 文件中配置却没有登录认证功能。",
+    "structure_pattern": "截图→配置矛盾→归因纠偏→两种处理",
+    "structure_outline": ["非预期登录页", "现有yaml", "识别实际拦截组件", "去依赖", "保留Security时放行资源"],
+    "ending_type": "邀请提问",
+    "source_types": ["错误页面截图", "配置片段", "Java修复片段"],
+    "notable": "修法先给最直接路径，再补存在业务依赖时的备选。",
+    "evidence": [
+      {
+        "file": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+        "line": 63,
+        "quote": "一番排查后才发现上面那个登录的页面其实不是 knife4j 的登录认证，而是 Security 框架提供的。"
+      },
+      {
+        "file": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+        "line": 88,
+        "quote": "如果项目需要使用到 Spring Security 的话，那可以使用配置对 knife4j 的资源路径进行放行"
+      }
+    ],
+    "voice_mode": "直接排障",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C008",
+    "article_type": "架构原理长文",
+    "topic_tags": ["LangGraph", "Agent", "状态机", "编排"],
+    "hook_type": "旧范式局限式",
+    "hook_excerpt": "在很多工程师接触 LangGraph 之前，LLM 应用的开发体验其实已经有了一套看起来相当成熟的范式。",
+    "structure_pattern": "旧范式失效→核心抽象→状态机制→高级能力→选型边界",
+    "structure_outline": [
+      "DAG/链式调用局限",
+      "状态节点边三要素",
+      "Reducer覆盖与合并",
+      "Pregel背景",
+      "检查点中断时间旅行",
+      "invoke/stream",
+      "何时值得引入"
+    ],
+    "ending_type": "适用边界收束",
+    "source_types": ["框架API示例", "Mermaid机制图", "工程情境", "设计解释"],
+    "notable": "2026年长段落的因果解释更浓；将“看似抽象设计”落回调试、恢复、维护需求，结尾收束到复杂度匹配。",
+    "evidence": [
+      {
+        "file": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+        "line": 100,
+        "quote": "节点定义了做什么，边定义了什么时候做。"
+      },
+      {
+        "file": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+        "line": 389,
+        "quote": "用简单的工具解决简单的问题，用强大的框架解决复杂的问题。"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C009",
+    "article_type": "故障排查",
+    "topic_tags": ["Sharding-JDBC", "定时任务", "类加载器"],
+    "hook_type": "第一人称异常追踪式",
+    "hook_excerpt": "明明和数据库连接都确认无误，但在定时任务中执行的时候出现了问题。",
+    "structure_pattern": "看似阻塞→找不到问题→提升日志→根因→一行修复→恢复结果",
+    "structure_outline": [
+      "确认连接正常",
+      "预期SQL未输出",
+      "排查无果",
+      "日志级别揭示异常",
+      "解释类加载器",
+      "显式配置",
+      "报告恢复"
+    ],
+    "ending_type": "修复结果自然结束",
+    "source_types": ["控制台截图", "异常消息", "Java修复片段", "作者观察"],
+    "notable": "“打印都很正常对吧”把读者带入排查；叙事保留排查转折。",
+    "evidence": [
+      {
+        "file": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+        "line": 35,
+        "quote": "打印都很正常对吧。"
+      },
+      {
+        "file": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+        "line": 50,
+        "quote": "这时我考虑到可能是**日志级别**屏蔽了错误信息"
+      }
+    ],
+    "voice_mode": "直接排障",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C010",
+    "article_type": "故障排查",
+    "topic_tags": ["WebSocket", "前后端联调", "Spring Boot"],
+    "hook_type": "对照现象式",
+    "hook_excerpt": "使用 Apifox 等接口测试工具可正常建立 WebSocket 连接；前端代码发起 WebSocket 连接请求失败。",
+    "structure_pattern": "现象对照→错误正确样例→补充版本分支",
+    "structure_outline": ["工具可连前端不可连", "上下文路径", "错误/正确URL", "前后端保持一致", "未解决时检查包命名空间"],
+    "ending_type": "版本提醒自然结束",
+    "source_types": ["对照示例", "版本差异提示"],
+    "notable": "极短篇无需大纲与强行总结，使用加粗隐性标题。",
+    "evidence": [
+      {
+        "file": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+        "line": 40,
+        "quote": "*错误示例:* `ws://localhost:80/webSocket/1`"
+      },
+      {
+        "file": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+        "line": 60,
+        "quote": "如果还解决不了的并且搜索了很多都未能解决的，请检查是否是后端版本的问题！"
+      }
+    ],
+    "voice_mode": "直接排障",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C011",
+    "article_type": "业务方案推演",
+    "topic_tags": ["秒杀", "Redis", "RabbitMQ", "一致性"],
+    "hook_type": "假设业务式",
+    "hook_excerpt": "假设我们有一个电商平台，现计划开展一个秒杀活动。核心要求是一人一单且不能超卖。",
+    "structure_pattern": "目标约束→逐问题推演→故障路径→全景图→分层代码",
+    "structure_outline": [
+      "一人一单与不能超卖",
+      "数据表与高并发",
+      "Lua原子性",
+      "MQ丢失重复消费",
+      "Redis故障策略",
+      "流程图与性能截图",
+      "依赖配置到核心代码",
+      "类加载器旧文"
+    ],
+    "ending_type": "邀请改进+互动",
+    "source_types": ["假设场景", "流程图", "作者报告的性能截图", "Java/Lua实现", "自有排障文章"],
+    "notable": "长篇实现以分层目录承载；允许读者跳过基础配置直达核心；方案旧技术断言不可直接继承为正确结论。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+        "line": 164,
+        "quote": "核心要求是**一人一单**且**不能超卖**。"
+      },
+      {
+        "file": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+        "line": 241,
+        "quote": "更合理的策略是**立即熔断**"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C012",
+    "article_type": "架构原理长文",
+    "topic_tags": ["Agent", "提示词工程", "稳定性"],
+    "hook_type": "团队演进症状式",
+    "hook_excerpt": "这两年，很多团队在做大模型应用时都有一个相似的经历：最早往往从一个问答 Demo 开始",
+    "structure_pattern": "症状→概念纠偏→演进→架构对比→实践→失败→方法论",
+    "structure_outline": [
+      "提示词作为行为接口",
+      "静态/RAG/工具/受控编排",
+      "单体分层Planner Workflow",
+      "框架生态",
+      "任务边界与版本化",
+      "失败场景",
+      "常见误判",
+      "策略与规则职责"
+    ],
+    "ending_type": "回到引题并提升为工程方法",
+    "source_types": ["行业情境归纳", "架构图", "方案对比", "作者判断"],
+    "notable": "“很多团队”的泛化观察不等于给定可核实案例；多用不是/而是建立概念边界。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+        "line": 240,
+        "quote": "提示词更像是运行时的操作手册，而不是单纯的用户说明。"
+      },
+      {
+        "file": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+        "line": 164,
+        "quote": "用 Prompt 表达策略，用程序表达规则"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C013",
+    "article_type": "架构原理长文",
+    "topic_tags": ["Agent", "上下文工程", "状态", "记忆"],
+    "hook_type": "工程症状并列式",
+    "hook_excerpt": "最常见的现象，是系统在短对话里表现不错，在稍长一点的任务链路中就开始漂移。",
+    "structure_pattern": "症状聚合→共同根因→分层定义→架构演进→方案对比→落地→坑",
+    "structure_outline": [
+      "多轮漂移等具体症状",
+      "工作集定义与生命周期",
+      "知识状态记忆区分",
+      "五阶段演进",
+      "六类方案",
+      "模型/系统中心等架构",
+      "独立组装器与数据供给",
+      "观测与污染风险"
+    ],
+    "ending_type": "概念价值收束+互动",
+    "source_types": ["工程情境归纳", "架构图", "类比", "生产实践建议"],
+    "notable": "文章通过反复区分容量与组织、知识与状态推动论述；不是全部观点都由独立实验支撑。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+        "line": 232,
+        "quote": "模型每一次时，究竟拿到了什么信息"
+      },
+      {
+        "file": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+        "line": 288,
+        "quote": "上下文工程就是围绕模型推理所需工作集而展开的设计、组织、传递、压缩、更新和治理体系。"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C014",
+    "article_type": "架构原理长文",
+    "topic_tags": ["Agent", "记忆工程", "信息治理"],
+    "hook_type": "连续任务故障式",
+    "hook_excerpt": "为什么这个 Agent 在第十轮之后开始答非所问，为什么它忘记了用户早就声明过的偏好",
+    "structure_pattern": "故障→本质定义→逐代演进→分层→选型→读写策略→风险",
+    "structure_outline": [
+      "任务连续性与记忆",
+      "信息生命周期",
+      "全量历史窗口摘要检索",
+      "四类记忆",
+      "混合/冷热分层",
+      "结构化与向量职责",
+      "写入门槛和召回重排",
+      "常见问题"
+    ],
+    "ending_type": "问题清单结束+互动",
+    "source_types": ["工程情境", "架构图", "对比表图片", "例子", "作者判断"],
+    "notable": "同一问题按演进层级递进，每层写价值、剩余问题和适用阶段；图和表承担比较信息。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+        "line": 332,
+        "quote": "记忆不是一个模型特性，而是一套工程能力。"
+      },
+      {
+        "file": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+        "line": 716,
+        "quote": "记忆架构并没有绝对意义上的最好，只有是否适合当前业务阶段和任务复杂度。"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C015",
+    "article_type": "架构原理长文",
+    "topic_tags": ["MCP", "Tool Calling", "Skill", "上下文"],
+    "hook_type": "技术重心迁移式",
+    "hook_excerpt": "早期大家关注的是模型能不能回答问题；进入业务系统后，问题变成读取真实数据与完成动作。",
+    "structure_pattern": "背景→边界纠偏→驱动力→分层架构→调用流程→概念比较→治理",
+    "structure_outline": [
+      "接入痛点",
+      "协议不是SDK或模型能力",
+      "标准描述发现治理",
+      "Client/Server/Runtime",
+      "Tools Resources Prompts",
+      "通信与初始化",
+      "订单查询完整调用",
+      "Tool Calling/Skill关系",
+      "生态类型",
+      "Prompt膨胀和落地坑"
+    ],
+    "ending_type": "保留局限的趋势判断+互动",
+    "source_types": ["工程场景", "架构图", "协议解释", "生态分类", "作者建议"],
+    "notable": "先消除名词混淆，后用订单查询把抽象链路串起来；对生态的历史描述需重新核实。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+        "line": 282,
+        "quote": "如果只记定义，MCP 很容易变成另一个被神化的缩写。"
+      },
+      {
+        "file": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+        "line": 951,
+        "quote": "模型拿到的是零件，但缺少装配方式。"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C016",
+    "article_type": "架构原理长文",
+    "topic_tags": ["RAG", "检索", "知识治理", "权限"],
+    "hook_type": "直觉与落地落差式",
+    "hook_excerpt": "既然大语言已经能回答这么多问题，那么把公司的文档、制度、接口说明、FAQ 喂给模型，不就能很快做出一个知识助手了吗。",
+    "structure_pattern": "直觉失效→系统定义→流程模块→原理→故障→对比→推荐",
+    "structure_outline": [
+      "企业知识问题与微调成本",
+      "离线索引/在线问答",
+      "七模块拆解",
+      "参数化知识与近似检索",
+      "十二类失败点",
+      "传统搜索的优势",
+      "权限单列",
+      "六类RAG方案",
+      "分层生产建议与结尾"
+    ],
+    "ending_type": "回扣知识系统工程+互动",
+    "source_types": ["工程情境", "作者自述微调经历", "架构图", "对比表图片", "方案解释"],
+    "notable": "以“还不如普通搜索”的异议检验技术边界；自述经历应归为作者报告，不能生成新亲历。",
+    "evidence": [
+      {
+        "file": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+        "line": 560,
+        "quote": "我自己做过几次  开源模型的微调"
+      },
+      {
+        "file": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+        "line": 1252,
+        "quote": "搜索擅长找资料，RAG 擅长基于资料组织答案。"
+      }
+    ],
+    "voice_mode": "系统工程论述",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C017",
+    "article_type": "技术选型对比",
+    "topic_tags": ["分布式ID", "Leaf", "UidGenerator", "Tinyid"],
+    "hook_type": "约束列举式",
+    "hook_excerpt": "每张表必须至少拥有一个唯一主键，因此我们需要一个ID生成器。",
+    "structure_pattern": "要求→基础方案优缺点→企业优化→横向表",
+    "structure_outline": [
+      "三项业务要求与冲突",
+      "UUID/DB/号段/雪花/Redis",
+      "每项优缺点",
+      "Leaf双Buffer和时钟处理",
+      "UidGenerator",
+      "Tinyid本地化",
+      "选型表"
+    ],
+    "ending_type": "对比表收束+互动",
+    "source_types": ["代码片段", "机制图", "企业框架解释", "横向表"],
+    "notable": "围绕统一约束比较而非纯百科罗列；嵌套引用内接读者追问，解释设计初衷而非一概排名。",
+    "evidence": [
+      {
+        "file": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+        "line": 98,
+        "quote": "需要注意的是单表递增性其实是分为趋势递增和严格递增"
+      },
+      {
+        "file": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+        "line": 553,
+        "quote": "二者差异是设计初衷的不同所导致的。"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C018",
+    "article_type": "业务方案推演",
+    "topic_tags": ["分表", "分页", "优先队列", "MySQL"],
+    "hook_type": "有约束假设场景式",
+    "hook_excerpt": "你正在开发一款短链接生成平台，用户可在该平台上创建多个分组，并在分组内生成大量短链接。",
+    "structure_pattern": "硬约束→直观方案被否→可行方案→风险补丁→实现",
+    "structure_outline": [
+      "MySQL限定和磁盘紧张",
+      "跨表严格排序难点",
+      "映射表空间约束否决",
+      "各分组查询与聚合",
+      "优先队列控制内存",
+      "规模上限与并发查询",
+      "流程图与测试报告",
+      "Java代码"
+    ],
+    "ending_type": "能力边界自述+邀请改进",
+    "source_types": ["假设业务", "SQL/Java实现", "流程图", "作者测试报告"],
+    "notable": "明确约束阻断看似更简单方案，结尾承认只想到两个方案；统计不可把毫秒级描述当可迁移承诺。",
+    "evidence": [
+      {
+        "file": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+        "line": 62,
+        "quote": "仅限使用 MySQL，排除了引入 Elasticsearch 等外部方案的可能"
+      },
+      {
+        "file": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+        "line": 332,
+        "quote": "我的水平有限，只能想到这两个方案"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C019",
+    "article_type": "方案优化续篇",
+    "topic_tags": ["推荐系统", "Redis", "MySQL", "Elasticsearch"],
+    "hook_type": "旧文接续式",
+    "hook_excerpt": "旧版方案的分析数据是通过近三天的全部日志数据，再查询近30天的全部日志数据",
+    "structure_pattern": "回指旧文→两问题→逐一修改→新流程→代码",
+    "structure_outline": [
+      "旧版入口",
+      "用户范围与计算开销两问题",
+      "用访问事件近似登录",
+      "只计天数不记录具体日期",
+      "重选热冷数据存储",
+      "缩小映射粒度",
+      "流程与实现"
+    ],
+    "ending_type": "邀请改进+互动",
+    "source_types": ["自有旧文", "项目约束", "流程图", "Lua/Java实现"],
+    "notable": "不回避推翻旧文，评价技术以当前数据规模和查询约束为轴。",
+    "evidence": [
+      {
+        "file": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+        "line": 90,
+        "quote": "一是推荐用户对象范围不精确"
+      },
+      {
+        "file": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+        "line": 118,
+        "quote": "因为我们并不需要知道用户哪些天是登陆过的，我们只需要知道用户登录了几天就好了。"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C020",
+    "article_type": "代码重构说明",
+    "topic_tags": ["泛型", "冷热数据", "Elasticsearch", "复用"],
+    "hook_type": "旧文接续式",
+    "hook_excerpt": "旧版方案改为冷数据存储到ES，同时原定时任务的固定表逻辑导致重复代码。",
+    "structure_pattern": "复用动机→固定点识别→三点改造→图→代码",
+    "structure_outline": ["旧版链接", "复制粘贴成本", "参数化", "泛型适配实体", "ES定制重载", "新流程和代码"],
+    "ending_type": "邀请改进+互动",
+    "source_types": ["自有旧文", "Java实现", "流程图"],
+    "notable": "正文很短而代码很长，抓住“为什么抽象”的具体压力，不为了通用化写空泛原则。",
+    "evidence": [
+      {
+        "file": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+        "line": 42,
+        "quote": "如果需要对另一个日志表实现相同的存储逻辑，就只能复制粘贴代码"
+      },
+      {
+        "file": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+        "line": 46,
+        "quote": "本次改进的核心目标就是解决这个问题，提升代码复用性。"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C021",
+    "article_type": "工具原理与使用",
+    "topic_tags": ["MemGuardian", "Windows", "Python", "内存"],
+    "hook_type": "用途定义式",
+    "hook_excerpt": "MemGuardian 是一个运行在 Windows 平台上的内存优化工具",
+    "structure_pattern": "用途效果与条件→源码分层→配置教程→运行日志",
+    "structure_outline": [
+      "工具与仓库",
+      "内存现象及效果边界",
+      "权限/系统清理/进程评分/多轮",
+      "任务计划配置",
+      "测试命令",
+      "后台守护与日志"
+    ],
+    "ending_type": "日志用途自然结束",
+    "source_types": ["项目代码符号", "命令片段", "工具说明"],
+    "notable": "标题感叹且报具体比例，正文主动限定设备依赖；没有早期统一互动尾句，不能把其当必选风格。",
+    "evidence": [
+      {
+        "file": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+        "line": 39,
+        "quote": "这种变化依赖于设备的内存容量、后台进程数量以及 Windows 当前的内存调度策略"
+      },
+      {
+        "file": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+        "line": 131,
+        "quote": "通过启发式规则选择“最值得被压缩工作集”的进程。"
+      }
+    ],
+    "voice_mode": "工具说明",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C022",
+    "article_type": "业务方案推演",
+    "topic_tags": ["JWT", "Redis", "认证", "用户体验"],
+    "hook_type": "现有机制痛点式",
+    "hook_excerpt": "当前项目认证端点采用单令牌机制，该令牌存储在浏览器 LocalStorage 中存在安全风险",
+    "structure_pattern": "矛盾→直观修复又引出问题→职责拆分→再修→实现→补充",
+    "structure_outline": [
+      "单令牌风险",
+      "缩短有效期与体验冲突",
+      "双令牌职责",
+      "刷新令牌续期疑点",
+      "状态与错误语义修正",
+      "分层Java实现",
+      "互斥/多端登录",
+      "设备标识补充"
+    ],
+    "ending_type": "额外风险与补充方案+互动",
+    "source_types": ["项目情境", "新旧流程图", "Java实现", "读者追问"],
+    "notable": "方案在正文中持续自我修正，读者能看到约束如何迫使设计变化；安全断言需独立审核，不能当权威指南。",
+    "evidence": [
+      {
+        "file": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+        "line": 96,
+        "quote": "如此，单令牌方案陷入了两难的地步。"
+      },
+      {
+        "file": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+        "line": 124,
+        "quote": "但是刚才的方案还存在一个问题："
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C023",
+    "article_type": "技术选型对比",
+    "topic_tags": ["Redis", "内存", "冷热分离", "预算"],
+    "hook_type": "任务要求式",
+    "hook_excerpt": "当前你的项目的内存不足，请你提供解决方案。",
+    "structure_pattern": "痛点→机制→由轻到重五方案→预算条件决策",
+    "structure_outline": [
+      "小Key开销解释",
+      "Hash合并与限制",
+      "TTL救急",
+      "集群回指旧文",
+      "RoF分层机制",
+      "MySQL两种冷热策略",
+      "按预算组合方案"
+    ],
+    "ending_type": "有条件建议+互动",
+    "source_types": ["工程场景", "机制解释", "流程图", "SQL片段", "自有旧文"],
+    "notable": "把临时止损与长期方案区分，最后根据经费分支建议；原文关于版本能力与数据持久性说法未经此次核验。",
+    "evidence": [
+      {
+        "file": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+        "line": 140,
+        "quote": "但这只是救急，是为了在保证服务不中断的前提下为后续优化操作争取时间窗口。"
+      },
+      {
+        "file": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+        "line": 329,
+        "quote": "如果经费充裕的情况下"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  },
+  {
+    "id": "C024",
+    "article_type": "技术选型对比",
+    "topic_tags": ["布隆过滤器", "Redis", "内存", "分片"],
+    "hook_type": "容量约束式",
+    "hook_excerpt": "你负责的项目使用布隆过滤器进行缓存穿透的防御，但是随着数据量的增加，布隆过滤器桶的数量已经不足以容纳新的数据",
+    "structure_pattern": "容量需求→两思路抽象→三实现优缺点→场景选型",
+    "structure_outline": [
+      "扩容方式抽象",
+      "单机分片及堆风险",
+      "Redis分布式分片",
+      "多层可扩展",
+      "随层数增长的查询代价",
+      "单机/分布式建议"
+    ],
+    "ending_type": "明确场景推荐+互动",
+    "source_types": ["假设需求", "Java实现", "代价比较"],
+    "notable": "先将表面复杂问题压成两个方向，再展开实现；技术风险与适用推荐是作者当时判断。",
+    "evidence": [
+      {
+        "file": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+        "line": 75,
+        "quote": "无非就是扩容的方式不同"
+      },
+      {
+        "file": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+        "line": 402,
+        "quote": "除此之外还有一个缺点就是使用越久，层数越多，查询最新元素的效率就越慢"
+      }
+    ],
+    "voice_mode": "工程共推演",
+    "style_weight": 1.0,
+    "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+  }
+]

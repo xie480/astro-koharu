@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI coding agents (Claude Code, Codex, etc.) working in this repository. This is the single agent-instructions file; do not add a separate `CLAUDE.md`.
+Guidance for AI coding agents (Claude Code, Codex, etc.) working in this repository. This is the repository-wide instruction file; do not add a separate `CLAUDE.md`. The root `agent.md` is a task-specific LLM-writing guide, referenced below rather than a second general-purpose instruction file.
 
 ## Project Overview
 
@@ -145,6 +145,8 @@ pages/ → components/ → hooks/ → lib/ → constants/
 ### Key Concepts
 
 **Content System**: Blog posts in `src/content/blog/` using Astro Content Collections. Hierarchical categories supporting `'工具'` or `['笔记', '前端', 'React']`.
+
+**LLM Writing**: Whenever a task asks an LLM to write, draft, rewrite, translate, polish, summarize, or review natural-language content, first load the root `agent.md` and `docs/writing/文风.md`, regardless of content type or target platform. If preparing a prompt for another LLM, include the full `agent.md` in that prompt or ensure the target model can read the complete file; a file path alone is insufficient when it cannot access this workspace.
 
 **Featured Series**: Special category-based content series with dedicated pages and homepage highlights. Configured via `featuredSeries` in `config/site.yaml`. Each series requires a unique `slug` (must not conflict with reserved routes) and `categoryName`. Supports multiple series, individual enable/disable, and homepage highlight control. Dynamic routes generated at `[seriesSlug].astro`.
 

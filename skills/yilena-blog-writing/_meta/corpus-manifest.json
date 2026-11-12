@@ -1,0 +1,538 @@
+{
+  "snapshot_date": "2026-10-30",
+  "source_commit": "4b50b7469cc184f5cbf875b02ef6063c9ed93187",
+  "selection": "Git-tracked Markdown under src/content/blog at snapshot time; working-tree bytes",
+  "articles": [
+    {
+      "id": "C001",
+      "source": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+      "raw": "raw/C001.md",
+      "title": "116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "b668fa0eb9e02c096d98846b20f840e79ac8e1cd4a37fbae506f03b1025dc285"
+    },
+    {
+      "id": "C002",
+      "source": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+      "raw": "raw/C002.md",
+      "title": "360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案",
+      "date": "2025-08-14",
+      "author": "Yilena",
+      "sha256": "6b5008c481f91c83316f8a1374000038c1cc8489c56e46ee232d9382daee4d37"
+    },
+    {
+      "id": "C003",
+      "source": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+      "raw": "raw/C003.md",
+      "title": "C++期末大作业:俄罗斯方块（附源码详解及美工素材）",
+      "date": "2025-03-07",
+      "author": "Yilena",
+      "sha256": "42a1edc3a74495aedd535f2e827d6b795548b7b85723322462ef0494c12c31d3"
+    },
+    {
+      "id": "C004",
+      "source": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+      "raw": "raw/C004.md",
+      "title": "Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案",
+      "date": "2025-08-09",
+      "author": "Yilena",
+      "sha256": "7a4c099d2ed1b1291c2c9ec798ab0013c27bb45fe2607a6d3b2ef32b425233b2"
+    },
+    {
+      "id": "C005",
+      "source": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+      "raw": "raw/C005.md",
+      "title": "FastJson日期类无法解析的解决方案",
+      "date": "2025-08-01",
+      "author": "Yilena",
+      "sha256": "dff9381ec9a68e9059ada3a1314c2341cfe6ea068ee61c99006dd3d2015fedd8"
+    },
+    {
+      "id": "C006",
+      "source": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+      "raw": "raw/C006.md",
+      "title": "Java原创项目：仿b站v1.0（附前后端源码及接口文档）",
+      "date": "2025-05-11",
+      "author": "Yilena",
+      "sha256": "cb9716fab7552082989ee00e38e72affe8452f5dedcac193f4b1320b82a7b240"
+    },
+    {
+      "id": "C007",
+      "source": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+      "raw": "raw/C007.md",
+      "title": "Knife4j未配置却需要登录认证的解决方案",
+      "date": "2025-08-01",
+      "author": "Yilena",
+      "sha256": "703202680353edfc1fafc99ad3001ccf7a39d62c244a982ef9f78d11f020911e"
+    },
+    {
+      "id": "C008",
+      "source": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+      "raw": "raw/C008.md",
+      "title": "LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "921b0a0da02286d89a3f7c8a65a031b21305fc61ae05af51dc2aa6572f1312b5"
+    },
+    {
+      "id": "C009",
+      "source": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+      "raw": "raw/C009.md",
+      "title": "Sharding-JDBC 定时任务 SQL 无响应的解决方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "6ef9ba9cdfac89ae557620b8d7ae8df55bfaa304bffa9774f3832dd78c49ae27"
+    },
+    {
+      "id": "C010",
+      "source": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+      "raw": "raw/C010.md",
+      "title": "WebSocket连接失败解决方案(前后端联调场景)",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "a825cef046ea33c87f00373703e187404d869ae96e08b5534423242015afc82a"
+    },
+    {
+      "id": "C011",
+      "source": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+      "raw": "raw/C011.md",
+      "title": "一个简单高效的秒杀方案的实现",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "7ebf3af84748e49ffb953457f9b3eb536d46ae6dcb9975aa0e8f9331a8a9677b"
+    },
+    {
+      "id": "C012",
+      "source": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+      "raw": "raw/C012.md",
+      "title": "一文讲透Agent应用中的提示词工程",
+      "date": "2026-03-29",
+      "author": "Yilena",
+      "sha256": "230966503e27a563f9c0dc53cb55bf74cfbbdcfd5bacfc36afdf7081b383b10d"
+    },
+    {
+      "id": "C013",
+      "source": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+      "raw": "raw/C013.md",
+      "title": "一文讲透 Agent 应用中的上下文工程",
+      "date": "2026-03-29",
+      "author": "Yilena",
+      "sha256": "283c17b0b2e14f8681bdd4046ac2499625228313751c7b138dd7e1e4b0c09f67"
+    },
+    {
+      "id": "C014",
+      "source": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+      "raw": "raw/C014.md",
+      "title": "一文讲透 Agent 应用中的记忆工程",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "2850213110ab98b7d03a6c7745326efd153eace65fec1277364dba90b6d7537c"
+    },
+    {
+      "id": "C015",
+      "source": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+      "raw": "raw/C015.md",
+      "title": "一文讲透 MCP：从定义、架构到底层原理，再到 Tool Calling、Skill 与生态全景",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "4722d2937b693955bed926cd9f523578471f065e944141494e9748056b6f0e2f"
+    },
+    {
+      "id": "C016",
+      "source": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+      "raw": "raw/C016.md",
+      "title": "一文讲透 RAG：从定义、架构、底层原理到主流方案对比",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "c1b7fcbe62d78f14c6b3f0dc32918d2a25da14020cf931a3a4262369b9193863"
+    },
+    {
+      "id": "C017",
+      "source": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+      "raw": "raw/C017.md",
+      "title": "从业务场景到知名企业开源框架全面解析分布式ID生成方案",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "baacf3ef1f0749faab7bb4f64e65a643741f39236581daf51004e468d8e18d90"
+    },
+    {
+      "id": "C018",
+      "source": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+      "raw": "raw/C018.md",
+      "title": "优先队列流式处理 + 多路归并排序：轻松实现DB分表严格有序的分页查询",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "042a69661276a056d67262bf4751adee34e3a005985fed10e113e87b0f399636"
+    },
+    {
+      "id": "C019",
+      "source": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+      "raw": "raw/C019.md",
+      "title": "优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "09044b4dd5742b5339760a652b60aa0dedf699eeb98f922ce6f263e2a1ead7f7"
+    },
+    {
+      "id": "C020",
+      "source": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+      "raw": "raw/C020.md",
+      "title": "优化：将针对单一日志表的冷热数据分离类改造成通用类",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "1e0907644d04eb998b2b827b67f3847e8e87c82c893cb6b67b7061361d5886e3"
+    },
+    {
+      "id": "C021",
+      "source": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+      "raw": "raw/C021.md",
+      "title": "内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！",
+      "date": "2026-06-15",
+      "author": "Yilena",
+      "sha256": "d81581ff103aef8e468a7777c4f90ee022ff37e12b2abe777d308c99cd818309"
+    },
+    {
+      "id": "C022",
+      "source": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+      "raw": "raw/C022.md",
+      "title": "基于MySQL + Redis + JWT的双令牌认证方案的实现",
+      "date": "2025-09-27",
+      "author": "Yilena",
+      "sha256": "e2fb4cec0e553dfd17e26bd3ccdb459d407b246083fb92853d3f2d490cdbb077"
+    },
+    {
+      "id": "C023",
+      "source": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+      "raw": "raw/C023.md",
+      "title": "如何应对海量Key带来的redis内存占用问题？",
+      "date": "2025-08-23",
+      "author": "Yilena",
+      "sha256": "0c787d4c9a732b10f04f3db75d4d4878e15e5dc4cdd6a233b87246ab5604c559"
+    },
+    {
+      "id": "C024",
+      "source": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+      "raw": "raw/C024.md",
+      "title": "布隆过滤器因内存上限无法处理超量数据的优化方案",
+      "date": "2025-08-14",
+      "author": "Yilena",
+      "sha256": "af369db0b778ff31b8c4153ef0db6c2e609261ac5318a293ea3a21e0c4d31753"
+    },
+    {
+      "id": "C025",
+      "source": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+      "raw": "raw/C025.md",
+      "title": "带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "df51a9e26c2651cf0c9f8f7b096dbfd954b79097750b09abcc975f0356a65aee"
+    },
+    {
+      "id": "C026",
+      "source": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+      "raw": "raw/C026.md",
+      "title": "带你轻松学习BIO、NIO和AIO三大模型",
+      "date": "2025-07-08",
+      "author": "Yilena",
+      "sha256": "867dcbdbba63f27f33f69ff6b1bc8dc62e9dc07b7b8b5f9ab9b58f5c4b03c6df"
+    },
+    {
+      "id": "C027",
+      "source": "src/content/blog/带你轻松学习Caffeine.md",
+      "raw": "raw/C027.md",
+      "title": "带你轻松学习Caffeine",
+      "date": "2025-10-18",
+      "author": "Yilena",
+      "sha256": "92beea0282066832e1496079e317b014f38f6fd35dfa132e55ad3ec69dc99c9d"
+    },
+    {
+      "id": "C028",
+      "source": "src/content/blog/带你轻松学习Gin.md",
+      "raw": "raw/C028.md",
+      "title": "带你轻松学习Gin",
+      "date": "2026-05-01",
+      "author": "Yilena",
+      "sha256": "5a5e175eaa4147ee0154248a6b1188ebea9ac074e6494abeed61a52444d80e56"
+    },
+    {
+      "id": "C029",
+      "source": "src/content/blog/带你轻松学习Golang的并发模型.md",
+      "raw": "raw/C029.md",
+      "title": "带你轻松学习Golang的并发模型",
+      "date": "2026-05-01",
+      "author": "Yilena",
+      "sha256": "0f3094436864495c34f05088ee5490b888dc233f6e2669debcfbd01177221b7a"
+    },
+    {
+      "id": "C030",
+      "source": "src/content/blog/带你轻松学习JUC.md",
+      "raw": "raw/C030.md",
+      "title": "带你轻松学习JUC",
+      "date": "2025-10-15",
+      "author": "Yilena",
+      "sha256": "df59cfd67166f9ffd36b3e192d59576a2eb24b98eda010e4676e325e7663ae2f"
+    },
+    {
+      "id": "C031",
+      "source": "src/content/blog/带你轻松学习JVM.md",
+      "raw": "raw/C031.md",
+      "title": "带你轻松学习JVM",
+      "date": "2025-07-30",
+      "author": "Yilena",
+      "sha256": "39de4fef4f860623a8f56973199f3524c37b182d69461ff14d519f87ae2298f9"
+    },
+    {
+      "id": "C032",
+      "source": "src/content/blog/带你轻松学习Kafka.md",
+      "raw": "raw/C032.md",
+      "title": "带你轻松学习Kafka",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "80938b757d8678b3e40973fb04efa2dcf556d52158fc14010a377fd8520a566d"
+    },
+    {
+      "id": "C033",
+      "source": "src/content/blog/带你轻松学习LangChain4j.md",
+      "raw": "raw/C033.md",
+      "title": "带你轻松学习LangChain4j",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "9fc9ecf009285ec9611555c2ac74b45cc2e778d5a2bb9baa01aed8f61ee3a7f9"
+    },
+    {
+      "id": "C034",
+      "source": "src/content/blog/带你轻松学习MyBatis.md",
+      "raw": "raw/C034.md",
+      "title": "带你轻松学习MyBatis",
+      "date": "2025-10-05",
+      "author": "Yilena",
+      "sha256": "661dd26fddd30b8e9e36bc4e2f524912a75bdd1ff9862e69c32e50f27f43dedb"
+    },
+    {
+      "id": "C035",
+      "source": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+      "raw": "raw/C035.md",
+      "title": "带你轻松学习MySQL的索引、锁、事务以及MVCC",
+      "date": "2025-11-03",
+      "author": "Yilena",
+      "sha256": "06de9c6b576378a09af5b411a0623232ebf1d463948728a17a7933e0246b9d6e"
+    },
+    {
+      "id": "C036",
+      "source": "src/content/blog/带你轻松学习PostgreSQL.md",
+      "raw": "raw/C036.md",
+      "title": "带你轻松学习PostgreSQL",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "e9c1f52b5831f786ac02976150545b7e296df8d0a450ba528f29973c8827ee5f"
+    },
+    {
+      "id": "C037",
+      "source": "src/content/blog/带你轻松学习RabbitMQ.md",
+      "raw": "raw/C037.md",
+      "title": "带你轻松学习RabbitMQ",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "1e9777af6bdf81eb7ca3cb02a1f617f6cdb453790d3f7b354d1edcfcb820cead"
+    },
+    {
+      "id": "C038",
+      "source": "src/content/blog/带你轻松学习Redis.md",
+      "raw": "raw/C038.md",
+      "title": "带你轻松学习Redis",
+      "date": "2025-07-26",
+      "author": "Yilena",
+      "sha256": "f245b8e249f36c140bdd682988de3a3f24a7cfa27bc8f839b370c124f1c1c1a0"
+    },
+    {
+      "id": "C039",
+      "source": "src/content/blog/带你轻松学习RocketMQ.md",
+      "raw": "raw/C039.md",
+      "title": "带你轻松学习RocketMQ",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "9212591a0aea43fd914d296185d95aac23919da0ed6b977542cae15e51d0f4b0"
+    },
+    {
+      "id": "C040",
+      "source": "src/content/blog/带你轻松学习Spring.md",
+      "raw": "raw/C040.md",
+      "title": "带你轻松学习Spring",
+      "date": "2025-10-01",
+      "author": "Yilena",
+      "sha256": "3cf6a04c1c157dd0ad2cb0e665aa144a1294263ce0db000a2529e8868297eaf7"
+    },
+    {
+      "id": "C041",
+      "source": "src/content/blog/带你轻松学习Spring_MVC.md",
+      "raw": "raw/C041.md",
+      "title": "带你轻松学习Spring MVC",
+      "date": "2025-10-07",
+      "author": "Yilena",
+      "sha256": "787145b4ca8c09bd9f522cd0f8db0be48bec60ad25e128f0af75c38de50a8386"
+    },
+    {
+      "id": "C042",
+      "source": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+      "raw": "raw/C042.md",
+      "title": "带你轻松学习并掌握@Transactional的高级用法！",
+      "date": "2025-09-30",
+      "author": "Yilena",
+      "sha256": "5f008cb99672b9fcf967d151d69fc339bdd4308555ff1f1c4bf82742cb15c6aa"
+    },
+    {
+      "id": "C043",
+      "source": "src/content/blog/带你轻松学习操作系统.md",
+      "raw": "raw/C043.md",
+      "title": "带你轻松学习操作系统",
+      "date": "2025-11-22",
+      "author": "Yilena",
+      "sha256": "dc6c2df7e510516a76884d9abebbab3e007e4f2978b0521cf04bfe283489d4ca"
+    },
+    {
+      "id": "C044",
+      "source": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+      "raw": "raw/C044.md",
+      "title": "带你轻松学习虚拟线程和StructuredTaskScope",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "3e3fe12070171c76ec9e11b4535bffc45813e8570d7955f39817da55b419f5f4"
+    },
+    {
+      "id": "C045",
+      "source": "src/content/blog/带你轻松学习计算机网络.md",
+      "raw": "raw/C045.md",
+      "title": "带你轻松学习计算机网络",
+      "date": "2025-11-02",
+      "author": "Yilena",
+      "sha256": "6a2270e2788d5ec7c47f57c4b795f7b7929209e204490b32a4d9aad2f8c3127c"
+    },
+    {
+      "id": "C046",
+      "source": "src/content/blog/有关IDEA中Lombok失效、找不到符号问题的解决方案.md",
+      "raw": "raw/C046.md",
+      "title": "有关IDEA中Lombok失效、找不到符号问题的解决方案",
+      "date": "2025-07-09",
+      "author": "Yilena",
+      "sha256": "01e0c9feefa94eecd276a5e914a06e88c9c69fd5f9ee1b1b709a4b989875d7c6"
+    },
+    {
+      "id": "C047",
+      "source": "src/content/blog/有关慢查询SQL优化的思路.md",
+      "raw": "raw/C047.md",
+      "title": "有关慢查询SQL优化的思路",
+      "date": "2025-07-09",
+      "author": "Yilena",
+      "sha256": "068dd1475895a3fe32cb6ebaf14dc3d5bd09cbdd82b3013bb20f0b19507f9861"
+    },
+    {
+      "id": "C048",
+      "source": "src/content/blog/深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南.md",
+      "raw": "raw/C048.md",
+      "title": "深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "b7c8ed919d3c1004b34c505bcb1a8c04824e406e157655df208b2fcaea2069df"
+    },
+    {
+      "id": "C049",
+      "source": "src/content/blog/深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进.md",
+      "raw": "raw/C049.md",
+      "title": "深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "2170f84a48b436001cf260cacb25e31ec02f6855163f98a94122a3321b992b84"
+    },
+    {
+      "id": "C050",
+      "source": "src/content/blog/点餐场景下：分析实现十万级用户日志的店铺推荐方案.md",
+      "raw": "raw/C050.md",
+      "title": "点餐场景下：分析实现十万级用户日志的店铺推荐方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "827674430be56cad566947f38e289e3e80ff59f3442569599d994c3cc97c1b04"
+    },
+    {
+      "id": "C051",
+      "source": "src/content/blog/破局双维度查询难题：淘宝订单ID的用户基因设计奥秘.md",
+      "raw": "raw/C051.md",
+      "title": "破局双维度查询难题：淘宝订单ID的用户基因设计奥秘",
+      "date": "2025-08-23",
+      "author": "Yilena",
+      "sha256": "b3c618ae14c85df98c14086dc20f88c15ce13c050f203434c7bdf8169ef6b5f9"
+    },
+    {
+      "id": "C052",
+      "source": "src/content/blog/离腾讯 Offer 最近的一次.md",
+      "raw": "raw/C052.md",
+      "title": "离腾讯 Offer 最近的一次",
+      "date": "2026-10-29 12:00:00",
+      "author": "",
+      "sha256": "bf6b58a6da19fd6a84eaccb6ee84a2a854b68ce6c0f93e550e34c686957cc320"
+    },
+    {
+      "id": "C053",
+      "source": "src/content/blog/自定义错误码_+_全局异常体系_+_Result的优雅实现方案.md",
+      "raw": "raw/C053.md",
+      "title": "自定义错误码 + 全局异常体系 + Result的优雅实现方案",
+      "date": "2025-08-16",
+      "author": "Yilena",
+      "sha256": "0d2d44d0dd7c3575dc0cca791942b6c792ccc0be5a738acfafe7e2520ffa1062"
+    },
+    {
+      "id": "C054",
+      "source": "src/content/blog/记录：IO流大作业——每日一记.md",
+      "raw": "raw/C054.md",
+      "title": "记录：IO流大作业——每日一记",
+      "date": "2024-12-25",
+      "author": "Yilena",
+      "sha256": "15b03458e7d7d284d1940df3303a569a950a043fa12b51a0addb22b1bd33cad8"
+    },
+    {
+      "id": "C055",
+      "source": "src/content/blog/记录：Java阶段性项目（拼图小游戏）.md",
+      "raw": "raw/C055.md",
+      "title": "记录：Java阶段性项目（拼图小游戏）",
+      "date": "2025-03-07",
+      "author": "Yilena",
+      "sha256": "3c713f85e047f94543ec584518d11223d6f7a5326239511ae083d45062673a51"
+    },
+    {
+      "id": "C056",
+      "source": "src/content/blog/记录：基于TCP协议的控制台版网络聊天室.md",
+      "raw": "raw/C056.md",
+      "title": "记录：基于TCP协议的控制台版网络聊天室",
+      "date": "2025-01-02",
+      "author": "Yilena",
+      "sha256": "a2ed72e731a05b4b9216c5b1edb33b8ef7807081423bf384d81ababd4ed372c6"
+    },
+    {
+      "id": "C057",
+      "source": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战 (1).md",
+      "raw": "raw/C057.md",
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "date": "2025-09-25",
+      "author": "Yilena",
+      "sha256": "dcb6a2f2373c526c2e1b4839a3408ff7629f236af0382446bde0f6c508a2641c"
+    },
+    {
+      "id": "C058",
+      "source": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战.md",
+      "raw": "raw/C058.md",
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "date": "2025-09-25",
+      "author": "Yilena",
+      "sha256": "e3fcecf575c179a5032f2cab571546b9def64e79ec049b1f8f6cb780d0e23f83"
+    },
+    {
+      "id": "C059",
+      "source": "src/content/blog/通过mysqldump进行数据迁移时权限不足的解决方案.md",
+      "raw": "raw/C059.md",
+      "title": "通过mysqldump进行数据迁移时权限不足的解决方案",
+      "date": "2025-12-13",
+      "author": "Yilena",
+      "sha256": "a3af899cad97ff56e0b7bf00de518eef9c7b66947437968c2b350cabdc344a5d"
+    }
+  ]
+}

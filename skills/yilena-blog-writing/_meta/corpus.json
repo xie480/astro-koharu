@@ -1,0 +1,3891 @@
+{
+  "articles": [
+    {
+      "id": "C001",
+      "source": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+      "raw": "raw/C001.md",
+      "title": "116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "b668fa0eb9e02c096d98846b20f840e79ac8e1cd4a37fbae506f03b1025dc285",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 9416,
+        "prose_chars": 1346,
+        "code_chars": 7048,
+        "table_rows": 0,
+        "quote_lines": 8,
+        "bold_spans": 18,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 26,
+        "images": 4,
+        "code_blocks": 2,
+        "headings": 9,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "aa24ea5aed52f4614627a786952cfdcdec1a15cf109296cad240d5de5cb500cf",
+      "annotation": {
+        "id": "C001",
+        "article_type": "性能优化复盘",
+        "topic_tags": ["Redis", "批处理", "好友关系", "网络IO"],
+        "hook_type": "业务约束式",
+        "hook_excerpt": "在社交平台中，当用户互相关注时需建立好友关系并写入好友表。",
+        "structure_pattern": "业务需求→两次试错→瓶颈量化→终版→实现",
+        "structure_outline": [
+          "5万用户的一致性需求",
+          "初版116s",
+          "并行处理70s仍慢",
+          "每用户7次请求的量化",
+          "预加载与批操作6s",
+          "流程图和双版本代码"
+        ],
+        "ending_type": "邀请改进+轻松互动",
+        "source_types": ["项目场景", "作者报告的耗时", "流程图", "Java实现"],
+        "notable": "三次方案递进具有真实推演感；文中6次批操作是场景内估算，不能外推为任意规模常数请求。",
+        "evidence": [
+          {
+            "file": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+            "line": 121,
+            "quote": "为什么会这么慢？初步推断或许是用户数据量太大，"
+          },
+          {
+            "file": "src/content/blog/116秒→6秒：Redis管道+批处理优化用户好友关系校验的方案.md",
+            "line": 177,
+            "quote": "但不过在数据量抵达百万甚至更多时最好还是采用游标进行分页"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C001.json"
+    },
+    {
+      "id": "C002",
+      "source": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+      "raw": "raw/C002.md",
+      "title": "360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案",
+      "date": "2025-08-14",
+      "author": "Yilena",
+      "sha256": "6b5008c481f91c83316f8a1374000038c1cc8489c56e46ee232d9382daee4d37",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 11876,
+        "prose_chars": 2251,
+        "code_chars": 8872,
+        "table_rows": 0,
+        "quote_lines": 7,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 78,
+        "images": 2,
+        "code_blocks": 2,
+        "headings": 3,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "c845d2e2ae69d56cb60cfc35b32f802ef78af99aa7d1e2cbaa766905ac8d7e71",
+      "annotation": {
+        "id": "C002",
+        "article_type": "性能优化复盘",
+        "topic_tags": ["Excel", "Redis管道", "消息队列", "故障恢复"],
+        "hook_type": "任务要求式",
+        "hook_excerpt": "当前开发的模块需要一个高效的批量券码导入方案。初步方案处理 10 万耗时约 360 秒，请你提供一个更加快捷的方案。",
+        "structure_pattern": "背景→定位耗时域→批量化→恢复质疑→算账→实现",
+        "structure_outline": [
+          "原方案全流程计时口径",
+          "20万网络IO是瓶颈",
+          "引用好友关系优化旧文",
+          "分拆批次2500/5000",
+          "宕机恢复与消费幂等的追问",
+          "请求次数估算和耗时",
+          "完整代码"
+        ],
+        "ending_type": "轻松互动",
+        "source_types": ["项目场景", "自有文章", "流程图", "Java实现", "作者报告的测试"],
+        "notable": "用“那么如果/万一”在改进过程中逐个补约束；有平台导出的一键获取代码广告串，不应模仿。",
+        "evidence": [
+          {
+            "file": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+            "line": 119,
+            "quote": "但是这原方案之所以一行一行地发送请求是为了确保即使在应用发生宕机的情况下"
+          },
+          {
+            "file": "src/content/blog/360s→15s：近25倍的性能优化重构十万Excel券码批量导入方案.md",
+            "line": 168,
+            "quote": "因为宕机的概率非常小，所以我们其实是以牺牲宕机恢复的时间换取了正常运行的效率。"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C002.json"
+    },
+    {
+      "id": "C003",
+      "source": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+      "raw": "raw/C003.md",
+      "title": "C++期末大作业:俄罗斯方块（附源码详解及美工素材）",
+      "date": "2025-03-07",
+      "author": "Yilena",
+      "sha256": "42a1edc3a74495aedd535f2e827d6b795548b7b85723322462ef0494c12c31d3",
+      "family": "项目记录",
+      "metrics": {
+        "body_chars": 10518,
+        "prose_chars": 2464,
+        "code_chars": 6703,
+        "table_rows": 0,
+        "quote_lines": 4,
+        "bold_spans": 3,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 13,
+        "latin_tokens": 39,
+        "images": 11,
+        "code_blocks": 16,
+        "headings": 19,
+        "opening_paragraph_chars": 25
+      },
+      "body_sha256": "75b44866ecd00e9a03f0fcff1c278499c9e8d44d9777c627db53aaabbafc246b",
+      "annotation": {
+        "id": "C003",
+        "article_type": "项目源码讲解",
+        "topic_tags": ["C++", "EasyX", "俄罗斯方块", "游戏开发"],
+        "hook_type": "效果展示式",
+        "hook_excerpt": "相信大家都玩过，本游戏也是采用了经典的俄罗斯方块游戏规则",
+        "structure_pattern": "效果→规则→对象划分→执行顺序拆解→源码",
+        "structure_outline": [
+          "整体效果截图",
+          "游戏规则和库",
+          "Block/Tetris职责",
+          "程序入口与初始化",
+          "主体循环",
+          "渲染/移动/旋转/碰撞/消行",
+          "源码地址"
+        ],
+        "ending_type": "完成宣告+互动",
+        "source_types": ["项目截图", "示意图", "C++源码", "GitHub仓库"],
+        "notable": "以代码块为锚，后文用“首先/接着/然后/最后”复述运行路径；含残缺标题与文字，属于编辑噪声。",
+        "evidence": [
+          {
+            "file": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+            "line": 180,
+            "quote": "游戏架构主要分为两个对象，Block 负责方块本身的性质"
+          },
+          {
+            "file": "src/content/blog/C++期末大作业_俄罗斯方块（附源码详解及美工素材）.md",
+            "line": 443,
+            "quote": "首先初始化当前关卡，播放背景音乐并循环"
+          }
+        ],
+        "voice_mode": "项目源码讲解",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C003.json"
+    },
+    {
+      "id": "C004",
+      "source": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+      "raw": "raw/C004.md",
+      "title": "Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案",
+      "date": "2025-08-09",
+      "author": "Yilena",
+      "sha256": "7a4c099d2ed1b1291c2c9ec798ab0013c27bb45fe2607a6d3b2ef32b425233b2",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 1075,
+        "prose_chars": 430,
+        "code_chars": 327,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 2,
+        "latin_tokens": 14,
+        "images": 2,
+        "code_blocks": 2,
+        "headings": 5,
+        "opening_paragraph_chars": 29
+      },
+      "body_sha256": "82112019f89144e80bfcebd52f3a866422d8c76a26fdb11186b72a6c90e1d11e",
+      "annotation": {
+        "id": "C004",
+        "article_type": "故障排查",
+        "topic_tags": ["Docker", "xxl-job", "网络隔离"],
+        "hook_type": "个人故障场景式",
+        "hook_excerpt": "我是用部署的 xxl-job，然后用在了宿主机的本地项目上。",
+        "structure_pattern": "现象→环境与报错→原因→两种修法→维护提醒",
+        "structure_outline": [
+          "宿主机本地任务与自动注册配置",
+          "失败截图",
+          "查阅后解释网络边界",
+          "手工改IP",
+          "host网络",
+          "动态IP提醒"
+        ],
+        "ending_type": "邀请提问",
+        "source_types": ["本地配置", "错误截图", "查阅结论"],
+        "notable": "短篇通过“既然…那…”直接连接原因和操作；原文技术解释只作历史观点。",
+        "evidence": [
+          {
+            "file": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+            "line": 59,
+            "quote": "一番查阅后找到了具体原因"
+          },
+          {
+            "file": "src/content/blog/Docker部署的xxl-job执行本地任务时无法连接执行器的解决方案.md",
+            "line": 79,
+            "quote": "既然无法访问虚拟网卡，那我们直接手动配置为宿主机的 IP 就好了"
+          }
+        ],
+        "voice_mode": "直接排障",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C004.json"
+    },
+    {
+      "id": "C005",
+      "source": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+      "raw": "raw/C005.md",
+      "title": "FastJson日期类无法解析的解决方案",
+      "date": "2025-08-01",
+      "author": "Yilena",
+      "sha256": "dff9381ec9a68e9059ada3a1314c2341cfe6ea068ee61c99006dd3d2015fedd8",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 3983,
+        "prose_chars": 325,
+        "code_chars": 1524,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 1,
+        "thematic_breaks": 2,
+        "latin_tokens": 12,
+        "images": 1,
+        "code_blocks": 3,
+        "headings": 4,
+        "opening_paragraph_chars": 47
+      },
+      "body_sha256": "0e3f88bb1ab2073b1a92d9edfe9694115a5a5f28bea2c949e5e6a6141d4f868b",
+      "annotation": {
+        "id": "C005",
+        "article_type": "故障排查",
+        "topic_tags": ["FastJson", "Spring MVC", "日期绑定"],
+        "hook_type": "异常日志式",
+        "hook_excerpt": "当我们引入阿里的依赖时，在实体类的日期字段上加了注释指定了日期格式，但在前端传入数据后却报错",
+        "structure_pattern": "日志→表面矛盾→转换链解释→局部与全局修复",
+        "structure_outline": [
+          "依赖和异常日志",
+          "从长日志定位日期转换",
+          "格式一致却失败的反问",
+          "指出不同请求转换链",
+          "注解方案",
+          "全局配置方案",
+          "按字段范围选型"
+        ],
+        "ending_type": "邀请提问",
+        "source_types": ["配置代码", "异常日志", "界面截图"],
+        "notable": "不是只贴修复代码，而是先指出“明明格式相同为什么还错”的读者疑点。",
+        "evidence": [
+          {
+            "file": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+            "line": 70,
+            "quote": "可以看到指定的格式和传入的格式是一样的，那为什么会报错呢？"
+          },
+          {
+            "file": "src/content/blog/FastJson日期类无法解析的解决方案.md",
+            "line": 159,
+            "quote": "如果只有部分字段需要特殊格式则推荐采用方案一，反之方案二。"
+          }
+        ],
+        "voice_mode": "直接排障",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C005.json"
+    },
+    {
+      "id": "C006",
+      "source": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+      "raw": "raw/C006.md",
+      "title": "Java原创项目：仿b站v1.0（附前后端源码及接口文档）",
+      "date": "2025-05-11",
+      "author": "Yilena",
+      "sha256": "cb9716fab7552082989ee00e38e72affe8452f5dedcac193f4b1320b82a7b240",
+      "family": "项目记录",
+      "metrics": {
+        "body_chars": 7412,
+        "prose_chars": 3352,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 4,
+        "bold_spans": 93,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 52,
+        "images": 40,
+        "code_blocks": 0,
+        "headings": 24,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "7877625a3072b15eb6948e62f9534753b9b1e1b1992b56926d7087fa1af31c1a",
+      "annotation": {
+        "id": "C006",
+        "article_type": "项目展示",
+        "topic_tags": ["Java", "Vue3", "全栈", "仿b站"],
+        "hook_type": "技术栈清单式",
+        "hook_excerpt": "前端 / 后端技术栈分组列出，随后直接进入项目展示。",
+        "structure_pattern": "技术栈→按端逐页展示→仓库→学习复盘",
+        "structure_outline": [
+          "前后端技术栈",
+          "用户端9类页面",
+          "管理端8类页面",
+          "自动清理任务",
+          "源码地址",
+          "两个月学习与遗留问题"
+        ],
+        "ending_type": "个人阶段复盘+互动",
+        "source_types": ["项目截图", "功能清单", "GitHub仓库", "个人开发经历"],
+        "notable": "大量截图与功能列表是作品展式体裁特征；末段主动暴露缓存键、Service层与架构经验局限。",
+        "evidence": [
+          {
+            "file": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+            "line": 546,
+            "quote": "这单纯是一个练手项目，是一个阶段性的总结。"
+          },
+          {
+            "file": "src/content/blog/Java原创项目：仿b站v1.0（附前后端源码及接口文档）.md",
+            "line": 554,
+            "quote": "代码质量方面，Service 层的实现仍存在不少粗糙之处。"
+          }
+        ],
+        "voice_mode": "项目复盘",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C006.json"
+    },
+    {
+      "id": "C007",
+      "source": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+      "raw": "raw/C007.md",
+      "title": "Knife4j未配置却需要登录认证的解决方案",
+      "date": "2025-08-01",
+      "author": "Yilena",
+      "sha256": "703202680353edfc1fafc99ad3001ccf7a39d62c244a982ef9f78d11f020911e",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 1089,
+        "prose_chars": 223,
+        "code_chars": 634,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 1,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 2,
+        "latin_tokens": 9,
+        "images": 1,
+        "code_blocks": 2,
+        "headings": 4,
+        "opening_paragraph_chars": 41
+      },
+      "body_sha256": "b9e721e76b24139a59e2e1e68147fe6d5850c5382ee0eb2fbadd30ae720412c0",
+      "annotation": {
+        "id": "C007",
+        "article_type": "故障排查",
+        "topic_tags": ["Knife4j", "Spring Security", "认证"],
+        "hook_type": "反常现象式",
+        "hook_excerpt": "当访问 knife4j 网址时出现以上页面，但是 yaml 文件中配置却没有登录认证功能。",
+        "structure_pattern": "截图→配置矛盾→归因纠偏→两种处理",
+        "structure_outline": ["非预期登录页", "现有yaml", "识别实际拦截组件", "去依赖", "保留Security时放行资源"],
+        "ending_type": "邀请提问",
+        "source_types": ["错误页面截图", "配置片段", "Java修复片段"],
+        "notable": "修法先给最直接路径，再补存在业务依赖时的备选。",
+        "evidence": [
+          {
+            "file": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+            "line": 63,
+            "quote": "一番排查后才发现上面那个登录的页面其实不是 knife4j 的登录认证，而是 Security 框架提供的。"
+          },
+          {
+            "file": "src/content/blog/Knife4j未配置却需要登录认证的解决方案.md",
+            "line": 88,
+            "quote": "如果项目需要使用到 Spring Security 的话，那可以使用配置对 knife4j 的资源路径进行放行"
+          }
+        ],
+        "voice_mode": "直接排障",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C007.json"
+    },
+    {
+      "id": "C008",
+      "source": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+      "raw": "raw/C008.md",
+      "title": "LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "921b0a0da02286d89a3f7c8a65a031b21305fc61ae05af51dc2aa6572f1312b5",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 12587,
+        "prose_chars": 9469,
+        "code_chars": 2564,
+        "table_rows": 0,
+        "quote_lines": 0,
+        "bold_spans": 0,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 0,
+        "latin_tokens": 246,
+        "images": 0,
+        "code_blocks": 19,
+        "headings": 15,
+        "opening_paragraph_chars": 237
+      },
+      "body_sha256": "c0ab1e3dceb432a5766ae31bbb62d45f0d9d3dd54c8fb22865c2bb531d6eddf0",
+      "annotation": {
+        "id": "C008",
+        "article_type": "架构原理长文",
+        "topic_tags": ["LangGraph", "Agent", "状态机", "编排"],
+        "hook_type": "旧范式局限式",
+        "hook_excerpt": "在很多工程师接触 LangGraph 之前，LLM 应用的开发体验其实已经有了一套看起来相当成熟的范式。",
+        "structure_pattern": "旧范式失效→核心抽象→状态机制→高级能力→选型边界",
+        "structure_outline": [
+          "DAG/链式调用局限",
+          "状态节点边三要素",
+          "Reducer覆盖与合并",
+          "Pregel背景",
+          "检查点中断时间旅行",
+          "invoke/stream",
+          "何时值得引入"
+        ],
+        "ending_type": "适用边界收束",
+        "source_types": ["框架API示例", "Mermaid机制图", "工程情境", "设计解释"],
+        "notable": "2026年长段落的因果解释更浓；将“看似抽象设计”落回调试、恢复、维护需求，结尾收束到复杂度匹配。",
+        "evidence": [
+          {
+            "file": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+            "line": 100,
+            "quote": "节点定义了做什么，边定义了什么时候做。"
+          },
+          {
+            "file": "src/content/blog/LangGraph 深度解析：状态机驱动的 LLM 编排原理与使用指南.md",
+            "line": 389,
+            "quote": "用简单的工具解决简单的问题，用强大的框架解决复杂的问题。"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C008.json"
+    },
+    {
+      "id": "C009",
+      "source": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+      "raw": "raw/C009.md",
+      "title": "Sharding-JDBC 定时任务 SQL 无响应的解决方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "6ef9ba9cdfac89ae557620b8d7ae8df55bfaa304bffa9774f3832dd78c49ae27",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 1316,
+        "prose_chars": 857,
+        "code_chars": 89,
+        "table_rows": 0,
+        "quote_lines": 13,
+        "bold_spans": 6,
+        "excluded_quoted_log_lines": 1,
+        "thematic_breaks": 1,
+        "latin_tokens": 14,
+        "images": 1,
+        "code_blocks": 1,
+        "headings": 0,
+        "opening_paragraph_chars": 23
+      },
+      "body_sha256": "398c0da7e7f2862f47db2cfc19703fd904289217d12ed9a3ea4c2eb786135871",
+      "annotation": {
+        "id": "C009",
+        "article_type": "故障排查",
+        "topic_tags": ["Sharding-JDBC", "定时任务", "类加载器"],
+        "hook_type": "第一人称异常追踪式",
+        "hook_excerpt": "明明和数据库连接都确认无误，但在定时任务中执行的时候出现了问题。",
+        "structure_pattern": "看似阻塞→找不到问题→提升日志→根因→一行修复→恢复结果",
+        "structure_outline": [
+          "确认连接正常",
+          "预期SQL未输出",
+          "排查无果",
+          "日志级别揭示异常",
+          "解释类加载器",
+          "显式配置",
+          "报告恢复"
+        ],
+        "ending_type": "修复结果自然结束",
+        "source_types": ["控制台截图", "异常消息", "Java修复片段", "作者观察"],
+        "notable": "“打印都很正常对吧”把读者带入排查；叙事保留排查转折。",
+        "evidence": [
+          {
+            "file": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+            "line": 35,
+            "quote": "打印都很正常对吧。"
+          },
+          {
+            "file": "src/content/blog/Sharding-JDBC_定时任务_SQL_无响应的解决方案.md",
+            "line": 50,
+            "quote": "这时我考虑到可能是**日志级别**屏蔽了错误信息"
+          }
+        ],
+        "voice_mode": "直接排障",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C009.json"
+    },
+    {
+      "id": "C010",
+      "source": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+      "raw": "raw/C010.md",
+      "title": "WebSocket连接失败解决方案(前后端联调场景)",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "a825cef046ea33c87f00373703e187404d869ae96e08b5534423242015afc82a",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 501,
+        "prose_chars": 376,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 4,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 1,
+        "latin_tokens": 20,
+        "images": 0,
+        "code_blocks": 0,
+        "headings": 0,
+        "opening_paragraph_chars": 5
+      },
+      "body_sha256": "ecd44f32a5a5fa20a088475b052b64baf6fa672d170572ea9d976f5932e34193",
+      "annotation": {
+        "id": "C010",
+        "article_type": "故障排查",
+        "topic_tags": ["WebSocket", "前后端联调", "Spring Boot"],
+        "hook_type": "对照现象式",
+        "hook_excerpt": "使用 Apifox 等接口测试工具可正常建立 WebSocket 连接；前端代码发起 WebSocket 连接请求失败。",
+        "structure_pattern": "现象对照→错误正确样例→补充版本分支",
+        "structure_outline": ["工具可连前端不可连", "上下文路径", "错误/正确URL", "前后端保持一致", "未解决时检查包命名空间"],
+        "ending_type": "版本提醒自然结束",
+        "source_types": ["对照示例", "版本差异提示"],
+        "notable": "极短篇无需大纲与强行总结，使用加粗隐性标题。",
+        "evidence": [
+          {
+            "file": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+            "line": 40,
+            "quote": "*错误示例:* `ws://localhost:80/webSocket/1`"
+          },
+          {
+            "file": "src/content/blog/WebSocket连接失败解决方案(前后端联调场景).md",
+            "line": 60,
+            "quote": "如果还解决不了的并且搜索了很多都未能解决的，请检查是否是后端版本的问题！"
+          }
+        ],
+        "voice_mode": "直接排障",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C010.json"
+    },
+    {
+      "id": "C011",
+      "source": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+      "raw": "raw/C011.md",
+      "title": "一个简单高效的秒杀方案的实现",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "7ebf3af84748e49ffb953457f9b3eb536d46ae6dcb9975aa0e8f9331a8a9677b",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 36819,
+        "prose_chars": 2033,
+        "code_chars": 31487,
+        "table_rows": 0,
+        "quote_lines": 8,
+        "bold_spans": 26,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 49,
+        "images": 3,
+        "code_blocks": 28,
+        "headings": 30,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "4e89430d9c30dacef277f6044f1c6b92609b058d009011e35a2c805db9b23853",
+      "annotation": {
+        "id": "C011",
+        "article_type": "业务方案推演",
+        "topic_tags": ["秒杀", "Redis", "RabbitMQ", "一致性"],
+        "hook_type": "假设业务式",
+        "hook_excerpt": "假设我们有一个电商平台，现计划开展一个秒杀活动。核心要求是一人一单且不能超卖。",
+        "structure_pattern": "目标约束→逐问题推演→故障路径→全景图→分层代码",
+        "structure_outline": [
+          "一人一单与不能超卖",
+          "数据表与高并发",
+          "Lua原子性",
+          "MQ丢失重复消费",
+          "Redis故障策略",
+          "流程图与性能截图",
+          "依赖配置到核心代码",
+          "类加载器旧文"
+        ],
+        "ending_type": "邀请改进+互动",
+        "source_types": ["假设场景", "流程图", "作者报告的性能截图", "Java/Lua实现", "自有排障文章"],
+        "notable": "长篇实现以分层目录承载；允许读者跳过基础配置直达核心；方案旧技术断言不可直接继承为正确结论。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+            "line": 164,
+            "quote": "核心要求是**一人一单**且**不能超卖**。"
+          },
+          {
+            "file": "src/content/blog/一个简单高效的秒杀方案的实现.md",
+            "line": 241,
+            "quote": "更合理的策略是**立即熔断**"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C011.json"
+    },
+    {
+      "id": "C012",
+      "source": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+      "raw": "raw/C012.md",
+      "title": "一文讲透Agent应用中的提示词工程",
+      "date": "2026-03-29",
+      "author": "Yilena",
+      "sha256": "230966503e27a563f9c0dc53cb55bf74cfbbdcfd5bacfc36afdf7081b383b10d",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 12332,
+        "prose_chars": 10827,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 12,
+        "latin_tokens": 158,
+        "images": 3,
+        "code_blocks": 0,
+        "headings": 38,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "1976aab24739279667539db3326e72b70f4593efe531fbcb7434716cdb156f37",
+      "annotation": {
+        "id": "C012",
+        "article_type": "架构原理长文",
+        "topic_tags": ["Agent", "提示词工程", "稳定性"],
+        "hook_type": "团队演进症状式",
+        "hook_excerpt": "这两年，很多团队在做大模型应用时都有一个相似的经历：最早往往从一个问答 Demo 开始",
+        "structure_pattern": "症状→概念纠偏→演进→架构对比→实践→失败→方法论",
+        "structure_outline": [
+          "提示词作为行为接口",
+          "静态/RAG/工具/受控编排",
+          "单体分层Planner Workflow",
+          "框架生态",
+          "任务边界与版本化",
+          "失败场景",
+          "常见误判",
+          "策略与规则职责"
+        ],
+        "ending_type": "回到引题并提升为工程方法",
+        "source_types": ["行业情境归纳", "架构图", "方案对比", "作者判断"],
+        "notable": "“很多团队”的泛化观察不等于给定可核实案例；多用不是/而是建立概念边界。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+            "line": 240,
+            "quote": "提示词更像是运行时的操作手册，而不是单纯的用户说明。"
+          },
+          {
+            "file": "src/content/blog/一文讲透Agent应用中的提示词工程.md",
+            "line": 164,
+            "quote": "用 Prompt 表达策略，用程序表达规则"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C012.json"
+    },
+    {
+      "id": "C013",
+      "source": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+      "raw": "raw/C013.md",
+      "title": "一文讲透 Agent 应用中的上下文工程",
+      "date": "2026-03-29",
+      "author": "Yilena",
+      "sha256": "283c17b0b2e14f8681bdd4046ac2499625228313751c7b138dd7e1e4b0c09f67",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 15931,
+        "prose_chars": 14320,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 145,
+        "images": 4,
+        "code_blocks": 0,
+        "headings": 45,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "f6f399e0f4094b63dfca7e2baa921c91d8983c5e289b3a2114f56d61d299865c",
+      "annotation": {
+        "id": "C013",
+        "article_type": "架构原理长文",
+        "topic_tags": ["Agent", "上下文工程", "状态", "记忆"],
+        "hook_type": "工程症状并列式",
+        "hook_excerpt": "最常见的现象，是系统在短对话里表现不错，在稍长一点的任务链路中就开始漂移。",
+        "structure_pattern": "症状聚合→共同根因→分层定义→架构演进→方案对比→落地→坑",
+        "structure_outline": [
+          "多轮漂移等具体症状",
+          "工作集定义与生命周期",
+          "知识状态记忆区分",
+          "五阶段演进",
+          "六类方案",
+          "模型/系统中心等架构",
+          "独立组装器与数据供给",
+          "观测与污染风险"
+        ],
+        "ending_type": "概念价值收束+互动",
+        "source_types": ["工程情境归纳", "架构图", "类比", "生产实践建议"],
+        "notable": "文章通过反复区分容量与组织、知识与状态推动论述；不是全部观点都由独立实验支撑。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+            "line": 232,
+            "quote": "模型每一次时，究竟拿到了什么信息"
+          },
+          {
+            "file": "src/content/blog/一文讲透_Agent_应用中的上下文工程.md",
+            "line": 288,
+            "quote": "上下文工程就是围绕模型推理所需工作集而展开的设计、组织、传递、压缩、更新和治理体系。"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C013.json"
+    },
+    {
+      "id": "C014",
+      "source": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+      "raw": "raw/C014.md",
+      "title": "一文讲透 Agent 应用中的记忆工程",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "2850213110ab98b7d03a6c7745326efd153eace65fec1277364dba90b6d7537c",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 14066,
+        "prose_chars": 11156,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 17,
+        "latin_tokens": 69,
+        "images": 13,
+        "code_blocks": 0,
+        "headings": 68,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "31391a981cc50bf223cee454c0498dc2b8190fe8c18fa2afbe0342a07392bfa0",
+      "annotation": {
+        "id": "C014",
+        "article_type": "架构原理长文",
+        "topic_tags": ["Agent", "记忆工程", "信息治理"],
+        "hook_type": "连续任务故障式",
+        "hook_excerpt": "为什么这个 Agent 在第十轮之后开始答非所问，为什么它忘记了用户早就声明过的偏好",
+        "structure_pattern": "故障→本质定义→逐代演进→分层→选型→读写策略→风险",
+        "structure_outline": [
+          "任务连续性与记忆",
+          "信息生命周期",
+          "全量历史窗口摘要检索",
+          "四类记忆",
+          "混合/冷热分层",
+          "结构化与向量职责",
+          "写入门槛和召回重排",
+          "常见问题"
+        ],
+        "ending_type": "问题清单结束+互动",
+        "source_types": ["工程情境", "架构图", "对比表图片", "例子", "作者判断"],
+        "notable": "同一问题按演进层级递进，每层写价值、剩余问题和适用阶段；图和表承担比较信息。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+            "line": 332,
+            "quote": "记忆不是一个模型特性，而是一套工程能力。"
+          },
+          {
+            "file": "src/content/blog/一文讲透_Agent_应用中的记忆工程.md",
+            "line": 716,
+            "quote": "记忆架构并没有绝对意义上的最好，只有是否适合当前业务阶段和任务复杂度。"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C014.json"
+    },
+    {
+      "id": "C015",
+      "source": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+      "raw": "raw/C015.md",
+      "title": "一文讲透 MCP：从定义、架构到底层原理，再到 Tool Calling、Skill 与生态全景",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "4722d2937b693955bed926cd9f523578471f065e944141494e9748056b6f0e2f",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 18076,
+        "prose_chars": 15736,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 1,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 16,
+        "latin_tokens": 437,
+        "images": 7,
+        "code_blocks": 0,
+        "headings": 87,
+        "opening_paragraph_chars": 124
+      },
+      "body_sha256": "8a93c47b0033e08faf9b3c6916be0cb2b05e9c5ec82b08da7d55b23d306d3dca",
+      "annotation": {
+        "id": "C015",
+        "article_type": "架构原理长文",
+        "topic_tags": ["MCP", "Tool Calling", "Skill", "上下文"],
+        "hook_type": "技术重心迁移式",
+        "hook_excerpt": "早期大家关注的是模型能不能回答问题；进入业务系统后，问题变成读取真实数据与完成动作。",
+        "structure_pattern": "背景→边界纠偏→驱动力→分层架构→调用流程→概念比较→治理",
+        "structure_outline": [
+          "接入痛点",
+          "协议不是SDK或模型能力",
+          "标准描述发现治理",
+          "Client/Server/Runtime",
+          "Tools Resources Prompts",
+          "通信与初始化",
+          "订单查询完整调用",
+          "Tool Calling/Skill关系",
+          "生态类型",
+          "Prompt膨胀和落地坑"
+        ],
+        "ending_type": "保留局限的趋势判断+互动",
+        "source_types": ["工程场景", "架构图", "协议解释", "生态分类", "作者建议"],
+        "notable": "先消除名词混淆，后用订单查询把抽象链路串起来；对生态的历史描述需重新核实。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+            "line": 282,
+            "quote": "如果只记定义，MCP 很容易变成另一个被神化的缩写。"
+          },
+          {
+            "file": "src/content/blog/一文讲透_MCP：从定义、架构到底层原理，再到_Tool_Calling、Skill_与生态全景.md",
+            "line": 951,
+            "quote": "模型拿到的是零件，但缺少装配方式。"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C015.json"
+    },
+    {
+      "id": "C016",
+      "source": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+      "raw": "raw/C016.md",
+      "title": "一文讲透 RAG：从定义、架构、底层原理到主流方案对比",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "c1b7fcbe62d78f14c6b3f0dc32918d2a25da14020cf931a3a4262369b9193863",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 24237,
+        "prose_chars": 21043,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 18,
+        "latin_tokens": 444,
+        "images": 7,
+        "code_blocks": 0,
+        "headings": 110,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "ef3e21b56887343e94a1e4d1505efd693ad6bce94b9dd6ddf015181bb2096e72",
+      "annotation": {
+        "id": "C016",
+        "article_type": "架构原理长文",
+        "topic_tags": ["RAG", "检索", "知识治理", "权限"],
+        "hook_type": "直觉与落地落差式",
+        "hook_excerpt": "既然大语言已经能回答这么多问题，那么把公司的文档、制度、接口说明、FAQ 喂给模型，不就能很快做出一个知识助手了吗。",
+        "structure_pattern": "直觉失效→系统定义→流程模块→原理→故障→对比→推荐",
+        "structure_outline": [
+          "企业知识问题与微调成本",
+          "离线索引/在线问答",
+          "七模块拆解",
+          "参数化知识与近似检索",
+          "十二类失败点",
+          "传统搜索的优势",
+          "权限单列",
+          "六类RAG方案",
+          "分层生产建议与结尾"
+        ],
+        "ending_type": "回扣知识系统工程+互动",
+        "source_types": ["工程情境", "作者自述微调经历", "架构图", "对比表图片", "方案解释"],
+        "notable": "以“还不如普通搜索”的异议检验技术边界；自述经历应归为作者报告，不能生成新亲历。",
+        "evidence": [
+          {
+            "file": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+            "line": 560,
+            "quote": "我自己做过几次  开源模型的微调"
+          },
+          {
+            "file": "src/content/blog/一文讲透_RAG：从定义、架构、底层原理到主流方案对比.md",
+            "line": 1252,
+            "quote": "搜索擅长找资料，RAG 擅长基于资料组织答案。"
+          }
+        ],
+        "voice_mode": "系统工程论述",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C016.json"
+    },
+    {
+      "id": "C017",
+      "source": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+      "raw": "raw/C017.md",
+      "title": "从业务场景到知名企业开源框架全面解析分布式ID生成方案",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "baacf3ef1f0749faab7bb4f64e65a643741f39236581daf51004e468d8e18d90",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 7777,
+        "prose_chars": 5065,
+        "code_chars": 539,
+        "table_rows": 8,
+        "quote_lines": 17,
+        "bold_spans": 12,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 187,
+        "images": 7,
+        "code_blocks": 4,
+        "headings": 13,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "e2cd7d8760b31375f369633d5d9f0fac620707e0ce523f918db28ed5f70e8f1d",
+      "annotation": {
+        "id": "C017",
+        "article_type": "技术选型对比",
+        "topic_tags": ["分布式ID", "Leaf", "UidGenerator", "Tinyid"],
+        "hook_type": "约束列举式",
+        "hook_excerpt": "每张表必须至少拥有一个唯一主键，因此我们需要一个ID生成器。",
+        "structure_pattern": "要求→基础方案优缺点→企业优化→横向表",
+        "structure_outline": [
+          "三项业务要求与冲突",
+          "UUID/DB/号段/雪花/Redis",
+          "每项优缺点",
+          "Leaf双Buffer和时钟处理",
+          "UidGenerator",
+          "Tinyid本地化",
+          "选型表"
+        ],
+        "ending_type": "对比表收束+互动",
+        "source_types": ["代码片段", "机制图", "企业框架解释", "横向表"],
+        "notable": "围绕统一约束比较而非纯百科罗列；嵌套引用内接读者追问，解释设计初衷而非一概排名。",
+        "evidence": [
+          {
+            "file": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+            "line": 98,
+            "quote": "需要注意的是单表递增性其实是分为趋势递增和严格递增"
+          },
+          {
+            "file": "src/content/blog/从业务场景到知名企业开源框架全面解析分布式ID生成方案.md",
+            "line": 553,
+            "quote": "二者差异是设计初衷的不同所导致的。"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C017.json"
+    },
+    {
+      "id": "C018",
+      "source": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+      "raw": "raw/C018.md",
+      "title": "优先队列流式处理 + 多路归并排序：轻松实现DB分表严格有序的分页查询",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "042a69661276a056d67262bf4751adee34e3a005985fed10e113e87b0f399636",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 4448,
+        "prose_chars": 1565,
+        "code_chars": 2514,
+        "table_rows": 0,
+        "quote_lines": 8,
+        "bold_spans": 4,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 35,
+        "images": 1,
+        "code_blocks": 3,
+        "headings": 5,
+        "opening_paragraph_chars": 43
+      },
+      "body_sha256": "10144d7d7009b5a66aff87fb97ea1a61800521b7292c0f9c1897bfa69c7e5b92",
+      "annotation": {
+        "id": "C018",
+        "article_type": "业务方案推演",
+        "topic_tags": ["分表", "分页", "优先队列", "MySQL"],
+        "hook_type": "有约束假设场景式",
+        "hook_excerpt": "你正在开发一款短链接生成平台，用户可在该平台上创建多个分组，并在分组内生成大量短链接。",
+        "structure_pattern": "硬约束→直观方案被否→可行方案→风险补丁→实现",
+        "structure_outline": [
+          "MySQL限定和磁盘紧张",
+          "跨表严格排序难点",
+          "映射表空间约束否决",
+          "各分组查询与聚合",
+          "优先队列控制内存",
+          "规模上限与并发查询",
+          "流程图与测试报告",
+          "Java代码"
+        ],
+        "ending_type": "能力边界自述+邀请改进",
+        "source_types": ["假设业务", "SQL/Java实现", "流程图", "作者测试报告"],
+        "notable": "明确约束阻断看似更简单方案，结尾承认只想到两个方案；统计不可把毫秒级描述当可迁移承诺。",
+        "evidence": [
+          {
+            "file": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+            "line": 62,
+            "quote": "仅限使用 MySQL，排除了引入 Elasticsearch 等外部方案的可能"
+          },
+          {
+            "file": "src/content/blog/优先队列流式处理_+_多路归并排序：轻松实现DB分表严格有序的分页查询.md",
+            "line": 332,
+            "quote": "我的水平有限，只能想到这两个方案"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C018.json"
+    },
+    {
+      "id": "C019",
+      "source": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+      "raw": "raw/C019.md",
+      "title": "优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "09044b4dd5742b5339760a652b60aa0dedf699eeb98f922ce6f263e2a1ead7f7",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 9657,
+        "prose_chars": 940,
+        "code_chars": 8401,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 22,
+        "images": 1,
+        "code_blocks": 2,
+        "headings": 7,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "ab3f3436e88a75fc95a17b01a6becfa9aea902c1924fea860cfa34ad1e195b71",
+      "annotation": {
+        "id": "C019",
+        "article_type": "方案优化续篇",
+        "topic_tags": ["推荐系统", "Redis", "MySQL", "Elasticsearch"],
+        "hook_type": "旧文接续式",
+        "hook_excerpt": "旧版方案的分析数据是通过近三天的全部日志数据，再查询近30天的全部日志数据",
+        "structure_pattern": "回指旧文→两问题→逐一修改→新流程→代码",
+        "structure_outline": [
+          "旧版入口",
+          "用户范围与计算开销两问题",
+          "用访问事件近似登录",
+          "只计天数不记录具体日期",
+          "重选热冷数据存储",
+          "缩小映射粒度",
+          "流程与实现"
+        ],
+        "ending_type": "邀请改进+互动",
+        "source_types": ["自有旧文", "项目约束", "流程图", "Lua/Java实现"],
+        "notable": "不回避推翻旧文，评价技术以当前数据规模和查询约束为轴。",
+        "evidence": [
+          {
+            "file": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+            "line": 90,
+            "quote": "一是推荐用户对象范围不精确"
+          },
+          {
+            "file": "src/content/blog/优化日志分析店铺推荐方案：用户范围的精确度以及ES与MySQL的查询效率差异.md",
+            "line": 118,
+            "quote": "因为我们并不需要知道用户哪些天是登陆过的，我们只需要知道用户登录了几天就好了。"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C019.json"
+    },
+    {
+      "id": "C020",
+      "source": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+      "raw": "raw/C020.md",
+      "title": "优化：将针对单一日志表的冷热数据分离类改造成通用类",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "1e0907644d04eb998b2b827b67f3847e8e87c82c893cb6b67b7061361d5886e3",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 7386,
+        "prose_chars": 425,
+        "code_chars": 6712,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 5,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 7,
+        "images": 1,
+        "code_blocks": 1,
+        "headings": 4,
+        "opening_paragraph_chars": 33
+      },
+      "body_sha256": "1be78c420a60f4443069a62948ca28a30807d28f99c427bf075f2a11e96207d6",
+      "annotation": {
+        "id": "C020",
+        "article_type": "代码重构说明",
+        "topic_tags": ["泛型", "冷热数据", "Elasticsearch", "复用"],
+        "hook_type": "旧文接续式",
+        "hook_excerpt": "旧版方案改为冷数据存储到ES，同时原定时任务的固定表逻辑导致重复代码。",
+        "structure_pattern": "复用动机→固定点识别→三点改造→图→代码",
+        "structure_outline": ["旧版链接", "复制粘贴成本", "参数化", "泛型适配实体", "ES定制重载", "新流程和代码"],
+        "ending_type": "邀请改进+互动",
+        "source_types": ["自有旧文", "Java实现", "流程图"],
+        "notable": "正文很短而代码很长，抓住“为什么抽象”的具体压力，不为了通用化写空泛原则。",
+        "evidence": [
+          {
+            "file": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+            "line": 42,
+            "quote": "如果需要对另一个日志表实现相同的存储逻辑，就只能复制粘贴代码"
+          },
+          {
+            "file": "src/content/blog/优化：将针对单一日志表的冷热数据分离类改造成通用类.md",
+            "line": 46,
+            "quote": "本次改进的核心目标就是解决这个问题，提升代码复用性。"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C020.json"
+    },
+    {
+      "id": "C021",
+      "source": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+      "raw": "raw/C021.md",
+      "title": "内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！",
+      "date": "2026-06-15",
+      "author": "Yilena",
+      "sha256": "d81581ff103aef8e468a7777c4f90ee022ff37e12b2abe777d308c99cd818309",
+      "family": "工具介绍",
+      "metrics": {
+        "body_chars": 3361,
+        "prose_chars": 2121,
+        "code_chars": 705,
+        "table_rows": 0,
+        "quote_lines": 0,
+        "bold_spans": 0,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 14,
+        "latin_tokens": 70,
+        "images": 0,
+        "code_blocks": 21,
+        "headings": 16,
+        "opening_paragraph_chars": 5
+      },
+      "body_sha256": "0bc3f21aeb3e15e7d8139cccdb331e918edc12a7eeacb2c8cdcadfd241323768",
+      "annotation": {
+        "id": "C021",
+        "article_type": "工具原理与使用",
+        "topic_tags": ["MemGuardian", "Windows", "Python", "内存"],
+        "hook_type": "用途定义式",
+        "hook_excerpt": "MemGuardian 是一个运行在 Windows 平台上的内存优化工具",
+        "structure_pattern": "用途效果与条件→源码分层→配置教程→运行日志",
+        "structure_outline": [
+          "工具与仓库",
+          "内存现象及效果边界",
+          "权限/系统清理/进程评分/多轮",
+          "任务计划配置",
+          "测试命令",
+          "后台守护与日志"
+        ],
+        "ending_type": "日志用途自然结束",
+        "source_types": ["项目代码符号", "命令片段", "工具说明"],
+        "notable": "标题感叹且报具体比例，正文主动限定设备依赖；没有早期统一互动尾句，不能把其当必选风格。",
+        "evidence": [
+          {
+            "file": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+            "line": 39,
+            "quote": "这种变化依赖于设备的内存容量、后台进程数量以及 Windows 当前的内存调度策略"
+          },
+          {
+            "file": "src/content/blog/内存占用从90%降到30%！关于我基于PCL编写的内存优化大杀器！.md",
+            "line": 131,
+            "quote": "通过启发式规则选择“最值得被压缩工作集”的进程。"
+          }
+        ],
+        "voice_mode": "工具说明",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C021.json"
+    },
+    {
+      "id": "C022",
+      "source": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+      "raw": "raw/C022.md",
+      "title": "基于MySQL + Redis + JWT的双令牌认证方案的实现",
+      "date": "2025-09-27",
+      "author": "Yilena",
+      "sha256": "e2fb4cec0e553dfd17e26bd3ccdb459d407b246083fb92853d3f2d490cdbb077",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 17353,
+        "prose_chars": 2185,
+        "code_chars": 14268,
+        "table_rows": 0,
+        "quote_lines": 6,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 22,
+        "images": 2,
+        "code_blocks": 6,
+        "headings": 8,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "48511f6b004a433d6c4c3f00c0f200c590848c877e117a0996d63a7422c6dc64",
+      "annotation": {
+        "id": "C022",
+        "article_type": "业务方案推演",
+        "topic_tags": ["JWT", "Redis", "认证", "用户体验"],
+        "hook_type": "现有机制痛点式",
+        "hook_excerpt": "当前项目认证端点采用单令牌机制，该令牌存储在浏览器 LocalStorage 中存在安全风险",
+        "structure_pattern": "矛盾→直观修复又引出问题→职责拆分→再修→实现→补充",
+        "structure_outline": [
+          "单令牌风险",
+          "缩短有效期与体验冲突",
+          "双令牌职责",
+          "刷新令牌续期疑点",
+          "状态与错误语义修正",
+          "分层Java实现",
+          "互斥/多端登录",
+          "设备标识补充"
+        ],
+        "ending_type": "额外风险与补充方案+互动",
+        "source_types": ["项目情境", "新旧流程图", "Java实现", "读者追问"],
+        "notable": "方案在正文中持续自我修正，读者能看到约束如何迫使设计变化；安全断言需独立审核，不能当权威指南。",
+        "evidence": [
+          {
+            "file": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+            "line": 96,
+            "quote": "如此，单令牌方案陷入了两难的地步。"
+          },
+          {
+            "file": "src/content/blog/基于MySQL_+_Redis_+_JWT的双令牌认证方案的实现.md",
+            "line": 124,
+            "quote": "但是刚才的方案还存在一个问题："
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C022.json"
+    },
+    {
+      "id": "C023",
+      "source": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+      "raw": "raw/C023.md",
+      "title": "如何应对海量Key带来的redis内存占用问题？",
+      "date": "2025-08-23",
+      "author": "Yilena",
+      "sha256": "0c787d4c9a732b10f04f3db75d4d4878e15e5dc4cdd6a233b87246ab5604c559",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 3136,
+        "prose_chars": 2132,
+        "code_chars": 305,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 14,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 109,
+        "images": 2,
+        "code_blocks": 1,
+        "headings": 8,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "fd9a988ca877c0155d89ca9e18da9c62fb7011752adc711f22a1fdb6dcfb4b74",
+      "annotation": {
+        "id": "C023",
+        "article_type": "技术选型对比",
+        "topic_tags": ["Redis", "内存", "冷热分离", "预算"],
+        "hook_type": "任务要求式",
+        "hook_excerpt": "当前你的项目的内存不足，请你提供解决方案。",
+        "structure_pattern": "痛点→机制→由轻到重五方案→预算条件决策",
+        "structure_outline": [
+          "小Key开销解释",
+          "Hash合并与限制",
+          "TTL救急",
+          "集群回指旧文",
+          "RoF分层机制",
+          "MySQL两种冷热策略",
+          "按预算组合方案"
+        ],
+        "ending_type": "有条件建议+互动",
+        "source_types": ["工程场景", "机制解释", "流程图", "SQL片段", "自有旧文"],
+        "notable": "把临时止损与长期方案区分，最后根据经费分支建议；原文关于版本能力与数据持久性说法未经此次核验。",
+        "evidence": [
+          {
+            "file": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+            "line": 140,
+            "quote": "但这只是救急，是为了在保证服务不中断的前提下为后续优化操作争取时间窗口。"
+          },
+          {
+            "file": "src/content/blog/如何应对海量Key带来的redis内存占用问题？.md",
+            "line": 329,
+            "quote": "如果经费充裕的情况下"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C023.json"
+    },
+    {
+      "id": "C024",
+      "source": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+      "raw": "raw/C024.md",
+      "title": "布隆过滤器因内存上限无法处理超量数据的优化方案",
+      "date": "2025-08-14",
+      "author": "Yilena",
+      "sha256": "af369db0b778ff31b8c4153ef0db6c2e609261ac5318a293ea3a21e0c4d31753",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 6551,
+        "prose_chars": 857,
+        "code_chars": 5435,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 10,
+        "images": 0,
+        "code_blocks": 3,
+        "headings": 7,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "4cea1fe91b48b9750473bba2d723fef15d722f34e1c0907535b16b46c3424802",
+      "annotation": {
+        "id": "C024",
+        "article_type": "技术选型对比",
+        "topic_tags": ["布隆过滤器", "Redis", "内存", "分片"],
+        "hook_type": "容量约束式",
+        "hook_excerpt": "你负责的项目使用布隆过滤器进行缓存穿透的防御，但是随着数据量的增加，布隆过滤器桶的数量已经不足以容纳新的数据",
+        "structure_pattern": "容量需求→两思路抽象→三实现优缺点→场景选型",
+        "structure_outline": [
+          "扩容方式抽象",
+          "单机分片及堆风险",
+          "Redis分布式分片",
+          "多层可扩展",
+          "随层数增长的查询代价",
+          "单机/分布式建议"
+        ],
+        "ending_type": "明确场景推荐+互动",
+        "source_types": ["假设需求", "Java实现", "代价比较"],
+        "notable": "先将表面复杂问题压成两个方向，再展开实现；技术风险与适用推荐是作者当时判断。",
+        "evidence": [
+          {
+            "file": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+            "line": 75,
+            "quote": "无非就是扩容的方式不同"
+          },
+          {
+            "file": "src/content/blog/布隆过滤器因内存上限无法处理超量数据的优化方案.md",
+            "line": 402,
+            "quote": "除此之外还有一个缺点就是使用越久，层数越多，查询最新元素的效率就越慢"
+          }
+        ],
+        "voice_mode": "工程共推演",
+        "style_weight": 1.0,
+        "reading_coverage": "全部非代码正文已通读；代码围栏按位置、语言、行数与前后解释关系审阅，未执行技术代码。"
+      },
+      "metrics_path": "_meta/metrics/C024.json"
+    },
+    {
+      "id": "C025",
+      "source": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+      "raw": "raw/C025.md",
+      "title": "带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "df51a9e26c2651cf0c9f8f7b096dbfd954b79097750b09abcc975f0356a65aee",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 6959,
+        "prose_chars": 4178,
+        "code_chars": 0,
+        "table_rows": 29,
+        "quote_lines": 10,
+        "bold_spans": 70,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 18,
+        "latin_tokens": 202,
+        "images": 2,
+        "code_blocks": 0,
+        "headings": 16,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "dd69cceee1e8233725989fb5450283b8f535af2196fd18c1aa64384d9b9d2900",
+      "annotation": {
+        "id": "C025",
+        "article_type": "技术对比",
+        "topic_tags": ["消息队列", "RabbitMQ", "RocketMQ", "Kafka", "选型"],
+        "hook_type": "互文导入式",
+        "hook_excerpt": "在详细讲述每个 MQ 的博客里我都有总结其适用场景与不适用场景，故在此处我只提供选型树，若想更加详细地了解请翻阅上面三篇博客。",
+        "structure_pattern": "先选型后按同一问题逐项横比",
+        "structure_outline": [
+          "前置三篇教程链接",
+          "场景选型树",
+          "吞吐、延迟、可靠性等16个问题",
+          "各MQ并列说明或表格",
+          "最后一个问题后自然结束"
+        ],
+        "ending_type": "赞语式",
+        "source_types": ["系列互文", "机制说明", "对比表格", "架构图"],
+        "notable": "先给选择，再解释取舍；包含未经独立验证的性能量级和绝对化结论；有空标题/缺词等迁移噪声。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+            "line": 108,
+            "quote": "在详细讲述每个 MQ 的博客里我都有总结其适用场景与不适用场景，故在此处我只提供选型树，若想更加详细地了解请翻阅上面三篇博客。"
+          },
+          {
+            "source_file": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+            "line": 307,
+            "quote": "其实消息积压问题要不就是生产者发送太快，要不就是消费者消费太慢，所以可以拓宽消息传递容器或者增加消费者的方式来处理。"
+          },
+          {
+            "source_file": "src/content/blog/带你对比三大主流消息队列RabbitMQ、RocketMQ以及Kafka.md",
+            "line": 372,
+            "quote": "总结一下就是 RabbitMQ 水平扩展性很差，是按垂直扩展来设计的。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C025.json"
+    },
+    {
+      "id": "C026",
+      "source": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+      "raw": "raw/C026.md",
+      "title": "带你轻松学习BIO、NIO和AIO三大模型",
+      "date": "2025-07-08",
+      "author": "Yilena",
+      "sha256": "867dcbdbba63f27f33f69ff6b1bc8dc62e9dc07b7b8b5f9ab9b58f5c4b03c6df",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 3093,
+        "prose_chars": 1952,
+        "code_chars": 0,
+        "table_rows": 19,
+        "quote_lines": 2,
+        "bold_spans": 7,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 57,
+        "images": 3,
+        "code_blocks": 0,
+        "headings": 15,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "8e22ad0bd15f70142dc57a0d31682ca4c90fa750222ff6d8b93636cf150ad9a6",
+      "annotation": {
+        "id": "C026",
+        "article_type": "知识教程",
+        "topic_tags": ["BIO", "NIO", "AIO", "Java", "IO模型"],
+        "hook_type": "定义式",
+        "hook_excerpt": "在冯·诺依曼中，机被划分为几个核心部分。输入设备向计算机传递数据的过程称为输入（Input），而计算机将处理结果传递给输出设备的过程称为输出（Output）。这两个过程合称为输入/输出，即 IO（In",
+        "structure_pattern": "逐代方案递进+同维度对照",
+        "structure_outline": [
+          "IO定义",
+          "BIO机制/优缺点/场景/改良局限",
+          "NIO组件/机制/边界",
+          "AIO机制/边界",
+          "对照表与烧水比喻"
+        ],
+        "ending_type": "总结表与类比后赞语",
+        "source_types": ["机制图", "类比", "对比表格"],
+        "notable": "一个模型的缺点引出下一模型，穿插同学疑问与工人/火车比喻；技术结论需另验。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+            "line": 179,
+            "quote": "由此可见，改良方案无法解决 BIO 内核级阻塞的根本缺陷，因此催生了更高效的 NIO 模型。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+            "line": 215,
+            "quote": "有同学可能会搞混通道和线程的概念，可以参考以下表格："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+            "line": 229,
+            "quote": "可以打个通俗的比方，通道是火车，只负责把货物运输到目的地，而线程是工人，是负责处理这一批货物的。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习BIO、NIO和AIO三大模型.md",
+            "line": 376,
+            "quote": "经常用到一个比喻来形容这三个模型的差别："
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C026.json"
+    },
+    {
+      "id": "C027",
+      "source": "src/content/blog/带你轻松学习Caffeine.md",
+      "raw": "raw/C027.md",
+      "title": "带你轻松学习Caffeine",
+      "date": "2025-10-18",
+      "author": "Yilena",
+      "sha256": "92beea0282066832e1496079e317b014f38f6fd35dfa132e55ad3ec69dc99c9d",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 10044,
+        "prose_chars": 5372,
+        "code_chars": 3620,
+        "table_rows": 0,
+        "quote_lines": 8,
+        "bold_spans": 42,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 8,
+        "latin_tokens": 222,
+        "images": 1,
+        "code_blocks": 6,
+        "headings": 23,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "4a6e791fd046190e67bc2f48c5671b1320fca9c482515b99ba3a065fb417cd21",
+      "annotation": {
+        "id": "C027",
+        "article_type": "知识教程",
+        "topic_tags": ["Caffeine", "本地缓存", "Redis", "缓存一致性", "批量加载"],
+        "hook_type": "定位式",
+        "hook_excerpt": "是一个高性能的 Java 本地库，目标是替代早期常用的 Guava Cache，提供更好的吞吐量、延迟和内存利用率。",
+        "structure_pattern": "概念到实现再到容量与故障",
+        "structure_outline": [
+          "定位及本地/分布式对比",
+          "命中/淘汰/过期/刷新等概念",
+          "构建缓存和Builder配置",
+          "批量加载代码及流程解释",
+          "容量估算和预热",
+          "雪崩/击穿/穿透/一致性/OOM"
+        ],
+        "ending_type": "风险条目后赞语",
+        "source_types": ["API示例", "批处理代码", "容量算例", "工程场景"],
+        "notable": "会说“上文已讲解”“其实也就一句话”控制复述；一段较长代码后再用两段解释运行流程。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Caffeine.md",
+            "line": 430,
+            "quote": "在批处理或者一次请求需要操作多个 Key 的情况下，可能出现多个 Key 缺失需要加载的情况，这个时候让每个 Key 触发各自的加载策略会浪费 n 次网络 IO，所以我们一般将其成一次批量请求。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Caffeine.md",
+            "line": 604,
+            "quote": "简单讲述一下流程："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Caffeine.md",
+            "line": 632,
+            "quote": "其实也就一句话，对象大小差异小就基于 size，反之就基于 weight。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Caffeine.md",
+            "line": 759,
+            "quote": "这个方案虽然最为常用，但是并不能百分百保证缓存一致性，不过能大幅度降低脏值回写或是脏读的时间窗口。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C027.json"
+    },
+    {
+      "id": "C028",
+      "source": "src/content/blog/带你轻松学习Gin.md",
+      "raw": "raw/C028.md",
+      "title": "带你轻松学习Gin",
+      "date": "2026-05-01",
+      "author": "Yilena",
+      "sha256": "5a5e175eaa4147ee0154248a6b1188ebea9ac074e6494abeed61a52444d80e56",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 27040,
+        "prose_chars": 19742,
+        "code_chars": 5012,
+        "table_rows": 7,
+        "quote_lines": 2,
+        "bold_spans": 40,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 2,
+        "latin_tokens": 882,
+        "images": 0,
+        "code_blocks": 24,
+        "headings": 34,
+        "opening_paragraph_chars": 242
+      },
+      "body_sha256": "8d239eb77d45178d4ef0423b79251ca9516aee514e44beea6648ddca1746d702",
+      "annotation": {
+        "id": "C028",
+        "article_type": "深度机制教程",
+        "topic_tags": ["Gin", "Go", "HTTP", "中间件", "工程实践"],
+        "hook_type": "定位与读者收益式",
+        "hook_excerpt": "是 Go 生态中使用频率最高的 HTTP 框架之一，它并不是一个企图颠覆标准库的“重型框架”，而是在 `net/http` 之上堆叠了一层精心设计的薄封装。对于已经熟悉 Go 语法、写过几个 Web ",
+        "structure_pattern": "标准能力不足→框架机制→工程落实",
+        "structure_outline": [
+          "net/http四个工程瓶颈",
+          "Gin兼容性与基数树",
+          "路由分组/参数/绑定",
+          "中间件生命周期与Abort边界",
+          "校验/错误收集/统一错误码",
+          "渲染/文件/安全",
+          "分层/路由拆分/关停/测试",
+          "框架价值和工程规范收束"
+        ],
+        "ending_type": "归纳与期望式",
+        "source_types": ["标准库接口", "源码片段", "API示例", "工程场景", "对照表格"],
+        "notable": "连续长段、过渡密集；代码前交代目的，代码后解释机制/限制；文中版本相关描述并未在本次核验。",
+        "voice_mode": "连贯机制论述",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Gin.md",
+            "line": 34,
+            "quote": "理解 Gin 的价值，需要先回到 Go 标准库 `net/http` 自带的  服务构建方式。Go 的 HTTP 服务模型围绕 `http.Handler` 接口展开，该接口只有一个方法："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Gin.md",
+            "line": 280,
+            "quote": "需要特别注意的是，中间件的继承发生在分组创建的时刻，而非请求到来时。因此，如果在分组创建后通过 `r.Use()` 向父组追加了新的中间件，已经创建的子分组不会自动获得该中间件。这种“快照”式的继承语义避免了运行时状态变化带来的不确定性，也使开发者能够明确地控制中间件的生效范围。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Gin.md",
+            "line": 454,
+            "quote": "`c.Abort()` 是另一个重要的控制流函数，它的作用是阻止后续 handler 的执行。需要注意的是，`c.Abort()` 本身并不立即中断当前函数的运行，它只是将 `c.index` 设置为一个标记值（一个超出正常范围的索引值），使得 `c.Next()` 中的循环条件不再成立。当前 ha"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Gin.md",
+            "line": 534,
+            "quote": "但是，需要特别提醒开发者的是：`recover` 只能捕获当前 goroutine 中发生的 panic。如果业务 handler 内部使用 `go` 关键字启动了新的 goroutine，并且该 goroutine 中发生了 panic，那么 `Recovery` 中间件将无法拦截，最终仍然会导致"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C028.json"
+    },
+    {
+      "id": "C029",
+      "source": "src/content/blog/带你轻松学习Golang的并发模型.md",
+      "raw": "raw/C029.md",
+      "title": "带你轻松学习Golang的并发模型",
+      "date": "2026-05-01",
+      "author": "Yilena",
+      "sha256": "0f3094436864495c34f05088ee5490b888dc233f6e2669debcfbd01177221b7a",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 18389,
+        "prose_chars": 14271,
+        "code_chars": 3220,
+        "table_rows": 10,
+        "quote_lines": 2,
+        "bold_spans": 13,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 2,
+        "latin_tokens": 494,
+        "images": 0,
+        "code_blocks": 6,
+        "headings": 8,
+        "opening_paragraph_chars": 196
+      },
+      "body_sha256": "369e679ab0baa7378ad3637bda94e45c4cd15fff5a5c7e5988a2c12251f6c373",
+      "annotation": {
+        "id": "C029",
+        "article_type": "技术对比",
+        "topic_tags": ["Go", "Java", "并发", "goroutine", "虚拟线程"],
+        "hook_type": "场景式",
+        "hook_excerpt": "某一天，你面对一个服务端程序：它需要同时维持上万个长连接，在每个连接上又可能发起对多个下游服务的调用，这些调用有的慢、有的快，有的会超时，有的需要将结果聚合再返回。你很快会意识到，为每一个连接或每一个",
+        "structure_pattern": "同一系统问题→两种模型→同场景代码→约束选型",
+        "structure_outline": [
+          "上万长连接场景",
+          "Go执行体/通信/调度",
+          "Java共享内存与工具包",
+          "对照表加入虚拟线程",
+          "超时取消代码并排解释",
+          "资源认知",
+          "场景和组织生态亲和性",
+          "回到开头并以问题收束"
+        ],
+        "ending_type": "回环总结与反问式",
+        "source_types": ["双语言代码", "机制解释", "对照表格", "连续比喻", "假设场景"],
+        "notable": "比喻、哲学性归纳和长段显著，末段再追加一句反问；是可选深度模式，不能代表全体短教程。",
+        "voice_mode": "连贯机制论述",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Golang的并发模型.md",
+            "line": 26,
+            "quote": "某一天，你面对一个服务端程序：它需要同时维持上万个长连接，在每个连接上又可能发起对多个下游服务的调用，这些调用有的慢、有的快，有的会超时，有的需要将结果聚合再返回。你很快会意识到，为每一个连接或每一个请求直接分配一个线程是不现实的——要么内存先撑不住，要么上下文切换把 CPU 拖垮。于是，并发模型的"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Golang的并发模型.md",
+            "line": 310,
+            "quote": "如果前面的比照还是在讲“要素”，那么当我们真正动手实现一个带有超时和取消逻辑的并发流程时，两种模型在程序结构上的差异会变得更加轮廓分明。这一节，我们将深入一个微服务聚合场景，并分别给出 Go 和 Java 的完成实现，进而剖析控制流分散与集中的深层影响。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Golang的并发模型.md",
+            "line": 457,
+            "quote": "当我们看到这些差异时，很容易产生“Go 的模型更好”或“Java 的模型更成熟”这样的结论。但真实的工程世界不是这样的。不同的模型在不同的土壤里长出了不同的亲和性。技术选择的智慧，很大程度体现在识别当前问题的本质特征，然后找到与之最匹配的模型，而非简单判断优劣。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Golang的并发模型.md",
+            "line": 505,
+            "quote": "最终，并发模型的选择落回到一个简单又深刻的问题：在你的系统里，数据是应当被流过来，还是应当被围起来？你的回答，将指引你走向最适合的那条路。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C029.json"
+    },
+    {
+      "id": "C030",
+      "source": "src/content/blog/带你轻松学习JUC.md",
+      "raw": "raw/C030.md",
+      "title": "带你轻松学习JUC",
+      "date": "2025-10-15",
+      "author": "Yilena",
+      "sha256": "df59cfd67166f9ffd36b3e192d59576a2eb24b98eda010e4676e325e7663ae2f",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 53878,
+        "prose_chars": 23061,
+        "code_chars": 17588,
+        "table_rows": 134,
+        "quote_lines": 93,
+        "bold_spans": 193,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 19,
+        "latin_tokens": 887,
+        "images": 13,
+        "code_blocks": 56,
+        "headings": 70,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "6d138610be695f61c43781f1e23cafda9a5fc2e0c56b52dd6c236b36d9365196",
+      "annotation": {
+        "id": "C030",
+        "article_type": "知识教程",
+        "topic_tags": ["JUC", "线程安全", "AQS", "锁", "线程池"],
+        "hook_type": "定义式",
+        "hook_excerpt": "JUC（ Util Concurrent） 是 Java 中处理并发编程的核心工具包，全称为 java.util.concurrent。它提供了一套强大的 API，用于简化开发，解决并发场景下的线程安",
+        "structure_pattern": "知识图谱分层展开+局部追问",
+        "structure_outline": [
+          "线程定义/方法/状态/活跃性",
+          "变量安全与八锁例题",
+          "AQS/锁/volatile/happens-before/CAS",
+          "原子类与同步器",
+          "线程池API/源码/容量/工程风险",
+          "读写锁和线程安全集合",
+          "设计模式",
+          "ThreadLocal及内存泄漏"
+        ],
+        "ending_type": "风险提醒后赞语",
+        "source_types": ["源码片段", "并发例题", "状态图", "对照表格", "系列互文"],
+        "notable": "长篇百科式知识清单，局部“定义→源码→结论→边界→表格”；不是每个章节都同长。混有粘连代码/表格与空标题。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习JUC.md",
+            "line": 717,
+            "quote": "让我们来看看如何判断对一个变量的操作是否满足线程安全的条件。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JUC.md",
+            "line": 1088,
+            "quote": "然后让我们结合源码分析一下 AQS 的独占锁流程："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JUC.md",
+            "line": 2653,
+            "quote": ">  但是实际开发中不推荐使用 Executors 的预制线程，最典型的就是 newFixedThreadPool 和 newCachedThreadPool，极易导致 OOM 从而出现重大生产事故。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JUC.md",
+            "line": 2668,
+            "quote": "线程池大小的确定本质是平衡 CPU 利用率、内存消耗、上下文切换开销，核心依据是任务的资源消耗特征。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C030.json"
+    },
+    {
+      "id": "C031",
+      "source": "src/content/blog/带你轻松学习JVM.md",
+      "raw": "raw/C031.md",
+      "title": "带你轻松学习JVM",
+      "date": "2025-07-30",
+      "author": "Yilena",
+      "sha256": "39de4fef4f860623a8f56973199f3524c37b182d69461ff14d519f87ae2298f9",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 31237,
+        "prose_chars": 18017,
+        "code_chars": 5371,
+        "table_rows": 72,
+        "quote_lines": 80,
+        "bold_spans": 94,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 9,
+        "latin_tokens": 778,
+        "images": 9,
+        "code_blocks": 30,
+        "headings": 91,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "d0d8bec6f1667f345ba268b068b7b9aed3ee2e98fa63996bfcec5ce06caa36b6",
+      "annotation": {
+        "id": "C031",
+        "article_type": "知识教程",
+        "topic_tags": ["JVM", "内存", "GC", "字节码", "类加载", "JIT"],
+        "hook_type": "定义式",
+        "hook_excerpt": "Java 虚拟机（JVM）是运行 Java 字节码的虚拟计算机，实现\"一次编译，到处运行\" 。",
+        "structure_pattern": "运行时各层知识逐层展开+跨文互证",
+        "structure_outline": [
+          "JVM定位与JDK/JRE",
+          "栈/本地栈/堆/方法区/直接内存",
+          "GC算法/分代/收集器/调优",
+          "字节码与案例",
+          "类加载/SPI/上下文加载器",
+          "语法糖/JIT",
+          "推荐结合JUC学习"
+        ],
+        "ending_type": "互文学习建议后赞语",
+        "source_types": ["内存图", "字节码案例", "对照表格", "算例", "个人排障互文"],
+        "notable": "“听上去很高大上，但实际…”压低术语距离感；重视把机制回接亲历故障；旧技术判断并非事实库。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习JVM.md",
+            "line": 500,
+            "quote": "可能有同学还没听懂，让我们引入一个案例："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JVM.md",
+            "line": 1196,
+            "quote": "这里提一嘴，之所以不推荐用终结器引用，是因为执行 GC 的时机是不定的，而且其还得经历两轮 GC 才可被回收，因此自然终结器引用的回收时间是完全无法确定的，容易造成内存泄漏导致 OOM。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JVM.md",
+            "line": 1602,
+            "quote": "在讲解 GC 调优之前，需要强调一下调优优先性：如果程序性能出现瓶颈，大概率是因为你写的代码有问题，而不是 GC 配置的问题，GC 调优仅作最后手段。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习JVM.md",
+            "line": 2149,
+            "quote": "打破双亲委派模型听上去很高端，但实际也就是主动指定类加载器进行加载而已。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C031.json"
+    },
+    {
+      "id": "C032",
+      "source": "src/content/blog/带你轻松学习Kafka.md",
+      "raw": "raw/C032.md",
+      "title": "带你轻松学习Kafka",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "80938b757d8678b3e40973fb04efa2dcf556d52158fc14010a377fd8520a566d",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 5957,
+        "prose_chars": 4644,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 11,
+        "bold_spans": 59,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 174,
+        "images": 2,
+        "code_blocks": 0,
+        "headings": 24,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "dc665cd74198cccdd4a33d6975edbae755801a2e34efa242d04d85448b441a2b",
+      "annotation": {
+        "id": "C032",
+        "article_type": "知识教程",
+        "topic_tags": ["Kafka", "消息队列", "Offset", "可靠性", "技术选型"],
+        "hook_type": "组件定义式",
+        "hook_excerpt": "是消息的逻辑分组，也是存储消息元数据的容器。",
+        "structure_pattern": "组件→消息生命周期→优劣→实践→场景",
+        "structure_outline": [
+          "前置同系列链接",
+          "Topic/Partition/Key/Replica/Broker",
+          "生产到消费及offset维护",
+          "优劣背后的机制",
+          "最佳实践和误用提醒",
+          "适合与不适合场景"
+        ],
+        "ending_type": "适用场景总结后赞语",
+        "source_types": ["消息流程图", "机制说明", "系列互文", "参数示例"],
+        "notable": "从流程导出性能/可靠性取舍，给明确建议；存在绝对断言与版本默认值，后续新文必须核验。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Kafka.md",
+            "line": 208,
+            "quote": "生产者连接 Broker 集群，构建消息并发送。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Kafka.md",
+            "line": 439,
+            "quote": "可以看出高吞吐和低延迟其实是难以兼容的，这也是 Kafka 优先高吞吐权衡之下的选择。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Kafka.md",
+            "line": 486,
+            "quote": "注意！必须避免以下情况："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Kafka.md",
+            "line": 503,
+            "quote": "Kafka 作为**分布式流处理平台**，其核心特性决定了其适合**大规模数据流式传输、实时分析、日志收集**等场景，同时在**低延迟、强事务、小规模应用**等场景下存在局限性。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C032.json"
+    },
+    {
+      "id": "C033",
+      "source": "src/content/blog/带你轻松学习LangChain4j.md",
+      "raw": "raw/C033.md",
+      "title": "带你轻松学习LangChain4j",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "9fc9ecf009285ec9611555c2ac74b45cc2e778d5a2bb9baa01aed8f61ee3a7f9",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 7683,
+        "prose_chars": 4056,
+        "code_chars": 1362,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 10,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 17,
+        "latin_tokens": 140,
+        "images": 8,
+        "code_blocks": 10,
+        "headings": 49,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "9c0789b0fa9307349f93090b05e685aa18f668e6b1952fb509b69f0de0970e6e",
+      "annotation": {
+        "id": "C033",
+        "article_type": "知识教程",
+        "topic_tags": ["LangChain4j", "Java", "LLM", "Prompt", "动态代理"],
+        "hook_type": "痛点清单式",
+        "hook_excerpt": "在  生态中，如果我们想把大语言模型能力接入业务系统，最直接的方式通常是：",
+        "structure_pattern": "裸实现痛点→分层架构→核心API→高级功能→局限",
+        "structure_outline": [
+          "手工接入LLM的重复工作",
+          "核心痛点",
+          "整体四层结构",
+          "抽象/消息优先/注解/代理",
+          "核心模块逐个解释",
+          "Memory/Streaming/结构化输出",
+          "优势与局限"
+        ],
+        "ending_type": "框架定位归纳后赞语",
+        "source_types": ["API示例", "调用链图", "Java类比", "工程场景"],
+        "notable": "2026文章仍使用短段+列表，不宜将近年风格都归为长段；“不要把Memory理解成模型真的长期记住了你”是边界校准句。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习LangChain4j.md",
+            "line": 240,
+            "quote": "在  生态中，如果我们想把大语言模型能力接入业务系统，最直接的方式通常是："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习LangChain4j.md",
+            "line": 513,
+            "quote": "`AiServices`本质上非常像 Java 里的动态代理机制。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习LangChain4j.md",
+            "line": 874,
+            "quote": "不要把 Memory 理解成模型真的长期记住了你。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习LangChain4j.md",
+            "line": 1123,
+            "quote": "#### 2. 抽象层越高，越要理解底层"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C033.json"
+    },
+    {
+      "id": "C034",
+      "source": "src/content/blog/带你轻松学习MyBatis.md",
+      "raw": "raw/C034.md",
+      "title": "带你轻松学习MyBatis",
+      "date": "2025-10-05",
+      "author": "Yilena",
+      "sha256": "661dd26fddd30b8e9e36bc4e2f524912a75bdd1ff9862e69c32e50f27f43dedb",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 7870,
+        "prose_chars": 3426,
+        "code_chars": 3540,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 9,
+        "latin_tokens": 205,
+        "images": 1,
+        "code_blocks": 14,
+        "headings": 24,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "dbc60f85155f9cfac3c054d26740693aa9a5796dec8d638fb822c74c71be0424",
+      "annotation": {
+        "id": "C034",
+        "article_type": "知识教程",
+        "topic_tags": ["MyBatis", "MyBatis-Plus", "ORM", "缓存", "SQL"],
+        "hook_type": "定义式",
+        "hook_excerpt": "MyBatis 是一个半自动的持久层框架，用来把 SQL、存储过程和 Java 对象映射起来。",
+        "structure_pattern": "基本抽象→用法→机制风险→增强功能",
+        "structure_outline": [
+          "框架/ORM定义",
+          "SqlSession/Mapper/XML映射",
+          "动态SQL与条件构造器",
+          "事务管理",
+          "一级二级缓存及一致性",
+          "Plus增强功能"
+        ],
+        "ending_type": "分页功能后赞语",
+        "source_types": ["API/XML示例", "机制解释", "工程判断"],
+        "notable": "经常在介绍便利后立即评价维护代价/职责边界，不满足于API清单；多处直接建议“不推荐”。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习MyBatis.md",
+            "line": 191,
+            "quote": "Mybatis 的底层简单来说就是为我们动态编写 JDBC 的模板代码，我们只需关注 SQL 实现，而无需编写资源管理或异常处理的代码，是模板回调的设计模式思想。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MyBatis.md",
+            "line": 244,
+            "quote": "不过还是推荐无论简单还是复杂 SQL 都统一使用 XML 实现，便于维护和管理。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MyBatis.md",
+            "line": 494,
+            "quote": "虽然确实很方便简洁，但是违反了我们的单一职责原则，不应该在 pojo 层缝合进 dao 层，而是应该做到职责分层。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MyBatis.md",
+            "line": 498,
+            "quote": "只推荐开发个人项目图方便时使用，大型项目还是规范编码为重。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C034.json"
+    },
+    {
+      "id": "C035",
+      "source": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+      "raw": "raw/C035.md",
+      "title": "带你轻松学习MySQL的索引、锁、事务以及MVCC",
+      "date": "2025-11-03",
+      "author": "Yilena",
+      "sha256": "06de9c6b576378a09af5b411a0623232ebf1d463948728a17a7933e0246b9d6e",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 12200,
+        "prose_chars": 9048,
+        "code_chars": 130,
+        "table_rows": 44,
+        "quote_lines": 64,
+        "bold_spans": 21,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 359,
+        "images": 2,
+        "code_blocks": 1,
+        "headings": 43,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "51a9b9cf3b6983f6d17a756194bda683b342f5c4666e4046cfc842c4128aadb0",
+      "annotation": {
+        "id": "C035",
+        "article_type": "知识教程",
+        "topic_tags": ["MySQL", "索引", "B+树", "锁", "事务", "MVCC"],
+        "hook_type": "定义类比式",
+        "hook_excerpt": "索引是一种数据结构，能快速定位数据，似于书籍目录，加速检索效率。",
+        "structure_pattern": "数据结构→并发控制→日志→版本可见性",
+        "structure_outline": [
+          "索引与B+树/回表/联合索引",
+          "失效场景",
+          "全局/表/行锁及取舍",
+          "事务ACID与三类日志",
+          "MVCC组件",
+          "RC/RR按时序演算",
+          "快照读/当前读的追问"
+        ],
+        "ending_type": "取舍归纳后赞语",
+        "source_types": ["树结构图", "SQL例子", "时序图", "表格演算", "外部延伸阅读"],
+        "notable": "读者提问推动下一层概念，包含俏皮“恭喜你发明了联合索引”；对比结论中绝对措辞不应直接作为技术权威。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+            "line": 255,
+            "quote": ">  为什么 InnoDB 引擎选择使用 B+树索引结构？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+            "line": 297,
+            "quote": "如果你有这样的想法，恭喜你发明了联合索引！"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+            "line": 372,
+            "quote": "**当然索引也不要设置太多，因为理论上索引是一种空间换时间的思想，设置太多会占用大量空间，而且维护成本也大大增加。**"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习MySQL的索引、锁、事务以及MVCC.md",
+            "line": 1040,
+            "quote": "**不过也得根据实际业务进行取舍，因为并发问题解决的前提是牺牲一部分性能。**"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C035.json"
+    },
+    {
+      "id": "C036",
+      "source": "src/content/blog/带你轻松学习PostgreSQL.md",
+      "raw": "raw/C036.md",
+      "title": "带你轻松学习PostgreSQL",
+      "date": "2026-03-28",
+      "author": "Yilena",
+      "sha256": "e9c1f52b5831f786ac02976150545b7e296df8d0a450ba528f29973c8827ee5f",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 9085,
+        "prose_chars": 7463,
+        "code_chars": 330,
+        "table_rows": 0,
+        "quote_lines": 57,
+        "bold_spans": 19,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 16,
+        "latin_tokens": 320,
+        "images": 7,
+        "code_blocks": 4,
+        "headings": 18,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "a166218a6438cfc062701e247d558daecd7dec706f39df56cad09e4fcd2f395f",
+      "annotation": {
+        "id": "C036",
+        "article_type": "技术对比",
+        "topic_tags": ["PostgreSQL", "MySQL", "MVCC", "VACUUM", "WAL", "索引"],
+        "hook_type": "共同问题式",
+        "hook_excerpt": "在关系型数据库领域， 和 PostgreSQL 经常被同时提起。",
+        "structure_pattern": "共同问题→同维度机制差异→系统关联",
+        "structure_outline": [
+          "为什么值得比较",
+          "核心差异总览",
+          "定义/进程模型",
+          "MVCC与VACUUM",
+          "事务隔离/锁/回滚",
+          "WAL/checkpoint",
+          "索引/HOT",
+          "系统关系总图",
+          "pgvector与选型总结"
+        ],
+        "ending_type": "系统性价值归纳后赞语",
+        "source_types": ["机制图", "SQL示例", "对照说明", "业务场景"],
+        "notable": "反复用MySQL已知知识作对照；偏好“版本+事务状态+快照”的压缩表达与追问；2026仍保持提纲式。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习PostgreSQL.md",
+            "line": 129,
+            "quote": "很多时候，真正值得比较的不是："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习PostgreSQL.md",
+            "line": 357,
+            "quote": "可以用一句话概括就是：MySQL 是当前值 + undo 回溯过去，PostgreSQL 是过去和现在都保留，由快照决定看哪个。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习PostgreSQL.md",
+            "line": 485,
+            "quote": "注意一个常见误区：普通 `VACUUM` 并不一定马上缩小表文件大小，它更多是在回收内部可复用空间。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习PostgreSQL.md",
+            "line": 971,
+            "quote": "这张图说明 PostgreSQL 的核心机制并不是一堆彼此独立的模块，而是围绕几个底层基础不断展开的："
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C036.json"
+    },
+    {
+      "id": "C037",
+      "source": "src/content/blog/带你轻松学习RabbitMQ.md",
+      "raw": "raw/C037.md",
+      "title": "带你轻松学习RabbitMQ",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "1e9777af6bdf81eb7ca3cb02a1f617f6cdb453790d3f7b354d1edcfcb820cead",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 4778,
+        "prose_chars": 3392,
+        "code_chars": 0,
+        "table_rows": 6,
+        "quote_lines": 5,
+        "bold_spans": 37,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 92,
+        "images": 2,
+        "code_blocks": 0,
+        "headings": 21,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "2105124412b90875ab681d058516fbc9a9f56b29d6361eba40c5418991c37f82",
+      "annotation": {
+        "id": "C037",
+        "article_type": "知识教程",
+        "topic_tags": ["RabbitMQ", "消息队列", "Exchange", "ACK", "技术选型"],
+        "hook_type": "组件定义式",
+        "hook_excerpt": "交换器主要起到一个消息路由作用，根据当前消息的绑定键，将消息路由到对应的队列中。路由规则主要取决于型以及绑定队列的绑定键。",
+        "structure_pattern": "组件→消息生命周期→优劣→场景",
+        "structure_outline": [
+          "前置同系列链接",
+          "交换机/队列/绑定键",
+          "发送/路由/存储/消费/ACK/删除",
+          "优点及实现原因",
+          "资源与扩展局限",
+          "适合与不适合场景"
+        ],
+        "ending_type": "适用场景总结后赞语",
+        "source_types": ["消息流程图", "路由表格", "机制说明", "系列互文"],
+        "notable": "流程型教程与Kafka/RocketMQ构成可比较系列；技术绝对化与缺词是需要隔离的内容问题。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习RabbitMQ.md",
+            "line": 160,
+            "quote": "**流程说明：**"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RabbitMQ.md",
+            "line": 246,
+            "quote": "原因是 pull 模式实际上是轮询每个队列主动拉取消息，这样很可能会造成空轮询，浪费过多网络请求。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RabbitMQ.md",
+            "line": 366,
+            "quote": "之所以会这样，主要是因为以下几个原因："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RabbitMQ.md",
+            "line": 415,
+            "quote": "RabbitMQ 的特性决定了其**适合中小规模、实时性要求高、需要灵活路由、消息丢失零容忍**的场景，**不适合大规模高吞吐量、流处理**场景。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C037.json"
+    },
+    {
+      "id": "C038",
+      "source": "src/content/blog/带你轻松学习Redis.md",
+      "raw": "raw/C038.md",
+      "title": "带你轻松学习Redis",
+      "date": "2025-07-26",
+      "author": "Yilena",
+      "sha256": "f245b8e249f36c140bdd682988de3a3f24a7cfa27bc8f839b370c124f1c1c1a0",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 19039,
+        "prose_chars": 13661,
+        "code_chars": 1278,
+        "table_rows": 45,
+        "quote_lines": 90,
+        "bold_spans": 159,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 14,
+        "latin_tokens": 448,
+        "images": 4,
+        "code_blocks": 8,
+        "headings": 44,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "e36dfa62c90c983aa94793a885d949dfad4c79e1540ad511ea5fcf26130ff978",
+      "annotation": {
+        "id": "C038",
+        "article_type": "知识教程",
+        "topic_tags": ["Redis", "缓存", "数据结构", "分布式锁", "持久化", "集群"],
+        "hook_type": "定义加对比式",
+        "hook_excerpt": "Redis 是一款开源的高性能键值存储数据库，以其内存存储、多样化数据结构和丰富的应用场景成为现代系统的核心组件之一。",
+        "structure_pattern": "数据结构→应用策略→典型故障→运行机制→集群",
+        "structure_outline": [
+          "Redis与关系库对照",
+          "八种数据结构与底层演进",
+          "缓存更新策略",
+          "缓存三大问题/大热Key",
+          "分布式锁/MQ",
+          "线程模型/原子性",
+          "AOF/RDB与淘汰",
+          "主从/哨兵/Cluster"
+        ],
+        "ending_type": "集群对照表后赞语",
+        "source_types": ["机制说明", "数据结构图", "Lua/命令片段", "对照表格", "系列互文"],
+        "notable": "高频“为什么不…”追问与“时间换空间/业务权衡”贯穿；大量默认值/技术断言未在本次核验。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Redis.md",
+            "line": 380,
+            "quote": "这就是压缩列表最大的好处，但是普通链表存在的随机访问效率 O(n)的缺点仍旧存在；而且遍历时是需要解码 prevlen 和 encoding 的，因此也会有一定的时间开销，这是典型的时间换空间的思想。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Redis.md",
+            "line": 406,
+            "quote": ">  既然提升随机访问的性能，那 Redis 为什么不用 B+树？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Redis.md",
+            "line": 1337,
+            "quote": ">  既然多线程开销这么大，那为什么还要引入两个线程池？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Redis.md",
+            "line": 1345,
+            "quote": ">  那既然单线程执行命令，为什么多条 redis 命令执行的时候最好使用 Lua 脚本？"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C038.json"
+    },
+    {
+      "id": "C039",
+      "source": "src/content/blog/带你轻松学习RocketMQ.md",
+      "raw": "raw/C039.md",
+      "title": "带你轻松学习RocketMQ",
+      "date": "2025-07-13",
+      "author": "Yilena",
+      "sha256": "9212591a0aea43fd914d296185d95aac23919da0ed6b977542cae15e51d0f4b0",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 6863,
+        "prose_chars": 5509,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 33,
+        "bold_spans": 32,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 221,
+        "images": 2,
+        "code_blocks": 0,
+        "headings": 23,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "dace6a85c0be4798ed83238c9c20449359e2ed6caff64ada67cb9e065eaf2220",
+      "annotation": {
+        "id": "C039",
+        "article_type": "知识教程",
+        "topic_tags": ["RocketMQ", "消息队列", "零拷贝", "事务消息", "Tag"],
+        "hook_type": "组件定义式",
+        "hook_excerpt": "主要是负责路由管理，负责建立和消费者所绑定的 Topic 到 Broker 之间的映射；然后就是维护 Broker 的状态，在 Broker 宕机时及时清理相关路由。",
+        "structure_pattern": "组件→消息生命周期→机制拆解→优劣→场景",
+        "structure_outline": [
+          "前置同系列链接",
+          "NameServer/Broker/Topic/Tag",
+          "发送/存储/逻辑队列/拉取/ACK/offset",
+          "零拷贝旁支详解及疑问",
+          "优劣分析",
+          "最佳实践",
+          "场景总结"
+        ],
+        "ending_type": "适用场景总结后赞语",
+        "source_types": ["流程图", "机制解释", "外部延伸阅读", "系列互文"],
+        "notable": "正文会为零拷贝展开长引用旁注后回到主流程，直接预判被过滤消息是否可再消费。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习RocketMQ.md",
+            "line": 300,
+            "quote": ">  那么为什么 RocketMQ 不使用 sendfile 零拷贝技术呢？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RocketMQ.md",
+            "line": 313,
+            "quote": "有同学可能会有疑问："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RocketMQ.md",
+            "line": 321,
+            "quote": "不要忘记了，ConsumeQueue 只是逻辑队列，消息实体是存储在磁盘中的 CommitLog 文件里的，其他消费者仍可以通过更新 offset 来读取到这条消息。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习RocketMQ.md",
+            "line": 492,
+            "quote": "这样可以实现业务解耦，而且水平扩展时也不会影响到其他业务的 MQ，再加上 Tag 快速过滤无关消息，整个性能大大提升。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C039.json"
+    },
+    {
+      "id": "C040",
+      "source": "src/content/blog/带你轻松学习Spring.md",
+      "raw": "raw/C040.md",
+      "title": "带你轻松学习Spring",
+      "date": "2025-10-01",
+      "author": "Yilena",
+      "sha256": "3cf6a04c1c157dd0ad2cb0e665aa144a1294263ce0db000a2529e8868297eaf7",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 12899,
+        "prose_chars": 7376,
+        "code_chars": 3503,
+        "table_rows": 0,
+        "quote_lines": 16,
+        "bold_spans": 5,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 10,
+        "latin_tokens": 339,
+        "images": 1,
+        "code_blocks": 19,
+        "headings": 67,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "308a92fccc4cd8126812071675c04f62955a25ac49cdc1c51fc8efbd728f52f2",
+      "annotation": {
+        "id": "C040",
+        "article_type": "知识教程",
+        "topic_tags": ["Spring", "IoC", "DI", "Bean", "AOP", "设计模式"],
+        "hook_type": "定位式",
+        "hook_excerpt": "框架是一个开源的 Java 开发框架，它通过 IoC（控制反转）和 AOP（面向切面编程）来简化对象管理和事务处理，提供了包括 Web、数据访问、安全等在内的完整基础设施，帮助开发者更高效地构建松耦合",
+        "structure_pattern": "朴素实现问题→抽象/容器机制→常用API→设计模式",
+        "structure_outline": [
+          "概述",
+          "传统new方式的耦合及IoC",
+          "三种DI",
+          "Bean作用域/生命周期/循环依赖",
+          "常用注解",
+          "静态动态代理",
+          "AOP与事务互文",
+          "七种设计模式"
+        ],
+        "ending_type": "设计模式条目后赞语",
+        "source_types": ["代码示例", "IoC图", "对照表格", "反事实方案", "系列互文"],
+        "notable": "三级缓存用二级反事实问题驱动；每类注解/模式以用途和工程选择收口。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring.md",
+            "line": 336,
+            "quote": "这样会带来两个坏处："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring.md",
+            "line": 373,
+            "quote": "之所以叫做“控制反转”，就是“谁控制对象的依赖创建”这个权力发生了反转。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring.md",
+            "line": 863,
+            "quote": ">  为什么需要三级缓存而不是二级缓存呢？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring.md",
+            "line": 882,
+            "quote": "不过归根结底，还是尽量避免产生循环依赖比较好，因为多数情况下的循环依赖都是因为设计不合理。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C040.json"
+    },
+    {
+      "id": "C041",
+      "source": "src/content/blog/带你轻松学习Spring_MVC.md",
+      "raw": "raw/C041.md",
+      "title": "带你轻松学习Spring MVC",
+      "date": "2025-10-07",
+      "author": "Yilena",
+      "sha256": "787145b4ca8c09bd9f522cd0f8db0be48bec60ad25e128f0af75c38de50a8386",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 20229,
+        "prose_chars": 11045,
+        "code_chars": 6076,
+        "table_rows": 17,
+        "quote_lines": 13,
+        "bold_spans": 31,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 19,
+        "latin_tokens": 564,
+        "images": 2,
+        "code_blocks": 22,
+        "headings": 69,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "668250e36c5620944f34c092a3b45de25e5107a6ebf50e7f031ea339b050c3c4",
+      "annotation": {
+        "id": "C041",
+        "article_type": "知识教程",
+        "topic_tags": ["Spring MVC", "Servlet", "HTTP", "请求链", "工程实践"],
+        "hook_type": "定义式",
+        "hook_excerpt": "MVC 是基于模型-视图-控制器（MVC）模式的 Web 框架。",
+        "structure_pattern": "全链路预览→各组件分解→全链路复盘→范式对比",
+        "structure_outline": [
+          "MVC与三层模型",
+          "DispatcherServlet组件",
+          "路由/参数/域/转发/REST",
+          "序列化与异常",
+          "Filter/Interceptor/CORS/异步",
+          "按调用顺序复盘一次请求",
+          "MVC和WebFlux及虚拟线程趋势"
+        ],
+        "ending_type": "未来方向判断后赞语",
+        "source_types": ["请求架构图", "API模板", "源码调用链", "互文技术笔记", "对照表格"],
+        "notable": "先粗后细再回到全流程是突出结构；很多段落承接上文而非独立定义。趋势是作者观点，后续不能写成已确认事实。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring_MVC.md",
+            "line": 336,
+            "quote": "简单来说流程如下，具体请见分析源码章节："
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring_MVC.md",
+            "line": 404,
+            "quote": "MVC 关心的是请求分派以及数据渲染的问题，而三层模型关注职责分离和可维护性。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring_MVC.md",
+            "line": 1544,
+            "quote": "## 十六、分析 MVC 层一次请求全流程"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习Spring_MVC.md",
+            "line": 1690,
+            "quote": "综合学习成本、生态成熟度与未来趋势来看，基于虚拟线程 + 结构化并发的 MVC 模式更有望成为下一代 Java Web 应用的主流选择。它既保留了传统 MVC 简洁、直观的编程体验与完善的生态体系，又在底层实现上获得了接近响应式的非阻塞性能，可以说是兼具易用性与高并发能力的平衡方案。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C041.json"
+    },
+    {
+      "id": "C042",
+      "source": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+      "raw": "raw/C042.md",
+      "title": "带你轻松学习并掌握@Transactional的高级用法！",
+      "date": "2025-09-30",
+      "author": "Yilena",
+      "sha256": "5f008cb99672b9fcf967d151d69fc339bdd4308555ff1f1c4bf82742cb15c6aa",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 1944,
+        "prose_chars": 834,
+        "code_chars": 537,
+        "table_rows": 9,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 3,
+        "latin_tokens": 19,
+        "images": 0,
+        "code_blocks": 6,
+        "headings": 6,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "82a1abeac7b2e3dd1ae5d51454bca6fc9fb927e769b623d908f5d0c76d8caf87",
+      "annotation": {
+        "id": "C042",
+        "article_type": "知识教程",
+        "topic_tags": ["Transactional", "Spring", "事务传播", "隔离级别", "自调用"],
+        "hook_type": "同学自谦式",
+        "hook_excerpt": "的 @Transactional 注解是实现声明式事务管理的核心，像我一样水平还不是很高的同学可能也只会使用其事务回滚功能，而对其扩展用法一无所知，那么在这篇文章我们就来了解一下@Transactio",
+        "structure_pattern": "参数维度清单+最后解决易错点",
+        "structure_outline": ["以自己仅会回滚引题", "传播行为表", "隔离级别", "回滚/超时/只读配置", "自调用失效与代理调用"],
+        "ending_type": "易错点修复后赞语",
+        "source_types": ["配置示例", "传播行为表", "易错场景"],
+        "notable": "短专题教程会跳过基本定义；开头“像我一样水平还不是很高”自我降位，不构造权威讲师人格。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+            "line": 55,
+            "quote": "的 @Transactional 注解是实现声明式事务管理的核心，像我一样水平还不是很高的同学可能也只会使用其事务回滚功能，而对其扩展用法一无所知，那么在这篇文章我们就来了解一下@Transactional 的高级用法吧。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+            "line": 88,
+            "quote": "这些型结合使用场景应该就能明白其作用，所以不做过多的说明了。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+            "line": 180,
+            "quote": "那有同学可能有疑问纯读为何还需要添加事务？实际上确实没有必要添加事务，但是由于 Spring 对于只读事务是由效率优化的，可以加快响应速度，所以还是推荐加上事务并标注。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习并掌握@Transactional的高级用法！.md",
+            "line": 208,
+            "quote": "@Transactional 只会在代理对象调用时生效，但如果我们在类内部调用带有此注解的方法的时候，是直接对象进行调用，所以该事务会失效。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C042.json"
+    },
+    {
+      "id": "C043",
+      "source": "src/content/blog/带你轻松学习操作系统.md",
+      "raw": "raw/C043.md",
+      "title": "带你轻松学习操作系统",
+      "date": "2025-11-22",
+      "author": "Yilena",
+      "sha256": "dc6c2df7e510516a76884d9abebbab3e007e4f2978b0521cf04bfe283489d4ca",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 17157,
+        "prose_chars": 12876,
+        "code_chars": 404,
+        "table_rows": 33,
+        "quote_lines": 52,
+        "bold_spans": 86,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 8,
+        "latin_tokens": 451,
+        "images": 2,
+        "code_blocks": 2,
+        "headings": 95,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "0c0d89a99854df4d3978d3a20f8ff6e0e5e39464e721c5c4765f6542062bef9c",
+      "annotation": {
+        "id": "C043",
+        "article_type": "知识教程",
+        "topic_tags": ["操作系统", "CPU", "内存", "调度", "文件系统", "IO"],
+        "hook_type": "硬件基础定义式",
+        "hook_excerpt": "图灵机是计算理论中的抽象模型，用来刻画可计算性——它描述了一个有限控制器与无限长的纸带、读写头等概念。图灵机强调算法的可行性，而非物理实现细节。",
+        "structure_pattern": "硬件基础→OS抽象→资源模块→高性能IO",
+        "structure_outline": [
+          "硬件/模型/CPU/存储/DMA",
+          "OS职责/系统调用/内核结构",
+          "虚拟内存/分配器/缓存",
+          "进程线程调度与锁",
+          "文件系统",
+          "select/poll/epoll和Reactor/Proactor"
+        ],
+        "ending_type": "对照表后赞语",
+        "source_types": ["硬件结构图", "容量算例", "类比", "机制流程", "系列互文"],
+        "notable": "自问“全部用L1不就好了”再给简短成本判断；“就按顺序读呗”显示口语不局限开头结尾。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习操作系统.md",
+            "line": 540,
+            "quote": ">  为什么要分成三层，全部用 L1 不就好了？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习操作系统.md",
+            "line": 1047,
+            "quote": ">  明明是通知，那为什么叫做中断呢？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习操作系统.md",
+            "line": 1256,
+            "quote": ">  但是此时又存在一个问题：我将存储在内存的数据一般都是程序进程数据或者一些热点缓存数据，我需要的是快速的低延迟访问。可是现在访问内存首先需要查页表，而页表又在内存里，且还是多级页表需要多次查询，等于我本来一次访问变成多次访问才能获取到数据了，效率太低了。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习操作系统.md",
+            "line": 1596,
+            "quote": "避免预读失效的方式也很简单，就按顺序读呗。在读接口当中常用地址连续的数据结构即可，如果业务非要频繁地随机读（例如抽奖），可以将读的对象都放入一个内存池当中。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C043.json"
+    },
+    {
+      "id": "C044",
+      "source": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+      "raw": "raw/C044.md",
+      "title": "带你轻松学习虚拟线程和StructuredTaskScope",
+      "date": "2025-08-22",
+      "author": "Yilena",
+      "sha256": "3e3fe12070171c76ec9e11b4535bffc45813e8570d7955f39817da55b419f5f4",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 11354,
+        "prose_chars": 5941,
+        "code_chars": 4575,
+        "table_rows": 0,
+        "quote_lines": 24,
+        "bold_spans": 32,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 167,
+        "images": 1,
+        "code_blocks": 7,
+        "headings": 14,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "2a8d6bc3c8e8e8b4caa7ac0718f270f05744e358ae232f1b52fbc39404c2ed44",
+      "annotation": {
+        "id": "C044",
+        "article_type": "知识教程",
+        "topic_tags": ["虚拟线程", "StructuredTaskScope", "ScopedValue", "并发", "Java"],
+        "hook_type": "定义式",
+        "hook_excerpt": "虚拟线程在 JDK19 引入，在 JDK21 正式发布。",
+        "structure_pattern": "新机制→失效风险→旧模型问题→新模型→实例",
+        "structure_outline": [
+          "虚拟线程定义/特性/生命周期",
+          "载体阻塞/上下文/资源过载风险",
+          "Future的阻塞与生命周期痛点",
+          "StructuredTaskScope定义/故障策略",
+          "下载器实践",
+          "边界提醒与未来价值"
+        ],
+        "ending_type": "强提醒和趋势判断后赞语",
+        "source_types": ["线程图", "代码示例", "业务场景", "系列互文", "外部阅读线索"],
+        "notable": "并非只讲新技术优势，主要篇幅解释风险和误区；强制措辞是历史写法，技术正确性需另验，不能复用禁令。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+            "line": 224,
+            "quote": "虚拟线程并非升级版的平台线程，不谨慎使用的话会造成很多问题，甚至酿成事故。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+            "line": 352,
+            "quote": ">  但有些同学可能会问，如果每个线程不同的变量只能在词法作用域里隔离，我们一般的项目都是要经过 jwt 全局过滤器、controller 层、service 层和 dao 层，作用域如何跨类？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+            "line": 401,
+            "quote": ">  我们主张使用信号量管理虚拟线程，却不建议将虚拟线程池化"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习虚拟线程和StructuredTaskScope.md",
+            "line": 858,
+            "quote": ">  最后还是要强调一点："
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C044.json"
+    },
+    {
+      "id": "C045",
+      "source": "src/content/blog/带你轻松学习计算机网络.md",
+      "raw": "raw/C045.md",
+      "title": "带你轻松学习计算机网络",
+      "date": "2025-11-02",
+      "author": "Yilena",
+      "sha256": "6a2270e2788d5ec7c47f57c4b795f7b7929209e204490b32a4d9aad2f8c3127c",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 19056,
+        "prose_chars": 16478,
+        "code_chars": 53,
+        "table_rows": 11,
+        "quote_lines": 71,
+        "bold_spans": 53,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 631,
+        "images": 12,
+        "code_blocks": 2,
+        "headings": 38,
+        "opening_paragraph_chars": 13
+      },
+      "body_sha256": "a717089d07a33444f5277977aab239c259f59a3b240782d6fb12045fb907f925",
+      "annotation": {
+        "id": "C045",
+        "article_type": "知识教程",
+        "topic_tags": ["计算机网络", "HTTP", "TCP", "IP", "HTTPS"],
+        "hook_type": "模型定义式",
+        "hook_excerpt": "七层模型是理解网络功能划分的经典抽象，是从最底层物理线路到最顶层应用协议。",
+        "structure_pattern": "网络模型→一次请求全链路→各协议专题",
+        "structure_outline": [
+          "图片网络来源说明",
+          "OSI/TCP-IP",
+          "请求从URL/DNS到服务器响应",
+          "HTTP缓存/TLS/版本演进/WS/RPC",
+          "TCP握手/重传/窗口/队列",
+          "IP/NAT/辅助协议/MTU"
+        ],
+        "ending_type": "末个机制及限制后赞语",
+        "source_types": ["网络图片", "报文/路由示例", "请求全过程", "类比问答", "系列互文"],
+        "notable": "用一条请求串起抽象分层，配合大量读者疑问；图片来源声明是材料线索，未逐图核验内容。",
+        "voice_mode": "提纲式陪学",
+        "style_weight": 1,
+        "evidence": [
+          {
+            "source_file": "src/content/blog/带你轻松学习计算机网络.md",
+            "line": 249,
+            "quote": "## 二、发起一次 HTTP 请求的全流程"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习计算机网络.md",
+            "line": 326,
+            "quote": "聪明的你肯定想到了多级缓存。"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习计算机网络.md",
+            "line": 643,
+            "quote": ">  协商缓存相较于强制缓存需要额外一次网络 IO，那为什么不直接舍弃 HTTP 缓存，改为直接使用服务端中的本地缓存或者中间件的缓存？"
+          },
+          {
+            "source_file": "src/content/blog/带你轻松学习计算机网络.md",
+            "line": 918,
+            "quote": "虽说普通轮询有延迟，不过回想一下，其实我们使用的部分扫码登录都是有这个延迟的，但是我们用户都是可以接受的不是吗？因为我们主观判断这种跨设备操作有些延迟很正常。"
+          }
+        ]
+      },
+      "metrics_path": "_meta/metrics/C045.json"
+    },
+    {
+      "id": "C046",
+      "source": "src/content/blog/有关IDEA中Lombok失效、找不到符号问题的解决方案.md",
+      "raw": "raw/C046.md",
+      "title": "有关IDEA中Lombok失效、找不到符号问题的解决方案",
+      "date": "2025-07-09",
+      "author": "Yilena",
+      "sha256": "01e0c9feefa94eecd276a5e914a06e88c9c69fd5f9ee1b1b709a4b989875d7c6",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 2478,
+        "prose_chars": 362,
+        "code_chars": 1926,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 1,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 1,
+        "latin_tokens": 13,
+        "images": 0,
+        "code_blocks": 5,
+        "headings": 1,
+        "opening_paragraph_chars": 24
+      },
+      "body_sha256": "877b2d40fa463c033e29a7ff2a723f83a94afcc2cb4aefd4512de0a975ec3942",
+      "annotation": {
+        "id": "C046",
+        "article_type": "故障排查",
+        "topic_tags": ["Lombok", "IDEA", "Maven"],
+        "hook_type": "第一人称故障陈述",
+        "hook_excerpt": "我在使用时发现 Lombok 失效，很多相关无法使用",
+        "structure_pattern": "现象→尝试→经验解法→日期追加更新→新解法",
+        "structure_outline": [
+          "注解不可用与找不到符号",
+          "网上方法尝试",
+          "三个位置指定版本并清理编译",
+          "追加：已指定版本仍报错",
+          "pluginManagement配置修复"
+        ],
+        "ending_type": "平台求赞收尾",
+        "source_types": ["个人排障自述", "XML配置片段", "原CSDN链接"],
+        "notable": "明确写出“其原因不详”；后续更新推翻了第一次解法的完备性。2025-07-09元数据与文内2025.2.10追加日期不宜直接排序为可靠创作年代。",
+        "evidence": [
+          {
+            "line_start": 34,
+            "line_end": 44,
+            "quote": "其原因不详，但在指定版本后以上问题都完美解决。",
+            "role": "经验有效与机制不确定并存"
+          },
+          {
+            "line_start": 164,
+            "line_end": 169,
+            "quote": "这里明明指定了版本号，却还是报错了。",
+            "role": "追补未解决分支"
+          }
+        ],
+        "voice_mode": "经验口述",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C046.json"
+    },
+    {
+      "id": "C047",
+      "source": "src/content/blog/有关慢查询SQL优化的思路.md",
+      "raw": "raw/C047.md",
+      "title": "有关慢查询SQL优化的思路",
+      "date": "2025-07-09",
+      "author": "Yilena",
+      "sha256": "068dd1475895a3fe32cb6ebaf14dc3d5bd09cbdd82b3013bb20f0b19507f9861",
+      "family": "教程",
+      "metrics": {
+        "body_chars": 5224,
+        "prose_chars": 2777,
+        "code_chars": 907,
+        "table_rows": 14,
+        "quote_lines": 11,
+        "bold_spans": 3,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 12,
+        "latin_tokens": 83,
+        "images": 0,
+        "code_blocks": 9,
+        "headings": 29,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "21ab2fceac29704320a8f5157b694855dd2bfe9873a801dfecf5fb2849929d16",
+      "annotation": {
+        "id": "C047",
+        "article_type": "排查思路教程",
+        "topic_tags": ["MySQL", "SQL", "性能优化"],
+        "hook_type": "术语定义式",
+        "hook_excerpt": "慢查询是指执行时间超过阈值的 SQL 语句，会导致数据库性能下降、用户体验差、系统资源被长期占用。",
+        "structure_pattern": "定义→日志定位→原因清单→分类排查→硬件兜底",
+        "structure_outline": [
+          "慢查询定义",
+          "临时/永久开启日志并验证",
+          "六类原因",
+          "索引、SQL、数据量、表结构、业务、参数",
+          "软优化无效后考虑硬件"
+        ],
+        "ending_type": "实用结论+平台求赞",
+        "source_types": ["命令与日志样例", "经验性建议表", "站内互链"],
+        "notable": "教学语气在“我们”与“你”之间切换；末尾参数与阈值是旧文建议，不是本Skill的技术默认值。",
+        "evidence": [
+          {
+            "line_start": 322,
+            "line_end": 330,
+            "quote": "推荐按照如下顺序依次排查。",
+            "role": "将散知识变成操作顺序"
+          },
+          {
+            "line_start": 361,
+            "line_end": 369,
+            "quote": "如果你使用 explain 执行计划发现该 SQL 语句明明使用到了索引，但查询速度还是慢",
+            "role": "模拟读者遇到下一层疑问"
+          },
+          {
+            "line_start": 461,
+            "line_end": 465,
+            "quote": "以上数据量级只是理论，实际根据硬件情况与做调整即可。",
+            "role": "经验阈值附条件"
+          }
+        ],
+        "voice_mode": "同伴式讲解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C047.json"
+    },
+    {
+      "id": "C048",
+      "source": "src/content/blog/深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南.md",
+      "raw": "raw/C048.md",
+      "title": "深入理解向量数据库：从底层算法到 Agent 记忆系统的构建指南",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "b7c8ed919d3c1004b34c505bcb1a8c04824e406e157655df208b2fcaea2069df",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 11284,
+        "prose_chars": 7988,
+        "code_chars": 2728,
+        "table_rows": 10,
+        "quote_lines": 0,
+        "bold_spans": 0,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 137,
+        "images": 0,
+        "code_blocks": 7,
+        "headings": 8,
+        "opening_paragraph_chars": 244
+      },
+      "body_sha256": "a57a1cd9243f4999c40268fd361aaad7a30ea3c9512ac96a6d4777b4f6cb9a5b",
+      "annotation": {
+        "id": "C048",
+        "article_type": "原理与选型长文",
+        "topic_tags": ["向量数据库", "Agent", "记忆", "HNSW"],
+        "hook_type": "开发场景痛点式",
+        "hook_excerpt": "如果你开发过基于大语言模型的 Agent，大概率会碰到一个让人头疼的场景",
+        "structure_pattern": "痛点→数学直觉→算法→检索→系统设计→产品比较→选型→总结",
+        "structure_outline": [
+          "Agent记忆与窗口局限",
+          "向量距离的思维模型",
+          "IVF/PQ/HNSW的收益代价",
+          "混合检索、过滤与重排",
+          "记忆生命周期和多租户",
+          "Milvus/Qdrant多维对比",
+          "生态决策树",
+          "约束下的工程权衡"
+        ],
+        "ending_type": "跨层回顾与方法论收束",
+        "source_types": ["原理归纳", "假设业务例子", "Mermaid概念图", "产品比较表"],
+        "notable": "2026长文段落显著更长、概念因果展开充分；正文大量产品机制/性能量级未核验，不能当现时事实库。frontmatter.sourceLink指向通用Markdown站点，不可当可靠技术引证。",
+        "evidence": [
+          {
+            "line_start": 52,
+            "line_end": 58,
+            "quote": "这里不打算罗列公式，而是聚焦在思维模型上",
+            "role": "先建立直觉再讲原理"
+          },
+          {
+            "line_start": 195,
+            "line_end": 197,
+            "quote": "理解它们不是为了决出高下，而是为了清楚自己到底需要什么。",
+            "role": "比较服务于需求约束"
+          },
+          {
+            "line_start": 280,
+            "line_end": 280,
+            "quote": "选型的前提永远是认清自己的规模边界和团队能力边界",
+            "role": "规模与团队能力共同约束决策"
+          }
+        ],
+        "voice_mode": "系统原理讲解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C048.json"
+    },
+    {
+      "id": "C049",
+      "source": "src/content/blog/深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进.md",
+      "raw": "raw/C049.md",
+      "title": "深度解析 Multi-Agent 架构：从协同模式到企业级平台工程演进",
+      "date": "2026-06-01",
+      "author": "Yilena",
+      "sha256": "2170f84a48b436001cf260cacb25e31ec02f6855163f98a94122a3321b992b84",
+      "family": "深度解析",
+      "metrics": {
+        "body_chars": 18156,
+        "prose_chars": 10949,
+        "code_chars": 6305,
+        "table_rows": 8,
+        "quote_lines": 0,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 0,
+        "latin_tokens": 219,
+        "images": 0,
+        "code_blocks": 13,
+        "headings": 19,
+        "opening_paragraph_chars": 221
+      },
+      "body_sha256": "f8d2af1864ec4577ab176efd447edc117c0d02b0b56256b2e88d10404d4db773",
+      "annotation": {
+        "id": "C049",
+        "article_type": "架构分析长文",
+        "topic_tags": ["Multi-Agent", "协同模式", "系统架构", "框架选型"],
+        "hook_type": "生产故障反问式",
+        "hook_excerpt": "为什么我的单个 Agent 挂载了大量工具和提示词之后，表现不但没有变强，反而出现了严重的性能衰退？",
+        "structure_pattern": "生产痛点→标准模型→协同模式→运行时→规模化→框架比较→闭环",
+        "structure_outline": [
+          "单Agent瓶颈",
+          "LLM/规划/记忆/工具拆解",
+          "Router、Generator-Critic、HITL",
+          "实例化、交接、会话追踪、并发安全",
+          "从单实例走向多租户",
+          "AutoGen/ADK/LangGraph比较",
+          "完整工程链路回顾"
+        ],
+        "ending_type": "长总结与架构原则升维",
+        "source_types": ["行业概念归纳", "具名作者观点（文中归因）", "假设业务案例", "Mermaid流程/时序/脑图", "多维对比表"],
+        "notable": "全组中图示最密集之一；“不是简单…而是…”纠偏句与多个反问明显，属于真实语料中的修辞，不能被通用去AI规则一刀删除。",
+        "evidence": [
+          {
+            "line_start": 22,
+            "line_end": 22,
+            "quote": "深入探讨每一个设计决策背后的为什么",
+            "role": "把原因组织为主线"
+          },
+          {
+            "line_start": 287,
+            "line_end": 289,
+            "quote": "如果交接的信息过于精简，下游 Agent 缺少足够的背景来准确理解自己的任务全貌。",
+            "role": "两端失败条件引出折中"
+          },
+          {
+            "line_start": 594,
+            "line_end": 594,
+            "quote": "这些架构层面的基本原则，大概率会比任何具体框架活得都更长久。",
+            "role": "总结倾向稳定机制而非追逐框架"
+          }
+        ],
+        "voice_mode": "系统架构讲解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C049.json"
+    },
+    {
+      "id": "C050",
+      "source": "src/content/blog/点餐场景下：分析实现十万级用户日志的店铺推荐方案.md",
+      "raw": "raw/C050.md",
+      "title": "点餐场景下：分析实现十万级用户日志的店铺推荐方案",
+      "date": "2025-07-07",
+      "author": "Yilena",
+      "sha256": "827674430be56cad566947f38e289e3e80ff59f3442569599d994c3cc97c1b04",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 18761,
+        "prose_chars": 1567,
+        "code_chars": 16496,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 17,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 7,
+        "latin_tokens": 10,
+        "images": 3,
+        "code_blocks": 6,
+        "headings": 12,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "af343480d5b126464c2d92d3db136ec303aacc20805c07dc36aaa022cfc4938d",
+      "annotation": {
+        "id": "C050",
+        "article_type": "业务方案设计",
+        "topic_tags": ["推荐系统", "Elasticsearch", "日志分析", "冷热分离"],
+        "hook_type": "约束任务式",
+        "hook_excerpt": "有一个类似美团的点餐小程序，平台入驻了大量商家店铺。用户访问店铺时，系统会记录进店日志。",
+        "structure_pattern": "场景约束→连续设问→候选权衡→选定方案→流程图→代码",
+        "structure_outline": [
+          "首页推荐4家店铺与每月10万日志",
+          "分析哪些数据",
+          "怎样评分",
+          "何时计算：实时/周期/餐别/每日",
+          "技术栈与流程图",
+          "实体、定时任务、service实现",
+          "承认非最佳实践"
+        ],
+        "ending_type": "自我限定+邀读者改进+平台求赞",
+        "source_types": ["假设业务题", "设计推导", "完整Java实现", "流程图片（内容待视觉核验）"],
+        "notable": "不是宣称已上线有收益；用约束下方案推演组织内容。大段代码之后仍保持自己水平有限的收束。",
+        "evidence": [
+          {
+            "line_start": 152,
+            "line_end": 163,
+            "quote": "鉴于当前平台店铺类型丰富度有限，按餐别分类执行的效果可能受限。",
+            "role": "业务约束使更精细方案让位"
+          },
+          {
+            "line_start": 191,
+            "line_end": 191,
+            "quote": "若有则直接返回，反之则采取备用方案（随机 4 个热门店铺）返回。",
+            "role": "给出主路径之外的降级路径"
+          },
+          {
+            "line_start": 856,
+            "line_end": 856,
+            "quote": "我提供的这个方案肯定不是最佳实践，因为本人的水平并不是很高",
+            "role": "作者位置是同伴而非万能专家"
+          }
+        ],
+        "voice_mode": "业务推演同伴",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C050.json"
+    },
+    {
+      "id": "C051",
+      "source": "src/content/blog/破局双维度查询难题：淘宝订单ID的用户基因设计奥秘.md",
+      "raw": "raw/C051.md",
+      "title": "破局双维度查询难题：淘宝订单ID的用户基因设计奥秘",
+      "date": "2025-08-23",
+      "author": "Yilena",
+      "sha256": "b3c618ae14c85df98c14086dc20f88c15ce13c050f203434c7bdf8169ef6b5f9",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 2306,
+        "prose_chars": 1171,
+        "code_chars": 815,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 7,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 3,
+        "latin_tokens": 36,
+        "images": 0,
+        "code_blocks": 1,
+        "headings": 3,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "d046704834ced40cd9fdb2bb8e458b556ad672280597d076fc994ecd3977cb2c",
+      "annotation": {
+        "id": "C051",
+        "article_type": "业务机制拆解",
+        "topic_tags": ["分布式ID", "分库分表", "路由"],
+        "hook_type": "具体实例拆解式",
+        "hook_excerpt": "淘宝订单 ID（例如：266807390250123456）包含三个核心部分",
+        "structure_pattern": "实例结构→为什么这样做→两难→折中机制→示意实现",
+        "structure_outline": [
+          "订单号三个部分",
+          "userId和orderId双查询维度冲突",
+          "冗余表的成本",
+          "把路由基因放进ID",
+          "示意代码与映射表"
+        ],
+        "ending_type": "机制补充+平台求赞",
+        "source_types": ["企业方案的二手解读", "数字示例", "Java示意代码", "站内互链"],
+        "notable": "有关淘宝内部机制、哈希与映射的具体论述未核验；只能提炼“从例子回到业务矛盾”的结构，不继承企业事实断言。",
+        "evidence": [
+          {
+            "line_start": 57,
+            "line_end": 78,
+            "quote": "淘宝的核心特性就是在订单号的后 6 位嵌入了用户基因，那么为什么需要这么做呢？",
+            "role": "先给实例再追问设计动机"
+          },
+          {
+            "line_start": 102,
+            "line_end": 102,
+            "quote": "这里我们不对这两个方法做详解，仅讲解基本流程",
+            "role": "主动限定实现深度"
+          }
+        ],
+        "voice_mode": "机制拆解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C051.json"
+    },
+    {
+      "id": "C052",
+      "source": "src/content/blog/离腾讯 Offer 最近的一次.md",
+      "raw": "raw/C052.md",
+      "title": "离腾讯 Offer 最近的一次",
+      "date": "2026-10-29 12:00:00",
+      "author": "",
+      "sha256": "bf6b58a6da19fd6a84eaccb6ee84a2a854b68ce6c0f93e550e34c686957cc320",
+      "family": "随笔",
+      "metrics": {
+        "body_chars": 2040,
+        "prose_chars": 1943,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 0,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 0,
+        "latin_tokens": 16,
+        "images": 0,
+        "code_blocks": 0,
+        "headings": 9,
+        "opening_paragraph_chars": 47
+      },
+      "body_sha256": "7972ca5b62afdf2a31718db5842cb8efdba0cf33a1b823dbf471e9c28da72061",
+      "annotation": {
+        "id": "C052",
+        "article_type": "个人经历复盘",
+        "topic_tags": ["面试", "求职", "个人成长"],
+        "hook_type": "日期事件式",
+        "hook_excerpt": "今年九月底，我收到了项目组学长的邀请，说是可以内推我去腾讯 CSIG 的 Agent 开发日常实习岗。",
+        "structure_pattern": "日期时间线→预期上升→等待→落差→感受",
+        "structure_outline": [
+          "投递前犹豫",
+          "假期准备",
+          "一面与二面通过",
+          "HR交叉面",
+          "五天等待",
+          "排序挂的结果",
+          "不甘与能够掌控的部分"
+        ],
+        "ending_type": "保留遗憾的克制自勉",
+        "source_types": ["第一人称经历自述", "具体日期", "内心变化"],
+        "notable": "本语料唯一纯个人随笔；可作为该体裁原型，不能推定作者所有文字都短段抒情，也不能由本篇推定招聘规则或普遍公司结论。",
+        "evidence": [
+          {
+            "line_start": 25,
+            "line_end": 27,
+            "quote": "于是，咬咬牙，投了简历。",
+            "role": "行动落在短句"
+          },
+          {
+            "line_start": 103,
+            "line_end": 107,
+            "quote": "晴天霹雳。",
+            "role": "独句承担情绪转折"
+          },
+          {
+            "line_start": 139,
+            "line_end": 141,
+            "quote": "当然，道理归道理，真正接受结果还是需要一点时间。",
+            "role": "自勉后仍保留未被化解的情绪"
+          }
+        ],
+        "voice_mode": "个人时间线随笔",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C052.json"
+    },
+    {
+      "id": "C053",
+      "source": "src/content/blog/自定义错误码_+_全局异常体系_+_Result的优雅实现方案.md",
+      "raw": "raw/C053.md",
+      "title": "自定义错误码 + 全局异常体系 + Result的优雅实现方案",
+      "date": "2025-08-16",
+      "author": "Yilena",
+      "sha256": "0d2d44d0dd7c3575dc0cca791942b6c792ccc0be5a738acfafe7e2520ffa1062",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 8503,
+        "prose_chars": 1091,
+        "code_chars": 6858,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 5,
+        "latin_tokens": 10,
+        "images": 0,
+        "code_blocks": 14,
+        "headings": 15,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "832e381dd97f16a10c3da9cd799082231211ac0ae4eb381cdf5461f0007d80b7",
+      "annotation": {
+        "id": "C053",
+        "article_type": "实现方案讲解",
+        "topic_tags": ["错误码", "异常处理", "Result", "Spring"],
+        "hook_type": "团队任务式",
+        "hook_excerpt": "你的团队需承担一个采用的大型新项目，现需设计一套错误码、异常以及 Result 方案。",
+        "structure_pattern": "需求→候选对比→取舍→分层代码→局部原理解释",
+        "structure_outline": [
+          "大型项目需求",
+          "枚举与常量的分析",
+          "错误码接口/基类/静动态实现",
+          "异常与全局拦截",
+          "Result与反馈类",
+          "序列化版本号提醒"
+        ],
+        "ending_type": "实现结束+平台求赞",
+        "source_types": ["假设团队场景", "Java分层实现", "经验解释"],
+        "notable": "将重点放在有争议的错误码选型，其他“基本一个套路”的部分简略；技术断言与示例有局限，不能将选型写成通用禁令。",
+        "evidence": [
+          {
+            "line_start": 107,
+            "line_end": 119,
+            "quote": "针对本项目特点让我们来分析一下",
+            "role": "选型必须绑定项目特征"
+          },
+          {
+            "line_start": 123,
+            "line_end": 123,
+            "quote": "因为基本都是一个套路，这里要做的只是兼容我们的错误码方案即可。",
+            "role": "篇幅依新信息分配"
+          },
+          {
+            "line_start": 230,
+            "line_end": 230,
+            "quote": "静态错误码就是写死的那种，直接用就可以",
+            "role": "用口语解释抽象分类"
+          }
+        ],
+        "voice_mode": "同伴式实现讲解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C053.json"
+    },
+    {
+      "id": "C054",
+      "source": "src/content/blog/记录：IO流大作业——每日一记.md",
+      "raw": "raw/C054.md",
+      "title": "记录：IO流大作业——每日一记",
+      "date": "2024-12-25",
+      "author": "Yilena",
+      "sha256": "15b03458e7d7d284d1940df3303a569a950a043fa12b51a0addb22b1bd33cad8",
+      "family": "项目记录",
+      "metrics": {
+        "body_chars": 18348,
+        "prose_chars": 4697,
+        "code_chars": 12377,
+        "table_rows": 0,
+        "quote_lines": 101,
+        "bold_spans": 6,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 9,
+        "latin_tokens": 126,
+        "images": 7,
+        "code_blocks": 14,
+        "headings": 23,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "58b8f42af800ed947c6cdbc3dc11cedb799cafb0fcc116192d0fd4e6f6b05d80",
+      "annotation": {
+        "id": "C054",
+        "article_type": "学习项目记录",
+        "topic_tags": ["Java", "IO流", "Swing", "GUI"],
+        "hook_type": "项目展示与约束式",
+        "hook_excerpt": "本项目重点考察 IO 流的熟练掌握情况，所以没有使用 Hutool 工具包以及 commons 工具包",
+        "structure_pattern": "需求图示→前置知识→功能拆分→逐项解释与代码",
+        "structure_outline": ["界面功能需求", "各类IO流介绍", "数据增删改和加载", "添加/主界面/修改三界面实现", "完成演示"],
+        "ending_type": "完成宣告+动图+平台求赞",
+        "source_types": ["课程作业自述", "界面截图与演示（内容待视觉核验）", "Java代码", "术语说明"],
+        "notable": "面向初学者，用引用块补充前置知识；不是所有项目都应禁用工具包，限制来自学习目的。",
+        "evidence": [
+          {
+            "line_start": 144,
+            "line_end": 144,
+            "quote": "本项目重点考察 IO 流的熟练掌握情况",
+            "role": "说明为什么做不省事的实现"
+          },
+          {
+            "line_start": 254,
+            "line_end": 254,
+            "quote": "在开始说明项目实现过程之前，让我们先对本次项目主要使用到的 IO 流进行简单的讲解吧。",
+            "role": "前置概念在需要处补入"
+          },
+          {
+            "line_start": 1249,
+            "line_end": 1261,
+            "quote": "跟保存一样，首先我们需要判断输入正确性，",
+            "role": "用执行顺序说明功能"
+          }
+        ],
+        "voice_mode": "初学者同伴项目",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C054.json"
+    },
+    {
+      "id": "C055",
+      "source": "src/content/blog/记录：Java阶段性项目（拼图小游戏）.md",
+      "raw": "raw/C055.md",
+      "title": "记录：Java阶段性项目（拼图小游戏）",
+      "date": "2025-03-07",
+      "author": "Yilena",
+      "sha256": "3c713f85e047f94543ec584518d11223d6f7a5326239511ae083d45062673a51",
+      "family": "项目记录",
+      "metrics": {
+        "body_chars": 44805,
+        "prose_chars": 12458,
+        "code_chars": 26869,
+        "table_rows": 5,
+        "quote_lines": 149,
+        "bold_spans": 5,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 25,
+        "latin_tokens": 428,
+        "images": 17,
+        "code_blocks": 38,
+        "headings": 11,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "8ac81a6280d5336df2894f1248b9555d68d9a85ad7388d0d308db308abf60b2b",
+      "annotation": {
+        "id": "C055",
+        "article_type": "学习项目记录",
+        "topic_tags": ["Java", "Swing", "拼图游戏", "学习路线"],
+        "hook_type": "自我介绍与学习转向式",
+        "hook_excerpt": "这是本人的第一篇博客，如有不足之处还望多多包涵",
+        "structure_pattern": "学习缘起→效果展示→功能地图→按核心界面拆解→总结与心声",
+        "structure_outline": [
+          "学习C++/Java的背景与动机",
+          "项目来源与效果",
+          "游戏/注册/登录功能清单",
+          "新知识→实现思路→代码→注意点",
+          "整体代码骨架",
+          "记录学习与不成熟之处"
+        ],
+        "ending_type": "完成宣告+个人感受+求赞",
+        "source_types": ["第一人称学习过程", "课程来源声明", "代码示例", "界面截图/GIF/表情（内容待视觉核验）"],
+        "notable": "全组最强口语与玩笑；发布时间不是首次写作年代的可靠证据（文中称第一篇）。代码庞大但反复插入动机解释，不应按全文字符强推所有博文超长。",
+        "evidence": [
+          {
+            "line_start": 303,
+            "line_end": 303,
+            "quote": "原项目来自 b 站 up 主“黑马程序员”，本项目是创新改良版",
+            "role": "交代素材来源与改造边界"
+          },
+          {
+            "line_start": 821,
+            "line_end": 848,
+            "quote": "那我该如何选择自己想要拼的图片呢？用鼠标点呗！",
+            "role": "具体疑问与口语回答衔接原理"
+          },
+          {
+            "line_start": 871,
+            "line_end": 871,
+            "quote": "因为我技术还不是太成熟，所以很需要这样的提示 QAQ",
+            "role": "保留真实学习阶段"
+          },
+          {
+            "line_start": 3076,
+            "line_end": 3076,
+            "quote": "理清整个项目的实现思路的同时也能巩固知识",
+            "role": "写作本身作为知识巩固工具"
+          }
+        ],
+        "voice_mode": "初学者口语项目",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C055.json"
+    },
+    {
+      "id": "C056",
+      "source": "src/content/blog/记录：基于TCP协议的控制台版网络聊天室.md",
+      "raw": "raw/C056.md",
+      "title": "记录：基于TCP协议的控制台版网络聊天室",
+      "date": "2025-01-02",
+      "author": "Yilena",
+      "sha256": "a2ed72e731a05b4b9216c5b1edb33b8ef7807081423bf384d81ababd4ed372c6",
+      "family": "项目记录",
+      "metrics": {
+        "body_chars": 12332,
+        "prose_chars": 1074,
+        "code_chars": 10258,
+        "table_rows": 0,
+        "quote_lines": 2,
+        "bold_spans": 3,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 9,
+        "latin_tokens": 20,
+        "images": 3,
+        "code_blocks": 14,
+        "headings": 25,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "9cedce5f59dbb0a9221df2d8a20319dc24f8d689223249dbb7d6dbd2b033546e",
+      "annotation": {
+        "id": "C056",
+        "article_type": "学习项目记录",
+        "topic_tags": ["Java", "TCP", "多线程", "聊天室"],
+        "hook_type": "难点自述式",
+        "hook_excerpt": "这个大作业应该是目前为止感觉最烧脑的一个，主要难点在于客服端和服务端之间的相互反馈以及服务端消息的群发实现",
+        "structure_pattern": "难点→需求→按交互功能分解两端→整体代码骨架",
+        "structure_outline": [
+          "客户端与服务端需求",
+          "入口建立连接",
+          "注册：客户端/服务端",
+          "登录：客户端/服务端",
+          "发送与接收",
+          "群发与客户端线程",
+          "整体类骨架"
+        ],
+        "ending_type": "完成宣告+动图+平台求赞",
+        "source_types": ["课程作业自述", "Java实现", "产品演示与情绪图片（内容待视觉核验）"],
+        "notable": "按照消息方向和两端职责讲解，比按类名罗列更贴近执行；UI细节（5min时间显示）来自常用软件的体验参照。",
+        "evidence": [
+          {
+            "line_start": 152,
+            "line_end": 160,
+            "quote": "逻辑需要提前理清楚。",
+            "role": "先讲最难的问题"
+          },
+          {
+            "line_start": 421,
+            "line_end": 421,
+            "quote": "先向服务端发送注册请求，接着判断输入合法性，若合法则向服务端发送数据进行验证，再根据的反馈打印提示信息。",
+            "role": "按请求与反馈顺序展开"
+          },
+          {
+            "line_start": 895,
+            "line_end": 895,
+            "quote": "更贴近我们使用的聊天软件。",
+            "role": "日常产品经验驱动小功能"
+          }
+        ],
+        "voice_mode": "初学者同伴项目",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C056.json"
+    },
+    {
+      "id": "C057",
+      "source": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战 (1).md",
+      "raw": "raw/C057.md",
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "date": "2025-09-25",
+      "author": "Yilena",
+      "sha256": "dcb6a2f2373c526c2e1b4839a3408ff7629f236af0382446bde0f6c508a2641c",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 5653,
+        "prose_chars": 1440,
+        "code_chars": 3614,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 35,
+        "images": 0,
+        "code_blocks": 5,
+        "headings": 9,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "ecf8c7d743ee2ce1b166a84ded173e2710648f83b58f85efe851acbaaab37725",
+      "duplicate_of": "C058",
+      "annotation": {
+        "id": "C057",
+        "article_type": "生产方案权衡",
+        "topic_tags": ["Java", "虚拟线程", "JDK25", "并发"],
+        "hook_type": "目的与边界式",
+        "hook_excerpt": "为了最大限度地利用 ，避免平台线程被 IO 阻塞，从而提高应用程序的整体吞吐量",
+        "structure_pattern": "目的纠偏→两方案递进→代价→阶段性结论→代码",
+        "structure_outline": [
+          "吞吐与延迟目标区分",
+          "Filter包装方案及Future问题",
+          "结构化并发的版本边界",
+          "Tomcat方案和并发限制",
+          "CPU/IO任务差异",
+          "当前可用实现"
+        ],
+        "ending_type": "代码结束+平台求赞",
+        "source_types": ["版本相关技术归纳", "方案对比", "Java配置与过滤器代码", "站内前置知识"],
+        "notable": "C057与C058正文逐字一致，仅frontmatter.link不同，各权重0.5。预览状态、最佳实践及框架行为都属于旧文技术主张，不作当前事实担保。",
+        "evidence": [
+          {
+            "line_start": 82,
+            "line_end": 82,
+            "quote": "使用虚拟线程并不一定会降低单个请求的响应延迟",
+            "role": "在讨论方案前拆开目标"
+          },
+          {
+            "line_start": 148,
+            "line_end": 152,
+            "quote": "如果并发量失控，会对 DB 连接池等下游资源造成压力。",
+            "role": "说明收益之外的资源代价"
+          },
+          {
+            "line_start": 176,
+            "line_end": 176,
+            "quote": "但是由于结构化并发仍旧为预览特性",
+            "role": "理想选择与当前实现分开"
+          }
+        ],
+        "voice_mode": "约束下方案权衡",
+        "style_weight": 0.5
+      },
+      "metrics_path": "_meta/metrics/C057.json"
+    },
+    {
+      "id": "C058",
+      "source": "src/content/blog/跟进_JDK25：将虚拟线程安全引入生产的权衡与实战.md",
+      "raw": "raw/C058.md",
+      "title": "跟进 JDK25：将虚拟线程安全引入生产的权衡与实战",
+      "date": "2025-09-25",
+      "author": "Yilena",
+      "sha256": "e3fcecf575c179a5032f2cab571546b9def64e79ec049b1f8f6cb780d0e23f83",
+      "family": "方案复盘",
+      "metrics": {
+        "body_chars": 5653,
+        "prose_chars": 1440,
+        "code_chars": 3614,
+        "table_rows": 0,
+        "quote_lines": 5,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 0,
+        "thematic_breaks": 6,
+        "latin_tokens": 35,
+        "images": 0,
+        "code_blocks": 5,
+        "headings": 9,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "ecf8c7d743ee2ce1b166a84ded173e2710648f83b58f85efe851acbaaab37725",
+      "annotation": {
+        "id": "C058",
+        "article_type": "生产方案权衡",
+        "topic_tags": ["Java", "虚拟线程", "JDK25", "并发"],
+        "hook_type": "目的与边界式",
+        "hook_excerpt": "为了最大限度地利用 ，避免平台线程被 IO 阻塞，从而提高应用程序的整体吞吐量",
+        "structure_pattern": "目的纠偏→两方案递进→代价→阶段性结论→代码",
+        "structure_outline": [
+          "吞吐与延迟目标区分",
+          "Filter包装方案及Future问题",
+          "结构化并发的版本边界",
+          "Tomcat方案和并发限制",
+          "CPU/IO任务差异",
+          "当前可用实现"
+        ],
+        "ending_type": "代码结束+平台求赞",
+        "source_types": ["版本相关技术归纳", "方案对比", "Java配置与过滤器代码", "站内前置知识"],
+        "notable": "C057与C058正文逐字一致，仅frontmatter.link不同，各权重0.5。预览状态、最佳实践及框架行为都属于旧文技术主张，不作当前事实担保。",
+        "evidence": [
+          {
+            "line_start": 82,
+            "line_end": 82,
+            "quote": "使用虚拟线程并不一定会降低单个请求的响应延迟",
+            "role": "在讨论方案前拆开目标"
+          },
+          {
+            "line_start": 148,
+            "line_end": 152,
+            "quote": "如果并发量失控，会对 DB 连接池等下游资源造成压力。",
+            "role": "说明收益之外的资源代价"
+          },
+          {
+            "line_start": 176,
+            "line_end": 176,
+            "quote": "但是由于结构化并发仍旧为预览特性",
+            "role": "理想选择与当前实现分开"
+          }
+        ],
+        "voice_mode": "约束下方案权衡",
+        "style_weight": 0.5
+      },
+      "metrics_path": "_meta/metrics/C058.json"
+    },
+    {
+      "id": "C059",
+      "source": "src/content/blog/通过mysqldump进行数据迁移时权限不足的解决方案.md",
+      "raw": "raw/C059.md",
+      "title": "通过mysqldump进行数据迁移时权限不足的解决方案",
+      "date": "2025-12-13",
+      "author": "Yilena",
+      "sha256": "a3af899cad97ff56e0b7bf00de518eef9c7b66947437968c2b350cabdc344a5d",
+      "family": "排障",
+      "metrics": {
+        "body_chars": 1451,
+        "prose_chars": 894,
+        "code_chars": 0,
+        "table_rows": 0,
+        "quote_lines": 14,
+        "bold_spans": 2,
+        "excluded_quoted_log_lines": 1,
+        "thematic_breaks": 3,
+        "latin_tokens": 38,
+        "images": 3,
+        "code_blocks": 0,
+        "headings": 2,
+        "opening_paragraph_chars": 2
+      },
+      "body_sha256": "8547efb6f1bb75ee9017b0615feeb1fd246b876f80f0cb3604c11f3763a188a6",
+      "annotation": {
+        "id": "C059",
+        "article_type": "故障排查",
+        "topic_tags": ["MySQL", "mysqldump", "GTID", "数据迁移"],
+        "hook_type": "复现步骤与报错式",
+        "hook_excerpt": "我们首先在 A 库中通过生成了文件，在导入 B 库时报错",
+        "structure_pattern": "错误证据→定位文件行→补概念→最小解法→相邻风险提醒",
+        "structure_outline": [
+          "A到B迁移报错",
+          "解释1227与第18行",
+          "截图定位GTID语句",
+          "引用块补充GTID",
+          "添加导出参数",
+          "DataGrip锁表与一致性快照提醒"
+        ],
+        "ending_type": "附带风险提醒+平台求赞",
+        "source_types": ["报错原文", "操作截图（内容待视觉核验）", "经验解释", "外部文章提及"],
+        "notable": "截图承重：错误、定位、设置构成连续证据链；有关锁表与快照的技术主张未复核，勿把旧文错误也蒸馏成规则。",
+        "evidence": [
+          {
+            "line_start": 58,
+            "line_end": 70,
+            "quote": "使用记事本打开 sql 文件查看第 18 行",
+            "role": "把日志信息转成具体定位动作"
+          },
+          {
+            "line_start": 75,
+            "line_end": 83,
+            "quote": "什么是 GTID？",
+            "role": "为解法补最小必要前置概念"
+          },
+          {
+            "line_start": 102,
+            "line_end": 106,
+            "quote": "不过需要注意的一点是",
+            "role": "解决眼前错误后提醒相邻操作风险"
+          }
+        ],
+        "voice_mode": "经验排障讲解",
+        "style_weight": 1
+      },
+      "metrics_path": "_meta/metrics/C059.json"
+    }
+  ]
+}

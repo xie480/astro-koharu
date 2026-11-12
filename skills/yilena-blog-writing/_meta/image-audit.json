@@ -1,0 +1,139 @@
+{
+  "sample_design": "purposeful; every body image from five selected articles",
+  "viewed_articles": 5,
+  "viewed_images": 11,
+  "items": [
+    {
+      "id": "C004",
+      "index": 1,
+      "url": "https://i-blog.csdnimg.cn/direct/1239eb525ef64e3c86e7b5551fc5f150.png",
+      "body_line": 36,
+      "sha256": "c93c8f52f3f15b8a930d7d224ef8c4316fd63af771f6c8d7755dc056ad2d507b",
+      "bytes": 76886,
+      "pixels": [1149, 266],
+      "visually_opened": true,
+      "primary_function": "证据",
+      "observation": "连接超时与code500；故障文字有精确信息"
+    },
+    {
+      "id": "C004",
+      "index": 2,
+      "url": "https://i-blog.csdnimg.cn/direct/925ecf81c8044cf1a9092965d047bd5c.png",
+      "body_line": 81,
+      "sha256": "6d997a1fb4628418844bf43891e910a2185a01040e8b3b23607ade6c92e0fbb9",
+      "bytes": 12637,
+      "pixels": [901, 135],
+      "visually_opened": true,
+      "primary_function": "操作演示",
+      "observation": "手动录入执行器地址入口"
+    },
+    {
+      "id": "C009",
+      "index": 1,
+      "url": "https://i-blog.csdnimg.cn/direct/36edb66aba674133af1b87d807df7588.png",
+      "body_line": 12,
+      "sha256": "58996d1be45fc0d565c989cdc7aa2e9e2e210a9aac08e41704f6d086437cabb3",
+      "bytes": 362438,
+      "pixels": [1633, 229],
+      "visually_opened": true,
+      "primary_function": "证据",
+      "observation": "任务输出停止位置的IDE日志；不能单独认证根因"
+    },
+    {
+      "id": "C023",
+      "index": 1,
+      "url": "https://i-blog.csdnimg.cn/direct/a8fcaaad8b334809b0237906889199fc.png",
+      "body_line": 267,
+      "sha256": "26b3558438a86ee017469c459e0a6a67179d4fb652b5206c1a435c2a42a40417",
+      "bytes": 116733,
+      "pixels": [1836, 730],
+      "visually_opened": true,
+      "primary_function": "流程解释",
+      "observation": "读写与热数据晋升分支"
+    },
+    {
+      "id": "C023",
+      "index": 2,
+      "url": "https://i-blog.csdnimg.cn/direct/eed64e1bfddd44f1be9f8cdd96ab6dfa.png",
+      "body_line": 299,
+      "sha256": "4f9e0ce43657d8bb3cdb6f7d40e003af618ccbd2b94f6d1cf9c25b6a1bb7bf49",
+      "bytes": 161152,
+      "pixels": [1818, 914],
+      "visually_opened": true,
+      "primary_function": "流程解释",
+      "observation": "加入TTL续期和过期回存的流程"
+    },
+    {
+      "id": "C050",
+      "index": 1,
+      "url": "https://i-blog.csdnimg.cn/direct/2f91d46d7b5c4c54aba4b4dd61e646a5.png",
+      "body_line": 169,
+      "sha256": "d4b72877fbf17343750b095a15997741575a874d6f2bc0c715e57b4144794196",
+      "bytes": 114856,
+      "pixels": [979, 993],
+      "visually_opened": true,
+      "primary_function": "流程解释",
+      "observation": "冷热迁移任务、异常与二次重试"
+    },
+    {
+      "id": "C050",
+      "index": 2,
+      "url": "https://i-blog.csdnimg.cn/direct/394535c8a71943c48f05455f2bf541df.png",
+      "body_line": 169,
+      "sha256": "3756d9c5ab678058ec2ff962d62afc19d3e4848b22e7ac07aba91ede1f6240f1",
+      "bytes": 533048,
+      "pixels": [2063, 796],
+      "visually_opened": true,
+      "primary_function": "流程解释",
+      "observation": "日志分析、去重、热门补齐及异常回退"
+    },
+    {
+      "id": "C050",
+      "index": 3,
+      "url": "https://i-blog.csdnimg.cn/direct/e5de91b216b14e1b883abe9c83bc470b.jpeg",
+      "body_line": 842,
+      "sha256": "b282eaa90b57789aaf2d6ebbe1794c697d5a475b53bcaade6cc659fd3c24ec48",
+      "bytes": 11025,
+      "pixels": [264, 300],
+      "visually_opened": true,
+      "primary_function": "情绪",
+      "observation": "文末表情图，没有机制信息"
+    },
+    {
+      "id": "C059",
+      "index": 1,
+      "url": "https://i-blog.csdnimg.cn/direct/f78cf226d9ca4485b7761538a4ced38b.png",
+      "body_line": 26,
+      "sha256": "5215987b3b70b41e75a465aa4a2f493503adb1648296501ee5125022d183eb53",
+      "bytes": 1299298,
+      "pixels": [2444, 610],
+      "visually_opened": true,
+      "primary_function": "证据",
+      "observation": "MySQL错误1227与权限提示"
+    },
+    {
+      "id": "C059",
+      "index": 2,
+      "url": "https://i-blog.csdnimg.cn/direct/d8c164f7537749acac09860751f8dc28.png",
+      "body_line": 48,
+      "sha256": "6c5d910fdb90dcf1014eb75881b3c7cca3f25fd3b641c8fb54eb5c7bf88a097d",
+      "bytes": 27466,
+      "pixels": [1198, 169],
+      "visually_opened": true,
+      "primary_function": "证据",
+      "observation": "备份文件的GTID_PURGED语句"
+    },
+    {
+      "id": "C059",
+      "index": 3,
+      "url": "https://i-blog.csdnimg.cn/direct/b6919e4015434eb8a8b22778e8a8fbfb.png",
+      "body_line": 77,
+      "sha256": "a51df7f8f6764261847905aff749606268e39bc0759f2f222275eaaa863f0f29",
+      "bytes": 66193,
+      "pixels": [935, 741],
+      "visually_opened": true,
+      "primary_function": "操作演示",
+      "observation": "红框标注导出参数输入位置"
+    }
+  ]
+}

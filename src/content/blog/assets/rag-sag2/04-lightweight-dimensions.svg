@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">轻量化 RAG 的四个评价维度</title>
+  <desc id="desc">四个卡片展示轻量 RAG 需要同时关注更新速度、查询响应、本地部署和维护成本。</desc>
+  <defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter></defs>
+  <rect width="1200" height="620" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">“快”不只是一秒返回答案</text>
+  <text x="60" y="84" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">轻量化 RAG 的价值，需要同时落在知识变化、在线响应和系统维护上。</text>
+  <g filter="url(#shadow)" font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <rect x="60" y="130" width="510" height="180" rx="20" fill="#fff" stroke="#b8d7cb" stroke-width="2"/><circle cx="112" cy="182" r="25" fill="#5f9f8a"/><text x="112" y="190" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">1</text><text x="158" y="188" fill="#347563" font-size="23" font-weight="700">变化到可检索的时间</text><text x="92" y="235" fill="#1d2a35" font-size="17">文件更新后，系统多久能找到新内容？</text><text x="92" y="264" fill="#61717d" font-size="16">比只测首次建库速度更接近实际维护。</text>
+    <rect x="630" y="130" width="510" height="180" rx="20" fill="#fff" stroke="#b9cfe1" stroke-width="2"/><circle cx="682" cy="182" r="25" fill="#5d87ad"/><text x="682" y="190" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">2</text><text x="728" y="188" fill="#416b91" font-size="23" font-weight="700">查询时的响应路径</text><text x="662" y="235" fill="#1d2a35" font-size="17">简单问题是否能走快速路径？</text><text x="662" y="264" fill="#61717d" font-size="16">复杂问题增加计算，但不拖慢所有查询。</text>
+    <rect x="60" y="350" width="510" height="180" rx="20" fill="#fff" stroke="#e4c7b5" stroke-width="2"/><circle cx="112" cy="402" r="25" fill="#d77a48"/><text x="112" y="410" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">3</text><text x="158" y="408" fill="#9a4d2c" font-size="23" font-weight="700">部署与恢复门槛</text><text x="92" y="455" fill="#1d2a35" font-size="17">本地环境能否快速启动、迁移和恢复？</text><text x="92" y="484" fill="#61717d" font-size="16">轻量底座适合个人、小团队和内网场景。</text>
+    <rect x="630" y="350" width="510" height="180" rx="20" fill="#fff" stroke="#c7bfdf" stroke-width="2"/><circle cx="682" cy="402" r="25" fill="#8874aa"/><text x="682" y="410" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">4</text><text x="728" y="408" fill="#6d5a90" font-size="23" font-weight="700">增量、删除与回滚成本</text><text x="662" y="455" fill="#1d2a35" font-size="17">内容删掉后，旧关系和旧摘要会不会残留？</text><text x="662" y="484" fill="#61717d" font-size="16">治理复杂度不能被“算法轻量”自动抵消。</text>
+  </g>
+  <text x="600" y="580" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">轻量化的目标：少做无效预计算，而不是少做必要治理。</text>
+</svg>

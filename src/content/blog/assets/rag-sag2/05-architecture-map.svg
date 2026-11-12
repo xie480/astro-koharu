@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">不同 RAG 架构在离线预处理与全局理解之间的概念定位</title>
+  <desc id="desc">概念坐标图以离线预处理成本和全局结构理解为轴，展示 Dense Hybrid RAG、SAG2、GraphRAG、LightRAG、HippoRAG 2 和 RAPTOR 的大致取舍。</desc>
+  <defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter></defs>
+  <rect width="1200" height="700" fill="#f8f7f2"/>
+  <text x="60" y="52" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">架构比较：没有“唯一最优”，只有不同计算重心</text>
+  <text x="60" y="82" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">这是取舍示意，不是统一数据集、统一硬件下的性能排名。</text>
+  <rect x="150" y="125" width="880" height="450" rx="18" fill="#fff" stroke="#d8dedf" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M230 510 H960" stroke="#61717d" stroke-width="2.5"/><path d="M230 510 V180" stroke="#61717d" stroke-width="2.5"/><path d="M230 180 H960" stroke="#e6eaeb" stroke-width="1" stroke-dasharray="7 8"/><path d="M960 510 V180" stroke="#e6eaeb" stroke-width="1" stroke-dasharray="7 8"/><path d="M475 510 V180" stroke="#edf0f0" stroke-width="1" stroke-dasharray="5 8"/><path d="M720 510 V180" stroke="#edf0f0" stroke-width="1" stroke-dasharray="5 8"/>
+  <text x="595" y="622" text-anchor="middle" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">离线预处理：少 → 多</text>
+  <text x="124" y="355" transform="rotate(-90 124 355)" text-anchor="middle" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">全局结构理解：弱 → 强</text>
+  <text x="230" y="545" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14">轻量</text><text x="960" y="545" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14">重</text><text x="207" y="510" text-anchor="end" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14">局部</text><text x="207" y="180" text-anchor="end" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14">全局</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700">
+    <circle cx="340" cy="420" r="12" fill="#5f9f8a"/><text x="360" y="426" fill="#347563">SAG2</text>
+    <circle cx="410" cy="375" r="12" fill="#5d87ad"/><text x="430" y="381" fill="#416b91">Dense / Hybrid RAG</text>
+    <circle cx="590" cy="330" r="12" fill="#8874aa"/><text x="610" y="336" fill="#6d5a90">HippoRAG 2</text>
+    <circle cx="650" cy="275" r="12" fill="#d77a48"/><text x="670" y="281" fill="#9a4d2c">LightRAG</text>
+    <circle cx="820" cy="220" r="12" fill="#bf6d91"/><text x="840" y="226" fill="#984b70">GraphRAG</text>
+    <circle cx="850" cy="355" r="12" fill="#b28b55"/><text x="870" y="361" fill="#80602d">RAPTOR</text>
+  </g>
+  <rect x="270" y="150" width="680" height="38" rx="19" fill="#f2f6f4"/><text x="610" y="175" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">SAG2 不是拒绝复杂能力，而是把复杂关系更多留到问题发生时</text>
+  <text x="600" y="665" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14">示意定位基于典型架构取舍，具体实现可能跨越多个区域。</text>
+</svg>

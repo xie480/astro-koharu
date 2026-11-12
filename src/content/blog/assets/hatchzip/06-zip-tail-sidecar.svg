@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470">
+  <title>ZIP 物理文件与 sidecar 逻辑视图</title>
+  <desc>展示物理归档前缀、被截掉的区域、保存下来的尾部，以及 reader 重新组合出的逻辑视图。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4b5b"/></marker></defs>
+  <rect width="900" height="470" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937">
+    <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700">ZIP 尾部被截短后的逻辑视图</text>
+    <text x="70" y="82" font-size="19" font-weight="700">物理文件</text>
+    <rect x="70" y="105" width="300" height="64" fill="#d8ebff" stroke="#6d9bd2"/><text x="220" y="143" text-anchor="middle" font-size="18">仍存在的归档前缀</text>
+    <rect x="370" y="105" width="190" height="64" fill="#f0f2f5" stroke="#a4adb9" stroke-dasharray="8 6"/><text x="465" y="143" text-anchor="middle" font-size="16">已释放区域</text>
+    <rect x="600" y="105" width="230" height="64" fill="#ffe7c2" stroke="#d69c48"/><text x="715" y="135" text-anchor="middle" font-size="17">.hatchzip-tail</text><text x="715" y="158" text-anchor="middle" font-size="14">尾部 + CRC</text>
+    <line x1="465" y1="169" x2="465" y2="223" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="715" y1="169" x2="715" y2="223" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="450" y="209" text-anchor="middle" font-size="15" fill="#64748b">reader 组合</text>
+    <text x="70" y="261" font-size="19" font-weight="700">逻辑视图</text>
+    <rect x="70" y="285" width="300" height="64" fill="#d8ebff" stroke="#6d9bd2"/><text x="220" y="323" text-anchor="middle" font-size="18">归档前缀</text>
+    <rect x="370" y="285" width="230" height="64" fill="#ffe7c2" stroke="#d69c48"/><text x="485" y="323" text-anchor="middle" font-size="18">保存的目录尾部</text>
+    <rect x="600" y="285" width="230" height="64" fill="#e2f4e8" stroke="#72ad83"/><text x="715" y="323" text-anchor="middle" font-size="18">格式库看到的完整布局</text>
+    <text x="450" y="402" text-anchor="middle" font-size="16" fill="#64748b">sidecar 让程序继续解析，不会让物理归档恢复成普通完整 ZIP</text>
+    <text x="450" y="430" text-anchor="middle" font-size="15" fill="#64748b">journal 另行记录尾部位置与提交进度</text>
+  </g>
+</svg>

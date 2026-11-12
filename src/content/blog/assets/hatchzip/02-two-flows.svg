@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+  <title>普通解压与 HatchZip 的两条处理流程</title>
+  <desc>左侧保留完整归档直到结束，右侧在输出刷新和 journal 提交后逐批截短归档。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4b5b"/></marker></defs>
+  <rect width="900" height="430" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937">
+    <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700">两种解压流程</text>
+    <rect x="35" y="62" width="390" height="320" rx="12" fill="#f6f8fb" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="475" y="62" width="390" height="320" rx="12" fill="#f4fbf7" stroke="#8ac7a0" stroke-width="2"/>
+    <text x="230" y="96" text-anchor="middle" font-size="20" font-weight="700">普通解压</text>
+    <text x="670" y="96" text-anchor="middle" font-size="20" font-weight="700">HatchZip</text>
+    <g font-size="16" text-anchor="middle">
+      <rect x="90" y="125" width="280" height="42" rx="8" fill="#e9eef6"/><text x="230" y="152">完整压缩包</text>
+      <line x1="230" y1="167" x2="230" y2="197" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="90" y="197" width="280" height="42" rx="8" fill="#d8ebff"/><text x="230" y="224">解码并写出文件</text>
+      <line x1="230" y1="239" x2="230" y2="269" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="90" y="269" width="280" height="42" rx="8" fill="#e9eef6"/><text x="230" y="296">成功后删除压缩包</text>
+      <text x="230" y="347" fill="#64748b">失败时输入仍可重试</text>
+      <rect x="530" y="125" width="280" height="42" rx="8" fill="#e2f4e8"/><text x="670" y="152">读取一个批次</text>
+      <line x1="670" y1="167" x2="670" y2="197" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="530" y="197" width="280" height="42" rx="8" fill="#d8ebff"/><text x="670" y="224">写出、校验、flush</text>
+      <line x1="670" y1="239" x2="670" y2="269" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+      <rect x="530" y="269" width="280" height="42" rx="8" fill="#ffe7c2"/><text x="670" y="296">journal 提交后截短归档</text>
+      <text x="670" y="347" fill="#567a62">释放空间，继续下一批</text>
+    </g>
+  </g>
+</svg>

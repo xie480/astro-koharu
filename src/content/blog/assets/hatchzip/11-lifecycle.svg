@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+  <title>归档从完整到被消耗的三阶段生命周期</title>
+  <desc>展示开始、进行中、结束三个阶段里压缩包与输出目录的变化。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4b5b"/></marker></defs>
+  <rect width="900" height="430" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937" text-anchor="middle">
+    <text x="450" y="32" font-size="24" font-weight="700">消耗式解压的三个阶段</text>
+    <rect x="55" y="75" width="230" height="235" rx="12" fill="#f0f2f5" stroke="#a4adb9" stroke-width="2"/><rect x="335" y="75" width="230" height="235" rx="12" fill="#f4fbf7" stroke="#8ac7a0" stroke-width="2"/><rect x="615" y="75" width="230" height="235" rx="12" fill="#fffaf1" stroke="#d9b26e" stroke-width="2"/>
+    <text x="170" y="111" font-size="20" font-weight="700">开始</text><text x="450" y="111" font-size="20" font-weight="700">进行中</text><text x="730" y="111" font-size="20" font-weight="700">结束</text>
+    <rect x="85" y="145" width="170" height="44" fill="#ffe7c2" stroke="#d69c48"/><text x="170" y="173" font-size="17">完整压缩包</text><text x="170" y="226" font-size="17">空输出目录</text>
+    <rect x="365" y="145" width="170" height="44" fill="#ffe7c2" stroke="#d69c48"/><text x="450" y="173" font-size="17">归档逐步缩小</text><rect x="365" y="205" width="170" height="44" fill="#d8ebff" stroke="#6d9bd2"/><text x="450" y="233" font-size="17">输出逐步变大</text><text x="450" y="280" font-size="15" fill="#567a62">flush → journal → 释放</text>
+    <rect x="645" y="145" width="170" height="44" fill="#f0f2f5" stroke="#a4adb9"/><text x="730" y="173" font-size="17">归档被消耗</text><rect x="645" y="205" width="170" height="44" fill="#d8ebff" stroke="#6d9bd2"/><text x="730" y="233" font-size="17">输出完整保留</text><text x="730" y="280" font-size="15" fill="#64748b">副本价值决定是否采用</text>
+    <line x1="285" y1="192" x2="335" y2="192" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/><line x1="565" y1="192" x2="615" y2="192" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="450" y="365" font-size="18" fill="#567a62">空间被循环使用，完整性由明确的备份策略来保障</text>
+  </g>
+</svg>

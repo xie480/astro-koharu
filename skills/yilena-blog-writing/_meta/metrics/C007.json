@@ -1,0 +1,139 @@
+{
+  "body_chars": 1089,
+  "prose_chars": 223,
+  "code_chars": 634,
+  "paragraph_chars": [41, 5, 50, 23, 51, 16, 37],
+  "paragraph_sentences": [1, 1, 1, 1, 1, 1, 1],
+  "sentence_lengths": [40, 5, 49, 22, 51, 15, 37],
+  "headings": [
+    {
+      "level": 2,
+      "text": "一、问题简述"
+    },
+    {
+      "level": 2,
+      "text": "二、"
+    },
+    {
+      "level": 3,
+      "text": "（一）去除依赖"
+    },
+    {
+      "level": 3,
+      "text": "（二）放行路径"
+    }
+  ],
+  "code_blocks": [
+    {
+      "language": "javascript",
+      "chars": 256
+    },
+    {
+      "language": "java",
+      "chars": 378
+    }
+  ],
+  "images": [
+    {
+      "alt": "",
+      "url": "https://i-blog.csdnimg.cn/direct/b11061432acb4981b9cfbde30fff5878.png",
+      "body_line": 7
+    }
+  ],
+  "table_rows": 0,
+  "quote_lines": 2,
+  "bold_spans": 1,
+  "excluded_quoted_log_lines": 0,
+  "thematic_breaks": 2,
+  "punctuation": {
+    "，": 5,
+    "。": 3,
+    "：": 2,
+    "；": 0,
+    "？": 0,
+    "！": 1,
+    "——": 0,
+    "（": 0,
+    "）": 0,
+    "(": 0,
+    ")": 0,
+    "“": 0,
+    "”": 0
+  },
+  "latin_tokens": 9,
+  "lexicon_counts": {
+    "nouns": {
+      "问题": 1,
+      "资源": 1,
+      "文件": 1,
+      "框架": 1,
+      "配置": 4,
+      "路径": 1,
+      "页面": 2,
+      "Spring": 1
+    },
+    "verbs": {
+      "使用": 2,
+      "进行": 1,
+      "需要": 2,
+      "提供": 1,
+      "解决": 1,
+      "发现": 1,
+      "访问": 1
+    },
+    "adverbs_and_connectors": {
+      "其实": 1,
+      "直接": 1,
+      "但是": 1
+    }
+  },
+  "pos_counts": {
+    "nouns": {
+      "网址": 1,
+      "页面": 2,
+      "文件": 1,
+      "功能": 1,
+      "框架": 1,
+      "暴力": 1,
+      "办法": 1,
+      "项目": 1,
+      "资源": 1,
+      "路径": 1,
+      "问题": 1,
+      "评论": 1,
+      "原文": 1,
+      "链接": 1,
+      "解决方案": 1,
+      "作者": 1
+    },
+    "verbs": {
+      "访问": 1,
+      "出现": 1,
+      "配置": 4,
+      "没有": 1,
+      "登录": 4,
+      "认证": 3,
+      "排查": 1,
+      "发现": 1,
+      "提供": 1,
+      "去掉": 1,
+      "需要": 2,
+      "使用": 2,
+      "进行": 1,
+      "放行": 1,
+      "还有": 1,
+      "告诉": 1
+    },
+    "adverbs": {
+      "其实": 1
+    },
+    "english_terms": {
+      "knife4j": 3,
+      "yaml": 1,
+      "Security": 2,
+      "Spring": 1,
+      "Knife4j": 1,
+      "Yilena": 1
+    }
+  }
+}

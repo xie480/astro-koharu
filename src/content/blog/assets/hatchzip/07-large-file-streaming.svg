@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470">
+  <title>大文件整体提交与分段释放</title>
+  <desc>左侧表示三十 GB 文件需要整体空闲空间，右侧表示支持打洞时分段写出并记录恢复点。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4b5b"/></marker></defs>
+  <rect width="900" height="470" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937">
+    <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700">大文件的空间边界</text>
+    <rect x="35" y="60" width="390" height="335" rx="12" fill="#fff6f5" stroke="#d79b97" stroke-width="2"/>
+    <rect x="475" y="60" width="390" height="335" rx="12" fill="#f4fbf7" stroke="#8ac7a0" stroke-width="2"/>
+    <text x="230" y="94" text-anchor="middle" font-size="20" font-weight="700">整体提交</text>
+    <text x="670" y="94" text-anchor="middle" font-size="20" font-weight="700">可恢复分段</text>
+    <g text-anchor="middle" font-size="17">
+      <rect x="90" y="128" width="280" height="46" fill="#f9d9d7" stroke="#c67c78"/><text x="230" y="158">30 GB 输出文件</text>
+      <text x="230" y="208" fill="#b55450">只有 5 GB 可用</text>
+      <line x1="230" y1="220" x2="230" y2="258" stroke="#b55450" stroke-width="3" marker-end="url(#arrow)"/>
+      <rect x="90" y="266" width="280" height="58" fill="#f9d9d7" stroke="#c67c78"/><text x="230" y="301">空间不足，无法提交</text>
+      <rect x="530" y="128" width="62" height="46" fill="#d8ebff" stroke="#6d9bd2"/><rect x="602" y="128" width="62" height="46" fill="#d8ebff" stroke="#6d9bd2"/><rect x="674" y="128" width="62" height="46" fill="#d8ebff" stroke="#6d9bd2"/><rect x="746" y="128" width="62" height="46" fill="#d8ebff" stroke="#6d9bd2"/>
+      <text x="561" y="158">段 1</text><text x="633" y="158">段 2</text><text x="705" y="158">段 3</text><text x="777" y="158">段 4</text>
+      <line x1="561" y1="174" x2="561" y2="216" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/><line x1="633" y1="174" x2="633" y2="216" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/><line x1="705" y1="174" x2="705" y2="216" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/><line x1="777" y1="174" x2="777" y2="216" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="670" y="248" fill="#567a62">写出 → flush → journal → 打洞</text>
+      <text x="670" y="290" fill="#567a62">每段确认后释放对应输入</text>
+      <text x="670" y="344" fill="#64748b">约 256 MiB 是设计文档中的参考量</text>
+    </g>
+  </g>
+</svg>

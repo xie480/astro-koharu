@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yilena 博客写作"
+  short_description: "从五十九篇博客蒸馏的中文写作方法，按教程、工程复盘、排障与随笔匹配真实语感"
+  default_prompt: "使用 $yilena-blog-writing，先校准相关原文，再根据我提供的事实撰写博客。"

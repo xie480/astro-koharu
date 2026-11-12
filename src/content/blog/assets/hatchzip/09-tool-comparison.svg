@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <title>普通工具、成功后删除与 HatchZip 的行为对比</title>
+  <desc>以相同维度比较普通解压、成功后删除和逐步消耗归档三种行为。</desc>
+  <rect width="900" height="500" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937" font-size="16">
+    <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700">三种行为的边界</text>
+    <rect x="55" y="62" width="790" height="350" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="55" y="62" width="790" height="54" fill="#f0f2f5"/><line x1="280" y1="62" x2="280" y2="412" stroke="#cbd5e1"/><line x1="470" y1="62" x2="470" y2="412" stroke="#cbd5e1"/><line x1="660" y1="62" x2="660" y2="412" stroke="#cbd5e1"/>
+    <text x="165" y="96" text-anchor="middle" font-weight="700">比较维度</text><text x="375" y="96" text-anchor="middle" font-weight="700">普通解压</text><text x="565" y="96" text-anchor="middle" font-weight="700">成功后删除</text><text x="752" y="96" text-anchor="middle" font-weight="700">HatchZip</text>
+    <g text-anchor="middle">
+      <line x1="55" y1="166" x2="845" y2="166" stroke="#cbd5e1"/><line x1="55" y1="216" x2="845" y2="216" stroke="#cbd5e1"/><line x1="55" y1="266" x2="845" y2="266" stroke="#cbd5e1"/><line x1="55" y1="316" x2="845" y2="316" stroke="#cbd5e1"/><line x1="55" y1="366" x2="845" y2="366" stroke="#cbd5e1"/>
+      <text x="165" y="151">归档何时改变</text><text x="375" y="151">不改变</text><text x="565" y="151">成功后</text><text x="752" y="151">过程中逐步</text>
+      <text x="165" y="201">空间峰值</text><text x="375" y="201">归档 + 输出</text><text x="565" y="201">归档 + 输出</text><text x="752" y="201">输出 + 最大单位</text>
+      <text x="165" y="251">中途失败</text><text x="375" y="251">输入可重试</text><text x="565" y="251">输入通常仍在</text><text x="752" y="251">依赖 journal</text>
+      <text x="165" y="301">可重复提取</text><text x="375" y="301">容易</text><text x="565" y="301">删除前容易</text><text x="752" y="301">受消耗进度影响</text>
+      <text x="165" y="351">额外机制</text><text x="375" y="351">较少</text><text x="565" y="351">较少</text><text x="752" y="351">sidecar、journal、释放策略</text>
+      <text x="165" y="401">默认取舍</text><text x="375" y="401">保留原件</text><text x="565" y="401">完成后清理</text><text x="752" y="401">用原件换空间</text>
+    </g>
+    <text x="450" y="452" text-anchor="middle" fill="#64748b">第三列的“成功后删除”不等于第四列的“解压中逐步消耗”</text>
+  </g>
+</svg>

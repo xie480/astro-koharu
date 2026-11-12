@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+  <title>传统删除时间轴与空间曲线</title>
+  <desc>上方时间轴显示传统工具在成功结束后删除归档，下方曲线对比两种空间变化。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3f4b5b"/></marker></defs>
+  <rect width="900" height="430" fill="#fff"/>
+  <g font-family="sans-serif" fill="#1f2937">
+    <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700">归档何时消失？</text>
+    <line x1="100" y1="102" x2="800" y2="102" stroke="#3f4b5b" stroke-width="3" marker-end="url(#arrow)"/>
+    <g font-size="17" text-anchor="middle">
+      <circle cx="160" cy="102" r="9" fill="#8aa4c8"/><text x="160" y="78">读取目录</text>
+      <circle cx="350" cy="102" r="9" fill="#8aa4c8"/><text x="350" y="78">写出文件</text>
+      <circle cx="560" cy="102" r="9" fill="#8aa4c8"/><text x="560" y="78">完成校验</text>
+      <circle cx="760" cy="102" r="9" fill="#e67e22"/><text x="760" y="78">删除归档</text>
+    </g>
+    <line x1="100" y1="350" x2="800" y2="350" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="100" y1="350" x2="100" y2="155" stroke="#3f4b5b" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="78" y="255" transform="rotate(-90 78 255)" font-size="16">占用空间</text><text x="450" y="382" text-anchor="middle" font-size="16">解压时间</text>
+    <path d="M105 330 C255 310 390 245 585 190 L745 190 L770 330" fill="none" stroke="#2f80ed" stroke-width="5"/>
+    <path d="M105 330 C255 310 390 265 585 235 C670 220 730 260 770 315" fill="none" stroke="#27ae60" stroke-width="5"/>
+    <text x="580" y="175" font-size="16" fill="#2f80ed">普通解压：归档保持不变</text>
+    <text x="560" y="258" font-size="16" fill="#27ae60">消耗式解压：归档逐步减少</text>
+    <line x1="105" y1="405" x2="125" y2="405" stroke="#2f80ed" stroke-width="5"/><text x="135" y="411" font-size="14">普通解压</text>
+    <line x1="235" y1="405" x2="255" y2="405" stroke="#27ae60" stroke-width="5"/><text x="265" y="411" font-size="14">HatchZip</text>
+  </g>
+</svg>
