@@ -1424,5 +1424,69 @@
     "tags": ["战棋", "回合制", "策略", "剧情", "恶役千金"],
     "addedAt": "2026-10-31",
     "order": 120
+  },
+  {
+    "id": "novel-052",
+    "title": "메이드로 다시 시작합니다",
+    "category": "小说",
+    "demo": false,
+    "author": "십삼중수소",
+    "description": "好肉麻的两公婆……感情变化描写得很细腻，也很棒。不过美中不足的是，每章的行文结构太过相似，读久了会有些疲劳；同一点会在很多地方反复说明，政治相关的剧情也像儿戏一样。抛开这些不谈，整体而言还是不错的。",
+    "url": "https://novelpia.com/novel/327002",
+    "rating": 8,
+    "tags": ["百合", "主仆", "纯爱"],
+    "addedAt": "2026-11-14",
+    "order": 121
+  },
+  {
+    "id": "opensource-007",
+    "title": "hatchzip",
+    "category": "开源项目",
+    "demo": false,
+    "description": "可以一边解压一边删除压缩包，对存储空间紧张的人极其友好，亲测成功率非常高。",
+    "url": "https://github.com/xevrion/hatchzip",
+    "rating": 10,
+    "tags": ["工具"],
+    "addedAt": "2026-11-14",
+    "order": 122
+  },
+  {
+    "id": "game-029",
+    "title": "剑星",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3489700/library_600x900_2x.jpg",
+    "description": "剧情演出和世界观都很不错，但是战斗做得太差劲了；地图探索基本上也是一个套路：要开门 → 没钥匙 → 找钥匙 → 打怪 → 找到钥匙 → 开门。真的特别重复，太容易让人疲倦了。",
+    "url": "https://store.steampowered.com/app/3489700/Stellar_Blade/",
+    "rating": 7,
+    "tags": ["动作", "冒险", "科幻", "末世", "剧情"],
+    "addedAt": "2026-11-14",
+    "order": 123
+  },
+  {
+    "id": "game-030",
+    "title": "尼尔：机械纪元",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/524220/library_600x900_2x.jpg",
+    "description": "日系科幻末世 3A 的经典，战斗不错，但是说实话，整体地图太空旷，在无谓的跑图上会浪费很多时间。想要看多结局的话还得多周目，无法通过读档推进；虽然也能理解这种设计，但由于游戏的跑图设计太拉胯，完全提不起兴趣。不过 OST 真的神了。",
+    "url": "https://store.steampowered.com/app/524220/NieRAutomata/",
+    "rating": 8,
+    "tags": ["动作", "角色扮演", "科幻", "末世", "剧情"],
+    "addedAt": "2026-11-14",
+    "order": 124
+  },
+  {
+    "id": "game-031",
+    "title": "寂静岭 f",
+    "category": "游戏",
+    "demo": false,
+    "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2947440/library_600x900_2x.jpg",
+    "description": "建模和剧情演出都超级棒，解谜难度也恰到好处，剧本同样精彩。唯一美中不足的是战斗太拉胯，以及多结局需要多周目的设定。",
+    "url": "https://store.steampowered.com/app/2947440/SILENT_HILL_f/",
+    "rating": 8.5,
+    "tags": ["恐怖", "心理", "解谜", "剧情", "冒险"],
+    "addedAt": "2026-11-14",
+    "order": 125
   }
 ]
