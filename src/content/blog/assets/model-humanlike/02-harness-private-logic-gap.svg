@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI 跑团的工程状态与角色私人逻辑</title>
+  <desc id="desc">结构示意图：引擎、状态和工具保证世界可以继续运行；角色的偏好、误解、隐瞒和迟延反应，才决定它为什么用某种方式说话，两者之间存在需要额外设计的落差。</desc>
+  <style>
+    :root {
+      --bg: #fcfbf8;
+      --ink: #1d2a35;
+      --muted: #61717d;
+      --line: #d7dee2;
+      --system: #347563;
+      --system-fill: #e5f2ed;
+      --person: #6b5a9e;
+      --person-fill: #eee9f8;
+      --gap: #9a4d2c;
+      --gap-fill: #f8e9df;
+    }
+    text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: var(--ink); }
+    .muted { fill: var(--muted); }
+    .system-stroke { stroke: var(--system); }
+    .person-stroke { stroke: var(--person); }
+    .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
+
+  <defs>
+    <marker id="arrow-system" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="var(--system)"/>
+    </marker>
+    <marker id="arrow-person" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="var(--person)"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="620" rx="20" fill="var(--bg)"/>
+  <text x="52" y="58" font-size="30" font-weight="700">AI 跑团：系统能继续，不等于人物在生活</text>
+  <text x="52" y="90" class="muted" font-size="17">工程层保存“发生过什么”，角色层还要回答“它为什么这样反应”。</text>
+
+  <rect x="52" y="132" width="378" height="392" rx="18" fill="#ffffff" stroke="var(--system)" stroke-width="2"/>
+  <rect x="530" y="132" width="378" height="392" rx="18" fill="#ffffff" stroke="var(--person)" stroke-width="2"/>
+  <text x="82" y="174" fill="var(--system)" font-size="21" font-weight="700">系统可运行性</text>
+  <text x="560" y="174" fill="var(--person)" font-size="21" font-weight="700">人物具体性</text>
+
+  <rect x="82" y="202" width="318" height="58" rx="11" fill="var(--system-fill)" stroke="#b8d7cb" stroke-width="1.5"/>
+  <text x="104" y="227" font-size="18" font-weight="700">引擎</text>
+  <text x="104" y="249" class="muted" font-size="15">推进流程、恢复剧情</text>
+  <path d="M241 260 V278" class="arrow system-stroke" marker-end="url(#arrow-system)"/>
+
+  <rect x="82" y="282" width="318" height="58" rx="11" fill="var(--system-fill)" stroke="#b8d7cb" stroke-width="1.5"/>
+  <text x="104" y="307" font-size="18" font-weight="700">状态</text>
+  <text x="104" y="329" class="muted" font-size="15">保存世界、关系和事实</text>
+  <path d="M241 340 V358" class="arrow system-stroke" marker-end="url(#arrow-system)"/>
+
+  <rect x="82" y="362" width="318" height="58" rx="11" fill="var(--system-fill)" stroke="#b8d7cb" stroke-width="1.5"/>
+  <text x="104" y="387" font-size="18" font-weight="700">工具</text>
+  <text x="104" y="409" class="muted" font-size="15">执行骰子、规则和外部动作</text>
+  <path d="M241 420 V438" class="arrow system-stroke" marker-end="url(#arrow-system)"/>
+
+  <rect x="82" y="442" width="318" height="54" rx="11" fill="#ffffff" stroke="var(--system)" stroke-width="1.5"/>
+  <text x="241" y="476" text-anchor="middle" fill="var(--system)" font-size="18" font-weight="700">剧情可以继续</text>
+
+  <rect x="560" y="202" width="318" height="58" rx="11" fill="var(--person-fill)" stroke="#c9bfe4" stroke-width="1.5"/>
+  <text x="582" y="227" font-size="18" font-weight="700">偏好与优先级</text>
+  <text x="582" y="249" class="muted" font-size="15">它在意什么，先保护什么</text>
+  <path d="M719 260 V278" class="arrow person-stroke" marker-end="url(#arrow-person)"/>
+
+  <rect x="560" y="282" width="318" height="58" rx="11" fill="var(--person-fill)" stroke="#c9bfe4" stroke-width="1.5"/>
+  <text x="582" y="307" font-size="18" font-weight="700">误解与隐瞒</text>
+  <text x="582" y="329" class="muted" font-size="15">它知道什么，又不愿承认什么</text>
+  <path d="M719 340 V358" class="arrow person-stroke" marker-end="url(#arrow-person)"/>
+
+  <rect x="560" y="362" width="318" height="58" rx="11" fill="var(--person-fill)" stroke="#c9bfe4" stroke-width="1.5"/>
+  <text x="582" y="387" font-size="18" font-weight="700">迟延反应</text>
+  <text x="582" y="409" class="muted" font-size="15">关系不会在一轮对话里结算</text>
+  <path d="M719 420 V438" class="arrow person-stroke" marker-end="url(#arrow-person)"/>
+
+  <rect x="560" y="442" width="318" height="54" rx="11" fill="#ffffff" stroke="var(--person)" stroke-width="1.5"/>
+  <text x="719" y="476" text-anchor="middle" fill="var(--person)" font-size="18" font-weight="700">它为什么这样说</text>
+
+  <rect x="390" y="286" width="180" height="112" rx="14" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="480" y="316" text-anchor="middle" fill="var(--gap)" font-size="17" font-weight="700">工程落差</text>
+  <text x="480" y="344" text-anchor="middle" class="muted" font-size="14">事实被保存了</text>
+  <text x="480" y="367" text-anchor="middle" class="muted" font-size="14">私人逻辑未必存在</text>
+</svg>

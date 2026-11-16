@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">模型能力提升与活人感并不同步</title>
+  <desc id="desc">概念示意图：随着模型能力、可接受性和任务完成能力提升，角色的活人感不一定同步上升，具体偏好、迟疑和私人逻辑可能被压平。</desc>
+  <style>
+    :root {
+      --bg: #fcfbf8;
+      --ink: #1d2a35;
+      --muted: #61717d;
+      --line: #d7dee2;
+      --capacity: #347563;
+      --human: #9a4d2c;
+      --capacity-fill: #e5f2ed;
+      --human-fill: #f8e9df;
+    }
+    text {
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      fill: var(--ink);
+    }
+    .muted { fill: var(--muted); }
+    .axis { stroke: var(--line); stroke-width: 2; }
+    .capacity { stroke: var(--capacity); fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .human { stroke: var(--human); fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    .guide { stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 7; }
+  </style>
+
+  <rect width="960" height="560" rx="20" fill="var(--bg)"/>
+  <text x="52" y="58" font-size="30" font-weight="700">能力变强，不等于更像一个人</text>
+  <text x="52" y="90" class="muted" font-size="17">这是方向关系的概念图，不是可量化的评测曲线。</text>
+
+  <rect x="52" y="126" width="856" height="350" rx="16" fill="#ffffff" stroke="var(--line)" stroke-width="2"/>
+  <line x1="132" y1="416" x2="842" y2="416" class="axis"/>
+  <line x1="132" y1="416" x2="132" y2="176" class="axis"/>
+  <path d="M842 416 l-10 -6 v12 z" fill="var(--muted)"/>
+  <path d="M132 176 l-6 10 h12 z" fill="var(--muted)"/>
+  <text x="842" y="450" text-anchor="end" class="muted" font-size="16">模型能力 / 可接受性 →</text>
+  <text x="86" y="182" transform="rotate(-90 86 182)" class="muted" font-size="16">表现强度 →</text>
+
+  <line x1="276" y1="416" x2="276" y2="196" class="guide"/>
+  <line x1="430" y1="416" x2="430" y2="196" class="guide"/>
+  <line x1="584" y1="416" x2="584" y2="196" class="guide"/>
+  <line x1="738" y1="416" x2="738" y2="196" class="guide"/>
+
+  <path d="M152 382 C260 354 340 314 430 278 C548 231 654 210 824 190" class="capacity"/>
+  <circle cx="824" cy="190" r="7" fill="var(--capacity)"/>
+  <rect x="628" y="158" width="210" height="38" rx="19" fill="var(--capacity-fill)"/>
+  <text x="733" y="183" text-anchor="middle" fill="var(--capacity)" font-size="17" font-weight="700">指令遵循、规划、解释</text>
+
+  <path d="M152 286 C250 276 318 286 404 294 C520 304 615 296 704 306 C755 312 790 319 824 326" class="human"/>
+  <circle cx="824" cy="326" r="7" fill="var(--human)"/>
+  <rect x="600" y="342" width="244" height="38" rx="19" fill="var(--human-fill)"/>
+  <text x="722" y="367" text-anchor="middle" fill="var(--human)" font-size="17" font-weight="700">偏好、迟疑、私人逻辑</text>
+
+  <text x="158" y="246" fill="var(--capacity)" font-size="17" font-weight="700">能力提升</text>
+  <text x="158" y="324" fill="var(--human)" font-size="17" font-weight="700">活人感：不自动跟随</text>
+
+  <g transform="translate(96 500)">
+    <circle cx="8" cy="0" r="6" fill="var(--capacity)"/>
+    <text x="24" y="6" class="muted" font-size="15">更会把事情处理好</text>
+    <circle cx="228" cy="0" r="6" fill="var(--human)"/>
+    <text x="244" y="6" class="muted" font-size="15">不代表更愿意暴露自己</text>
+  </g>
+</svg>
