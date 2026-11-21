@@ -572,6 +572,8 @@
 .prose .markdown-image-wrapper {
   position: relative;
   display: block;
+  /* reset.css makes every figure fit its contents; landscape images need the article width. */
+  width: 100%;
   margin: 1.5rem auto;
   overflow: hidden;
   border-radius: 0.5rem;

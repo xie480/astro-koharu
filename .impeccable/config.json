@@ -1,0 +1,15 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": ["src/styles/theme/markdown.css"],
+        "createdAt": "2026-11-21T10:57:18.699Z",
+        "reason": "Agent: this border is the intentional code-line highlight marker, not a card side-tab; its warning color identifies highlighted source lines."
+      }
+    ]
+  }
+}
