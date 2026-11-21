@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">写代码是正向推导，Review是逆向建模</title>
+  <desc id="desc">上方展示从需求到代码的正向推导和从代码回到需求的逆向推导，下方对比线性的代码Diff与图状的设计模型。</desc>
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#347563"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#9a4d2c"/></marker>
+  </defs>
+  <rect width="1200" height="680" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">写代码是正向推导，Review是逆向建模</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">代码是结果，Review要恢复结果背后的设计和需求。</text>
+
+  <rect x="60" y="124" width="1080" height="132" rx="18" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  <text x="90" y="160" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">写代码：正向推导</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">
+    <rect x="100" y="188" width="170" height="40" rx="20" fill="#dcefe8"/><text x="185" y="214" text-anchor="middle" fill="#347563">需求</text>
+    <path d="M270 208 H350" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="360" y="188" width="170" height="40" rx="20" fill="#dcefe8"/><text x="445" y="214" text-anchor="middle" fill="#347563">设计模型</text>
+    <path d="M530 208 H610" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="620" y="188" width="170" height="40" rx="20" fill="#dcefe8"/><text x="705" y="214" text-anchor="middle" fill="#347563">测试条件</text>
+    <path d="M790 208 H870" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="880" y="188" width="170" height="40" rx="20" fill="#dcefe8"/><text x="965" y="214" text-anchor="middle" fill="#347563">代码</text>
+  </g>
+
+  <rect x="60" y="282" width="1080" height="132" rx="18" fill="#fff" stroke="#e4c7b5" stroke-width="2"/>
+  <text x="90" y="318" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">Code Review：逆向建模</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">
+    <rect x="100" y="346" width="170" height="40" rx="20" fill="#f6e2d7"/><text x="185" y="372" text-anchor="middle" fill="#9a4d2c">代码Diff</text>
+    <path d="M270 366 H350" stroke="#9a4d2c" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+    <rect x="360" y="346" width="170" height="40" rx="20" fill="#f6e2d7"/><text x="445" y="372" text-anchor="middle" fill="#9a4d2c">实现意图</text>
+    <path d="M530 366 H610" stroke="#9a4d2c" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+    <rect x="620" y="346" width="170" height="40" rx="20" fill="#f6e2d7"/><text x="705" y="372" text-anchor="middle" fill="#9a4d2c">设计模型</text>
+    <path d="M790 366 H870" stroke="#9a4d2c" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+    <rect x="880" y="346" width="170" height="40" rx="20" fill="#f6e2d7"/><text x="965" y="372" text-anchor="middle" fill="#9a4d2c">原始需求</text>
+  </g>
+
+  <rect x="60" y="448" width="500" height="174" rx="18" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="88" y="486" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">代码Diff：线性的变化</text>
+  <g font-family="Consolas, monospace" font-size="15">
+    <rect x="92" y="510" width="420" height="28" rx="6" fill="#f4f6f7"/><text x="106" y="530" fill="#61717d">- validate(input)</text>
+    <rect x="92" y="546" width="420" height="28" rx="6" fill="#f6e2d7"/><text x="106" y="566" fill="#9a4d2c">+ execute(input, state)</text>
+    <rect x="92" y="582" width="420" height="28" rx="6" fill="#f4f6f7"/><text x="106" y="602" fill="#61717d">  return result</text>
+  </g>
+
+  <rect x="640" y="448" width="500" height="174" rx="18" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="668" y="486" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">设计模型：图状的关系</text>
+  <g stroke="#5d87ad" stroke-width="2.5" fill="#e8f0fe">
+    <line x1="730" y1="548" x2="820" y2="520"/><line x1="820" y1="520" x2="960" y2="548"/><line x1="820" y1="520" x2="820" y2="590"/><line x1="820" y1="590" x2="1010" y2="590"/>
+    <circle cx="730" cy="548" r="28"/><circle cx="820" cy="520" r="28"/><circle cx="960" cy="548" r="28"/><circle cx="820" cy="590" r="28"/><circle cx="1010" cy="590" r="28"/>
+  </g>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="14" text-anchor="middle" fill="#1d2a35">
+    <text x="730" y="553">需求</text><text x="820" y="525">状态</text><text x="960" y="553">接口</text><text x="820" y="595">异常</text><text x="1010" y="595">外部系统</text>
+  </g>
+</svg>

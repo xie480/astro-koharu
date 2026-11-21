@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">测试要前移，但覆盖率不是正确性的同义词</title>
+  <desc id="desc">左侧展示从需求到验收、系统、集成和单元测试的前移过程，右侧说明覆盖率只是一个维度，仍需要边界、风险和回滚等补偿机制。</desc>
+  <rect width="1200" height="620" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">测试要前移，但覆盖率不是正确性的同义词</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">测试越早进入设计过程，越容易成为AI实现时的反馈信号。</text>
+
+  <rect x="60" y="124" width="650" height="430" rx="20" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  <text x="92" y="164" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">测试左移：先定义什么算通过</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">
+    <rect x="100" y="208" width="560" height="52" rx="12" fill="#dcefe8"/><text x="126" y="240" fill="#347563" font-weight="700">需求与验收条件</text>
+    <path d="M380 260 V278" stroke="#5f9f8a" stroke-width="2.5"/>
+    <rect x="100" y="286" width="560" height="52" rx="12" fill="#e8f0fe"/><text x="126" y="318" fill="#416b91" font-weight="700">设计模型与状态边界</text>
+    <path d="M380 338 V356" stroke="#5f87ad" stroke-width="2.5"/>
+    <rect x="100" y="364" width="560" height="52" rx="12" fill="#fef9e7"/><text x="126" y="396" fill="#8b6e1f" font-weight="700">测试数据、异常路径和不可发生的状态</text>
+    <path d="M380 416 V434" stroke="#c39b37" stroke-width="2.5"/>
+    <rect x="100" y="442" width="560" height="52" rx="12" fill="#f6e2d7"/><text x="126" y="474" fill="#9a4d2c" font-weight="700">AI生成代码并根据反馈迭代</text>
+  </g>
+
+  <rect x="760" y="124" width="380" height="430" rx="20" fill="#fff" stroke="#e4c7b5" stroke-width="2"/>
+  <text x="792" y="164" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">覆盖率之外，还要看风险</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">
+    <rect x="800" y="208" width="300" height="38" rx="9" fill="#fff7f1"/><text x="820" y="233" fill="#1d2a35">覆盖了哪些路径？</text>
+    <rect x="800" y="258" width="300" height="38" rx="9" fill="#fff7f1"/><text x="820" y="283" fill="#1d2a35">验证的是哪个需求？</text>
+    <rect x="800" y="308" width="300" height="38" rx="9" fill="#fff7f1"/><text x="820" y="333" fill="#1d2a35">失败时能否回滚？</text>
+    <rect x="800" y="358" width="300" height="38" rx="9" fill="#fff7f1"/><text x="820" y="383" fill="#1d2a35">安全和权限是否独立检查？</text>
+    <rect x="800" y="408" width="300" height="38" rx="9" fill="#fff7f1"/><text x="820" y="433" fill="#1d2a35">跨模块影响是否可观察？</text>
+  </g>
+  <rect x="800" y="480" width="300" height="42" rx="21" fill="#f6e2d7" stroke="#d7a98d"/>
+  <text x="950" y="507" text-anchor="middle" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700">测试通过 ≠ 设计正确</text>
+</svg>

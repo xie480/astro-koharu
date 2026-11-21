@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Review自动化决策取决于风险与重复度</title>
+  <desc id="desc">二维矩阵以业务风险和任务重复度为轴，展示低风险高重复任务适合自动化，高风险复杂任务需要人类主导。</desc>
+  <rect width="1200" height="660" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">Review自动化决策取决于风险与重复度</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">不要只问AI能不能Review，还要看判断错了之后会发生什么。</text>
+
+  <rect x="150" y="150" width="720" height="390" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <rect x="150" y="150" width="360" height="195" fill="#fff7f1"/>
+  <rect x="510" y="150" width="360" height="195" fill="#dcefe8"/>
+  <rect x="150" y="345" width="360" height="195" fill="#f6e2d7"/>
+  <rect x="510" y="345" width="360" height="195" fill="#eee9f8"/>
+  <line x1="510" y1="150" x2="510" y2="540" stroke="#d7dee2" stroke-width="2"/>
+  <line x1="150" y1="345" x2="870" y2="345" stroke="#d7dee2" stroke-width="2"/>
+
+  <text x="510" y="590" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">任务重复度 →</text>
+  <text x="96" y="355" transform="rotate(-90 96 355)" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">业务风险 →</text>
+  <text x="170" y="178" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">低重复 / 低风险</text>
+  <text x="530" y="178" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">高重复 / 低风险</text>
+  <text x="170" y="373" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">低重复 / 高风险</text>
+  <text x="530" y="373" fill="#6d5a90" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">高重复 / 高风险</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" text-anchor="middle">
+    <text x="330" y="235" fill="#1d2a35" font-weight="700">AI辅助，人类抽查</text>
+    <text x="330" y="268" fill="#61717d" font-size="15">新问题、低风险实验</text>
+    <text x="690" y="235" fill="#1d2a35" font-weight="700">优先自动化</text>
+    <text x="690" y="268" fill="#61717d" font-size="15">格式、样板、静态检查</text>
+    <text x="330" y="430" fill="#1d2a35" font-weight="700">人类主导</text>
+    <text x="330" y="463" fill="#61717d" font-size="15">架构、权限、不可逆操作</text>
+    <text x="690" y="430" fill="#1d2a35" font-weight="700">AI执行，人类设闸</text>
+    <text x="690" y="463" fill="#61717d" font-size="15">测试、迁移、批量变更</text>
+  </g>
+
+  <rect x="930" y="170" width="210" height="300" rx="18" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="1035" y="210" text-anchor="middle" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">判断问题</text>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15" fill="#61717d">
+    <text x="960" y="250">• 错了之后能否回滚？</text>
+    <text x="960" y="288">• 是否影响多个系统？</text>
+    <text x="960" y="326">• 是否涉及权限或数据？</text>
+    <text x="960" y="364">• 测试能否覆盖风险？</text>
+    <text x="960" y="402">• 判断过程能否回放？</text>
+  </g>
+  <text x="1035" y="446" text-anchor="middle" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">风险越高，人工责任越不能省略</text>
+</svg>

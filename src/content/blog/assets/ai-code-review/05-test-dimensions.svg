@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">测试需要同时看层次、方法和质量目标</title>
+  <desc id="desc">三组卡片分别展示测试层次、测试方法和质量目标，说明测试不是单一覆盖率指标，而是一组针对风险的反馈机制。</desc>
+  <rect width="1200" height="620" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">测试需要同时看层次、方法和质量目标</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">只盯着一个覆盖率数字，很容易漏掉真正的系统风险。</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <rect x="60" y="132" width="330" height="360" rx="20" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="92" y="176" fill="#347563" font-size="22" font-weight="700">测试层次</text>
+    <rect x="92" y="208" width="266" height="48" rx="11" fill="#dcefe8"/><text x="112" y="238" fill="#1d2a35" font-size="17">单元测试</text>
+    <rect x="92" y="272" width="266" height="48" rx="11" fill="#e8f0fe"/><text x="112" y="302" fill="#1d2a35" font-size="17">集成测试</text>
+    <rect x="92" y="336" width="266" height="48" rx="11" fill="#fef9e7"/><text x="112" y="366" fill="#1d2a35" font-size="17">系统测试</text>
+    <rect x="92" y="400" width="266" height="48" rx="11" fill="#f6e2d7"/><text x="112" y="430" fill="#1d2a35" font-size="17">验收测试</text>
+
+    <rect x="435" y="132" width="330" height="360" rx="20" fill="#fff" stroke="#b9cfe1" stroke-width="2"/>
+    <text x="467" y="176" fill="#416b91" font-size="22" font-weight="700">测试方法</text>
+    <rect x="467" y="208" width="266" height="48" rx="11" fill="#e8f0fe"/><text x="487" y="238" fill="#1d2a35" font-size="17">正常路径</text>
+    <rect x="467" y="272" width="266" height="48" rx="11" fill="#e8f0fe"/><text x="487" y="302" fill="#1d2a35" font-size="17">边界与异常</text>
+    <rect x="467" y="336" width="266" height="48" rx="11" fill="#e8f0fe"/><text x="487" y="366" fill="#1d2a35" font-size="17">对照与回归</text>
+    <rect x="467" y="400" width="266" height="48" rx="11" fill="#e8f0fe"/><text x="487" y="430" fill="#1d2a35" font-size="17">人工审批与演练</text>
+
+    <rect x="810" y="132" width="330" height="360" rx="20" fill="#fff" stroke="#c7bfdf" stroke-width="2"/>
+    <text x="842" y="176" fill="#6d5a90" font-size="22" font-weight="700">质量目标</text>
+    <rect x="842" y="208" width="266" height="48" rx="11" fill="#eee9f8"/><text x="862" y="238" fill="#1d2a35" font-size="17">功能正确</text>
+    <rect x="842" y="272" width="266" height="48" rx="11" fill="#eee9f8"/><text x="862" y="302" fill="#1d2a35" font-size="17">安全与权限</text>
+    <rect x="842" y="336" width="266" height="48" rx="11" fill="#eee9f8"/><text x="862" y="366" fill="#1d2a35" font-size="17">性能与可靠性</text>
+    <rect x="842" y="400" width="266" height="48" rx="11" fill="#eee9f8"/><text x="862" y="430" fill="#1d2a35" font-size="17">兼容与可维护</text>
+  </g>
+
+  <path d="M390 312 H435 M765 312 H810" stroke="#61717d" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <rect x="220" y="530" width="760" height="42" rx="21" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="600" y="557" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16" font-weight="700">测试的目标不是把数字做大，而是让关键风险更早暴露。</text>
+</svg>

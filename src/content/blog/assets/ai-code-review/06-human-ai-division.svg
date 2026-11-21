@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">人和AI的分工：人定方向，AI跑实现</title>
+  <desc id="desc">泳道图展示人类负责需求、设计、边界和风险判断，AI负责实现、测试执行和根据反馈修改，最终在高风险节点保留人工确认。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">人和AI的分工：人定方向，AI跑实现</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">AI可以承担更多执行工作，人类仍要保留设计判断和风险责任。</text>
+
+  <rect x="60" y="126" width="1080" height="196" rx="20" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  <rect x="60" y="344" width="1080" height="196" rx="20" fill="#fff" stroke="#e4c7b5" stroke-width="2"/>
+  <text x="92" y="168" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">人类泳道：定义和判断</text>
+  <text x="92" y="386" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">AI泳道：实现和反馈</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">
+    <rect x="92" y="202" width="190" height="54" rx="11" fill="#dcefe8"/><text x="187" y="236" text-anchor="middle" fill="#1d2a35">澄清需求</text>
+    <path d="M282 229 H330" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="340" y="202" width="190" height="54" rx="11" fill="#dcefe8"/><text x="435" y="236" text-anchor="middle" fill="#1d2a35">建立设计模型</text>
+    <path d="M530 229 H578" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="588" y="202" width="190" height="54" rx="11" fill="#dcefe8"/><text x="683" y="236" text-anchor="middle" fill="#1d2a35">确认测试条件</text>
+    <path d="M778 229 H826" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="836" y="202" width="210" height="54" rx="11" fill="#f6e2d7"/><text x="941" y="236" text-anchor="middle" fill="#9a4d2c">审查设计与风险</text>
+
+    <rect x="92" y="420" width="190" height="54" rx="11" fill="#f6e2d7"/><text x="187" y="454" text-anchor="middle" fill="#1d2a35">生成代码</text>
+    <path d="M282 447 H330" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="340" y="420" width="190" height="54" rx="11" fill="#f6e2d7"/><text x="435" y="454" text-anchor="middle" fill="#1d2a35">执行测试</text>
+    <path d="M530 447 H578" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="588" y="420" width="190" height="54" rx="11" fill="#f6e2d7"/><text x="683" y="454" text-anchor="middle" fill="#1d2a35">根据反馈修改</text>
+    <path d="M778 447 H826" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="836" y="420" width="210" height="54" rx="11" fill="#fff7f1" stroke="#eed8ca"/><text x="941" y="454" text-anchor="middle" fill="#9a4d2c">提交验证结果</text>
+  </g>
+
+  <path d="M941 256 V420" stroke="#9a4d2c" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+  <text x="970" y="350" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">高风险节点保留人工确认</text>
+  <path d="M683 474 C683 552 435 566 435 256" fill="none" stroke="#5d87ad" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+  <text x="520" y="586" fill="#416b91" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">测试反馈回到设计和实现</text>
+</svg>

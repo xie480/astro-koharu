@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">AI加入之后，Review多了一层信任与注意力成本</title>
+  <desc id="desc">上方对比传统的人与人Review链路和加入AI后的链路，下方展示AI生成内容增加后，开发者需要处理的上下文与注意力负担。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">AI加入之后，Review多了一层信任与注意力成本</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">Review者要确认代码，也要确认生成过程留下的隐含假设。</text>
+
+  <text x="70" y="132" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" font-weight="700">传统协作：作者能够解释自己的代码</text>
+  <rect x="70" y="158" width="1060" height="74" rx="16" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">
+    <rect x="102" y="176" width="180" height="38" rx="19" fill="#dcefe8"/><text x="192" y="201" text-anchor="middle" fill="#347563">需求</text>
+    <path d="M282 195 H350" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="360" y="176" width="180" height="38" rx="19" fill="#dcefe8"/><text x="450" y="201" text-anchor="middle" fill="#347563">开发者</text>
+    <path d="M540 195 H608" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="618" y="176" width="180" height="38" rx="19" fill="#dcefe8"/><text x="708" y="201" text-anchor="middle" fill="#347563">代码</text>
+    <path d="M798 195 H866" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="876" y="176" width="190" height="38" rx="19" fill="#dcefe8"/><text x="971" y="201" text-anchor="middle" fill="#347563">Review者</text>
+  </g>
+
+  <text x="70" y="282" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="21" font-weight="700">AI参与后：代码结果之外，还要重新确认上下文</text>
+  <rect x="70" y="308" width="1060" height="74" rx="16" fill="#fff" stroke="#e4c7b5" stroke-width="2"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">
+    <rect x="102" y="326" width="150" height="38" rx="19" fill="#f6e2d7"/><text x="177" y="351" text-anchor="middle" fill="#9a4d2c">需求</text>
+    <path d="M252 345 H310" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="320" y="326" width="150" height="38" rx="19" fill="#f6e2d7"/><text x="395" y="351" text-anchor="middle" fill="#9a4d2c">AI生成</text>
+    <path d="M470 345 H528" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="538" y="326" width="150" height="38" rx="19" fill="#f6e2d7"/><text x="613" y="351" text-anchor="middle" fill="#9a4d2c">代码</text>
+    <path d="M688 345 H746" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="756" y="326" width="150" height="38" rx="19" fill="#f6e2d7"/><text x="831" y="351" text-anchor="middle" fill="#9a4d2c">Review</text>
+    <path d="M906 345 H1000" stroke="#9a4d2c" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+    <text x="1060" y="351" text-anchor="middle" fill="#9a4d2c" font-size="15">重新猜上下文</text>
+  </g>
+
+  <rect x="70" y="438" width="1060" height="134" rx="18" fill="#fff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="98" y="474" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">注意力负担</text>
+  <text x="98" y="510" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">需求、状态、异常、依赖、设计意图和测试条件，需要在Review过程中重新拼回一张系统地图。</text>
+  <rect x="98" y="532" width="830" height="16" rx="8" fill="#e5f2ed"/><rect x="98" y="532" width="540" height="16" rx="8" fill="#5f9f8a"/>
+  <text x="950" y="547" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">代码量增加后，注意力不一定够用</text>
+</svg>
