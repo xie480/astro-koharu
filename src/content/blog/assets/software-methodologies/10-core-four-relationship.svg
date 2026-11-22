@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">DDD、ATDD、BDD 与 TDD 的关系</title>
+  <desc id="desc">图中展示从业务领域模型到验收目标、行为场景和代码单元测试的关系。DDD 负责说明业务概念，ATDD 负责确认完成标准，BDD 负责描述可观察行为，TDD 负责驱动代码设计。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 23px; font-weight: 700; }
+    .label { font-size: 16px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="720" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">DDD、ATDD、BDD、TDD：从业务到代码的四个反馈层</text>
+  <text x="60" y="88" class="subtitle muted">它们可以串在一条链路上，但每个方法负责的对象不同。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="150" width="240" height="190" rx="22" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="340" y="150" width="240" height="190" rx="22" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <rect x="610" y="150" width="240" height="190" rx="22" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <rect x="880" y="150" width="240" height="190" rx="22" fill="#ffffff" stroke="#d8c6e8" stroke-width="2"/>
+  </g>
+
+  <rect x="96" y="176" width="92" height="32" rx="16" fill="#dcefe8"/>
+  <text x="142" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#347563">领域模型</text>
+  <text x="96" y="246" class="head" fill="#347563">DDD</text>
+  <text x="96" y="278" class="label">业务概念是什么？</text>
+  <text x="96" y="306" class="small muted">统一语言、边界、</text>
+  <text x="96" y="328" class="small muted">领域对象与规则</text>
+
+  <rect x="366" y="176" width="92" height="32" rx="16" fill="#e0ebf8"/>
+  <text x="412" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#35658f">验收目标</text>
+  <text x="366" y="246" class="head" fill="#35658f">ATDD</text>
+  <text x="366" y="278" class="label">什么结果才算完成？</text>
+  <text x="366" y="306" class="small muted">业务、测试、开发</text>
+  <text x="366" y="328" class="small muted">共同确认验收条件</text>
+
+  <rect x="636" y="176" width="92" height="32" rx="16" fill="#fff7f1"/>
+  <text x="682" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#9a4d2c">行为场景</text>
+  <text x="636" y="246" class="head" fill="#9a4d2c">BDD</text>
+  <text x="636" y="278" class="label">系统应该怎样表现？</text>
+  <text x="636" y="306" class="small muted">Given / When / Then</text>
+  <text x="636" y="328" class="small muted">描述可观察行为</text>
+
+  <rect x="906" y="176" width="92" height="32" rx="16" fill="#eadff5"/>
+  <text x="952" y="198" text-anchor="middle" font-size="16" font-weight="700" fill="#76529a">代码反馈</text>
+  <text x="906" y="246" class="head" fill="#76529a">TDD</text>
+  <text x="906" y="278" class="label">代码怎样实现得可靠？</text>
+  <text x="906" y="306" class="small muted">Red / Green / Refactor</text>
+  <text x="906" y="328" class="small muted">用测试驱动设计</text>
+
+  <path d="M310 245 H340" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M580 245 H610" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M850 245 H880" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="325" y="226" text-anchor="middle" class="small muted">转化</text>
+  <text x="595" y="226" text-anchor="middle" class="small muted">具体化</text>
+  <text x="865" y="226" text-anchor="middle" class="small muted">实现</text>
+
+  <rect x="150" y="430" width="900" height="120" rx="24" fill="#ffffff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="600" y="468" text-anchor="middle" class="head">不要把它们理解成“谁升级了谁”</text>
+  <text x="600" y="502" text-anchor="middle" class="label muted">DDD 解决“业务在说什么”，ATDD/BDD 解决“系统要表现什么”，TDD 解决“代码如何一步步实现”。</text>
+  <text x="600" y="530" text-anchor="middle" class="small muted">它们可以组合，但不能互相替代。</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">根据主要失控点选择开发方法论</title>
+  <desc id="desc">决策树从当前最明显的问题出发，分别指向需求变化、需求验收、代码维护、业务复杂度和生产稳定性等问题，并给出可以优先考虑的方法组合。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 19px; font-weight: 700; }
+    .label { font-size: 15px; }
+    .small { font-size: 13px; }
+  </style>
+  <rect width="1200" height="760" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">不要先选方法，先找到当前最明显的失控点</text>
+  <text x="60" y="88" class="subtitle muted">下面的分支只是定位入口，不是必须照搬的组合方案。</text>
+
+  <rect x="420" y="128" width="360" height="64" rx="20" fill="#ffffff" stroke="#d7dee2" stroke-width="2"/>
+  <text x="600" y="157" text-anchor="middle" class="head">当前最明显的问题是什么？</text>
+  <text x="600" y="180" text-anchor="middle" class="small muted">先看反馈链路断在哪里</text>
+
+  <g>
+    <rect x="70" y="300" width="190" height="72" rx="16" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <text x="165" y="330" text-anchor="middle" class="head" fill="#35658f">需求变化快</text>
+    <text x="165" y="354" text-anchor="middle" class="small muted">计划很容易失效</text>
+
+    <rect x="290" y="300" width="190" height="72" rx="16" fill="#ffffff" stroke="#ead6c8" stroke-width="2"/>
+    <text x="385" y="330" text-anchor="middle" class="head" fill="#9a4d2c">需求验收不一致</text>
+    <text x="385" y="354" text-anchor="middle" class="small muted">大家理解的完成不同</text>
+
+    <rect x="510" y="300" width="190" height="72" rx="16" fill="#ffffff" stroke="#d8c6e8" stroke-width="2"/>
+    <text x="605" y="330" text-anchor="middle" class="head" fill="#76529a">代码越来越难改</text>
+    <text x="605" y="354" text-anchor="middle" class="small muted">修改成本持续上升</text>
+
+    <rect x="730" y="300" width="190" height="72" rx="16" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="825" y="330" text-anchor="middle" class="head" fill="#347563">业务概念复杂</text>
+    <text x="825" y="354" text-anchor="middle" class="small muted">边界和语言混乱</text>
+
+    <rect x="950" y="300" width="190" height="72" rx="16" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <text x="1045" y="330" text-anchor="middle" class="head" fill="#9a4d2c">线上运行不稳</text>
+    <text x="1045" y="354" text-anchor="middle" class="small muted">发布后缺少反馈</text>
+  </g>
+
+  <path d="M600 192 V246" stroke="#61717d" stroke-width="2"/>
+  <path d="M165 246 H1045" stroke="#61717d" stroke-width="2"/>
+  <path d="M165 246 V300" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M385 246 V300" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M605 246 V300" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M825 246 V300" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M1045 246 V300" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="70" y="452" width="190" height="112" rx="16" fill="#e0ebf8"/>
+    <text x="165" y="486" text-anchor="middle" class="label" fill="#35658f">优先考虑</text>
+    <text x="165" y="515" text-anchor="middle" class="small">Agile · Kanban</text>
+    <text x="165" y="539" text-anchor="middle" class="small">Spiral</text>
+
+    <rect x="290" y="452" width="190" height="112" rx="16" fill="#fff7f1"/>
+    <text x="385" y="486" text-anchor="middle" class="label" fill="#9a4d2c">优先考虑</text>
+    <text x="385" y="515" text-anchor="middle" class="small">BDD · ATDD</text>
+    <text x="385" y="539" text-anchor="middle" class="small">Specification by Example</text>
+
+    <rect x="510" y="452" width="190" height="112" rx="16" fill="#eadff5"/>
+    <text x="605" y="486" text-anchor="middle" class="label" fill="#76529a">优先考虑</text>
+    <text x="605" y="515" text-anchor="middle" class="small">XP · TDD</text>
+    <text x="605" y="539" text-anchor="middle" class="small">Refactoring · Pair Programming</text>
+
+    <rect x="730" y="452" width="190" height="112" rx="16" fill="#dcefe8"/>
+    <text x="825" y="486" text-anchor="middle" class="label" fill="#347563">优先考虑</text>
+    <text x="825" y="515" text-anchor="middle" class="small">DDD</text>
+    <text x="825" y="539" text-anchor="middle" class="small">Clean · Hexagonal</text>
+
+    <rect x="950" y="452" width="190" height="112" rx="16" fill="#f6e2d7"/>
+    <text x="1045" y="486" text-anchor="middle" class="label" fill="#9a4d2c">优先考虑</text>
+    <text x="1045" y="515" text-anchor="middle" class="small">DevOps · CI/CD</text>
+    <text x="1045" y="539" text-anchor="middle" class="small">SRE</text>
+  </g>
+
+  <path d="M165 372 V452" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M385 372 V452" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M605 372 V452" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M825 372 V452" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M1045 372 V452" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="626" width="700" height="52" rx="26" fill="#f6e2d7"/>
+  <text x="600" y="658" text-anchor="middle" class="label" fill="#9a4d2c">方法是起点，不是终点：组合前先确认边界、成本和反馈方式。</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Waterfall、V-Model 与 Spiral 的反馈位置对比</title>
+  <desc id="desc">三个面板分别展示 Waterfall 的阶段推进、V-Model 的开发与验证对应关系，以及 Spiral 围绕风险进行迭代验证的过程。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .panel-title { font-size: 23px; font-weight: 700; }
+    .label { font-size: 15px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="700" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">三种生命周期模型，差别在于反馈什么时候回来</text>
+  <text x="60" y="88" class="subtitle muted">它们分别强调阶段确定性、验证对应关系和风险驱动迭代。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="128" width="340" height="452" rx="22" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <rect x="430" y="128" width="340" height="452" rx="22" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <rect x="800" y="128" width="340" height="452" rx="22" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+  </g>
+
+  <text x="90" y="174" class="panel-title" fill="#35658f">Waterfall</text>
+  <text x="90" y="202" class="muted label">阶段依次推进，反馈相对靠后</text>
+  <g>
+    <rect x="96" y="246" width="268" height="42" rx="10" fill="#e0ebf8"/><text x="230" y="272" text-anchor="middle" class="label">需求</text>
+    <path d="M230 288 V316" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="96" y="324" width="268" height="42" rx="10" fill="#e0ebf8"/><text x="230" y="350" text-anchor="middle" class="label">设计</text>
+    <path d="M230 366 V394" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="96" y="402" width="268" height="42" rx="10" fill="#e0ebf8"/><text x="230" y="428" text-anchor="middle" class="label">开发</text>
+    <path d="M230 444 V472" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="96" y="480" width="268" height="42" rx="10" fill="#f6e2d7"/><text x="230" y="506" text-anchor="middle" class="label">测试与验收</text>
+    <text x="230" y="550" text-anchor="middle" class="small" fill="#9a4d2c">反馈较晚，变更成本集中到后期</text>
+  </g>
+
+  <text x="460" y="174" class="panel-title" fill="#9a4d2c">V-Model</text>
+  <text x="460" y="202" class="muted label">开发活动与验证活动建立对应关系</text>
+  <g font-size="14">
+    <rect x="474" y="244" width="120" height="38" rx="9" fill="#f6e2d7"/><text x="534" y="268" text-anchor="middle" class="small">需求</text>
+    <rect x="606" y="244" width="120" height="38" rx="9" fill="#fff7f1"/><text x="666" y="268" text-anchor="middle" class="small">验收测试</text>
+    <path d="M594 263 H606" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="474" y="322" width="120" height="38" rx="9" fill="#f6e2d7"/><text x="534" y="346" text-anchor="middle" class="small">系统设计</text>
+    <rect x="606" y="322" width="120" height="38" rx="9" fill="#fff7f1"/><text x="666" y="346" text-anchor="middle" class="small">系统测试</text>
+    <path d="M594 341 H606" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="474" y="400" width="120" height="38" rx="9" fill="#f6e2d7"/><text x="534" y="424" text-anchor="middle" class="small">详细设计</text>
+    <rect x="606" y="400" width="120" height="38" rx="9" fill="#fff7f1"/><text x="666" y="424" text-anchor="middle" class="small">集成测试</text>
+    <path d="M594 419 H606" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="474" y="478" width="120" height="38" rx="9" fill="#f6e2d7"/><text x="534" y="502" text-anchor="middle" class="small">编码</text>
+    <rect x="606" y="478" width="120" height="38" rx="9" fill="#fff7f1"/><text x="666" y="502" text-anchor="middle" class="small">单元测试</text>
+    <path d="M594 497 H606" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <text x="600" y="550" text-anchor="middle" class="small" fill="#9a4d2c">重点：可追溯、可验证</text>
+
+  <text x="830" y="174" class="panel-title" fill="#347563">Spiral</text>
+  <text x="830" y="202" class="muted label">每一轮优先消除最重要的风险</text>
+  <g>
+    <circle cx="970" cy="350" r="128" fill="#f2fbf7" stroke="#b8d7cb" stroke-width="2"/>
+    <path d="M970 222 C1046 222 1098 277 1098 350 C1098 424 1046 478 970 478 C894 478 842 424 842 350 C842 278 894 222 970 222" fill="none" stroke="#347563" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+    <rect x="903" y="254" width="134" height="38" rx="19" fill="#dcefe8"/><text x="970" y="279" text-anchor="middle" class="small">确定目标</text>
+    <rect x="1032" y="331" width="134" height="38" rx="19" fill="#f6e2d7"/><text x="1099" y="356" text-anchor="middle" class="small">识别风险</text>
+    <rect x="903" y="408" width="134" height="38" rx="19" fill="#e0ebf8"/><text x="970" y="433" text-anchor="middle" class="small">原型验证</text>
+    <rect x="774" y="331" width="134" height="38" rx="19" fill="#fff7f1"/><text x="841" y="356" text-anchor="middle" class="small">评估结果</text>
+    <text x="970" y="350" text-anchor="middle" class="panel-title" fill="#347563">下一轮</text>
+    <text x="970" y="550" text-anchor="middle" class="small" fill="#347563">重点：风险前置、迭代验证</text>
+  </g>
+</svg>

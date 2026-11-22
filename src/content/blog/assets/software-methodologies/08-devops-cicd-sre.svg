@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">DevOps、CI/CD 与 SRE 的持续交付闭环</title>
+  <desc id="desc">图中展示从代码提交、持续集成、自动化测试、部署、生产观测到事故复盘的闭环，并标注 DevOps、CI/CD 和 SRE 分别承担的职责。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 19px; font-weight: 700; }
+    .label { font-size: 15px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">从代码到生产：DevOps、CI/CD 与 SRE 组成一个反馈闭环</text>
+  <text x="60" y="88" class="subtitle muted">交付不是终点，运行结果还要回到下一轮开发。</text>
+
+  <g>
+    <rect x="86" y="250" width="150" height="70" rx="16" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <text x="161" y="280" text-anchor="middle" class="head" fill="#35658f">代码提交</text>
+    <text x="161" y="303" text-anchor="middle" class="small muted">开发</text>
+
+    <rect x="278" y="250" width="150" height="70" rx="16" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="353" y="280" text-anchor="middle" class="head" fill="#347563">CI</text>
+    <text x="353" y="303" text-anchor="middle" class="small muted">构建与合并</text>
+
+    <rect x="470" y="250" width="150" height="70" rx="16" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="545" y="280" text-anchor="middle" class="head" fill="#347563">自动化测试</text>
+    <text x="545" y="303" text-anchor="middle" class="small muted">质量门禁</text>
+
+    <rect x="662" y="250" width="150" height="70" rx="16" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="737" y="280" text-anchor="middle" class="head" fill="#347563">CD</text>
+    <text x="737" y="303" text-anchor="middle" class="small muted">交付与部署</text>
+
+    <rect x="854" y="250" width="150" height="70" rx="16" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <text x="929" y="280" text-anchor="middle" class="head" fill="#9a4d2c">生产观测</text>
+    <text x="929" y="303" text-anchor="middle" class="small muted">SLO 与告警</text>
+
+    <rect x="662" y="430" width="150" height="70" rx="16" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <text x="737" y="460" text-anchor="middle" class="head" fill="#9a4d2c">复盘改进</text>
+    <text x="737" y="483" text-anchor="middle" class="small muted">事故与反馈</text>
+  </g>
+
+  <path d="M236 285 H278" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M428 285 H470" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M620 285 H662" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M812 285 H854" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M929 320 C940 388 850 450 812 465" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M662 465 C520 570 245 550 161 320" fill="none" stroke="#9a4d2c" stroke-width="2.5" stroke-dasharray="9 7" marker-end="url(#arrow)"/>
+
+  <rect x="188" y="126" width="824" height="56" rx="28" fill="#dcefe8"/>
+  <text x="600" y="161" text-anchor="middle" class="label" fill="#347563">DevOps：让开发、交付和运维共享同一条反馈链路</text>
+  <text x="600" y="570" text-anchor="middle" class="small muted">CI/CD 负责自动化交付，SRE 负责观察可靠性并推动改进。</text>
+</svg>

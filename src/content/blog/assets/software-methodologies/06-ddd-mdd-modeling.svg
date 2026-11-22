@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">DDD 与 MDD 的两条建模路径</title>
+  <desc id="desc">左侧展示 DDD 从业务专家和开发者共同理解领域，到形成领域模型和业务代码的路径；右侧展示 MDD 从系统模型经过转换和生成，再进入实现结构的路径。</desc>
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#347563"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#35658f"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 24px; font-weight: 700; }
+    .label { font-size: 16px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">DDD 与 MDD 都谈模型，但它们解决的不是同一个问题</text>
+  <text x="60" y="88" class="subtitle muted">DDD 更关注如何理解业务，MDD 更关注模型如何参与开发和实现。</text>
+
+  <rect x="60" y="132" width="500" height="390" rx="22" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+  <rect x="640" y="132" width="500" height="390" rx="22" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+
+  <text x="96" y="180" class="head" fill="#347563">DDD · Domain-Driven Design</text>
+  <text x="96" y="210" class="label muted">从业务理解走向领域模型</text>
+  <g>
+    <rect x="108" y="252" width="180" height="48" rx="12" fill="#dcefe8"/><text x="198" y="282" text-anchor="middle" class="label">业务专家 + 开发者</text>
+    <path d="M288 276 H320" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="320" y="252" width="180" height="48" rx="12" fill="#dcefe8"/><text x="410" y="282" text-anchor="middle" class="label">统一语言</text>
+    <path d="M410 300 V336" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="198" y="344" width="180" height="48" rx="12" fill="#f2fbf7"/><text x="288" y="374" text-anchor="middle" class="label">领域模型</text>
+    <path d="M288 392 V428" stroke="#347563" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+    <rect x="108" y="436" width="360" height="48" rx="12" fill="#f2fbf7"/><text x="288" y="466" text-anchor="middle" class="label">业务边界、对象职责与代码结构</text>
+  </g>
+
+  <text x="676" y="180" class="head" fill="#35658f">MDD · Model-Driven Development</text>
+  <text x="676" y="210" class="label muted">从系统模型走向可重复的实现</text>
+  <g>
+    <rect x="706" y="252" width="368" height="48" rx="12" fill="#e0ebf8"/><text x="890" y="282" text-anchor="middle" class="label">系统模型</text>
+    <path d="M890 300 V336" stroke="#35658f" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="706" y="344" width="368" height="48" rx="12" fill="#eef3fa"/><text x="890" y="374" text-anchor="middle" class="label">模型转换 / 代码生成</text>
+    <path d="M890 392 V428" stroke="#35658f" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+    <rect x="706" y="436" width="368" height="48" rx="12" fill="#eef3fa"/><text x="890" y="466" text-anchor="middle" class="label">实现结构与重复工作自动化</text>
+  </g>
+
+  <rect x="282" y="556" width="636" height="46" rx="23" fill="#f6e2d7"/>
+  <text x="600" y="585" text-anchor="middle" class="label" fill="#9a4d2c">共同点：用模型减少复杂系统中的理解偏差</text>
+</svg>

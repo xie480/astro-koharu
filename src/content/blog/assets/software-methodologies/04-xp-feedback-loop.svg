@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">XP 工程实践形成的快速反馈循环</title>
+  <desc id="desc">图中用一个闭环展示拆分小任务、结对协作、自动化测试、重构、持续集成和下一轮任务之间的关系，说明 XP 关注的是缩短实现与反馈之间的距离。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 22px; font-weight: 700; }
+    .label { font-size: 16px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">XP：把代码变化放进一个更短的反馈循环</text>
+  <text x="60" y="88" class="subtitle muted">Pair Programming、TDD、Refactoring 和 CI 共同缩短“修改 → 知道结果”的距离。</text>
+
+  <g filter="url(#shadow)">
+    <circle cx="600" cy="350" r="150" fill="#f2fbf7" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="492" y="318" width="216" height="64" rx="18" fill="#dcefe8"/>
+  </g>
+  <text x="600" y="346" text-anchor="middle" class="head" fill="#347563">XP practices</text>
+  <text x="600" y="372" text-anchor="middle" class="small muted">小步实现、持续反馈、持续改进</text>
+
+  <g>
+    <rect x="90" y="292" width="196" height="64" rx="16" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <text x="188" y="319" text-anchor="middle" class="label">拆成小任务</text>
+    <text x="188" y="341" text-anchor="middle" class="small muted">降低一次修改的范围</text>
+
+    <rect x="310" y="130" width="196" height="64" rx="16" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <text x="408" y="157" text-anchor="middle" class="label">结对协作</text>
+    <text x="408" y="179" text-anchor="middle" class="small muted">即时讨论设计和边界</text>
+
+    <rect x="690" y="130" width="196" height="64" rx="16" fill="#ffffff" stroke="#d8c6e8" stroke-width="2"/>
+    <text x="788" y="157" text-anchor="middle" class="label">自动化测试</text>
+    <text x="788" y="179" text-anchor="middle" class="small muted">及时反馈行为是否成立</text>
+
+    <rect x="914" y="292" width="196" height="64" rx="16" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+    <text x="1012" y="319" text-anchor="middle" class="label">Refactoring</text>
+    <text x="1012" y="341" text-anchor="middle" class="small muted">在测试保护下改善结构</text>
+
+    <rect x="690" y="506" width="196" height="64" rx="16" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <text x="788" y="533" text-anchor="middle" class="label">持续集成</text>
+    <text x="788" y="555" text-anchor="middle" class="small muted">尽早发现合并问题</text>
+
+    <rect x="310" y="506" width="196" height="64" rx="16" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <text x="408" y="533" text-anchor="middle" class="label">下一项任务</text>
+    <text x="408" y="555" text-anchor="middle" class="small muted">继续保持小步交付</text>
+  </g>
+
+  <path d="M286 324 C300 270 330 220 370 194" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M506 162 H690" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M886 194 C930 220 950 270 914 324" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M1012 356 C990 430 930 486 886 516" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M690 538 H506" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M310 538 C250 470 220 410 286 356" fill="none" stroke="#61717d" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>

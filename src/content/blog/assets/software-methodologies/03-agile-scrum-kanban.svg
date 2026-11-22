@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Agile、Scrum 与 Kanban 的关系</title>
+  <desc id="desc">顶部展示 Agile 的价值和原则，下面分别展示 Scrum 的迭代协作框架和 Kanban 的工作流管理方式，说明三者并不是同一层级的概念。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .title { font-size: 30px; font-weight: 700; }
+    .subtitle { font-size: 17px; }
+    .head { font-size: 23px; font-weight: 700; }
+    .label { font-size: 16px; }
+    .small { font-size: 14px; }
+  </style>
+  <rect width="1200" height="620" fill="#f8f7f2"/>
+  <text x="60" y="56" class="title">Agile、Scrum 与 Kanban，不在同一个层级</text>
+  <text x="60" y="88" class="subtitle muted">Agile 提供方向，Scrum 和 Kanban 提供不同的落地方式。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="190" y="128" width="820" height="132" rx="24" fill="#ffffff" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="60" y="328" width="500" height="210" rx="22" fill="#ffffff" stroke="#b9cfe6" stroke-width="2"/>
+    <rect x="640" y="328" width="500" height="210" rx="22" fill="#ffffff" stroke="#e4c7b5" stroke-width="2"/>
+  </g>
+
+  <rect x="226" y="154" width="132" height="32" rx="16" fill="#dcefe8"/>
+  <text x="292" y="176" text-anchor="middle" font-size="16" font-weight="700" fill="#347563">价值与原则</text>
+  <text x="226" y="220" class="head" fill="#347563">Agile</text>
+  <text x="340" y="220" class="label">快速反馈 · 持续交付 · 协作 · 响应变化</text>
+  <path d="M600 260 V310" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M600 310 H310" stroke="#61717d" stroke-width="2"/>
+  <path d="M600 310 H890" stroke="#61717d" stroke-width="2"/>
+  <path d="M310 310 V328" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M890 310 V328" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="96" y="374" class="head" fill="#35658f">Scrum</text>
+  <text x="96" y="405" class="label">用时间盒和角色组织复杂工作</text>
+  <g>
+    <rect x="96" y="438" width="118" height="42" rx="10" fill="#e0ebf8"/><text x="155" y="464" text-anchor="middle" class="small">Backlog</text>
+    <rect x="230" y="438" width="118" height="42" rx="10" fill="#e0ebf8"/><text x="289" y="464" text-anchor="middle" class="small">Sprint</text>
+    <rect x="364" y="438" width="118" height="42" rx="10" fill="#e0ebf8"/><text x="423" y="464" text-anchor="middle" class="small">Review</text>
+    <path d="M214 459 H230" stroke="#35658f" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M348 459 H364" stroke="#35658f" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <text x="96" y="514" class="small muted">适合需要固定节奏、阶段性目标和团队同步的工作。</text>
+
+  <text x="676" y="374" class="head" fill="#9a4d2c">Kanban</text>
+  <text x="676" y="405" class="label">用流动和 WIP 控制改善工作系统</text>
+  <g>
+    <rect x="676" y="438" width="118" height="42" rx="10" fill="#fff7f1"/><text x="735" y="464" text-anchor="middle" class="small">待处理</text>
+    <rect x="810" y="438" width="118" height="42" rx="10" fill="#fff7f1"/><text x="869" y="464" text-anchor="middle" class="small">进行中</text>
+    <rect x="944" y="438" width="118" height="42" rx="10" fill="#fff7f1"/><text x="1003" y="464" text-anchor="middle" class="small">已完成</text>
+    <path d="M794 459 H810" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M928 459 H944" stroke="#9a4d2c" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <text x="676" y="514" class="small muted">适合持续流入、任务大小不一、瓶颈需要持续观察的工作。</text>
+</svg>
