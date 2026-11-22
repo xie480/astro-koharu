@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">做梦式 Agent 记忆系统的工程架构</title>
+  <desc id="desc">左侧是在线任务执行层，持续写入原始轨迹；右侧是离线 Dreaming worker，负责显著性判断、证据验证、记忆整理和注入入口更新，底部是来源、版本、权限和成本治理。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .orange { fill: #9a4d2c; }
+    .green { fill: #347563; }
+    .purple { fill: #76529a; }
+    .label { font-size: 17px; font-weight: 700; }
+    .small { font-size: 14px; }
+  </style>
+
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" font-size="30" font-weight="700">做梦式 Agent 记忆系统的工程架构</text>
+  <text x="60" y="88" class="muted" font-size="17">Agent 在任务中积累经验，在任务之间维护经验。</text>
+
+  <rect x="60" y="126" width="500" height="352" rx="22" fill="#ffffff" stroke="#b9cfe6" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="640" y="126" width="500" height="352" rx="22" fill="#ffffff" stroke="#d8c6e8" stroke-width="2" filter="url(#shadow)"/>
+
+  <rect x="90" y="154" width="170" height="34" rx="17" fill="#e0ebf8"/>
+  <text x="175" y="178" text-anchor="middle" fill="#35658f" class="label">在线执行层</text>
+  <text x="90" y="216" font-size="23" font-weight="700">先把当前任务做完</text>
+
+  <g>
+    <rect x="90" y="246" width="440" height="42" rx="10" fill="#eef3fa" stroke="#d2e0ef"/><text x="112" y="273" class="label">用户任务 → Agent loop</text>
+    <path d="M310 288 V304" stroke="#86a9ca" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="90" y="308" width="440" height="42" rx="10" fill="#eef3fa" stroke="#d2e0ef"/><text x="112" y="335" class="label">工具调用 / 外部环境</text>
+    <path d="M310 350 V366" stroke="#86a9ca" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="90" y="370" width="440" height="42" rx="10" fill="#eef3fa" stroke="#d2e0ef"/><text x="112" y="397" class="label">追加原始 transcript</text>
+  </g>
+  <text x="90" y="450" class="muted small">目标：低延迟执行，保留可回溯证据。</text>
+
+  <rect x="670" y="154" width="190" height="34" rx="17" fill="#eadff5"/>
+  <text x="765" y="178" text-anchor="middle" class="purple label">离线整理层</text>
+  <text x="670" y="216" font-size="23" font-weight="700">在任务之间维护记忆</text>
+
+  <g>
+    <rect x="670" y="246" width="440" height="42" rx="10" fill="#f6f0fb" stroke="#e1d4ec"/><text x="692" y="273" class="label">Dreaming worker 读取轨迹</text>
+    <path d="M890 288 V304" stroke="#ae8ec6" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="670" y="308" width="440" height="42" rx="10" fill="#f6f0fb" stroke="#e1d4ec"/><text x="692" y="335" class="label">显著性判断 + 证据验证</text>
+    <path d="M890 350 V366" stroke="#ae8ec6" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="670" y="370" width="440" height="42" rx="10" fill="#f6f0fb" stroke="#e1d4ec"/><text x="692" y="397" class="label">更新 notes / Wiki / 注入入口</text>
+  </g>
+  <text x="670" y="450" class="muted small">目标：纠错、合并、提升、降级和按需供给。</text>
+
+  <path d="M560 306 H640" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="600" y="286" text-anchor="middle" class="muted small">任务完成 / 系统空闲</text>
+  <path d="M670 430 C620 520 580 520 530 430" fill="none" stroke="#61717d" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="600" y="532" text-anchor="middle" class="muted small">下一次会话继续读取更小、更准的工作入口</text>
+
+  <rect x="60" y="566" width="1080" height="44" rx="22" fill="#eef3f4"/>
+  <text x="600" y="594" text-anchor="middle" class="muted" font-size="16">治理：source refs · confidence · version · scope · TTL · permissions · audit · token budget</text>
+</svg>

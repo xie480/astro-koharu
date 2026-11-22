@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Agent 的记忆不是一层文件，而是一条持续整理的链路</title>
+  <desc id="desc">从原始任务轨迹到记忆笔记、主题表示和小型注入入口，后台做梦过程负责验证、整理、提升和降级记忆。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .green { fill: #347563; }
+    .orange { fill: #9a4d2c; }
+    .card { fill: #ffffff; stroke-width: 2; }
+    .small { font-size: 15px; }
+    .label { font-size: 17px; font-weight: 700; }
+  </style>
+
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" font-size="30" font-weight="700">Agent 的记忆不是一层文件，而是一条持续整理的链路</text>
+  <text x="60" y="88" class="muted" font-size="17">原始轨迹保留证据，Dreaming 逐步构建更容易访问的记忆。</text>
+
+  <rect x="60" y="132" width="1080" height="300" rx="22" fill="#ffffff" stroke="#d7dee2" stroke-width="2" filter="url(#shadow)"/>
+
+  <rect x="92" y="190" width="224" height="156" rx="16" fill="#fff7f1" stroke="#e4c7b5" stroke-width="2"/>
+  <rect x="112" y="210" width="100" height="28" rx="14" fill="#f6e2d7"/>
+  <text x="162" y="230" text-anchor="middle" class="orange small" font-weight="700">source</text>
+  <text x="112" y="274" class="label">原始轨迹</text>
+  <text x="112" y="302" class="muted small">用户输入 · 工具调用</text>
+  <text x="112" y="326" class="muted small">环境反馈 · 任务结果</text>
+
+  <path d="M316 268 H358" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="358" y="190" width="224" height="156" rx="16" fill="#f2fbf7" stroke="#b8d7cb" stroke-width="2"/>
+  <rect x="378" y="210" width="100" height="28" rx="14" fill="#dcefe8"/>
+  <text x="428" y="230" text-anchor="middle" class="green small" font-weight="700">validated</text>
+  <text x="378" y="274" class="label">记忆笔记</text>
+  <text x="378" y="302" class="muted small">事实 · 失败经验</text>
+  <text x="378" y="326" class="muted small">偏好 · 任务结论</text>
+
+  <path d="M582 268 H624" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="624" y="190" width="224" height="156" rx="16" fill="#eef3fa" stroke="#b9cfe6" stroke-width="2"/>
+  <rect x="644" y="210" width="100" height="28" rx="14" fill="#e0ebf8"/>
+  <text x="694" y="230" text-anchor="middle" fill="#35658f" class="small" font-weight="700">navigate</text>
+  <text x="644" y="274" class="label">主题表示</text>
+  <text x="644" y="302" class="muted small">Wiki · 实体页</text>
+  <text x="644" y="326" class="muted small">索引 · 页面链接</text>
+
+  <path d="M848 268 H890" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="890" y="190" width="218" height="156" rx="16" fill="#f6f0fb" stroke="#d8c6e8" stroke-width="2"/>
+  <rect x="910" y="210" width="118" height="28" rx="14" fill="#eadff5"/>
+  <text x="969" y="230" text-anchor="middle" fill="#76529a" class="small" font-weight="700">working set</text>
+  <text x="910" y="274" class="label">注入入口</text>
+  <text x="910" y="302" class="muted small">当前目标 · 关键规则</text>
+  <text x="910" y="326" class="muted small">少量事实 · 下层索引</text>
+
+  <path d="M1100 390 C1030 458 944 474 820 474 H372 C244 474 168 454 122 390" fill="none" stroke="#9a4d2c" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrow)"/>
+  <rect x="420" y="448" width="360" height="44" rx="22" fill="#f6e2d7"/>
+  <text x="600" y="476" text-anchor="middle" class="orange label">Dreaming：回放 · 验证 · 整理 · 提升 / 降级</text>
+
+  <path d="M1000 190 V128" stroke="#347563" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrow)"/>
+  <text x="1000" y="116" text-anchor="middle" class="green small">下一次会话</text>
+  <text x="1000" y="136" text-anchor="middle" class="muted small">默认读取小入口</text>
+
+  <text x="60" y="574" class="muted" font-size="16">原始轨迹是证据，记忆笔记是加工结果，表示层负责导航，注入层只是入口。</text>
+</svg>

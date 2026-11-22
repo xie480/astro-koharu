@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">做梦式记忆如何修正一条错误笔记</title>
+  <desc id="desc">原始任务轨迹与旧记忆发生冲突，Dreaming 过程回到原始记录进行验证，最后把错误笔记修正为经过证据支持的版本。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .orange { fill: #9a4d2c; }
+    .green { fill: #347563; }
+    .label { font-size: 18px; font-weight: 700; }
+    .small { font-size: 15px; }
+  </style>
+
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" font-size="30" font-weight="700">做梦式记忆：让错误笔记重新接受原始轨迹的检查</text>
+  <text x="60" y="88" class="muted" font-size="17">Transcript 是证据，记忆笔记是可以被修正的加工结果。</text>
+
+  <rect x="60" y="142" width="238" height="280" rx="18" fill="#ffffff" stroke="#b9cfe6" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="84" y="168" width="112" height="32" rx="16" fill="#e0ebf8"/>
+  <text x="140" y="190" text-anchor="middle" fill="#35658f" class="label">原始轨迹</text>
+  <text x="84" y="236" class="label">任务中实际发生的事</text>
+  <rect x="84" y="268" width="190" height="46" rx="10" fill="#eef3fa"/>
+  <text x="179" y="297" text-anchor="middle" class="small">“地标在西侧”</text>
+  <rect x="84" y="330" width="190" height="46" rx="10" fill="#eef3fa"/>
+  <text x="179" y="359" text-anchor="middle" class="small">“向西移动后距离变短”</text>
+
+  <path d="M298 282 H348" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="348" y="142" width="238" height="280" rx="18" fill="#ffffff" stroke="#e4c7b5" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="372" y="168" width="112" height="32" rx="16" fill="#f6e2d7"/>
+  <text x="428" y="190" text-anchor="middle" class="orange label">旧记忆</text>
+  <text x="372" y="236" class="label">任务中写下的笔记</text>
+  <rect x="372" y="268" width="190" height="46" rx="10" fill="#fff7f1"/>
+  <text x="467" y="297" text-anchor="middle" class="orange small">“地标在东侧”</text>
+  <text x="372" y="359" class="orange small">与原始轨迹发生冲突</text>
+  <path d="M392 380 L540 260" stroke="#d85a30" stroke-width="3"/>
+  <path d="M540 380 L392 260" stroke="#d85a30" stroke-width="3"/>
+
+  <path d="M586 282 H636" stroke="#9a4d2c" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="636" y="142" width="238" height="280" rx="18" fill="#ffffff" stroke="#d8c6e8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="660" y="168" width="112" height="32" rx="16" fill="#eadff5"/>
+  <text x="716" y="190" text-anchor="middle" fill="#76529a" class="label">Dreaming</text>
+  <text x="660" y="236" class="label">回到证据重新判断</text>
+  <rect x="660" y="268" width="190" height="46" rx="10" fill="#f6f0fb"/>
+  <text x="755" y="297" text-anchor="middle" class="small">对照 transcript</text>
+  <rect x="660" y="330" width="190" height="46" rx="10" fill="#f6f0fb"/>
+  <text x="755" y="359" text-anchor="middle" class="small">记录来源与置信度</text>
+
+  <path d="M874 282 H924" stroke="#347563" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="924" y="142" width="216" height="280" rx="18" fill="#ffffff" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="948" y="168" width="118" height="32" rx="16" fill="#dcefe8"/>
+  <text x="1007" y="190" text-anchor="middle" class="green label">新记忆</text>
+  <text x="948" y="236" class="label">修正后的规则</text>
+  <rect x="948" y="268" width="168" height="46" rx="10" fill="#f2fbf7"/>
+  <text x="1032" y="297" text-anchor="middle" class="green small">“地标在西侧”</text>
+  <rect x="948" y="330" width="168" height="46" rx="10" fill="#f2fbf7"/>
+  <text x="1032" y="359" text-anchor="middle" class="small">来源：任务轨迹</text>
+
+  <rect x="286" y="480" width="628" height="48" rx="24" fill="#eef3f4"/>
+  <text x="600" y="511" text-anchor="middle" class="muted" font-size="17">不是把错误摘要得更短，而是让记忆回到事实来源重新校验。</text>
+
+  <text x="60" y="584" class="muted" font-size="16">错误记忆可以存在，但不能永远不接受检查。</text>
+</svg>

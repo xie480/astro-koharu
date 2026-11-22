@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">记忆数量与记忆价值并不是同一件事</title>
+  <desc id="desc">左侧展示记录大量实时状态的过量记忆，右侧展示只保留目标、计划和经过验证策略的稀疏记忆，说明 Agent 更需要记住经验而不是复制环境状态。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+  </defs>
+  <style>
+    text { font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; fill: #1d2a35; }
+    .muted { fill: #61717d; }
+    .orange { fill: #9a4d2c; }
+    .green { fill: #347563; }
+    .label { font-size: 18px; font-weight: 700; }
+    .small { font-size: 15px; }
+  </style>
+
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="56" font-size="30" font-weight="700">记忆数量与记忆价值，并不是同一件事</text>
+  <text x="60" y="88" class="muted" font-size="17">当前状态可以读取，只有从经历中提炼出的策略才值得长期保留。</text>
+
+  <rect x="60" y="128" width="500" height="410" rx="22" fill="#ffffff" stroke="#e4c7b5" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="640" y="128" width="500" height="410" rx="22" fill="#ffffff" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+
+  <rect x="90" y="158" width="180" height="34" rx="17" fill="#f6e2d7"/>
+  <text x="180" y="182" text-anchor="middle" class="orange label">过量记忆</text>
+  <text x="90" y="226" font-size="24" font-weight="700">把所有状态都存下来</text>
+  <text x="90" y="254" class="muted small">文章中的一个对照：413 个文件、225 个文件夹。</text>
+
+  <g fill="#f6e2d7" stroke="#eed8ca">
+    <rect x="100" y="294" width="92" height="38" rx="8"/><rect x="202" y="294" width="110" height="38" rx="8"/><rect x="322" y="294" width="84" height="38" rx="8"/><rect x="416" y="294" width="112" height="38" rx="8"/>
+    <rect x="100" y="344" width="126" height="38" rx="8"/><rect x="236" y="344" width="90" height="38" rx="8"/><rect x="336" y="344" width="122" height="38" rx="8"/><rect x="468" y="344" width="60" height="38" rx="8"/>
+    <rect x="100" y="394" width="76" height="38" rx="8"/><rect x="186" y="394" width="130" height="38" rx="8"/><rect x="326" y="394" width="94" height="38" rx="8"/><rect x="430" y="394" width="98" height="38" rx="8"/>
+  </g>
+  <g class="muted small">
+    <text x="146" y="319" text-anchor="middle">位置</text><text x="257" y="319" text-anchor="middle">血量</text><text x="364" y="319" text-anchor="middle">菜单</text><text x="472" y="319" text-anchor="middle">物品</text>
+    <text x="163" y="369" text-anchor="middle">每次战斗</text><text x="281" y="369" text-anchor="middle">屏幕状态</text><text x="397" y="369" text-anchor="middle">重复记录</text><text x="498" y="369" text-anchor="middle">日志</text>
+    <text x="138" y="419" text-anchor="middle">实时值</text><text x="251" y="419" text-anchor="middle">过期信息</text><text x="373" y="419" text-anchor="middle">低复用</text><text x="479" y="419" text-anchor="middle">维护成本</text>
+  </g>
+  <text x="100" y="488" class="orange" font-size="17" font-weight="700">保存得更多，但任务时间被记忆维护消耗。</text>
+
+  <rect x="670" y="158" width="180" height="34" rx="17" fill="#dcefe8"/>
+  <text x="760" y="182" text-anchor="middle" class="green label">目标导向记忆</text>
+  <text x="670" y="226" font-size="24" font-weight="700">只保留经验和策略</text>
+  <text x="670" y="254" class="muted small">另一个对照：少量文件、一个全局入口。</text>
+
+  <g>
+    <rect x="680" y="294" width="420" height="44" rx="10" fill="#f2fbf7" stroke="#cfe7dc"/>
+    <text x="704" y="323" class="label">global.md：目标与计划</text>
+    <rect x="680" y="350" width="198" height="44" rx="10" fill="#f2fbf7" stroke="#cfe7dc"/>
+    <text x="704" y="379" class="small">经过验证的规则</text>
+    <rect x="892" y="350" width="208" height="44" rx="10" fill="#f2fbf7" stroke="#cfe7dc"/>
+    <text x="916" y="379" class="small">失败后的修正方式</text>
+    <rect x="680" y="406" width="198" height="44" rx="10" fill="#f2fbf7" stroke="#cfe7dc"/>
+    <text x="704" y="435" class="small">路线与策略</text>
+    <rect x="892" y="406" width="208" height="44" rx="10" fill="#f2fbf7" stroke="#cfe7dc"/>
+    <text x="916" y="435" class="small">未来可能复用的经验</text>
+  </g>
+  <text x="680" y="488" class="green" font-size="17" font-weight="700">记忆更少，但每一条都在回答“以后怎么做”。</text>
+
+  <rect x="276" y="568" width="648" height="42" rx="21" fill="#eef3f4"/>
+  <text x="600" y="595" text-anchor="middle" class="muted" font-size="17">记住不可直接获得的经验，不要复制环境随时可读的状态。</text>
+</svg>
