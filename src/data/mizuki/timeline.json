@@ -449,5 +449,13 @@
     "startDate": "2026-10-26",
     "organization": "腾讯 CSIG",
     "position": "Agent 开发实习岗"
+  },
+  {
+    "title": "DailyIntelligence · 项目完成",
+    "description": "完成 DailyIntelligence 项目开发",
+    "type": "project",
+    "startDate": "2026-11-21",
+    "endDate": "2026-11-22",
+    "id": "126"
   }
 ]

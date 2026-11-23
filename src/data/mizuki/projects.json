@@ -115,5 +115,15 @@
     "status": "completed",
     "sourceCode": "https://github.com/xie480/MemGuardian",
     "startDate": "2026-06-14"
+  },
+  {
+    "title": "DailyIntelligence",
+    "description": "一个轻量化、个性化的每日日报系统，聚合 GitHub 热门项目、有趣的开源项目，以及 AI、Agent 和软件开发领域的最新资讯。集成 Hermes Agent 与 QQ Bot，支持智能去重和基于用户偏好的个性化推荐。",
+    "category": "other",
+    "techStack": ["Python", "Hermes", "Skill"],
+    "status": "completed",
+    "sourceCode": "https://github.com/xie480/DailyIntelligence",
+    "startDate": "2026-11-21",
+    "id": "56"
   }
 ]
