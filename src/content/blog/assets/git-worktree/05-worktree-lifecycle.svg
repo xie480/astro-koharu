@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Git Worktree 从创建到清理的完整生命周期</title>
+  <desc id="desc">流程图展示 Git Worktree 从 add 创建、list 查看、Agent 编码提交、合并评审，到 remove 和 prune 清理的完整过程，并标出手动删除和移动路径时的修复命令。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">Worktree 不是创建完就结束，而是一条生命周期</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">创建、工作、集成、清理，每一步都应该有明确动作。</text>
+
+  <g filter="url(#shadow)" font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <rect x="70" y="190" width="180" height="108" rx="16" fill="#eaf2f8" stroke="#a9c6dc" stroke-width="2"/>
+    <rect x="290" y="190" width="180" height="108" rx="16" fill="#eaf2f8" stroke="#a9c6dc" stroke-width="2"/>
+    <rect x="510" y="190" width="180" height="108" rx="16" fill="#eff8f4" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="730" y="190" width="180" height="108" rx="16" fill="#fff7e5" stroke="#e5c77a" stroke-width="2"/>
+    <rect x="950" y="190" width="180" height="108" rx="16" fill="#dcefe8" stroke="#8fc5ae" stroke-width="2"/>
+  </g>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <text x="160" y="228" text-anchor="middle" fill="#2e5875" font-size="22" font-weight="700">add</text><text x="160" y="258" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="15">git worktree add</text><text x="160" y="282" text-anchor="middle" fill="#61717d" font-size="14">创建工作区与分支</text>
+    <text x="380" y="228" text-anchor="middle" fill="#2e5875" font-size="22" font-weight="700">list</text><text x="380" y="258" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="15">git worktree list</text><text x="380" y="282" text-anchor="middle" fill="#61717d" font-size="14">确认目录和分支</text>
+    <text x="600" y="228" text-anchor="middle" fill="#347563" font-size="22" font-weight="700">work</text><text x="600" y="258" text-anchor="middle" fill="#1d2a35" font-size="15">Agent 编码与提交</text><text x="600" y="282" text-anchor="middle" fill="#61717d" font-size="14">测试、交接、回滚</text>
+    <text x="820" y="228" text-anchor="middle" fill="#8a681e" font-size="22" font-weight="700">integrate</text><text x="820" y="258" text-anchor="middle" fill="#1d2a35" font-size="15">评审、CI、合并</text><text x="820" y="282" text-anchor="middle" fill="#61717d" font-size="14">统一验证</text>
+    <text x="1040" y="228" text-anchor="middle" fill="#347563" font-size="22" font-weight="700">remove</text><text x="1040" y="258" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="15">remove → prune</text><text x="1040" y="282" text-anchor="middle" fill="#61717d" font-size="14">清理完成的现场</text>
+  </g>
+  <path d="M250 244 H290" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/><path d="M470 244 H510" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/><path d="M690 244 H730" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/><path d="M910 244 H950" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="210" y="390" width="780" height="120" rx="18" fill="#fff" stroke="#d8d1c7" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="426" text-anchor="middle" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="20" font-weight="700">异常路径</text>
+  <rect x="255" y="450" width="230" height="36" rx="10" fill="#fff7f1"/><text x="370" y="474" text-anchor="middle" fill="#9a4d2c" font-family="Consolas, monospace" font-size="15">手动删除目录 → prune</text>
+  <rect x="515" y="450" width="230" height="36" rx="10" fill="#fff7e5"/><text x="630" y="474" text-anchor="middle" fill="#8a681e" font-family="Consolas, monospace" font-size="15">移动路径 → repair</text>
+  <rect x="775" y="450" width="170" height="36" rx="10" fill="#eaf2f8"/><text x="860" y="474" text-anchor="middle" fill="#2e5875" font-family="Consolas, monospace" font-size="15">lock → 暂停</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">单一工作区与多个 Git Worktree 的并行开发对比</title>
+  <desc id="desc">左侧展示多个 Agent 争用同一个工作目录，需要反复暂存和切换分支；右侧展示一个 Git 仓库连接三个独立 Worktree，每个 Worktree 对应一个任务分支和一个 Agent。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">多个 Agent，先解决工作目录的争用</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">并行开发的第一道边界，不是聊天窗口，而是代码现场。</text>
+
+  <rect x="60" y="125" width="500" height="445" rx="22" fill="#fff" stroke="#e4c7b5" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="640" y="125" width="500" height="445" rx="22" fill="#fff" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+
+  <rect x="90" y="154" width="160" height="34" rx="17" fill="#f6e2d7"/>
+  <text x="170" y="178" text-anchor="middle" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">单一工作区</text>
+  <text x="90" y="226" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" font-weight="700">同一个目录反复切换</text>
+  <rect x="100" y="260" width="420" height="82" rx="14" fill="#fff7f1" stroke="#eed8ca"/>
+  <text x="130" y="295" fill="#1d2a35" font-family="Consolas, monospace" font-size="18">/projects/myapp</text>
+  <text x="130" y="323" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">当前目录只能停在一个分支现场</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">
+    <rect x="100" y="370" width="180" height="42" rx="10" fill="#fff1ea"/><text x="190" y="397" text-anchor="middle" fill="#1d2a35">Agent A：feature/ui</text>
+    <rect x="300" y="370" width="180" height="42" rx="10" fill="#fff1ea"/><text x="390" y="397" text-anchor="middle" fill="#1d2a35">Agent B：hotfix/api</text>
+    <path d="M280 391 H300" stroke="#c77752" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="100" y="452" fill="#9a4d2c">stash → switch → restore</text>
+    <text x="100" y="486" fill="#61717d">一个会话的切换，会改变另一个会话看到的文件。</text>
+  </g>
+  <text x="100" y="532" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700">工作区被占用</text>
+
+  <rect x="670" y="154" width="180" height="34" rx="17" fill="#dcefe8"/>
+  <text x="760" y="178" text-anchor="middle" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">多个 Worktree</text>
+  <text x="670" y="226" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="25" font-weight="700">每个任务都有自己的目录</text>
+  <rect x="830" y="255" width="230" height="52" rx="12" fill="#eaf5f0" stroke="#b8d7cb"/>
+  <text x="945" y="288" text-anchor="middle" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">同一个 Git 仓库</text>
+  <path d="M945 307 V332" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">
+    <rect x="670" y="350" width="140" height="94" rx="12" fill="#eff8f4"/><text x="740" y="376" text-anchor="middle" fill="#1d2a35">Worktree A</text><text x="740" y="402" text-anchor="middle" fill="#347563">agent/ui</text><text x="740" y="426" text-anchor="middle" fill="#61717d">Agent A</text>
+    <rect x="830" y="350" width="140" height="94" rx="12" fill="#eff8f4"/><text x="900" y="376" text-anchor="middle" fill="#1d2a35">Worktree B</text><text x="900" y="402" text-anchor="middle" fill="#347563">agent/api</text><text x="900" y="426" text-anchor="middle" fill="#61717d">Agent B</text>
+    <rect x="990" y="350" width="140" height="94" rx="12" fill="#eff8f4"/><text x="1060" y="376" text-anchor="middle" fill="#1d2a35">Worktree C</text><text x="1060" y="402" text-anchor="middle" fill="#347563">agent/test</text><text x="1060" y="426" text-anchor="middle" fill="#61717d">Agent C</text>
+  </g>
+  <path d="M945 332 V350" stroke="#6da68f" stroke-width="2"/><path d="M945 332 H740 V350" fill="none" stroke="#6da68f" stroke-width="2"/><path d="M945 332 H1060 V350" fill="none" stroke="#6da68f" stroke-width="2"/>
+  <text x="670" y="496" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700">并行工作，统一集成</text>
+  <text x="670" y="530" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">目录、分支、提交和 Agent 会话彼此对应。</text>
+</svg>

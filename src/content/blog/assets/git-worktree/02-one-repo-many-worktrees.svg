@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">一个 Git 仓库连接多个独立 Worktree</title>
+  <desc id="desc">中央是一个 Git 仓库，向下连接三个独立 Worktree。仓库共享提交对象和历史，每个 Worktree 拥有自己的 HEAD、index 和工作目录。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">一个仓库，多个独立工作现场</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">Worktree 共享仓库历史，但不共享每个工作区的当前状态。</text>
+
+  <rect x="360" y="120" width="480" height="132" rx="20" fill="#eaf2f8" stroke="#a9c6dc" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="158" text-anchor="middle" fill="#2e5875" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="24" font-weight="700">Git Repository</text>
+  <text x="600" y="190" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="17">objects · refs · commit history</text>
+  <rect x="455" y="208" width="290" height="28" rx="14" fill="#d6e7f2"/><text x="600" y="228" text-anchor="middle" fill="#2e5875" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">共享仓库内容</text>
+
+  <path d="M600 252 V300" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M600 300 H220 V340" fill="none" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M600 300 V340" fill="none" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M600 300 H980 V340" fill="none" stroke="#61717d" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)" font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <rect x="70" y="340" width="300" height="220" rx="18" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="450" y="340" width="300" height="220" rx="18" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+    <rect x="830" y="340" width="300" height="220" rx="18" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  </g>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <text x="220" y="378" text-anchor="middle" fill="#347563" font-size="21" font-weight="700">Worktree A</text>
+    <text x="220" y="408" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="17">agent/ui</text>
+    <rect x="105" y="430" width="230" height="34" rx="8" fill="#eff8f4"/><text x="220" y="453" text-anchor="middle" fill="#1d2a35" font-size="16">HEAD：agent/ui</text>
+    <rect x="105" y="474" width="230" height="34" rx="8" fill="#eff8f4"/><text x="220" y="497" text-anchor="middle" fill="#1d2a35" font-size="16">index：独立</text>
+    <text x="220" y="538" text-anchor="middle" fill="#61717d" font-size="15">工作目录：独立</text>
+
+    <text x="600" y="378" text-anchor="middle" fill="#347563" font-size="21" font-weight="700">Worktree B</text>
+    <text x="600" y="408" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="17">agent/api</text>
+    <rect x="485" y="430" width="230" height="34" rx="8" fill="#eff8f4"/><text x="600" y="453" text-anchor="middle" fill="#1d2a35" font-size="16">HEAD：agent/api</text>
+    <rect x="485" y="474" width="230" height="34" rx="8" fill="#eff8f4"/><text x="600" y="497" text-anchor="middle" fill="#1d2a35" font-size="16">index：独立</text>
+    <text x="600" y="538" text-anchor="middle" fill="#61717d" font-size="15">工作目录：独立</text>
+
+    <text x="980" y="378" text-anchor="middle" fill="#347563" font-size="21" font-weight="700">Worktree C</text>
+    <text x="980" y="408" text-anchor="middle" fill="#1d2a35" font-family="Consolas, monospace" font-size="17">agent/test</text>
+    <rect x="865" y="430" width="230" height="34" rx="8" fill="#eff8f4"/><text x="980" y="453" text-anchor="middle" fill="#1d2a35" font-size="16">HEAD：agent/test</text>
+    <rect x="865" y="474" width="230" height="34" rx="8" fill="#eff8f4"/><text x="980" y="497" text-anchor="middle" fill="#1d2a35" font-size="16">index：独立</text>
+    <text x="980" y="538" text-anchor="middle" fill="#61717d" font-size="15">工作目录：独立</text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">多个 Agent 从并行工作进入统一集成</title>
+  <desc id="desc">流程图展示任务拆分、创建 Worktree、多个 Agent 并行编码和提交，最后经过测试与评审进入统一集成和清理阶段。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1d2a35" flood-opacity="0.08"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#61717d"/></marker>
+  </defs>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">多 Agent Worktree 工作流</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">并行发生在任务现场，集成发生在提交之后。</text>
+
+  <rect x="60" y="125" width="1080" height="82" rx="18" fill="#eaf2f8" stroke="#a9c6dc" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="158" text-anchor="middle" fill="#2e5875" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">任务拆分 → 创建多个 Worktree</text>
+  <text x="600" y="188" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">每个任务明确目录、分支、范围和完成条件</text>
+
+  <path d="M600 207 V240" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="60" y="240" width="1080" height="230" rx="18" fill="#eef8f4" stroke="#b8d7cb" stroke-width="2" filter="url(#shadow)"/>
+  <text x="90" y="275" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="19" font-weight="700">并行阶段</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <rect x="100" y="300" width="280" height="130" rx="15" fill="#fff" stroke="#b8d7cb"/>
+    <text x="240" y="333" text-anchor="middle" fill="#1d2a35" font-size="20" font-weight="700">Agent A</text>
+    <text x="240" y="361" text-anchor="middle" fill="#347563" font-family="Consolas, monospace" font-size="16">agent/ui</text>
+    <text x="240" y="391" text-anchor="middle" fill="#61717d" font-size="16">实现页面 → 提交</text>
+    <text x="240" y="414" text-anchor="middle" fill="#347563" font-size="14">myapp.agent-ui</text>
+
+    <rect x="460" y="300" width="280" height="130" rx="15" fill="#fff" stroke="#b8d7cb"/>
+    <text x="600" y="333" text-anchor="middle" fill="#1d2a35" font-size="20" font-weight="700">Agent B</text>
+    <text x="600" y="361" text-anchor="middle" fill="#347563" font-family="Consolas, monospace" font-size="16">agent/api</text>
+    <text x="600" y="391" text-anchor="middle" fill="#61717d" font-size="16">实现接口 → 提交</text>
+    <text x="600" y="414" text-anchor="middle" fill="#347563" font-size="14">myapp.agent-api</text>
+
+    <rect x="820" y="300" width="280" height="130" rx="15" fill="#fff" stroke="#b8d7cb"/>
+    <text x="960" y="333" text-anchor="middle" fill="#1d2a35" font-size="20" font-weight="700">Agent C</text>
+    <text x="960" y="361" text-anchor="middle" fill="#347563" font-family="Consolas, monospace" font-size="16">agent/test</text>
+    <text x="960" y="391" text-anchor="middle" fill="#61717d" font-size="16">补测试 → 提交</text>
+    <text x="960" y="414" text-anchor="middle" fill="#347563" font-size="14">myapp.agent-test</text>
+  </g>
+
+  <path d="M600 470 V500" stroke="#61717d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="60" y="500" width="1080" height="82" rx="18" fill="#fff7e5" stroke="#e5c77a" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="533" text-anchor="middle" fill="#8a681e" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">统一集成：测试 → 评审 → 合并 → 清理</text>
+  <text x="600" y="562" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="16">并行提交不等于自动合并，最后仍需要共同验证。</text>
+</svg>

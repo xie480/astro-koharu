@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">Git Worktree 的代码隔离边界与外部资源边界</title>
+  <desc id="desc">左侧列出 Worktree 可以隔离的分支、工作目录、未提交修改、HEAD 和索引；右侧列出端口、数据库、Docker、环境变量和外部 API 等仍需要单独管理的资源。</desc>
+  <rect width="1200" height="640" fill="#f8f7f2"/>
+  <text x="60" y="54" fill="#1d2a35" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="30" font-weight="700">代码现场隔离，不等于运行环境隔离</text>
+  <text x="60" y="86" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17">Worktree 解决 Git 工作状态；端口、数据库和外部服务仍需要项目自己管理。</text>
+
+  <rect x="60" y="130" width="500" height="430" rx="22" fill="#fff" stroke="#b8d7cb" stroke-width="2"/>
+  <rect x="640" y="130" width="500" height="430" rx="22" fill="#fff" stroke="#e4c7b5" stroke-width="2"/>
+  <rect x="90" y="160" width="210" height="36" rx="18" fill="#dcefe8"/>
+  <text x="195" y="185" text-anchor="middle" fill="#347563" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">Worktree 可以隔离</text>
+  <rect x="670" y="160" width="210" height="36" rx="18" fill="#f6e2d7"/>
+  <text x="775" y="185" text-anchor="middle" fill="#9a4d2c" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="17" font-weight="700">仍需额外管理</text>
+
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="18">
+    <rect x="100" y="230" width="420" height="48" rx="10" fill="#eff8f4"/><text x="130" y="261" fill="#1d2a35">✓ 当前分支与 HEAD</text>
+    <rect x="100" y="292" width="420" height="48" rx="10" fill="#eff8f4"/><text x="130" y="323" fill="#1d2a35">✓ 工作目录中的文件</text>
+    <rect x="100" y="354" width="420" height="48" rx="10" fill="#eff8f4"/><text x="130" y="385" fill="#1d2a35">✓ 未提交修改</text>
+    <rect x="100" y="416" width="420" height="48" rx="10" fill="#eff8f4"/><text x="130" y="447" fill="#1d2a35">✓ 当前索引 index</text>
+    <rect x="100" y="478" width="420" height="48" rx="10" fill="#eff8f4"/><text x="130" y="509" fill="#1d2a35">✓ 每个 Agent 的代码现场</text>
+
+    <rect x="680" y="230" width="420" height="48" rx="10" fill="#fff7f1"/><text x="710" y="261" fill="#1d2a35">! 开发服务器端口</text>
+    <rect x="680" y="292" width="420" height="48" rx="10" fill="#fff7f1"/><text x="710" y="323" fill="#1d2a35">! 本地数据库与测试数据</text>
+    <rect x="680" y="354" width="420" height="48" rx="10" fill="#fff7f1"/><text x="710" y="385" fill="#1d2a35">! Docker 容器与 Volume</text>
+    <rect x="680" y="416" width="420" height="48" rx="10" fill="#fff7f1"/><text x="710" y="447" fill="#1d2a35">! .env、密钥与共享缓存</text>
+    <rect x="680" y="478" width="420" height="48" rx="10" fill="#fff7f1"/><text x="710" y="509" fill="#1d2a35">! 外部 API 与合并冲突</text>
+  </g>
+
+  <path d="M560 345 H640" stroke="#61717d" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="600" y="324" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">边界</text>
+  <text x="600" y="378" text-anchor="middle" fill="#61717d" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="15">代码隔离 ≠ 运行隔离</text>
+</svg>
